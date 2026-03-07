@@ -11,15 +11,23 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 
-  const { data: leaderboard, error } = await supabase
-    .from('york_players')
-    .select('*')
-    .order('rank')
-    .limit(2000);
+  // Paginate to get all players past Supabase's default 1000-row cap
+  let leaderboard = [], from = 0, fetchError = null;
+  while (true) {
+    const { data, error } = await supabase
+      .from('york_players')
+      .select('*')
+      .order('rank')
+      .range(from, from + 999);
+    if (error) { fetchError = error; break; }
+    leaderboard.push(...data);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
 
-  if (error) {
+  if (fetchError) {
     res.statusCode = 500;
-    res.end(JSON.stringify({ error: error.message }));
+    res.end(JSON.stringify({ error: fetchError.message }));
     return;
   }
 
