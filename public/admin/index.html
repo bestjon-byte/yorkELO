@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>York ELO — Admin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d14; --surface: #13131f; --border: #1f1f32;
+    --text: #e2e2f0; --muted: #6b6b8a; --accent: #6d5acd;
+    --danger: #ef4444; --success: #22c55e;
+  }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+
+  header { text-align: center; margin-bottom: 32px; }
+  header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+  header h1 span { color: var(--accent); }
+  header p { color: var(--muted); font-size: 0.83rem; margin-top: 4px; }
+
+  /* Passcode gate */
+  #gate { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; width: 100%; max-width: 360px; text-align: center; }
+  #gate h2 { font-size: 1rem; margin-bottom: 16px; }
+  #gate input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 10px 14px; border-radius: 8px; font-size: 1rem; text-align: center; letter-spacing: 4px; outline: none; margin-bottom: 12px; }
+  #gate input:focus { border-color: var(--accent); }
+  #gate .err { color: var(--danger); font-size: 0.82rem; margin-top: 8px; min-height: 18px; }
+
+  /* Main admin panel */
+  #admin { display: none; width: 100%; max-width: 900px; }
+
+  /* Player pickers */
+  .picker-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start; margin-bottom: 20px; }
+  .vs-col { display: flex; align-items: center; justify-content: center; padding-top: 44px; color: var(--muted); font-weight: 700; font-size: 1.1rem; }
+
+  .picker { display: flex; flex-direction: column; gap: 8px; }
+  .picker label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .picker input[type=search] {
+    width: 100%; background: var(--bg); border: 1px solid var(--border);
+    color: var(--text); padding: 9px 12px; border-radius: 8px; font-size: 0.875rem; outline: none;
+  }
+  .picker input[type=search]:focus { border-color: var(--accent); }
+  .suggestions {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    max-height: 200px; overflow-y: auto; display: none;
+  }
+  .suggestions.open { display: block; }
+  .suggestion-item {
+    padding: 8px 12px; font-size: 0.82rem; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .suggestion-item:last-child { border-bottom: none; }
+  .suggestion-item:hover { background: rgba(109,90,205,.12); }
+  .suggestion-club { color: var(--muted); font-size: 0.72rem; }
+
+  /* Profile cards */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px; min-height: 180px;
+  }
+  .card.empty { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.85rem; }
+  .card-name { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+  .card-club { color: var(--muted); font-size: 0.78rem; margin-bottom: 12px; }
+  .card-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .card-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; }
+  .card-stat-label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .card-stat-val { font-size: 0.9rem; font-weight: 700; margin-top: 1px; }
+  .card-recent { font-size: 0.72rem; color: var(--muted); }
+  .card-recent-title { margin-bottom: 4px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: .06em; }
+  .match-line { padding: 3px 0; border-bottom: 1px solid var(--border); display: flex; gap: 6px; align-items: center; }
+  .match-line:last-child { border-bottom: none; }
+  .res { font-size: 0.65rem; font-weight: 800; padding: 1px 5px; border-radius: 3px; }
+  .res.W { background: rgba(34,197,94,.18); color: #4ade80; }
+  .res.L { background: rgba(239,68,68,.18); color: #f87171; }
+  .res.D { background: rgba(148,163,184,.18); color: #94a3b8; }
+
+  /* Merge actions */
+  .merge-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; margin-top: 20px; }
+  .merge-btn {
+    width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 0.9rem;
+    font-weight: 700; cursor: pointer; transition: opacity .15s;
+  }
+  .merge-btn:disabled { opacity: .35; cursor: not-allowed; }
+  .merge-btn.a-into-b { background: linear-gradient(135deg, #6d5acd, #4f46e5); color: #fff; }
+  .merge-btn.b-into-a { background: linear-gradient(135deg, #4f46e5, #6d5acd); color: #fff; }
+  .merge-center { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.4rem; }
+
+  /* Feedback */
+  #feedback { margin-top: 20px; padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  #feedback.success { background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.3); color: #4ade80; }
+  #feedback.error   { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.3); color: #f87171; }
+
+  .btn {
+    background: var(--accent); color: #fff; border: none; padding: 9px 20px;
+    border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+  }
+  .btn:hover { opacity: .85; }
+
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; margin-right: 6px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>York ELO — <span>Admin</span></h1>
+  <p>Player merge tool</p>
+</header>
+
+<!-- Passcode gate -->
+<div id="gate">
+  <h2>Enter admin passcode</h2>
+  <input type="password" id="passcodeInput" placeholder="••••••••" autocomplete="off">
+  <br>
+  <button class="btn" onclick="unlock()">Unlock</button>
+  <div class="err" id="gateErr"></div>
+</div>
+
+<!-- Admin panel -->
+<div id="admin">
+
+  <div class="picker-row">
+    <div class="picker">
+      <label>Player A</label>
+      <input type="search" id="searchA" placeholder="Search player…" autocomplete="off">
+      <div class="suggestions" id="suggestA"></div>
+      <div class="card empty" id="cardA">Select a player</div>
+    </div>
+
+    <div class="vs-col">VS</div>
+
+    <div class="picker">
+      <label>Player B</label>
+      <input type="search" id="searchB" placeholder="Search player…" autocomplete="off">
+      <div class="suggestions" id="suggestB"></div>
+      <div class="card empty" id="cardB">Select a player</div>
+    </div>
+  </div>
+
+  <div class="merge-row">
+    <button class="merge-btn a-into-b" id="btnAintoB" disabled onclick="doMerge('A','B')">
+      Merge A → B
+    </button>
+    <div class="merge-center">⇄</div>
+    <button class="merge-btn b-into-a" id="btnBintoA" disabled onclick="doMerge('B','A')">
+      Merge B → A
+    </button>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:0.72rem;margin-top:8px;">
+    "Merge X → Y" keeps Y as the canonical name. X's history is folded into Y. X disappears from the leaderboard.
+  </p>
+
+  <div id="feedback"></div>
+</div>
+
+<script>
+let passcode = '';
+let allPlayers = [];
+let selectedA = null, selectedB = null;
+let historyA = [], historyB = [];
+
+// ---------------------------------------------------------------------------
+// Auth
+// ---------------------------------------------------------------------------
+document.getElementById('passcodeInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') unlock();
+});
+
+async function unlock() {
+  const code = document.getElementById('passcodeInput').value.trim();
+  if (!code) return;
+  // Test the passcode by making a dry-run request
+  const res = await fetch('/api/admin-merge', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ passcode: code, from: '__test__', into: '__test__' })
+  });
+  const data = await res.json();
+  if (res.status === 401) {
+    document.getElementById('gateErr').textContent = 'Incorrect passcode.';
+    return;
+  }
+  // 400 = bad player names but passcode accepted
+  passcode = code;
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('admin').style.display = 'block';
+  loadPlayers();
+}
+
+// ---------------------------------------------------------------------------
+// Load player list
+// ---------------------------------------------------------------------------
+async function loadPlayers() {
+  const res = await fetch('/api/leaderboard');
+  const data = await res.json();
+  allPlayers = data.leaderboard;
+}
+
+// ---------------------------------------------------------------------------
+// Search / autocomplete
+// ---------------------------------------------------------------------------
+function setupSearch(inputId, suggestId, side) {
+  const input = document.getElementById(inputId);
+  const box   = document.getElementById(suggestId);
+
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase().trim();
+    if (q.length < 2) { box.classList.remove('open'); return; }
+    const matches = allPlayers
+      .filter(p => p.name.toLowerCase().includes(q))
+      .slice(0, 8);
+    if (!matches.length) { box.classList.remove('open'); return; }
+    box.innerHTML = matches.map(p => `
+      <div class="suggestion-item" onclick="selectPlayer('${side}', ${JSON.stringify(p.name)})">
+        <span>${p.name}</span>
+        <span class="suggestion-club">${p.club || ''} · D${p.current_div || '?'} · ${p.rating.toFixed(0)}</span>
+      </div>`).join('');
+    box.classList.add('open');
+  });
+
+  document.addEventListener('click', e => {
+    if (!box.contains(e.target) && e.target !== input) box.classList.remove('open');
+  });
+}
+
+setupSearch('searchA', 'suggestA', 'A');
+setupSearch('searchB', 'suggestB', 'B');
+
+// ---------------------------------------------------------------------------
+// Select player
+// ---------------------------------------------------------------------------
+async function selectPlayer(side, name) {
+  const player = allPlayers.find(p => p.name === name);
+  document.getElementById(`suggest${side}`).classList.remove('open');
+  document.getElementById(`search${side}`).value = name;
+
+  if (side === 'A') selectedA = player;
+  else             selectedB = player;
+
+  // Fetch history for match details
+  const res = await fetch(`/api/player/${encodeURIComponent(name)}`);
+  const data = await res.json();
+  const hist = data.history || [];
+  if (side === 'A') historyA = hist;
+  else              historyB = hist;
+
+  renderCard(side, player, hist);
+  updateMergeButtons();
+}
+
+// ---------------------------------------------------------------------------
+// Render profile card
+// ---------------------------------------------------------------------------
+function ratingColor(r) {
+  if (r >= 2000) return '#f5a623';
+  if (r >= 1700) return '#6d5acd';
+  if (r >= 1400) return '#3b82f6';
+  if (r >= 1100) return '#10b981';
+  return '#64748b';
+}
+
+function renderCard(side, player, hist) {
+  const card = document.getElementById(`card${side}`);
+  const col  = ratingColor(player.rating);
+
+  // Win/loss from match history
+  const wins = hist.filter(h => h.result === 'W').length;
+  const losses = hist.filter(h => h.result === 'L').length;
+  const winPct = hist.length ? Math.round(wins / hist.length * 100) : 0;
+
+  const recent = [...hist].reverse().slice(0, 5);
+  const recentHtml = recent.map(h => `
+    <div class="match-line">
+      <span class="res ${h.result}">${h.result}</span>
+      <span>${h.date ? h.date.split(' ').slice(0,2).join(' ') : '?'}</span>
+      ${h.partner ? `<span style="color:var(--muted)">w/ ${h.partner.split(' ').pop()}</span>` : ''}
+      ${h.opp1 ? `<span style="color:var(--muted)">vs ${h.opp1.split(' ').pop()} & ${(h.opp2||'').split(' ').pop()}</span>` : ''}
+      <span style="color:${h.result==='W'?'#4ade80':h.result==='L'?'#f87171':'#94a3b8'}">${h.my_games ?? ''}${h.my_games !== undefined ? '–' + h.opp_games : ''}</span>
+    </div>`).join('');
+
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-name" style="color:${col}">${player.name}</div>
+    <div class="card-club">${player.club || '—'} · Division ${player.current_div || '?'} · Rank #${player.rank}</div>
+    <div class="card-stats">
+      <div class="card-stat">
+        <div class="card-stat-label">Rating</div>
+        <div class="card-stat-val" style="color:${col}">${player.rating.toFixed(0)}</div>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-label">Rubbers</div>
+        <div class="card-stat-val">${player.rubbers_played}</div>
+      </div>
+      <div class="card-stat">
+        <div class="card-stat-label">Win %</div>
+        <div class="card-stat-val">${winPct}%</div>
+      </div>
+    </div>
+    <div class="card-recent">
+      <div class="card-recent-title">Last 5 matches</div>
+      ${recentHtml || '<div style="color:var(--muted)">No history</div>'}
+    </div>`;
+}
+
+// ---------------------------------------------------------------------------
+// Merge buttons
+// ---------------------------------------------------------------------------
+function updateMergeButtons() {
+  const ready = selectedA && selectedB;
+  document.getElementById('btnAintoB').disabled = !ready;
+  document.getElementById('btnBintoA').disabled = !ready;
+  if (ready) {
+    document.getElementById('btnAintoB').textContent = `Merge "${selectedA.name}" → "${selectedB.name}"`;
+    document.getElementById('btnBintoA').textContent = `Merge "${selectedB.name}" → "${selectedA.name}"`;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Execute merge
+// ---------------------------------------------------------------------------
+async function doMerge(fromSide, intoSide) {
+  const fromPlayer = fromSide === 'A' ? selectedA : selectedB;
+  const intoPlayer = intoSide === 'A' ? selectedA : selectedB;
+
+  const confirmed = confirm(
+    `Merge "${fromPlayer.name}" INTO "${intoPlayer.name}"?\n\n` +
+    `• "${fromPlayer.name}" will be removed from the leaderboard\n` +
+    `• All their rubbers will be attributed to "${intoPlayer.name}"\n` +
+    `• ELO ratings will be recomputed immediately\n\n` +
+    `This cannot be undone from this tool.`
+  );
+  if (!confirmed) return;
+
+  const fb = document.getElementById('feedback');
+  fb.style.display = 'none';
+
+  const btnId = fromSide === 'A' ? 'btnAintoB' : 'btnBintoA';
+  const btn = document.getElementById(btnId);
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Merging…';
+
+  try {
+    const res = await fetch('/api/admin-merge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ passcode, from: fromPlayer.name, into: intoPlayer.name })
+    });
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || 'Unknown error');
+
+    fb.className = 'success';
+    fb.textContent = `✓ Merged "${fromPlayer.name}" into "${intoPlayer.name}". ${data.playerCount} players now in leaderboard. Reload the main page to see changes.`;
+    fb.style.display = 'block';
+
+    // Reset
+    selectedA = null; selectedB = null;
+    ['A','B'].forEach(s => {
+      document.getElementById(`search${s}`).value = '';
+      document.getElementById(`card${s}`).className = 'card empty';
+      document.getElementById(`card${s}`).textContent = 'Select a player';
+    });
+    updateMergeButtons();
+    loadPlayers(); // Refresh player list
+
+  } catch (err) {
+    fb.className = 'error';
+    fb.textContent = `✗ Error: ${err.message}`;
+    fb.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = fromSide === 'A' ? `Merge "${fromPlayer.name}" → "${intoPlayer.name}"` : `Merge "${intoPlayer.name}" → "${fromPlayer.name}"`;
+  }
+}
+</script>
+</body>
+</html>
