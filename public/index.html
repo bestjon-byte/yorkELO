@@ -254,6 +254,12 @@
   .spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; margin-right: 10px; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  @keyframes flash-highlight {
+    0%, 100% { background: transparent; }
+    25% { background: rgba(109,90,205,.35); border-color: var(--accent); }
+  }
+  .match-entry.flash { animation: flash-highlight 1s ease; }
+
   /* Responsive */
   @media (max-width: 700px) {
     html, body { overflow-x: hidden; }
@@ -605,8 +611,9 @@ function renderChart(hist, col) {
         borderColor: col,
         backgroundColor: col + '22',
         borderWidth: 2,
-        pointRadius: hist.length > 80 ? 0 : 3,
-        pointHoverRadius: 5,
+        pointRadius: hist.length > 80 ? 1 : 3,
+        pointHitRadius: 14,
+        pointHoverRadius: 6,
         pointBackgroundColor: col,
         fill: true,
         tension: 0.3,
@@ -615,12 +622,39 @@ function renderChart(hist, col) {
     options: {
       responsive: true,
       maintainAspectRatio: true,
+      onClick: (event, elements) => {
+        if (!elements.length) return;
+        const idx = elements[0].index;
+        const renderIdx = hist.length - 1 - idx; // position in reversed history list
+        if (renderIdx >= 40) return; // not in displayed history
+        const el = document.querySelector(`[data-hist-idx="${renderIdx}"]`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          el.classList.remove('flash');
+          void el.offsetWidth; // force reflow to restart animation
+          el.classList.add('flash');
+        }
+      },
       plugins: {
         legend: { display: false },
         tooltip: {
           callbacks: {
-            title: items => items[0].label,
-            label: item => `Rating: ${item.raw.toFixed(1)}`,
+            title: items => fmtDate(hist[items[0].dataIndex]?.date),
+            label: item => {
+              const h = hist[item.dataIndex];
+              if (!h) return `Rating: ${item.raw.toFixed(1)}`;
+              const lines = [`Rating: ${item.raw.toFixed(1)}`];
+              if (h.result) {
+                const word = h.result === 'W' ? 'Win' : h.result === 'L' ? 'Loss' : 'Draw';
+                const score = h.my_games !== undefined ? ` (${h.my_games}–${h.opp_games})` : '';
+                lines.push(`${word}${score}`);
+              }
+              if (h.partner) lines.push(`w/ ${h.partner}`);
+              if (h.opp1)    lines.push(`vs ${h.opp1} & ${h.opp2 || ''}`);
+              if (h.team)    lines.push(`${shortTeam(h.team)} vs ${shortTeam(h.opp_team || '')}`);
+              if (h.division) lines.push(`Division ${h.division}`);
+              return lines;
+            },
           }
         }
       },
@@ -683,7 +717,7 @@ function renderHistory(hist) {
       : '';
 
     html += `
-      <div class="match-entry ${resultCls}">
+      <div class="match-entry ${resultCls}" data-hist-idx="${i}">
         <div class="match-top">
           <span class="match-date">${fmtDate(h.date)}</span>
           ${h.division ? `<span class="div-badge" style="background:${dcol}22;color:${dcol};border:1px solid ${dcol}44">D${h.division}</span>` : ''}
