@@ -211,10 +211,13 @@ function setupSearch(inputId, suggestId, side) {
       .slice(0, 8);
     if (!matches.length) { box.classList.remove('open'); return; }
     box.innerHTML = matches.map(p => `
-      <div class="suggestion-item" onclick="selectPlayer('${side}', ${JSON.stringify(p.name)})">
+      <div class="suggestion-item" data-name="${p.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
         <span>${p.name}</span>
         <span class="suggestion-club">${p.club || ''} · D${p.current_div || '?'} · ${p.rating.toFixed(0)}</span>
       </div>`).join('');
+    box.querySelectorAll('.suggestion-item').forEach(el => {
+      el.addEventListener('click', () => selectPlayer(side, el.dataset.name));
+    });
     box.classList.add('open');
   });
 
