@@ -170,7 +170,7 @@ async function unlock() {
   const code = document.getElementById('passcodeInput').value.trim();
   if (!code) return;
   // Test the passcode by making a dry-run request
-  const res = await fetch('/api/admin/merge', {
+  const res = await fetch('/api/admin-merge', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ passcode: code, from: '__test__', into: '__test__' })
@@ -340,7 +340,7 @@ async function doMerge(fromSide, intoSide) {
   btn.innerHTML = '<span class="spinner"></span> Merging…';
 
   try {
-    const res = await fetch('/api/admin/merge', {
+    const res = await fetch('/api/admin-merge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ passcode, from: fromPlayer.name, into: intoPlayer.name })
