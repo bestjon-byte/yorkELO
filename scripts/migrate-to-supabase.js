@@ -178,7 +178,13 @@ async function batchInsert(table, rows, label) {
 // ---------------------------------------------------------------------------
 async function run() {
   console.log('Loading local data...');
-  const aliases     = fs.existsSync('player-aliases.json') ? JSON.parse(fs.readFileSync('player-aliases.json')) : {};
+  const aliases = fs.existsSync('player-aliases.json') ? JSON.parse(fs.readFileSync('player-aliases.json')) : {};
+
+  // Merge in any aliases added via the admin tool (stored in york_aliases)
+  const { data: dbAliases } = await supabase.from('york_aliases').select('variant_name, canonical_name');
+  for (const { variant_name, canonical_name } of dbAliases || []) aliases[variant_name] = canonical_name;
+  if (dbAliases?.length) console.log(`  + ${dbAliases.length} alias(es) from york_aliases table`);
+
   const ratingsData = JSON.parse(fs.readFileSync('ratings_all.json'));
   const { firstDiv, lastDiv, lastClub } = buildDivisionMaps(aliases);
   const matchLogs   = buildPlayerMatchLogs(aliases);
