@@ -23,7 +23,7 @@
     --draw:     #94a3b8;
   }
 
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
 
   /* Header */
   header {
@@ -81,7 +81,7 @@
   }
 
   /* Main layout */
-  .layout { display: flex; height: calc(100vh - 130px); overflow: hidden; }
+  .layout { display: flex; flex: 1; min-height: 0; overflow: hidden; }
 
   /* Table */
   .table-wrap { flex: 1; overflow-y: auto; min-width: 0; }
@@ -256,10 +256,20 @@
 
   /* Responsive */
   @media (max-width: 700px) {
-    .panel.open { width: 100%; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50; }
-    .controls { padding: 10px 16px; }
+    html, body { overflow-x: hidden; }
+    .table-wrap { overflow-x: auto; }
+    .controls { padding: 10px 12px; gap: 8px; }
+    .search-wrap { max-width: none; }
+    .count-badge { display: none; }
     header { padding: 16px; }
-    td, th { padding: 8px 10px; }
+    td, th { padding: 8px 8px; font-size: 0.8rem; }
+    /* Hide least-useful column on narrow screens */
+    thead th:last-child, tbody td:last-child { display: none; }
+    .panel.open { width: 100%; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50; }
+  }
+
+  @media (max-width: 420px) {
+    .rubbers-wrap { display: none; }
   }
 </style>
 </head>
