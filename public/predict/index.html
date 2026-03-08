@@ -38,6 +38,22 @@ main { max-width: 1080px; margin: 0 auto; padding: 32px 24px; }
 .tab.active { background: var(--accent); color: #fff; }
 .tab:not(.active):hover { color: var(--text); }
 
+/* ── Games setting ──────────────────────────────────────────────────────── */
+.games-bar {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 16px; width: fit-content;
+}
+.games-bar label { font-size: 0.78rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.games-input {
+  width: 64px; background: var(--bg); border: 1px solid var(--border);
+  color: var(--text); padding: 5px 8px; border-radius: 6px; font-size: 0.88rem;
+  font-weight: 700; text-align: center; outline: none;
+  font-variant-numeric: tabular-nums;
+}
+.games-input:focus { border-color: var(--accent); }
+.games-bar span { font-size: 0.72rem; color: var(--muted); }
+
 /* ── Match Builder Grid ─────────────────────────────────────────────────── */
 .match-grid { display: grid; grid-template-columns: 1fr 38px 1fr; gap: 0; align-items: start; margin-bottom: 28px; }
 .vs-col { display: flex; align-items: center; justify-content: center; padding-top: 68px; font-size: 0.8rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; }
@@ -238,6 +254,12 @@ table.rot-table tr:last-child td { border-bottom: none; }
     <button class="tab" data-tab="rotation">4-Player Rotation</button>
   </div>
 
+  <div class="games-bar">
+    <label for="gamesInput">Games per rubber</label>
+    <input type="number" id="gamesInput" class="games-input" min="1" max="99" value="12">
+    <span>— score based on best of this many games</span>
+  </div>
+
   <!-- ── Full Match Tab ────────────────────────────────────────────────── -->
   <div id="tabMatch">
     <div class="match-grid">
@@ -343,14 +365,15 @@ function divColor(d) { return ['','#ef4444','#f97316','#eab308','#22c55e','#14b8
 
 // ── ELO Math ──────────────────────────────────────────────────────────────────
 function winProb(homeAvg, awayAvg) { return 1 / (1 + Math.pow(10, (awayAvg - homeAvg) / 400)); }
+
+function totalGames() { return Math.max(1, parseInt(document.getElementById('gamesInput').value, 10) || 12); }
+
+// Predict score for a rubber played over `games` total games.
+// Winner gets round(p * games), loser gets the remainder.
 function probToScore(p) {
-  if (p >= 0.91) return [6, 0]; if (p >= 0.82) return [6, 1];
-  if (p >= 0.72) return [6, 2]; if (p >= 0.62) return [6, 3];
-  if (p >= 0.52) return [6, 4]; if (p >  0.50) return [7, 5];
-  if (p >= 0.48) return [6, 6]; if (p >= 0.38) return [5, 7];
-  if (p >= 0.28) return [4, 6]; if (p >= 0.18) return [3, 6];
-  if (p >= 0.09) return [2, 6]; if (p >= 0.03) return [1, 6];
-  return [0, 6];
+  const games = totalGames();
+  const homeGames = Math.round(p * games);
+  return [homeGames, games - homeGames];
 }
 function cellBg(p) {
   const d = Math.abs(p - 0.5) * 2;
