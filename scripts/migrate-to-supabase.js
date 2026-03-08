@@ -140,15 +140,19 @@ function buildPlayerStats(matchLogs) {
       }
       return best;
     };
-    const bestPartner  = pick(partnerMap, 5, true);
-    const nemesis      = pick(oppMap, 3, false);
-    const rawPair      = pick(pairMap, 3, false);
-    const nemesisPair  = rawPair ? { names: rawPair.names, wins: rawPair.wins, losses: rawPair.losses, draws: rawPair.draws, total: rawPair.total, winRate: rawPair.winRate } : null;
-    const rawClub      = pick(clubMap, 5, false);
-    const nemesisClub  = rawClub ? { name: rawClub.key, wins: rawClub.wins, losses: rawClub.losses, draws: rawClub.draws, total: rawClub.total, winRate: rawClub.winRate } : null;
-    if (bestPartner) delete bestPartner.key;
-    if (nemesis)     delete nemesis.key;
-    stats[name] = { bestPartner, nemesis, nemesisPair, nemesisClub };
+    const bestPartner   = pick(partnerMap, 5, true);
+    const worstPartner  = pick(partnerMap, 5, false);
+    const nemesis       = pick(oppMap, 3, false);
+    const rawPair       = pick(pairMap, 3, false);
+    const nemesisPair   = rawPair ? { names: rawPair.names, wins: rawPair.wins, losses: rawPair.losses, draws: rawPair.draws, total: rawPair.total, winRate: rawPair.winRate } : null;
+    const rawNemClub    = pick(clubMap, 5, false);
+    const rawBestClub   = pick(clubMap, 5, true);
+    const nemesisClub   = rawNemClub  ? { name: rawNemClub.key,  wins: rawNemClub.wins,  losses: rawNemClub.losses,  draws: rawNemClub.draws,  total: rawNemClub.total,  winRate: rawNemClub.winRate  } : null;
+    const bestClub      = rawBestClub ? { name: rawBestClub.key, wins: rawBestClub.wins, losses: rawBestClub.losses, draws: rawBestClub.draws, total: rawBestClub.total, winRate: rawBestClub.winRate } : null;
+    if (bestPartner)  delete bestPartner.key;
+    if (worstPartner) delete worstPartner.key;
+    if (nemesis)      delete nemesis.key;
+    stats[name] = { bestPartner, worstPartner, nemesis, nemesisPair, nemesisClub, bestClub };
   }
   return stats;
 }
@@ -231,11 +235,13 @@ async function run() {
 
   // ---- Build player_stats rows ----
   const statsRows = Object.entries(playerStats).map(([playerName, s]) => ({
-    player_name:  playerName,
-    best_partner: s.bestPartner,
-    nemesis:      s.nemesis,
-    nemesis_pair: s.nemesisPair,
-    nemesis_club: s.nemesisClub,
+    player_name:   playerName,
+    best_partner:  s.bestPartner,
+    worst_partner: s.worstPartner,
+    nemesis:       s.nemesis,
+    nemesis_pair:  s.nemesisPair,
+    nemesis_club:  s.nemesisClub,
+    best_club:     s.bestClub,
   }));
 
   console.log(`\nData ready:`);

@@ -34,10 +34,12 @@ module.exports = async (req, res) => {
   // Map snake_case DB columns to camelCase expected by frontend
   const s = statsResult.data;
   const stats = s ? {
-    bestPartner: s.best_partner,
-    nemesis:     s.nemesis,
-    nemesisPair: s.nemesis_pair,
-    nemesisClub: s.nemesis_club,
+    bestPartner:  s.best_partner,
+    worstPartner: s.worst_partner,
+    nemesis:      s.nemesis,
+    nemesisPair:  s.nemesis_pair,
+    nemesisClub:  s.nemesis_club,
+    bestClub:     s.best_club,
   } : {};
 
   res.end(JSON.stringify({ stats, history: historyResult.data }));
