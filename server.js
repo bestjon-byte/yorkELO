@@ -155,6 +155,7 @@ function buildPlayerStats(matchLogs) {
       partnerMap[e.partner][e.result]++;
     }
     let bestPartner = null, bestPWR = -1;
+    let worstPartner = null, worstPWR = 2;
     for (const [partner, s] of Object.entries(partnerMap)) {
       const total = s.W + s.L + s.D;
       if (total < 5) continue;
@@ -162,6 +163,10 @@ function buildPlayerStats(matchLogs) {
       if (wr > bestPWR) {
         bestPWR = wr;
         bestPartner = { name: partner, wins: s.W, losses: s.L, draws: s.D, total, winRate: Math.round(wr * 100) };
+      }
+      if (wr < worstPWR) {
+        worstPWR = wr;
+        worstPartner = { name: partner, wins: s.W, losses: s.L, draws: s.D, total, winRate: Math.round(wr * 100) };
       }
     }
 
@@ -211,6 +216,7 @@ function buildPlayerStats(matchLogs) {
       clubMap[club][e.result]++;
     }
     let nemesisClub = null, nemesisClubWR = 2;
+    let bestClub = null, bestClubWR = -1;
     for (const [club, s] of Object.entries(clubMap)) {
       const total = s.W + s.L + s.D;
       if (total < 5) continue;
@@ -219,9 +225,13 @@ function buildPlayerStats(matchLogs) {
         nemesisClubWR = wr;
         nemesisClub = { name: club, wins: s.W, losses: s.L, draws: s.D, total, winRate: Math.round(wr * 100) };
       }
+      if (wr > bestClubWR) {
+        bestClubWR = wr;
+        bestClub = { name: club, wins: s.W, losses: s.L, draws: s.D, total, winRate: Math.round(wr * 100) };
+      }
     }
 
-    stats[name] = { bestPartner, nemesis, nemesisPair, nemesisClub };
+    stats[name] = { bestPartner, worstPartner, nemesis, nemesisPair, nemesisClub, bestClub };
   }
 
   return stats;
