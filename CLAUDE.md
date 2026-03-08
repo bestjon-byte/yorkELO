@@ -11,6 +11,7 @@ York Tennis ELO Rating System — a cross-divisional ELO rating system for the Y
 - **Runtime:** Node.js (CommonJS) + Cheerio for scraping
 - **Data:** JSON flat files (`fixtures_YYYY.json`, `ratings_all.json`)
 - **UI:** Vanilla JS single-page app served by `server.js` (built-in `http` module, no framework)
+- **Deployment:** Vercel (serverless functions in `api/`) + Supabase PostgreSQL (tables prefixed `york_` to avoid collision with existing Cawood DB tables)
 
 ## Key Commands
 
@@ -21,7 +22,33 @@ node dedupe-auto.js              # apply all confirmed bulk alias decisions
 node dedupe.js [--report]        # interactive / report-only dedupe review
 node elo.js                      # full multi-season ELO → ratings_all.json
 node server.js                   # web UI at http://localhost:3000
+node scripts/migrate-to-supabase.js  # push all local JSON data to Supabase (re-runnable)
+node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management API
 ```
+
+## Vercel Deployment
+
+- Env vars required: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_KEY`, `ADMIN_PASSCODE`
+- API routes live in `api/` (file-based routing). ⚠️ A directory named `api/foo/` conflicts with a vercel.json rewrite for `/foo` — use flat files (`api/foo.js`) instead.
+- Static pages: put at `public/foo/index.html` for a clean `/foo` URL — Vercel auto-serves directory index files with no rewrite needed.
+- `public/` files are served at root URL — rewrite destinations like `"/public/foo.html"` are wrong; use `"/foo.html"` or the directory pattern above.
+
+## Supabase
+
+- Tables: `york_players`, `york_match_history`, `york_player_stats`, `york_aliases`
+- Default row cap is 1000 — use `.range(from, from+999)` pagination loop for full leaderboard (1830+ players)
+- Management API (`api.supabase.com`) requires personal access token (`SUPABASE_ACCESS_TOKEN`), not the service key. Returns 200 or 201 on success.
+- `york_aliases` table stores runtime merges (variant_name → canonical_name); merged with `player-aliases.json` at query time
+
+## Date Format & Sorting
+
+- Fixture dates are stored as `"DD MonthName YYYY"` (e.g. `"28 April 2025"`) — never sort these as plain strings or "28" sorts before "5". Parse to `Date` / timestamp first.
+
+## Admin Merge Tool
+
+- UI at `/admin` → `public/admin/index.html` (passcode-gated)
+- API at `POST /api/admin-merge` — validates `ADMIN_PASSCODE`, saves alias to `york_aliases`, reruns ELO in-memory, upserts `york_players` + `york_player_stats`, renames in `york_match_history`
+- ⚠️ When generating suggestion dropdowns with player names in JS, never use `JSON.stringify(name)` inside an `onclick=""` attribute — double quotes break the HTML. Use `data-*` attributes + `addEventListener` instead.
 
 ## ELO Algorithm
 
