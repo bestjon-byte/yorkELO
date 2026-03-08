@@ -26,8 +26,15 @@ node scripts/migrate-to-supabase.js  # push all local JSON data to Supabase (re-
 node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management API
 ```
 
+## Match Predictor (`/predict`)
+
+- UI at `/predict` → `public/predict/index.html` (static, no API needed beyond `/api/leaderboard`)
+- **Scoring format:** The league uses "best of N games" (default 12), NOT standard tennis sets. Score = `round(p × N)` vs `N − round(p × N)`. Never use a hardcoded tennis-set lookup table.
+- **Player picker dropdowns:** When a club filter is active, show ALL matching players — do not cap the list. Only cap (e.g. 10) when no filter is active and the user hasn't typed anything.
+
 ## Vercel Deployment
 
+- Local `server.js` does not auto-serve directory index files. Fix: `if (!path.extname(filePath)) filePath = filePath.replace(/\/?$/, '/index.html')` before `fs.readFile`. Vercel handles this automatically.
 - Env vars required: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_KEY`, `ADMIN_PASSCODE`
 - API routes live in `api/` (file-based routing). ⚠️ A directory named `api/foo/` conflicts with a vercel.json rewrite for `/foo` — use flat files (`api/foo.js`) instead.
 - Static pages: put at `public/foo/index.html` for a clean `/foo` URL — Vercel auto-serves directory index files with no rewrite needed.
