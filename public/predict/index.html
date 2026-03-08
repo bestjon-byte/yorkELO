@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>York Mens Tennis — Match Predictor</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d14;
+  --surface: #13131f;
+  --border:  #1f1f32;
+  --text:    #e2e2f0;
+  --muted:   #6b6b8a;
+  --accent:  #6d5acd;
+  --home:    #7c6bdd;
+  --away:    #e05252;
+  --win:     #22c55e;
+  --loss:    #ef4444;
+  --draw:    #94a3b8;
+}
+
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #0d0d14 0%, #1a1030 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 32px;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; flex: 1; }
+header h1 span { color: var(--accent); }
+
+nav a {
+  color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 6px; border: 1px solid transparent; margin-left: 4px;
+  transition: all 0.15s;
+}
+nav a:hover { color: var(--text); border-color: var(--border); }
+nav a.active {
+  color: #a78bfa; border-color: rgba(109,90,205,0.45);
+  background: rgba(109,90,205,0.1);
+}
+
+/* ── Main ───────────────────────────────────────────────────────────────── */
+main { max-width: 1080px; margin: 0 auto; padding: 32px 24px; }
+
+/* ── Tabs ───────────────────────────────────────────────────────────────── */
+.tabs {
+  display: inline-flex; gap: 3px; margin-bottom: 30px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 4px;
+}
+.tab {
+  padding: 8px 22px; border-radius: 7px; border: none; cursor: pointer;
+  font-size: 0.875rem; font-weight: 500; color: var(--muted); background: transparent;
+  transition: all 0.15s;
+}
+.tab.active { background: var(--accent); color: #fff; }
+.tab:not(.active):hover { color: var(--text); }
+
+/* ── Match Builder Grid ─────────────────────────────────────────────────── */
+.match-grid {
+  display: grid; grid-template-columns: 1fr 38px 1fr;
+  gap: 0; align-items: start; margin-bottom: 28px;
+}
+.vs-col {
+  display: flex; align-items: center; justify-content: center; padding-top: 52px;
+  font-size: 0.8rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em;
+}
+
+/* ── Team Card ──────────────────────────────────────────────────────────── */
+.team-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  overflow: visible;
+}
+.team-card-header {
+  padding: 10px 18px; font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em; border-radius: 14px 14px 0 0;
+}
+.team-card.home .team-card-header {
+  background: rgba(124,107,221,0.15); color: #a78bfa;
+  border-bottom: 1px solid rgba(124,107,221,0.2);
+}
+.team-card.away .team-card-header {
+  background: rgba(224,82,82,0.12); color: #f87171;
+  border-bottom: 1px solid rgba(224,82,82,0.18);
+}
+.team-card-body { padding: 16px 18px; }
+
+.team-name-input {
+  width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+  padding: 9px 12px; border-radius: 8px; font-size: 0.92rem; font-weight: 600;
+  margin-bottom: 18px; outline: none; transition: border-color 0.15s;
+}
+.team-card.home .team-name-input:focus { border-color: var(--home); }
+.team-card.away .team-name-input:focus { border-color: var(--away); }
+
+/* ── Pair Row ───────────────────────────────────────────────────────────── */
+.pair-row + .pair-row { margin-top: 14px; }
+.pair-label {
+  font-size: 0.67rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--muted); margin-bottom: 6px;
+}
+.pair-players { display: flex; flex-direction: column; gap: 5px; }
+
+/* ── Player Picker ──────────────────────────────────────────────────────── */
+.player-picker { position: relative; }
+
+.picker-trigger {
+  display: flex; align-items: center;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 7px;
+  min-height: 34px; overflow: hidden; transition: border-color 0.15s; cursor: text;
+}
+.picker-trigger:focus-within { border-color: var(--accent); }
+.picker-trigger.has-value {
+  border-color: rgba(124,107,221,0.4); background: rgba(109,90,205,0.06);
+}
+.picker-trigger.has-value:focus-within { border-color: rgba(124,107,221,0.7); }
+
+.picker-input {
+  flex: 1; background: transparent; border: none; color: var(--text);
+  padding: 6px 10px; font-size: 0.82rem; outline: none; min-width: 0;
+}
+.picker-input::placeholder { color: var(--muted); }
+
+.picker-badge {
+  font-size: 0.7rem; font-weight: 700; color: var(--accent);
+  padding: 0 6px; white-space: nowrap; flex-shrink: 0;
+  font-variant-numeric: tabular-nums; display: none;
+}
+.picker-clear {
+  padding: 0 8px; color: var(--muted); cursor: pointer; font-size: 1rem;
+  line-height: 34px; flex-shrink: 0; transition: color 0.1s; display: none;
+  user-select: none;
+}
+.picker-clear:hover { color: #f87171; }
+
+.picker-dropdown {
+  position: absolute; z-index: 300; top: calc(100% + 4px); left: 0; right: 0;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.6); max-height: 220px; overflow-y: auto;
+  display: none;
+}
+.picker-dropdown.open { display: block; }
+
+.picker-option {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; cursor: pointer; font-size: 0.82rem;
+  border-bottom: 1px solid rgba(31,31,50,0.8); transition: background 0.08s;
+}
+.picker-option:last-child { border-bottom: none; }
+.picker-option:hover, .picker-option.focused { background: rgba(109,90,205,0.13); }
+.po-name { font-weight: 500; }
+.po-meta { display: flex; gap: 8px; align-items: center; font-size: 0.72rem; color: var(--muted); }
+.po-rating { font-variant-numeric: tabular-nums; font-weight: 700; }
+.picker-empty { padding: 12px 16px; text-align: center; color: var(--muted); font-size: 0.82rem; }
+
+/* ── Action bar ─────────────────────────────────────────────────────────── */
+.action-bar { text-align: center; margin-bottom: 40px; }
+.generate-btn {
+  background: var(--accent); color: #fff; border: none;
+  padding: 13px 40px; border-radius: 10px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(109,90,205,0.35);
+}
+.generate-btn:hover:not(:disabled) {
+  background: #8476e5; transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(109,90,205,0.5);
+}
+.generate-btn:active:not(:disabled) { transform: none; }
+.generate-btn:disabled { opacity: 0.28; cursor: not-allowed; box-shadow: none; }
+.action-hint { color: var(--muted); font-size: 0.78rem; margin-top: 10px; }
+
+/* ── Scorecard ──────────────────────────────────────────────────────────── */
+.scorecard-wrap { animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.sc-meta { margin-bottom: 18px; }
+.sc-teams {
+  font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.sc-teams .home-name { color: #a78bfa; }
+.sc-teams .away-name { color: #f87171; }
+.sc-teams .sep { color: var(--muted); font-weight: 400; font-size: 1rem; }
+.sc-sub { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
+
+.sc-table-wrap { overflow-x: auto; margin-bottom: 20px; }
+
+table.sc {
+  border-collapse: separate; border-spacing: 0; width: 100%; min-width: 500px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  background: var(--surface);
+}
+table.sc th, table.sc td { border: 1px solid var(--border); }
+
+/* Corner */
+.sc-corner {
+  padding: 12px 16px; background: var(--bg); vertical-align: bottom;
+  min-width: 130px;
+}
+.sc-corner-lbl {
+  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+}
+.sc-diag {
+  display: block; font-size: 0.65rem; color: rgba(107,107,138,0.5);
+  margin-top: 2px; font-style: italic;
+}
+
+/* Away pair headers */
+.sc-away-hdr {
+  padding: 12px 14px; text-align: center; vertical-align: top; min-width: 140px;
+  background: rgba(224,82,82,0.06);
+}
+
+/* Home row headers */
+.sc-home-hdr {
+  padding: 12px 16px; vertical-align: top;
+  background: rgba(124,107,221,0.07);
+}
+
+.sc-pair-lbl {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px;
+}
+.sc-pair-names { font-size: 0.8rem; font-weight: 600; line-height: 1.5; }
+.sc-pair-elo {
+  font-size: 0.68rem; color: var(--muted); margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rubber cells */
+.sc-cell { text-align: center; vertical-align: middle; padding: 14px 12px; }
+.sc-score {
+  font-size: 1.2rem; font-weight: 900; font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.sc-prob { font-size: 0.66rem; color: var(--muted); margin-top: 4px; }
+.sc-winner {
+  display: inline-block; font-size: 0.58rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 2px 6px; border-radius: 3px; margin-top: 5px;
+}
+
+/* Summary row */
+.sc-sum-hdr {
+  padding: 10px 16px; background: rgba(13,13,20,0.7);
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--muted); vertical-align: middle;
+}
+.sc-sum-cell {
+  text-align: center; padding: 10px 8px; background: rgba(13,13,20,0.7);
+}
+.sc-col-tally { font-size: 0.85rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+/* Result banner */
+.result-banner {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px; text-align: center;
+}
+.result-scoreline {
+  font-size: 2rem; font-weight: 900; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; display: flex; align-items: center;
+  justify-content: center; gap: 12px; flex-wrap: wrap;
+}
+.result-home { color: #a78bfa; }
+.result-away { color: #f87171; }
+.result-score-num { font-size: 2.6rem; }
+.result-divider { color: var(--border); font-size: 1.5rem; }
+.result-verdict {
+  margin-top: 10px; font-size: 0.88rem; font-weight: 600;
+}
+.result-detail { color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
+
+/* ── Single Rubber ──────────────────────────────────────────────────────── */
+.rubber-grid {
+  display: grid; grid-template-columns: 1fr 38px 1fr;
+  gap: 0; align-items: start; margin-bottom: 28px;
+}
+.rubber-vs { display: flex; align-items: center; justify-content: center; padding-top: 48px; }
+.vs-txt { font-size: 0.8rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; }
+
+.rubber-result {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px 32px; animation: slideUp 0.3s ease;
+}
+
+/* Probability bar */
+.prob-section { margin: 20px 0; }
+.prob-track {
+  height: 10px; background: var(--border); border-radius: 5px;
+  overflow: hidden; display: flex;
+}
+.prob-home { height: 100%; background: var(--home); border-radius: 5px 0 0 5px; transition: width 0.5s ease; }
+.prob-away { height: 100%; background: var(--away); border-radius: 0 5px 5px 0; transition: width 0.5s ease; }
+.prob-labels {
+  display: flex; justify-content: space-between; font-size: 0.72rem;
+  color: var(--muted); margin-top: 6px;
+}
+
+.rr-result-main { text-align: center; margin: 24px 0 20px; }
+.rr-score { font-size: 1.4rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.rr-verdict { font-size: 1rem; font-weight: 700; }
+
+.rr-elo-row {
+  display: flex; gap: 0; margin-top: 20px; border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.rr-elo-item { flex: 1; padding: 12px 16px; text-align: center; }
+.rr-elo-item + .rr-elo-item { border-left: 1px solid var(--border); }
+.rr-elo-lbl { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.rr-elo-val { font-size: 1.1rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 4px; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .match-grid, .rubber-grid { grid-template-columns: 1fr; }
+  .vs-col, .rubber-vs { padding: 8px 0; }
+  header { padding: 14px 16px; }
+  header h1 { font-size: 1.2rem; }
+  main { padding: 20px 12px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>York Mens Tennis — <span>Match Predictor</span></h1>
+  <nav>
+    <a href="/">Leaderboard</a>
+    <a href="/predict" class="active">Predictor</a>
+  </nav>
+</header>
+
+<main>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="match">Full Match</button>
+    <button class="tab" data-tab="rubber">Single Rubber</button>
+  </div>
+
+  <!-- ── Full Match Tab ────────────────────────────────────────────────── -->
+  <div id="tabMatch">
+    <div class="match-grid">
+      <div class="team-card home">
+        <div class="team-card-header">Home Team</div>
+        <div class="team-card-body">
+          <input id="homeTeamName" class="team-name-input" placeholder="e.g. Cawood 2" autocomplete="off">
+          <div id="homePairsContainer"></div>
+        </div>
+      </div>
+
+      <div class="vs-col">VS</div>
+
+      <div class="team-card away">
+        <div class="team-card-header">Away Team</div>
+        <div class="team-card-body">
+          <input id="awayTeamName" class="team-name-input" placeholder="e.g. Wigginton 4" autocomplete="off">
+          <div id="awayPairsContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="generate-btn" id="generateBtn" disabled onclick="generateScorecard()">
+        Generate Scorecard
+      </button>
+      <div class="action-hint" id="generateHint">Select all 12 players to predict</div>
+    </div>
+
+    <div id="scorecardOutput"></div>
+  </div>
+
+  <!-- ── Single Rubber Tab ─────────────────────────────────────────────── -->
+  <div id="tabRubber" style="display:none">
+    <div class="rubber-grid">
+      <div class="team-card home">
+        <div class="team-card-header">Pair A</div>
+        <div class="team-card-body" id="rubberAContainer"></div>
+      </div>
+      <div class="rubber-vs"><div class="vs-txt">VS</div></div>
+      <div class="team-card away">
+        <div class="team-card-header">Pair B</div>
+        <div class="team-card-body" id="rubberBContainer"></div>
+      </div>
+    </div>
+    <div id="rubberOutput"></div>
+  </div>
+</main>
+
+<script>
+'use strict';
+
+// ── State ────────────────────────────────────────────────────────────────────
+let allPlayers = [];
+const sel = {};           // slotKey → { name, rating }
+const callbacks = {};     // slotKey → onChange fn
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function ratingColor(r) {
+  if (r >= 2000) return '#f5a623';
+  if (r >= 1700) return '#a78bfa';
+  if (r >= 1400) return '#3b82f6';
+  if (r >= 1100) return '#10b981';
+  return '#64748b';
+}
+
+function divColor(d) {
+  return ['','#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899'][d] || '#64748b';
+}
+
+// ── ELO Prediction ───────────────────────────────────────────────────────────
+function winProb(homeAvg, awayAvg) {
+  return 1 / (1 + Math.pow(10, (awayAvg - homeAvg) / 400));
+}
+
+function probToScore(p) {
+  // Returns [homeGames, awayGames] as a predicted rubber score
+  if (p >= 0.91) return [6, 0];
+  if (p >= 0.82) return [6, 1];
+  if (p >= 0.72) return [6, 2];
+  if (p >= 0.62) return [6, 3];
+  if (p >= 0.52) return [6, 4];
+  if (p >  0.50) return [7, 5];
+  if (p >= 0.48) return [6, 6];
+  if (p >= 0.38) return [5, 7];
+  if (p >= 0.28) return [4, 6];
+  if (p >= 0.18) return [3, 6];
+  if (p >= 0.09) return [2, 6];
+  if (p >= 0.03) return [1, 6];
+  return [0, 6];
+}
+
+function cellBg(p) {
+  const d = Math.abs(p - 0.5) * 2;
+  if (p > 0.5)  return `rgba(124,107,221,${(0.06 + d * 0.24).toFixed(2)})`;
+  if (p < 0.5)  return `rgba(224, 82, 82,${(0.06 + d * 0.22).toFixed(2)})`;
+  return 'rgba(148,163,184,0.08)';
+}
+
+function pairAvg(k1, k2) {
+  return ((sel[k1]?.rating || 0) + (sel[k2]?.rating || 0)) / 2;
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+async function init() {
+  const res = await fetch('/api/leaderboard');
+  const data = await res.json();
+  allPlayers = data.leaderboard;
+
+  buildMatchUI();
+  buildRubberUI();
+
+  // Tabs
+  document.getElementById('tabs').addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if (!tab) return;
+    const t = tab.dataset.tab;
+    document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
+    document.getElementById('tabMatch').style.display  = t === 'match'  ? '' : 'none';
+    document.getElementById('tabRubber').style.display = t === 'rubber' ? '' : 'none';
+  });
+}
+
+// ── Build UIs ────────────────────────────────────────────────────────────────
+function buildMatchUI() {
+  const homeEl = document.getElementById('homePairsContainer');
+  const awayEl = document.getElementById('awayPairsContainer');
+  for (let p = 1; p <= 3; p++) {
+    homeEl.appendChild(buildPairRow(`h${p}`, p, onMatchChange));
+    awayEl.appendChild(buildPairRow(`a${p}`, p, onMatchChange));
+  }
+}
+
+function buildRubberUI() {
+  const aEl = document.getElementById('rubberAContainer');
+  const bEl = document.getElementById('rubberBContainer');
+  aEl.appendChild(wrapPicker(buildPicker('rA1', 'Player 1', onRubberChange)));
+  aEl.appendChild(wrapPicker(buildPicker('rA2', 'Player 2', onRubberChange)));
+  bEl.appendChild(wrapPicker(buildPicker('rB1', 'Player 1', onRubberChange)));
+  bEl.appendChild(wrapPicker(buildPicker('rB2', 'Player 2', onRubberChange)));
+}
+
+function wrapPicker(picker) {
+  const div = document.createElement('div');
+  div.style.marginBottom = '8px';
+  div.appendChild(picker);
+  return div;
+}
+
+function buildPairRow(prefix, num, onChange) {
+  const row = document.createElement('div');
+  row.className = 'pair-row';
+  const label = document.createElement('div');
+  label.className = 'pair-label';
+  label.textContent = `Pair ${num}`;
+  const players = document.createElement('div');
+  players.className = 'pair-players';
+  players.appendChild(buildPicker(`${prefix}_1`, 'Player 1', onChange));
+  players.appendChild(buildPicker(`${prefix}_2`, 'Player 2', onChange));
+  row.append(label, players);
+  return row;
+}
+
+// ── Player Picker ─────────────────────────────────────────────────────────────
+function buildPicker(slotKey, placeholder, onChange) {
+  callbacks[slotKey] = onChange;
+
+  const wrap     = document.createElement('div');
+  const trigger  = document.createElement('div');
+  const input    = document.createElement('input');
+  const badge    = document.createElement('span');
+  const clearBtn = document.createElement('span');
+  const dropdown = document.createElement('div');
+
+  wrap.className = 'player-picker';
+  trigger.className = 'picker-trigger';
+
+  input.type = 'text';
+  input.className = 'picker-input';
+  input.placeholder = placeholder + '…';
+  input.autocomplete = 'off';
+  input.spellcheck = false;
+
+  badge.className = 'picker-badge';
+  clearBtn.className = 'picker-clear';
+  clearBtn.textContent = '×';
+  clearBtn.title = 'Clear';
+
+  dropdown.className = 'picker-dropdown';
+
+  trigger.append(input, badge, clearBtn);
+  wrap.append(trigger, dropdown);
+
+  // Open on focus (only if not already selected)
+  input.addEventListener('focus', () => {
+    if (!sel[slotKey]) showDropdown(slotKey, dropdown, '');
+  });
+
+  // Click on selected input → clear and reopen
+  input.addEventListener('click', () => {
+    if (sel[slotKey]) { clearSel(slotKey, input, badge, clearBtn, trigger, dropdown); showDropdown(slotKey, dropdown, ''); }
+  });
+
+  input.addEventListener('input', () => {
+    if (sel[slotKey]) clearSel(slotKey, input, badge, clearBtn, trigger, dropdown);
+    showDropdown(slotKey, dropdown, input.value);
+  });
+
+  input.addEventListener('keydown', e => {
+    const opts = [...dropdown.querySelectorAll('.picker-option')];
+    const fi = opts.findIndex(o => o.classList.contains('focused'));
+    if (e.key === 'ArrowDown') { e.preventDefault(); moveFocus(opts, fi + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); moveFocus(opts, fi - 1); }
+    else if (e.key === 'Enter' && opts[fi]) {
+      pickPlayer(slotKey, opts[fi].dataset.name, +opts[fi].dataset.rating, input, badge, clearBtn, trigger, dropdown);
+    }
+    else if (e.key === 'Escape' || e.key === 'Tab') dropdown.classList.remove('open');
+  });
+
+  clearBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    clearSel(slotKey, input, badge, clearBtn, trigger, dropdown);
+    input.focus();
+  });
+
+  document.addEventListener('click', e => {
+    if (!wrap.contains(e.target)) {
+      dropdown.classList.remove('open');
+      if (!sel[slotKey]) input.value = '';
+    }
+  });
+
+  return wrap;
+}
+
+function showDropdown(slotKey, dropdown, query) {
+  const q = query.toLowerCase().trim();
+  const matches = q
+    ? allPlayers.filter(p => p.name.toLowerCase().includes(q)).slice(0, 12)
+    : allPlayers.slice(0, 8);
+
+  if (!matches.length) {
+    dropdown.innerHTML = '<div class="picker-empty">No players found</div>';
+  } else {
+    dropdown.innerHTML = matches.map(p => {
+      const col = ratingColor(p.rating);
+      const divBadge = p.current_div
+        ? `<span style="color:${divColor(p.current_div)};font-size:0.68rem;font-weight:700">D${p.current_div}</span>`
+        : '';
+      return `<div class="picker-option" data-name="${esc(p.name)}" data-rating="${p.rating}">
+        <span class="po-name">${esc(p.name)}</span>
+        <span class="po-meta">${divBadge}<span class="po-rating" style="color:${col}">${p.rating.toFixed(0)}</span></span>
+      </div>`;
+    }).join('');
+
+    dropdown.querySelectorAll('.picker-option').forEach(opt => {
+      opt.addEventListener('mousedown', e => {
+        e.preventDefault();
+        const trigger  = opt.closest('.player-picker').querySelector('.picker-trigger');
+        const input    = trigger.querySelector('.picker-input');
+        const badge    = trigger.querySelector('.picker-badge');
+        const clearBtn = trigger.querySelector('.picker-clear');
+        pickPlayer(slotKey, opt.dataset.name, +opt.dataset.rating, input, badge, clearBtn, trigger, dropdown);
+      });
+    });
+  }
+  dropdown.classList.add('open');
+}
+
+function moveFocus(opts, idx) {
+  opts.forEach(o => o.classList.remove('focused'));
+  const t = opts[Math.max(0, Math.min(idx, opts.length - 1))];
+  if (t) { t.classList.add('focused'); t.scrollIntoView({ block: 'nearest' }); }
+}
+
+function pickPlayer(slotKey, name, rating, input, badge, clearBtn, trigger, dropdown) {
+  sel[slotKey] = { name, rating };
+  input.value = name;
+  input.readOnly = true;
+  const col = ratingColor(rating);
+  badge.textContent = rating.toFixed(0);
+  badge.style.color = col;
+  badge.style.display = '';
+  clearBtn.style.display = '';
+  trigger.classList.add('has-value');
+  dropdown.classList.remove('open');
+  if (callbacks[slotKey]) callbacks[slotKey]();
+}
+
+function clearSel(slotKey, input, badge, clearBtn, trigger, dropdown) {
+  delete sel[slotKey];
+  input.value = '';
+  input.readOnly = false;
+  badge.style.display = 'none';
+  clearBtn.style.display = 'none';
+  trigger.classList.remove('has-value');
+  dropdown.classList.remove('open');
+  if (callbacks[slotKey]) callbacks[slotKey]();
+}
+
+// ── Match readiness ───────────────────────────────────────────────────────────
+function onMatchChange() {
+  let filled = 0;
+  for (let p = 1; p <= 3; p++) {
+    if (sel[`h${p}_1`]) filled++;
+    if (sel[`h${p}_2`]) filled++;
+    if (sel[`a${p}_1`]) filled++;
+    if (sel[`a${p}_2`]) filled++;
+  }
+  const btn  = document.getElementById('generateBtn');
+  const hint = document.getElementById('generateHint');
+  btn.disabled = filled < 12;
+  if (filled === 12) {
+    hint.style.color = '#4ade80';
+    hint.textContent = 'All players selected — ready!';
+  } else {
+    hint.style.color = '';
+    hint.textContent = `${filled} / 12 players selected`;
+  }
+}
+
+// ── Rubber readiness ──────────────────────────────────────────────────────────
+function onRubberChange() {
+  if (sel.rA1 && sel.rA2 && sel.rB1 && sel.rB2) renderRubberResult();
+  else document.getElementById('rubberOutput').innerHTML = '';
+}
+
+// ── Render: Single Rubber ─────────────────────────────────────────────────────
+function renderRubberResult() {
+  const homeAvg = (sel.rA1.rating + sel.rA2.rating) / 2;
+  const awayAvg = (sel.rB1.rating + sel.rB2.rating) / 2;
+  const p = winProb(homeAvg, awayAvg);
+  const [hg, ag] = probToScore(p);
+
+  const homeWins = hg > ag, isDraw = hg === ag;
+  const homePct  = Math.round(p * 100);
+  const awayPct  = 100 - homePct;
+
+  const verdictColor = homeWins ? '#a78bfa' : isDraw ? 'var(--draw)' : '#f87171';
+  const verdictText  = homeWins ? 'Pair A predicted to win'
+                     : isDraw   ? 'Too close to call — draw predicted'
+                     :            'Pair B predicted to win';
+
+  const scoreColor = homeWins ? '#a78bfa' : isDraw ? 'var(--draw)' : '#f87171';
+  const diff = homeAvg - awayAvg;
+
+  document.getElementById('rubberOutput').innerHTML = `
+    <div class="rubber-result">
+      <div class="prob-section">
+        <div class="prob-track">
+          <div class="prob-home" style="width:${homePct}%"></div>
+          <div class="prob-away" style="width:${awayPct}%"></div>
+        </div>
+        <div class="prob-labels">
+          <span style="color:#a78bfa;font-weight:600">${homePct}% Pair A</span>
+          <span style="color:#f87171;font-weight:600">Pair B ${awayPct}%</span>
+        </div>
+      </div>
+
+      <div class="rr-result-main">
+        <div class="rr-score" style="color:${scoreColor}">${hg} – ${ag}</div>
+        <div class="rr-verdict" style="color:${verdictColor}">${verdictText}</div>
+      </div>
+
+      <div class="rr-elo-row">
+        <div class="rr-elo-item">
+          <div class="rr-elo-lbl">Pair A</div>
+          <div class="rr-elo-lbl" style="margin-top:2px">${esc(sel.rA1.name)} / ${esc(sel.rA2.name)}</div>
+          <div class="rr-elo-val" style="color:${ratingColor(homeAvg)}">${homeAvg.toFixed(1)}</div>
+        </div>
+        <div class="rr-elo-item">
+          <div class="rr-elo-lbl">Rating diff</div>
+          <div class="rr-elo-val" style="color:${diff > 0 ? '#a78bfa' : diff < 0 ? '#f87171' : 'var(--muted)'}">
+            ${diff > 0 ? '+' : ''}${diff.toFixed(1)}
+          </div>
+        </div>
+        <div class="rr-elo-item">
+          <div class="rr-elo-lbl">Pair B</div>
+          <div class="rr-elo-lbl" style="margin-top:2px">${esc(sel.rB1.name)} / ${esc(sel.rB2.name)}</div>
+          <div class="rr-elo-val" style="color:${ratingColor(awayAvg)}">${awayAvg.toFixed(1)}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ── Render: Full Match Scorecard ──────────────────────────────────────────────
+function generateScorecard() {
+  const homeTeam = document.getElementById('homeTeamName').value.trim() || 'Home';
+  const awayTeam = document.getElementById('awayTeamName').value.trim() || 'Away';
+
+  // Build pairs: { p1Key, p2Key, avg }
+  const homePairs = [1,2,3].map(p => ({
+    k1: `h${p}_1`, k2: `h${p}_2`,
+    avg: pairAvg(`h${p}_1`, `h${p}_2`),
+  }));
+  const awayPairs = [1,2,3].map(p => ({
+    k1: `a${p}_1`, k2: `a${p}_2`,
+    avg: pairAvg(`a${p}_1`, `a${p}_2`),
+  }));
+
+  // 3×3 rubber predictions
+  let homeRubbers = 0, awayRubbers = 0;
+  const grid = homePairs.map(hp =>
+    awayPairs.map(ap => {
+      const p = winProb(hp.avg, ap.avg);
+      const [hg, ag] = probToScore(p);
+      if (hg > ag) homeRubbers++;
+      else if (ag > hg) awayRubbers++;
+      return { p, hg, ag };
+    })
+  );
+
+  // Per-column tallies
+  const colTallies = [0,1,2].map(col => {
+    let h = 0, a = 0;
+    grid.forEach(row => { if (row[col].hg > row[col].ag) h++; else if (row[col].ag > row[col].hg) a++; });
+    return { h, a };
+  });
+
+  const homeAvgAll = homePairs.reduce((s, p) => s + p.avg, 0) / 3;
+  const awayAvgAll = awayPairs.reduce((s, p) => s + p.avg, 0) / 3;
+
+  const isHomeWin = homeRubbers > awayRubbers;
+  const isAwayWin = awayRubbers > homeRubbers;
+  const verdictText  = isHomeWin ? `${esc(homeTeam)} win` : isAwayWin ? `${esc(awayTeam)} win` : 'Match tied';
+  const verdictColor = isHomeWin ? '#a78bfa' : isAwayWin ? '#f87171' : 'var(--draw)';
+
+  // Build away header cells
+  const awayHeaders = awayPairs.map((ap, i) => `
+    <th class="sc-away-hdr">
+      <div class="sc-pair-lbl">Away Pair ${i + 1}</div>
+      <div class="sc-pair-names">
+        ${esc(sel[ap.k1].name)}<br>${esc(sel[ap.k2].name)}
+      </div>
+      <div class="sc-pair-elo" style="color:${ratingColor(ap.avg)}">${ap.avg.toFixed(0)}</div>
+    </th>
+  `).join('');
+
+  // Build body rows
+  const bodyRows = homePairs.map((hp, row) => {
+    const cells = grid[row].map((r, col) => {
+      const bg = cellBg(r.p);
+      const hw = r.hg > r.ag, dw = r.hg === r.ag;
+      const scoreCol = hw ? '#a78bfa' : dw ? 'var(--draw)' : '#f87171';
+      const winnerLbl = hw ? 'Home' : dw ? 'Draw' : 'Away';
+      const winnerBg  = hw ? 'rgba(124,107,221,0.2)' : dw ? 'rgba(148,163,184,0.15)' : 'rgba(224,82,82,0.2)';
+      const winnerCol = hw ? '#a78bfa' : dw ? 'var(--draw)' : '#f87171';
+      const pct = hw ? Math.round(r.p * 100) : Math.round((1 - r.p) * 100);
+      return `
+        <td class="sc-cell" style="background:${bg}">
+          <div class="sc-score" style="color:${scoreCol}">${r.hg} – ${r.ag}</div>
+          <div class="sc-prob">${pct}%</div>
+          <span class="sc-winner" style="background:${winnerBg};color:${winnerCol}">${winnerLbl}</span>
+        </td>`;
+    }).join('');
+
+    return `
+      <tr>
+        <td class="sc-home-hdr">
+          <div class="sc-pair-lbl">Home Pair ${row + 1}</div>
+          <div class="sc-pair-names">
+            ${esc(sel[hp.k1].name)}<br>${esc(sel[hp.k2].name)}
+          </div>
+          <div class="sc-pair-elo" style="color:${ratingColor(hp.avg)}">${hp.avg.toFixed(0)}</div>
+        </td>
+        ${cells}
+      </tr>`;
+  }).join('');
+
+  // Summary row
+  const sumCells = colTallies.map(ct => `
+    <td class="sc-sum-cell">
+      <span class="sc-col-tally" style="color:#a78bfa">${ct.h}H</span>
+      <span style="color:var(--muted);font-size:0.7rem;padding:0 4px">/</span>
+      <span class="sc-col-tally" style="color:#f87171">${ct.a}A</span>
+    </td>
+  `).join('');
+
+  document.getElementById('scorecardOutput').innerHTML = `
+    <div class="scorecard-wrap">
+      <div class="sc-meta">
+        <div class="sc-teams">
+          <span class="home-name">${esc(homeTeam)}</span>
+          <span class="sep">vs</span>
+          <span class="away-name">${esc(awayTeam)}</span>
+        </div>
+        <div class="sc-sub">
+          ELO prediction · Home avg ELO ${homeAvgAll.toFixed(0)} · Away avg ELO ${awayAvgAll.toFixed(0)}
+        </div>
+      </div>
+
+      <div class="sc-table-wrap">
+        <table class="sc">
+          <thead>
+            <tr>
+              <th class="sc-corner">
+                <span class="sc-corner-lbl">Home \\ Away</span>
+              </th>
+              ${awayHeaders}
+            </tr>
+          </thead>
+          <tbody>
+            ${bodyRows}
+            <tr>
+              <td class="sc-sum-hdr">Rubbers won</td>
+              ${sumCells}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="result-banner">
+        <div class="result-scoreline">
+          <span class="result-home">${esc(homeTeam)}</span>
+          <span class="result-score-num result-home">${homeRubbers}</span>
+          <span class="result-divider">|</span>
+          <span class="result-score-num result-away">${awayRubbers}</span>
+          <span class="result-away">${esc(awayTeam)}</span>
+        </div>
+        <div class="result-verdict" style="color:${verdictColor}">${verdictText}</div>
+        <div class="result-detail">
+          Home avg ELO ${homeAvgAll.toFixed(0)} vs Away avg ELO ${awayAvgAll.toFixed(0)}
+          &nbsp;·&nbsp; ${homeRubbers + awayRubbers} rubbers predicted
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('scorecardOutput').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+init();
+</script>
+</body>
+</html>

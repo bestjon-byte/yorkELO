@@ -292,8 +292,9 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Static files from public/
-  const filePath = pathname === '/' ? '/index.html' : pathname;
+  // Static files from public/ — directory paths serve index.html (mirrors Vercel behaviour)
+  let filePath = pathname === '/' ? '/index.html' : pathname;
+  if (!path.extname(filePath)) filePath = filePath.replace(/\/?$/, '/index.html');
   const fullPath = path.join(__dirname, 'public', filePath);
   const ext = path.extname(fullPath);
   fs.readFile(fullPath, (err, data) => {
