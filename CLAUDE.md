@@ -24,6 +24,7 @@ node elo.js                      # full multi-season ELO → ratings_all.json
 node server.js                   # web UI at http://localhost:3000
 node scripts/migrate-to-supabase.js  # push all local JSON data to Supabase (re-runnable)
 node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management API
+/deploy                          # commit source changes with auto-generated message + push to main
 ```
 
 ## Match Predictor (`/predict`)
@@ -42,6 +43,8 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 
 ## Supabase
 
+- ⚠️ **Two-code-path architecture for stats:** `server.js` computes all stats in-memory (local dev only). Vercel reads from Supabase. When adding new player stats, update ALL FOUR: `buildPlayerStats()` in `server.js`, `buildPlayerStats()` in `scripts/migrate-to-supabase.js`, the Supabase schema (`node scripts/sql.js "ALTER TABLE york_player_stats ADD COLUMN IF NOT EXISTS ..."`), and `api/player/[name].js`. Then re-run the migration.
+- `york_player_stats` JSONB columns: `best_partner`, `worst_partner`, `nemesis`, `nemesis_pair`, `nemesis_club`, `best_club`
 - Tables: `york_players`, `york_match_history`, `york_player_stats`, `york_aliases`
 - Default row cap is 1000 — use `.range(from, from+999)` pagination loop for full leaderboard (1830+ players)
 - Management API (`api.supabase.com`) requires personal access token (`SUPABASE_ACCESS_TOKEN`), not the service key. Returns 200 or 201 on success.
@@ -95,6 +98,12 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
    - Fixture IDs in 2021 data start with "2020" — correct, just the league's internal numbering
 2. **Phase 1d:** TODO — live scrape trigger for new 2025 results mid-season
 3. **Phase 2:** TODO — Mixed League (MyDivision.com), unified cross-league ELO
+
+## Playwright (UI Testing)
+
+- The Playwright MCP plugin uses system Chrome — must quit Chrome fully (Cmd+Q, not just close windows) before use, otherwise fails with "Opening in existing browser session"
+- Screenshots land in project root — already gitignored via `*.png`
+- Use `https://york-elo.vercel.app` for testing pages that 404 locally (e.g. `/predict`)
 
 ## Known Issues & Open Questions
 
