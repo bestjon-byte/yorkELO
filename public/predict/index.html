@@ -365,12 +365,14 @@ function getPool(slotKey, query) {
   const q     = query.toLowerCase().trim();
   const group = slotGroup[slotKey];
   let pool    = allPlayers;
-  if      (group === 'home'     && clubFilters.home)            pool = allPlayers.filter(p => p.club === clubFilters.home);
-  else if (group === 'away'     && clubFilters.away)            pool = allPlayers.filter(p => p.club === clubFilters.away);
-  else if (group === 'rubber'   && clubFilters.rubber.size > 0) pool = allPlayers.filter(p => clubFilters.rubber.has(p.club));
-  else if (group === 'rotation' && clubFilters.rotation.size > 0) pool = allPlayers.filter(p => clubFilters.rotation.has(p.club));
+  let filtered = false;
+  if      (group === 'home'     && clubFilters.home)              { pool = allPlayers.filter(p => p.club === clubFilters.home);             filtered = true; }
+  else if (group === 'away'     && clubFilters.away)              { pool = allPlayers.filter(p => p.club === clubFilters.away);             filtered = true; }
+  else if (group === 'rubber'   && clubFilters.rubber.size > 0)   { pool = allPlayers.filter(p => clubFilters.rubber.has(p.club));          filtered = true; }
+  else if (group === 'rotation' && clubFilters.rotation.size > 0) { pool = allPlayers.filter(p => clubFilters.rotation.has(p.club));       filtered = true; }
   if (q) return pool.filter(p => p.name.toLowerCase().includes(q)).slice(0, 12);
-  return pool.slice(0, 10);
+  // When a club filter is active show all matching players; otherwise cap at 10 as a hint
+  return filtered ? pool : pool.slice(0, 10);
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
