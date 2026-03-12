@@ -185,6 +185,55 @@ nav a.active {
   border-radius: 10px; flex-shrink: 0; font-variant-numeric: tabular-nums;
 }
 
+/* ── Ringer badges ── */
+.ringer-badge {
+  font-size: 0.62rem; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+  letter-spacing: .04em; cursor: pointer; border: none; flex-shrink: 0;
+  text-transform: uppercase; transition: opacity .15s;
+}
+.ringer-badge:hover { opacity: .8; }
+.ringer-badge.ringer  { background: rgba(251,191,36,.15); color: #fbbf24; border: 1px solid rgba(251,191,36,.35); }
+.ringer-badge.cheating { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.4); animation: pulse-red 2s infinite; }
+@keyframes pulse-red { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); } 50% { box-shadow: 0 0 0 4px rgba(239,68,68,0); } }
+
+/* ── Ringer modal ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 100;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px; max-width: 420px; width: 90%;
+  position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  background: none; border: none; color: var(--muted);
+  font-size: 1.2rem; cursor: pointer; padding: 4px 8px; border-radius: 4px;
+}
+.modal-close:hover { color: var(--text); background: var(--border); }
+.modal-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.modal-subtitle { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; }
+.modal-verdict {
+  font-size: 0.8rem; font-weight: 700; padding: 10px 14px;
+  border-radius: 8px; margin-bottom: 14px; line-height: 1.4;
+}
+.modal-verdict.cheating { background: rgba(239,68,68,.12); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+.modal-verdict.ringer   { background: rgba(251,191,36,.10); color: #fbbf24; border: 1px solid rgba(251,191,36,.25); }
+.modal-team-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 8px; margin-bottom: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.modal-team-row.higher { border-color: rgba(239,68,68,.3); }
+.modal-team-row.current { border-color: rgba(109,90,205,.3); }
+.modal-team-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.modal-team-name { font-weight: 700; }
+.modal-team-stats { margin-left: auto; font-size: 0.75rem; color: var(--muted); text-align: right; }
+
 .expand-btn {
   display: flex; align-items: center; justify-content: center; gap: 5px;
   width: 100%; padding: 9px; background: none; border: none;
@@ -267,6 +316,14 @@ nav a.active {
 
 <div class="main" id="main">
   <div class="loading"><div class="spinner"></div> Loading team data…</div>
+</div>
+
+<!-- Ringer detail modal -->
+<div class="modal-overlay" id="ringerOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="ringerClose">&#10005;</button>
+    <div id="ringerModalBody"></div>
+  </div>
 </div>
 
 <script>
@@ -449,19 +506,96 @@ function renderTeamCard(team, rank) {
     </div>`;
 }
 
+// ── Ringer store: keyed by player name, populated during render ────────────
+const ringerStore = {};
+
 function renderPlayerRow(player, rank) {
   const col = ratingColor(player.rating);
   const wrCls = wrClass(player.winRate);
   const wrLabel = player.winRate != null ? player.winRate + '%' : '—';
+
+  let ringerBadge = '';
+  if (player.ringerInfo) {
+    const key = player.name;
+    ringerStore[key] = player.ringerInfo;
+    const cls = player.ringerInfo.isCheating ? 'cheating' : 'ringer';
+    const label = player.ringerInfo.isCheating ? 'CHEAT!' : 'RINGER';
+    ringerBadge = `<button class="ringer-badge ${cls}" data-player="${player.name.replace(/"/g, '&quot;')}">${label}</button>`;
+  }
+
   return `
     <div class="player-row">
       <span class="player-rank">${rank}</span>
       <a class="player-name-link" href="/?player=${encodeURIComponent(player.name)}">${player.name}</a>
+      ${ringerBadge}
       <span class="player-appearances">${player.appearances}g</span>
       <span class="player-wr ${wrCls}">${wrLabel}</span>
       <span class="player-rating-pill" style="background:${col}22;color:${col};border:1px solid ${col}44">${player.rating}</span>
     </div>`;
 }
+
+// ── Ringer modal ───────────────────────────────────────────────────────────
+function showRingerModal(playerName, currentTeam, currentDivision) {
+  const ri = ringerStore[playerName];
+  if (!ri) return;
+
+  const p = ri.primary;
+  const cheating = ri.isCheating;
+  const verdict = cheating
+    ? `RULE VIOLATION — ${p.appearances >= 3 ? p.team : ri.allInstances.find(t => t.isCheating).team} had ${ri.allInstances.find(t => t.isCheating).appearances} games (3+ = ineligible to play down)`
+    : `Playing down — fewer than 3 games for higher team so technically eligible, but rated significantly higher`;
+
+  const higherRows = ri.allInstances.map(inst => `
+    <div class="modal-team-row higher">
+      <div>
+        <div class="modal-team-label">Higher team</div>
+        <div class="modal-team-name">${inst.team}</div>
+      </div>
+      <div class="modal-team-stats">
+        Div ${inst.division} &nbsp;·&nbsp; ${inst.appearances} game${inst.appearances !== 1 ? 's' : ''} in ${inst.season}
+        ${inst.isCheating ? '<br><span style="color:#f87171;font-weight:700">3+ games — INELIGIBLE</span>' : ''}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('ringerModalBody').innerHTML = `
+    <div class="modal-title">${playerName}</div>
+    <div class="modal-subtitle">Flagged as ${cheating ? 'CHEAT' : 'RINGER'} for ${currentTeam} (Div ${currentDivision})</div>
+    <div class="modal-verdict ${cheating ? 'cheating' : 'ringer'}">${verdict}</div>
+    ${higherRows}
+    <div class="modal-team-row current" style="margin-top:8px">
+      <div>
+        <div class="modal-team-label">Playing down for</div>
+        <div class="modal-team-name">${currentTeam}</div>
+      </div>
+      <div class="modal-team-stats">Div ${currentDivision}</div>
+    </div>`;
+
+  document.getElementById('ringerOverlay').classList.add('open');
+}
+
+// Wire ringer badge clicks via event delegation on the main content area
+document.addEventListener('click', e => {
+  const badge = e.target.closest('.ringer-badge');
+  if (badge) {
+    const playerName = badge.dataset.player;
+    // Find which team card this badge is in
+    const card = badge.closest('.team-card');
+    const teamName = card ? card.querySelector('.card-team-name').textContent : '?';
+    const divBadgeEl = card ? card.querySelector('.div-badge') : null;
+    const divMatch = divBadgeEl ? divBadgeEl.textContent.match(/\d+/) : null;
+    const divNum = divMatch ? parseInt(divMatch[0]) : '?';
+    showRingerModal(playerName, teamName, divNum);
+  }
+
+  // Close modal on overlay click
+  if (e.target === document.getElementById('ringerOverlay')) {
+    document.getElementById('ringerOverlay').classList.remove('open');
+  }
+});
+
+document.getElementById('ringerClose').addEventListener('click', () => {
+  document.getElementById('ringerOverlay').classList.remove('open');
+});
 
 // ── Expand / collapse ─────────────────────────────────────────────────────
 function toggleExpand(btn) {

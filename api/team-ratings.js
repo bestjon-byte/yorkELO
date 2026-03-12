@@ -35,18 +35,54 @@ async function fetchPlayers(supabase) {
   return { rows, error: null };
 }
 
+// Detect ringer status for a player appearing in a given team.
+// A ringer is someone who also played for a higher-division team in the SAME season.
+// Cheating = they had 3+ games for the higher team (league eligibility rule).
+function getRingerInfo(pname, teamName, teamDivision, playerSeasonTeams) {
+  const seasonTeams = playerSeasonTeams[pname];
+  if (!seasonTeams || teamDivision == null) return null;
+
+  const instances = [];
+  for (const [season, teamMap] of Object.entries(seasonTeams)) {
+    if (!teamMap.has(teamName)) continue; // didn't play for this team in this season
+    for (const [otherTeam, otherData] of teamMap.entries()) {
+      if (otherTeam === teamName) continue;
+      if (otherData.division != null && otherData.division < teamDivision) {
+        instances.push({
+          team: otherTeam,
+          division: otherData.division,
+          appearances: otherData.appearances,
+          season: parseInt(season),
+          isCheating: otherData.appearances >= 3,
+        });
+      }
+    }
+  }
+
+  if (instances.length === 0) return null;
+
+  // Sort: cheating instances first, then by appearances desc
+  instances.sort((a, b) =>
+    (b.isCheating ? 1 : 0) - (a.isCheating ? 1 : 0) || b.appearances - a.appearances
+  );
+
+  return {
+    primary: instances[0],
+    allInstances: instances,
+    isCheating: instances.some(t => t.isCheating),
+  };
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 
   const query = req.query || Object.fromEntries(new URL(req.url, 'http://localhost').searchParams);
 
-  // seasonCount: how many recent seasons to include (0 = all time)
   const rawSeasons = query.seasons !== undefined ? parseInt(query.seasons) : 2;
   const seasonCount = Math.min(Math.max(isNaN(rawSeasons) ? 2 : rawSeasons, 0), ALL_SEASONS.length);
   const minAppearances = Math.min(Math.max(parseInt(query.minAppearances) || 3, 1), 100);
 
-  // Determine which seasons to include
   const includedSeasons = seasonCount === 0
     ? ALL_SEASONS
     : ALL_SEASONS.slice(-seasonCount);
@@ -66,10 +102,14 @@ module.exports = async (req, res) => {
   const ratingMap = {};
   for (const p of playerRows) ratingMap[p.name] = p.rating;
 
-  // Aggregate by team
+  // Build team aggregation AND per-player-per-season team map for ringer detection
   const teamData = {};
+  const playerSeasonTeams = {}; // playerName → season → Map<teamName, {division, appearances}>
+
   for (const r of historyRows) {
     if (!r.team || !r.player_name) continue;
+
+    // Team aggregation
     if (!teamData[r.team]) {
       teamData[r.team] = { players: new Map(), wins: 0, losses: 0, draws: 0, division: r.division || null };
     }
@@ -82,6 +122,15 @@ module.exports = async (req, res) => {
     if (r.result === 'W')      { pd.wins++;   td.wins++;   }
     else if (r.result === 'L') { pd.losses++; td.losses++; }
     else if (r.result === 'D') { pd.draws++;  td.draws++;  }
+
+    // Ringer detection: track per player, per season, per team
+    if (r.season) {
+      if (!playerSeasonTeams[r.player_name]) playerSeasonTeams[r.player_name] = {};
+      if (!playerSeasonTeams[r.player_name][r.season]) playerSeasonTeams[r.player_name][r.season] = new Map();
+      const sm = playerSeasonTeams[r.player_name][r.season];
+      if (!sm.has(r.team)) sm.set(r.team, { division: r.division || null, appearances: 0 });
+      sm.get(r.team).appearances++;
+    }
   }
 
   // Build output
@@ -92,6 +141,9 @@ module.exports = async (req, res) => {
       if (pdata.appearances < minAppearances) continue;
       const currentRating = ratingMap[pname];
       if (currentRating == null) continue;
+
+      const ringerInfo = getRingerInfo(pname, teamName, td.division, playerSeasonTeams);
+
       playerList.push({
         name: pname,
         rating: Math.round(currentRating),
@@ -99,6 +151,7 @@ module.exports = async (req, res) => {
         winRate: pdata.appearances > 0
           ? Math.round(((pdata.wins + 0.5 * pdata.draws) / pdata.appearances) * 100)
           : null,
+        ringerInfo: ringerInfo || null,
       });
     }
     if (playerList.length === 0) continue;
