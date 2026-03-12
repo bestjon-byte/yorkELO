@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>York Mens Tennis — Club Tracking</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d14;
+  --surface: #13131f;
+  --border:  #1f1f32;
+  --text:    #e2e2f0;
+  --muted:   #6b6b8a;
+  --accent:  #6d5acd;
+  --win:     #22c55e;
+  --loss:    #ef4444;
+  --draw:    #94a3b8;
+}
+
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #0d0d14 0%, #1a1030 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 24px;
+  display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px;
+}
+header > div { flex: 1; min-width: 0; }
+header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+header h1 span { color: var(--accent); }
+header p { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+header nav { display: flex; align-items: center; gap: 6px; padding-top: 6px; }
+nav a {
+  color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border);
+  transition: all .15s;
+}
+nav a:hover { color: var(--text); border-color: rgba(109,90,205,0.4); }
+nav a.active {
+  color: var(--accent); border-color: rgba(109,90,205,0.4);
+  background: rgba(109,90,205,0.1); font-weight: 600;
+}
+
+/* ── Controls ── */
+.controls {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  padding: 14px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.ctrl-label {
+  font-size: 0.75rem; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .07em; white-space: nowrap;
+}
+.btn-group { display: flex; gap: 4px; }
+.tog-btn {
+  padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font-size: 0.78rem;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.tog-btn:hover { border-color: var(--accent); color: var(--text); }
+.tog-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ctrl-sep { width: 1px; background: var(--border); align-self: stretch; margin: 2px 4px; }
+.count-badge {
+  margin-left: auto; font-size: 0.78rem; color: var(--muted);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 28px; height: 28px; border: 3px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading { display: flex; align-items: center; gap: 12px; padding: 60px; color: var(--muted); justify-content: center; }
+
+/* ── Main content ── */
+.main { flex: 1; padding: 28px 32px; max-width: 1400px; width: 100%; margin: 0 auto; }
+
+/* ── Division section ── */
+.div-section { margin-bottom: 40px; }
+.div-heading {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.div-heading h2 { font-size: 1.05rem; font-weight: 700; }
+.div-badge {
+  display: inline-block; padding: 3px 9px; border-radius: 5px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: .04em;
+}
+.div-count { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+
+/* ── Team cards grid ── */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* ── Team card ── */
+.team-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+}
+.team-card:hover { border-color: rgba(109,90,205,.35); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+
+.card-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.card-header-left { flex: 1; min-width: 0; }
+.card-team-name {
+  font-size: 1rem; font-weight: 700; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.card-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; flex-wrap: wrap; }
+.card-rubbers { font-size: 0.75rem; color: var(--muted); }
+
+.card-rating-block { text-align: right; flex-shrink: 0; }
+.card-avg-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+.card-avg-val { font-size: 1.75rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.card-top-label { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+.card-top-val { font-size: 0.82rem; font-weight: 600; }
+
+.card-stats {
+  padding: 10px 18px;
+  display: flex; gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.mini-stat { flex: 1; text-align: center; }
+.mini-stat-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.mini-stat-val { font-size: 0.9rem; font-weight: 700; margin-top: 2px; }
+
+/* Rating bar under avg */
+.avg-bar-wrap {
+  padding: 0 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.avg-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.avg-bar-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
+
+/* ── Player list ── */
+.player-list { padding: 0; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px;
+  border-bottom: 1px solid rgba(31,31,50,.8);
+  transition: background .1s;
+}
+.player-row:last-child { border-bottom: none; }
+.player-row:hover { background: rgba(109,90,205,.07); }
+
+.player-rank {
+  font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums;
+  width: 18px; text-align: center; flex-shrink: 0;
+}
+.player-name-link {
+  flex: 1; font-size: 0.85rem; color: var(--text);
+  text-decoration: none; font-weight: 500; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.player-name-link:hover { color: #a78bfa; text-decoration: underline; }
+.player-appearances {
+  font-size: 0.72rem; color: var(--muted); white-space: nowrap; flex-shrink: 0;
+}
+.player-wr {
+  font-size: 0.72rem; font-weight: 600; white-space: nowrap;
+  flex-shrink: 0; min-width: 38px; text-align: right;
+}
+.player-rating-pill {
+  font-size: 0.72rem; font-weight: 700; padding: 2px 7px;
+  border-radius: 10px; flex-shrink: 0; font-variant-numeric: tabular-nums;
+}
+
+.expand-btn {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  width: 100%; padding: 9px; background: none; border: none;
+  border-top: 1px solid var(--border); color: var(--muted);
+  font-size: 0.75rem; cursor: pointer; transition: all .15s;
+}
+.expand-btn:hover { color: var(--accent); background: rgba(109,90,205,.06); }
+.expand-arrow { transition: transform .2s; display: inline-block; }
+.expand-btn.open .expand-arrow { transform: rotate(180deg); }
+
+/* ── Empty state ── */
+.empty {
+  text-align: center; padding: 60px 32px; color: var(--muted);
+}
+.empty h3 { font-size: 1rem; margin-bottom: 6px; }
+.empty p { font-size: 0.85rem; }
+
+/* ── Win rate colouring ── */
+.wr-good { color: var(--win); }
+.wr-ok   { color: #facc15; }
+.wr-bad  { color: var(--loss); }
+
+@media (max-width: 640px) {
+  header { padding: 20px 16px 18px; }
+  .controls { padding: 12px 16px; }
+  .main { padding: 16px; }
+  .teams-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>York Mens Tennis — <span>Club Tracking</span></h1>
+    <p id="subtitle">Team strength ratings for 2026 planning</p>
+  </div>
+  <nav>
+    <a href="/">Leaderboard</a>
+    <a href="/clubs" class="active">Clubs</a>
+    <a href="/predict">Predictor</a>
+  </nav>
+</header>
+
+<div class="controls">
+  <span class="ctrl-label">Lookback</span>
+  <div class="btn-group" id="monthsBtns">
+    <button class="tog-btn" data-months="6">6 mo</button>
+    <button class="tog-btn active" data-months="12">12 mo</button>
+    <button class="tog-btn" data-months="24">24 mo</button>
+    <button class="tog-btn" data-months="36">All</button>
+  </div>
+
+  <div class="ctrl-sep"></div>
+
+  <span class="ctrl-label">Min games</span>
+  <div class="btn-group" id="minAppBtns">
+    <button class="tog-btn active" data-min="3">3+</button>
+    <button class="tog-btn" data-min="6">6+</button>
+    <button class="tog-btn" data-min="9">9+</button>
+  </div>
+
+  <div class="ctrl-sep"></div>
+
+  <span class="ctrl-label">Division</span>
+  <div class="btn-group" id="divBtns">
+    <button class="tog-btn active" data-div="0">All</button>
+    <button class="tog-btn" data-div="1">D1</button>
+    <button class="tog-btn" data-div="2">D2</button>
+    <button class="tog-btn" data-div="3">D3</button>
+    <button class="tog-btn" data-div="4">D4</button>
+    <button class="tog-btn" data-div="5">D5</button>
+    <button class="tog-btn" data-div="6">D6</button>
+    <button class="tog-btn" data-div="7">D7</button>
+    <button class="tog-btn" data-div="8">D8</button>
+  </div>
+
+  <div class="count-badge" id="countBadge">—</div>
+</div>
+
+<div class="main" id="main">
+  <div class="loading"><div class="spinner"></div> Loading team data…</div>
+</div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────
+let allTeams = [];
+let months = 12;
+let minAppearances = 3;
+let divFilter = 0; // 0 = all
+
+// ── Colour helpers ─────────────────────────────────────────────────────────
+function ratingColor(r) {
+  if (r >= 2000) return '#f5a623';
+  if (r >= 1700) return '#6d5acd';
+  if (r >= 1400) return '#3b82f6';
+  if (r >= 1100) return '#10b981';
+  return '#64748b';
+}
+
+function divColor(d) {
+  const cols = ['','#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899'];
+  return cols[d] || '#64748b';
+}
+
+function wrClass(wr) {
+  if (wr == null) return '';
+  if (wr >= 60) return 'wr-good';
+  if (wr >= 40) return 'wr-ok';
+  return 'wr-bad';
+}
+
+// Rating bar width: map 900–2000 → 10–100%
+function ratingBarWidth(r) {
+  return Math.min(100, Math.max(10, ((r - 900) / (2000 - 900)) * 90 + 10));
+}
+
+// ── Fetch ──────────────────────────────────────────────────────────────────
+async function load() {
+  document.getElementById('main').innerHTML =
+    '<div class="loading"><div class="spinner"></div> Loading team data…</div>';
+
+  try {
+    const res = await fetch(`/api/team-ratings?months=${months}&minAppearances=${minAppearances}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    allTeams = data.teams || [];
+    document.getElementById('subtitle').textContent =
+      `Team strength ratings · last ${data.months} months · min ${data.minAppearances} games per player · since ${data.cutoffDate}`;
+    render();
+  } catch (e) {
+    document.getElementById('main').innerHTML =
+      `<div class="empty"><h3>Failed to load</h3><p>${e.message}</p></div>`;
+  }
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function render() {
+  const teams = divFilter
+    ? allTeams.filter(t => t.division === divFilter)
+    : allTeams;
+
+  document.getElementById('countBadge').textContent =
+    `${teams.length} team${teams.length !== 1 ? 's' : ''}`;
+
+  if (teams.length === 0) {
+    document.getElementById('main').innerHTML = `
+      <div class="empty">
+        <h3>No teams found</h3>
+        <p>Try extending the lookback window or lowering the minimum games filter.</p>
+      </div>`;
+    return;
+  }
+
+  // Group by division
+  const byDiv = {};
+  for (const t of teams) {
+    const d = t.division || 0;
+    if (!byDiv[d]) byDiv[d] = [];
+    byDiv[d].push(t);
+  }
+
+  const html = Object.entries(byDiv)
+    .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+    .map(([div, divTeams]) => renderDivSection(parseInt(div), divTeams))
+    .join('');
+
+  document.getElementById('main').innerHTML = html;
+
+  // Wire expand buttons
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleExpand(btn));
+  });
+}
+
+function renderDivSection(div, teams) {
+  const col = divColor(div);
+  const divLabel = div ? `Division ${div}` : 'Unknown Division';
+  const badgeStyle = `background:${col}22;color:${col};border:1px solid ${col}44`;
+
+  return `
+    <div class="div-section">
+      <div class="div-heading">
+        <h2>${divLabel}</h2>
+        <span class="div-badge" style="${badgeStyle}">Div ${div || '?'}</span>
+        <span class="div-count">${teams.length} teams</span>
+      </div>
+      <div class="teams-grid">
+        ${teams.map((t, i) => renderTeamCard(t, i + 1)).join('')}
+      </div>
+    </div>`;
+}
+
+function renderTeamCard(team, rank) {
+  const col = ratingColor(team.avgRating);
+  const topCol = ratingColor(team.topRating);
+  const dCol = divColor(team.division);
+  const barW = ratingBarWidth(team.avgRating);
+  const wrCls = wrClass(team.winRate);
+  const divBadge = team.division
+    ? `<span class="div-badge" style="background:${dCol}22;color:${dCol};border:1px solid ${dCol}44">Div ${team.division}</span>` : '';
+
+  // Show top 4 players initially, rest hidden
+  const PREVIEW = 4;
+  const preview = team.players.slice(0, PREVIEW);
+  const rest = team.players.slice(PREVIEW);
+
+  return `
+    <div class="team-card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-team-name">${team.name}</div>
+          <div class="card-meta">
+            ${divBadge}
+            <span class="card-rubbers">${team.totalRubbers} rubbers</span>
+          </div>
+        </div>
+        <div class="card-rating-block">
+          <div class="card-avg-label">Avg Rating</div>
+          <div class="card-avg-val" style="color:${col}">${team.avgRating}</div>
+          <div class="card-top-label">Top player</div>
+          <div class="card-top-val" style="color:${topCol}">${team.topRating}</div>
+        </div>
+      </div>
+
+      <div class="avg-bar-wrap">
+        <div class="avg-bar-track">
+          <div class="avg-bar-fill" style="width:${barW}%;background:${col}"></div>
+        </div>
+      </div>
+
+      <div class="card-stats">
+        <div class="mini-stat">
+          <div class="mini-stat-label">Win Rate</div>
+          <div class="mini-stat-val ${wrCls}">${team.winRate != null ? team.winRate + '%' : '—'}</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-label">Squad Size</div>
+          <div class="mini-stat-val">${team.playerCount}</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-label">Rank in Div</div>
+          <div class="mini-stat-val">#${rank}</div>
+        </div>
+      </div>
+
+      <div class="player-list">
+        ${preview.map((p, i) => renderPlayerRow(p, i + 1)).join('')}
+        ${rest.length > 0 ? `
+          <div class="player-list-extra" style="display:none">
+            ${rest.map((p, i) => renderPlayerRow(p, PREVIEW + i + 1)).join('')}
+          </div>
+          <button class="expand-btn">
+            <span class="expand-arrow">▼</span>
+            Show ${rest.length} more player${rest.length !== 1 ? 's' : ''}
+          </button>
+        ` : ''}
+      </div>
+    </div>`;
+}
+
+function renderPlayerRow(player, rank) {
+  const col = ratingColor(player.rating);
+  const wrCls = wrClass(player.winRate);
+  const wrLabel = player.winRate != null ? player.winRate + '%' : '—';
+  return `
+    <div class="player-row">
+      <span class="player-rank">${rank}</span>
+      <a class="player-name-link" href="/?player=${encodeURIComponent(player.name)}">${player.name}</a>
+      <span class="player-appearances">${player.appearances}g</span>
+      <span class="player-wr ${wrCls}">${wrLabel}</span>
+      <span class="player-rating-pill" style="background:${col}22;color:${col};border:1px solid ${col}44">${player.rating}</span>
+    </div>`;
+}
+
+// ── Expand / collapse ─────────────────────────────────────────────────────
+function toggleExpand(btn) {
+  const extra = btn.previousElementSibling;
+  const isOpen = btn.classList.contains('open');
+  if (isOpen) {
+    extra.style.display = 'none';
+    btn.classList.remove('open');
+    btn.innerHTML = `<span class="expand-arrow">▼</span> Show ${extra.children.length} more player${extra.children.length !== 1 ? 's' : ''}`;
+  } else {
+    extra.style.display = 'block';
+    btn.classList.add('open');
+    btn.innerHTML = `<span class="expand-arrow expand-btn-open" style="display:inline-block;transform:rotate(180deg)">▼</span> Hide extra players`;
+  }
+}
+
+// ── Controls ───────────────────────────────────────────────────────────────
+function wireBtnGroup(containerId, onSelect) {
+  document.getElementById(containerId).addEventListener('click', e => {
+    const btn = e.target.closest('.tog-btn');
+    if (!btn) return;
+    document.querySelectorAll(`#${containerId} .tog-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    onSelect(btn);
+  });
+}
+
+wireBtnGroup('monthsBtns', btn => {
+  months = parseInt(btn.dataset.months);
+  load();
+});
+
+wireBtnGroup('minAppBtns', btn => {
+  minAppearances = parseInt(btn.dataset.min);
+  load();
+});
+
+wireBtnGroup('divBtns', btn => {
+  divFilter = parseInt(btn.dataset.div);
+  render(); // no reload needed — div filter is client-side
+});
+
+// ── Deep-link: open player panel on leaderboard via ?player= ─────────────
+// (The leaderboard page handles this; we just navigate there)
+
+// ── Init ───────────────────────────────────────────────────────────────────
+load();
+</script>
+</body>
+</html>

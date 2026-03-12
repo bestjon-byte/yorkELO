@@ -2,6 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+require('dotenv').config({ path: '.env.local' });
+const { createClient } = require('@supabase/supabase-js');
 
 const PORT = process.env.PORT || 3000;
 const ALIASES_FILE = 'player-aliases.json';
@@ -300,6 +302,12 @@ const server = http.createServer((req, res) => {
       history: enrichedHistory,
     }));
     return;
+  }
+
+  if (pathname === '/api/team-ratings') {
+    // Supabase-backed: same logic as api/team-ratings.js so local dev uses live data
+    const teamRatingsHandler = require('./api/team-ratings');
+    return teamRatingsHandler(req, res);
   }
 
   // Static files from public/ — directory paths serve index.html (mirrors Vercel behaviour)
