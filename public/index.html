@@ -405,6 +405,10 @@ async function init() {
   buildDivFilters();
   buildClubFilter(data.clubs);
   applyFilters();
+
+  // Deep-link: open player panel if ?player=Name in URL
+  const deepLink = new URLSearchParams(window.location.search).get('player');
+  if (deepLink) openPanel(deepLink);
 }
 
 // ---------------------------------------------------------------------------
