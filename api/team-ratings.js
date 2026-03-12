@@ -1,20 +1,32 @@
 const { createClient } = require('@supabase/supabase-js');
 
-function parseDate(str) {
-  return str ? new Date(str) : null;
-}
+// Known seasons in ascending order — update when a new season is scraped
+const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025];
 
-function extractDivision(teamName) {
-  const m = teamName && teamName.match(/\s(\d+)$/);
-  return m ? parseInt(m[1]) : null;
-}
-
-async function fetchAllRows(supabase, table, columns, filters = {}) {
+async function fetchHistory(supabase, minSeason) {
   let rows = [], from = 0;
   while (true) {
-    let q = supabase.from(table).select(columns).range(from, from + 999);
-    for (const [col, val] of Object.entries(filters)) q = q.gte(col, val);
+    let q = supabase
+      .from('york_match_history')
+      .select('player_name, team, season, result, division')
+      .range(from, from + 999);
+    if (minSeason != null) q = q.gte('season', minSeason);
     const { data, error } = await q;
+    if (error) return { rows: null, error };
+    rows.push(...data);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return { rows, error: null };
+}
+
+async function fetchPlayers(supabase) {
+  let rows = [], from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from('york_players')
+      .select('name, rating')
+      .range(from, from + 999);
     if (error) return { rows: null, error };
     rows.push(...data);
     if (data.length < 1000) break;
@@ -27,61 +39,36 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 
-  // Support both Vercel (req.query) and plain Node HTTP (parse URL ourselves)
   const query = req.query || Object.fromEntries(new URL(req.url, 'http://localhost').searchParams);
-  const months = Math.min(Math.max(parseInt(query.months) || 12, 1), 60);
+
+  // seasonCount: how many recent seasons to include (0 = all time)
+  const rawSeasons = query.seasons !== undefined ? parseInt(query.seasons) : 2;
+  const seasonCount = Math.min(Math.max(isNaN(rawSeasons) ? 2 : rawSeasons, 0), ALL_SEASONS.length);
   const minAppearances = Math.min(Math.max(parseInt(query.minAppearances) || 3, 1), 100);
 
-  const cutoff = new Date();
-  cutoff.setMonth(cutoff.getMonth() - months);
-
-  // Only fetch seasons that could overlap with the lookback window.
-  // Seasons run ~Apr-Sep, so season Y ends around Sep Y.
-  // For a cutoff of e.g. Mar 2025, season 2024 (ending Sep 2024) is within range.
-  const cutoffYear = cutoff.getFullYear() - 1; // be generous: include one extra year
+  // Determine which seasons to include
+  const includedSeasons = seasonCount === 0
+    ? ALL_SEASONS
+    : ALL_SEASONS.slice(-seasonCount);
+  const minSeason = seasonCount === 0 ? null : includedSeasons[0];
 
   const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_SERVICE_KEY
   );
 
-  // Fetch match history for relevant seasons (include division so we use real league division, not team suffix)
-  const { rows: historyRows, error: histErr } = await fetchAllRows(
-    supabase,
-    'york_match_history',
-    'player_name, team, date, season, result, division',
-    { season: cutoffYear }
-  );
-  if (histErr) {
-    res.statusCode = 500;
-    res.end(JSON.stringify({ error: histErr.message }));
-    return;
-  }
+  const [{ rows: historyRows, error: histErr }, { rows: playerRows, error: playerErr }] =
+    await Promise.all([fetchHistory(supabase, minSeason), fetchPlayers(supabase)]);
 
-  // Fetch current player ratings
-  const { rows: playerRows, error: playerErr } = await fetchAllRows(
-    supabase,
-    'york_players',
-    'name, rating'
-  );
-  if (playerErr) {
-    res.statusCode = 500;
-    res.end(JSON.stringify({ error: playerErr.message }));
-    return;
-  }
+  if (histErr) { res.statusCode = 500; res.end(JSON.stringify({ error: histErr.message })); return; }
+  if (playerErr) { res.statusCode = 500; res.end(JSON.stringify({ error: playerErr.message })); return; }
 
   const ratingMap = {};
   for (const p of playerRows) ratingMap[p.name] = p.rating;
 
-  // Filter history to exact date window
-  const filtered = historyRows.filter(r => {
-    const d = parseDate(r.date);
-    return d && d >= cutoff;
-  });
-
   // Aggregate by team
   const teamData = {};
-  for (const r of filtered) {
+  for (const r of historyRows) {
     if (!r.team || !r.player_name) continue;
     if (!teamData[r.team]) {
       teamData[r.team] = { players: new Map(), wins: 0, losses: 0, draws: 0, division: r.division || null };
@@ -114,11 +101,9 @@ module.exports = async (req, res) => {
           : null,
       });
     }
-
     if (playerList.length === 0) continue;
 
     playerList.sort((a, b) => b.rating - a.rating);
-
     const ratings = playerList.map(p => p.rating);
     const avgRating = Math.round(ratings.reduce((a, b) => a + b, 0) / ratings.length);
     const totalRubbers = td.wins + td.losses + td.draws;
@@ -141,9 +126,9 @@ module.exports = async (req, res) => {
 
   res.end(JSON.stringify({
     teams,
-    months,
+    seasonCount,
+    includedSeasons,
     minAppearances,
-    cutoffDate: cutoff.toISOString().split('T')[0],
     teamCount: teams.length,
   }));
 };

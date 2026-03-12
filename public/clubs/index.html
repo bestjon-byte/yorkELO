@@ -230,12 +230,12 @@ nav a.active {
 </header>
 
 <div class="controls">
-  <span class="ctrl-label">Lookback</span>
-  <div class="btn-group" id="monthsBtns">
-    <button class="tog-btn" data-months="6">6 mo</button>
-    <button class="tog-btn active" data-months="12">12 mo</button>
-    <button class="tog-btn" data-months="24">24 mo</button>
-    <button class="tog-btn" data-months="36">All</button>
+  <span class="ctrl-label">Seasons</span>
+  <div class="btn-group" id="seasonsBtns">
+    <button class="tog-btn" data-seasons="1">This season</button>
+    <button class="tog-btn active" data-seasons="2">This + last</button>
+    <button class="tog-btn" data-seasons="3">Last 3</button>
+    <button class="tog-btn" data-seasons="0">All time</button>
   </div>
 
   <div class="ctrl-sep"></div>
@@ -272,7 +272,7 @@ nav a.active {
 <script>
 // ── State ─────────────────────────────────────────────────────────────────
 let allTeams = [];
-let months = 12;
+let seasonCount = 2;
 let minAppearances = 3;
 let divFilter = 0; // 0 = all
 
@@ -308,12 +308,15 @@ async function load() {
     '<div class="loading"><div class="spinner"></div> Loading team data…</div>';
 
   try {
-    const res = await fetch(`/api/team-ratings?months=${months}&minAppearances=${minAppearances}`);
+    const res = await fetch(`/api/team-ratings?seasons=${seasonCount}&minAppearances=${minAppearances}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     allTeams = data.teams || [];
+    const seasonLabel = data.includedSeasons.length === 1
+      ? `${data.includedSeasons[0]} season`
+      : `${data.includedSeasons[0]}–${data.includedSeasons[data.includedSeasons.length - 1]} seasons`;
     document.getElementById('subtitle').textContent =
-      `Team strength ratings · last ${data.months} months · min ${data.minAppearances} games per player · since ${data.cutoffDate}`;
+      `Team strength ratings · ${seasonLabel} · min ${data.minAppearances} games per player`;
     render();
   } catch (e) {
     document.getElementById('main').innerHTML =
@@ -486,8 +489,8 @@ function wireBtnGroup(containerId, onSelect) {
   });
 }
 
-wireBtnGroup('monthsBtns', btn => {
-  months = parseInt(btn.dataset.months);
+wireBtnGroup('seasonsBtns', btn => {
+  seasonCount = parseInt(btn.dataset.seasons);
   load();
 });
 
