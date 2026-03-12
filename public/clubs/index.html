@@ -539,29 +539,42 @@ function showRingerModal(playerName, currentTeam, currentDivision) {
   const ri = ringerStore[playerName];
   if (!ri) return;
 
-  const p = ri.primary;
   const cheating = ri.isCheating;
-  const verdict = cheating
-    ? `RULE VIOLATION — ${p.appearances >= 3 ? p.team : ri.allInstances.find(t => t.isCheating).team} had ${ri.allInstances.find(t => t.isCheating).appearances} games (3+ = ineligible to play down)`
-    : `Playing down — fewer than 3 games for higher team so technically eligible, but rated significantly higher`;
 
-  const higherRows = ri.allInstances.map(inst => `
-    <div class="modal-team-row higher">
-      <div>
-        <div class="modal-team-label">Higher team</div>
-        <div class="modal-team-name">${inst.team}</div>
-      </div>
-      <div class="modal-team-stats">
-        Div ${inst.division} &nbsp;·&nbsp; ${inst.appearances} game${inst.appearances !== 1 ? 's' : ''} in ${inst.season}
-        ${inst.isCheating ? '<br><span style="color:#f87171;font-weight:700">3+ games — INELIGIBLE</span>' : ''}
-      </div>
-    </div>`).join('');
+  // Verdict line
+  let verdict;
+  if (cheating && ri.cheatTrigger) {
+    verdict = `Rule violation: had already played ${ri.cheatTrigger.countAtTime} match${ri.cheatTrigger.countAtTime !== 1 ? 'es' : ''} for `
+      + `${ri.cheatTrigger.team} (Div ${ri.cheatTrigger.division}) before appearing for this team — 3+ matches = ineligible to play down.`;
+  } else if (cheating) {
+    verdict = `Rule violation: played for a higher team 3+ times before playing for this team.`;
+  } else {
+    verdict = `Playing down — fewer than 3 matches for the higher team at time of selection, so technically eligible. Still a ringer.`;
+  }
+
+  // Season breakdown rows
+  const seasonRows = ri.allSeasons.map(s => {
+    const higherList = s.allHigherTeams
+      .map(t => `${t.team} (Div ${t.division}, ${t.matchCount} match${t.matchCount !== 1 ? 'es' : ''})`)
+      .join(', ');
+    const cheatNote = s.isCheating && s.cheatTrigger
+      ? `<br><span style="color:#f87171;font-weight:700">Had ${s.cheatTrigger.countAtTime} matches for ${s.cheatTrigger.team} before playing down</span>`
+      : '';
+    return `
+      <div class="modal-team-row ${s.isCheating ? 'higher' : ''}">
+        <div>
+          <div class="modal-team-label">${s.season} season — higher team${s.allHigherTeams.length > 1 ? 's' : ''}</div>
+          <div class="modal-team-name" style="font-size:0.8rem">${higherList}</div>
+        </div>
+        <div class="modal-team-stats">${s.isCheating ? 'INELIGIBLE' : 'eligible'}${cheatNote}</div>
+      </div>`;
+  }).join('');
 
   document.getElementById('ringerModalBody').innerHTML = `
     <div class="modal-title">${playerName}</div>
     <div class="modal-subtitle">Flagged as ${cheating ? 'CHEAT' : 'RINGER'} for ${currentTeam} (Div ${currentDivision})</div>
     <div class="modal-verdict ${cheating ? 'cheating' : 'ringer'}">${verdict}</div>
-    ${higherRows}
+    ${seasonRows}
     <div class="modal-team-row current" style="margin-top:8px">
       <div>
         <div class="modal-team-label">Playing down for</div>

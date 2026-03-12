@@ -8,7 +8,7 @@ async function fetchHistory(supabase, minSeason) {
   while (true) {
     let q = supabase
       .from('york_match_history')
-      .select('player_name, team, season, result, division')
+      .select('player_name, team, season, result, division, date, fixture_id')
       .range(from, from + 999);
     if (minSeason != null) q = q.gte('season', minSeason);
     const { data, error } = await q;
@@ -35,41 +35,121 @@ async function fetchPlayers(supabase) {
   return { rows, error: null };
 }
 
-// Detect ringer status for a player appearing in a given team.
-// A ringer is someone who also played for a higher-division team in the SAME season.
-// Cheating = they had 3+ games for the higher team (league eligibility rule).
-function getRingerInfo(pname, teamName, teamDivision, playerSeasonTeams) {
-  const seasonTeams = playerSeasonTeams[pname];
-  if (!seasonTeams || teamDivision == null) return null;
-
-  const instances = [];
-  for (const [season, teamMap] of Object.entries(seasonTeams)) {
-    if (!teamMap.has(teamName)) continue; // didn't play for this team in this season
-    for (const [otherTeam, otherData] of teamMap.entries()) {
-      if (otherTeam === teamName) continue;
-      if (otherData.division != null && otherData.division < teamDivision) {
-        instances.push({
-          team: otherTeam,
-          division: otherData.division,
-          appearances: otherData.appearances,
-          season: parseInt(season),
-          isCheating: otherData.appearances >= 3,
-        });
-      }
+// Build per-player per-season fixture list (one entry per distinct fixture, not per rubber).
+// Each fixture = one match = 3 rubbers, so we deduplicate by fixture_id.
+function buildPlayerFixtures(historyRows) {
+  // player → season → fixtureId → {team, division, date}
+  const pfMap = {};
+  for (const r of historyRows) {
+    if (!r.player_name || !r.team || !r.fixture_id || !r.season || !r.date) continue;
+    if (!pfMap[r.player_name]) pfMap[r.player_name] = {};
+    if (!pfMap[r.player_name][r.season]) pfMap[r.player_name][r.season] = new Map();
+    const fid = String(r.fixture_id);
+    if (!pfMap[r.player_name][r.season].has(fid)) {
+      pfMap[r.player_name][r.season].set(fid, {
+        team: r.team,
+        division: r.division,
+        date: r.date,
+        ts: new Date(r.date).getTime(),
+      });
     }
   }
 
-  if (instances.length === 0) return null;
+  // Convert to sorted arrays per player per season
+  const result = {};
+  for (const [player, seasons] of Object.entries(pfMap)) {
+    result[player] = {};
+    for (const [season, fixtureMap] of Object.entries(seasons)) {
+      result[player][season] = [...fixtureMap.values()].sort((a, b) => a.ts - b.ts);
+    }
+  }
+  return result;
+}
 
-  // Sort: cheating instances first, then by appearances desc
-  instances.sort((a, b) =>
-    (b.isCheating ? 1 : 0) - (a.isCheating ? 1 : 0) || b.appearances - a.appearances
-  );
+// Detect ringer/cheat status for a player in a lower-division team.
+// Rule: once a player has played 3+ MATCHES (fixtures) for a higher-division
+// team in the same season, they are ineligible to play down.
+// - RINGER:  played for both teams in same season, but never illegally
+// - CHEAT:   played for the lower team AFTER accumulating 3+ matches for higher team
+function getRingerInfo(pname, teamName, teamDivision, playerFixtures) {
+  const seasonData = playerFixtures[pname];
+  if (!seasonData || teamDivision == null) return null;
+
+  const seasonResults = [];
+
+  for (const [season, fixtures] of Object.entries(seasonData)) {
+    const playedForThisTeam = fixtures.some(f => f.team === teamName);
+    if (!playedForThisTeam) continue;
+
+    // Identify all higher-division teams played for in this season
+    const higherTeamTotals = {}; // team → {division, matchCount}
+    for (const f of fixtures) {
+      if (f.team !== teamName && f.division != null && f.division < teamDivision) {
+        if (!higherTeamTotals[f.team]) higherTeamTotals[f.team] = { division: f.division, matchCount: 0 };
+        higherTeamTotals[f.team].matchCount++;
+      }
+    }
+    if (Object.keys(higherTeamTotals).length === 0) continue; // no higher teams
+
+    // Walk fixtures chronologically to detect cheating (played down after 3+ higher matches)
+    const runningHigherCount = {}; // team → cumulative match count at each point
+    let seasonCheating = false;
+    let cheatTrigger = null; // the higher team that caused ineligibility
+
+    for (const f of fixtures) {
+      if (f.team === teamName) {
+        // Playing for the lower team — check if any higher team is at 3+
+        for (const [hTeam, count] of Object.entries(runningHigherCount)) {
+          if (count >= 3) {
+            seasonCheating = true;
+            cheatTrigger = {
+              team: hTeam,
+              division: higherTeamTotals[hTeam]?.division,
+              countAtTime: count,
+            };
+            break;
+          }
+        }
+      } else if (f.division != null && f.division < teamDivision) {
+        // Playing for a higher team — accumulate count
+        runningHigherCount[f.team] = (runningHigherCount[f.team] || 0) + 1;
+      }
+    }
+
+    // Primary higher team: the cheat trigger if cheating, otherwise most matches
+    const sortedHigher = Object.entries(higherTeamTotals)
+      .map(([t, v]) => ({ team: t, division: v.division, matchCount: v.matchCount }))
+      .sort((a, b) => {
+        if (cheatTrigger) {
+          const aT = a.team === cheatTrigger.team ? 1 : 0;
+          const bT = b.team === cheatTrigger.team ? 1 : 0;
+          if (aT !== bT) return bT - aT;
+        }
+        return b.matchCount - a.matchCount;
+      });
+
+    seasonResults.push({
+      season: parseInt(season),
+      isCheating: seasonCheating,
+      cheatTrigger,
+      primaryHigherTeam: sortedHigher[0],
+      allHigherTeams: sortedHigher,
+    });
+  }
+
+  if (seasonResults.length === 0) return null;
+
+  seasonResults.sort((a, b) => (b.isCheating ? 1 : 0) - (a.isCheating ? 1 : 0));
+  const primary = seasonResults[0];
 
   return {
-    primary: instances[0],
-    allInstances: instances,
-    isCheating: instances.some(t => t.isCheating),
+    isCheating: seasonResults.some(s => s.isCheating),
+    primaryTeam: primary.primaryHigherTeam.team,
+    primaryDivision: primary.primaryHigherTeam.division,
+    primaryMatchCount: primary.primaryHigherTeam.matchCount,
+    primarySeason: primary.season,
+    cheatTrigger: primary.cheatTrigger,
+    allSeasons: seasonResults,
   };
 }
 
@@ -102,14 +182,10 @@ module.exports = async (req, res) => {
   const ratingMap = {};
   for (const p of playerRows) ratingMap[p.name] = p.rating;
 
-  // Build team aggregation AND per-player-per-season team map for ringer detection
+  // Team aggregation (rubber-level, for squad stats)
   const teamData = {};
-  const playerSeasonTeams = {}; // playerName → season → Map<teamName, {division, appearances}>
-
   for (const r of historyRows) {
     if (!r.team || !r.player_name) continue;
-
-    // Team aggregation
     if (!teamData[r.team]) {
       teamData[r.team] = { players: new Map(), wins: 0, losses: 0, draws: 0, division: r.division || null };
     }
@@ -122,16 +198,10 @@ module.exports = async (req, res) => {
     if (r.result === 'W')      { pd.wins++;   td.wins++;   }
     else if (r.result === 'L') { pd.losses++; td.losses++; }
     else if (r.result === 'D') { pd.draws++;  td.draws++;  }
-
-    // Ringer detection: track per player, per season, per team
-    if (r.season) {
-      if (!playerSeasonTeams[r.player_name]) playerSeasonTeams[r.player_name] = {};
-      if (!playerSeasonTeams[r.player_name][r.season]) playerSeasonTeams[r.player_name][r.season] = new Map();
-      const sm = playerSeasonTeams[r.player_name][r.season];
-      if (!sm.has(r.team)) sm.set(r.team, { division: r.division || null, appearances: 0 });
-      sm.get(r.team).appearances++;
-    }
   }
+
+  // Fixture-level data for ringer detection (counts matches, not rubbers)
+  const playerFixtures = buildPlayerFixtures(historyRows);
 
   // Build output
   const teams = [];
@@ -142,8 +212,6 @@ module.exports = async (req, res) => {
       const currentRating = ratingMap[pname];
       if (currentRating == null) continue;
 
-      const ringerInfo = getRingerInfo(pname, teamName, td.division, playerSeasonTeams);
-
       playerList.push({
         name: pname,
         rating: Math.round(currentRating),
@@ -151,7 +219,7 @@ module.exports = async (req, res) => {
         winRate: pdata.appearances > 0
           ? Math.round(((pdata.wins + 0.5 * pdata.draws) / pdata.appearances) * 100)
           : null,
-        ringerInfo: ringerInfo || null,
+        ringerInfo: getRingerInfo(pname, teamName, td.division, playerFixtures),
       });
     }
     if (playerList.length === 0) continue;
