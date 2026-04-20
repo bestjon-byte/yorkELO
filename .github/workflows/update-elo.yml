@@ -24,17 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Debug - List Files
-        run: ls -R
-
       - name: Scrape 2026 Fixtures
         run: node scraper.js
-
-      - name: Apply Auto-Deduplication
-        run: node dedupe-auto.js
-
-      - name: Detect Name Conflicts
-        run: node scripts/detect-name-conflicts.js --write
 
       - name: Calculate ELO Ratings
         run: node elo.js
@@ -49,6 +40,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add fixtures_2026.json player-aliases.json player-not-dupes.json player-splits.json ratings_all.json
+          git add fixtures_2026.json ratings_all.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update 2026 ELO ratings [skip ci]"
           git push
