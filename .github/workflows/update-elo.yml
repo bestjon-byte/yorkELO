@@ -24,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Debug - List Files
+        run: ls -R
+
       - name: Scrape 2026 Fixtures
         run: node scraper.js
 
