@@ -4,7 +4,7 @@ const fs = require('fs');
 const BASE_URL = 'https://www.yorkmenstennisleague.co.uk';
 const SEASON = 2026;
 const DIVISIONS = 8;
-const DELAY_MS = 1000; // Increased to 1s to be polite
+const DELAY_MS = 1000; // 1s delay to be polite
 const USER_AGENT = 'York-ELO-Tracker-Bot (Automated ELO Rating System; contact: your-email@example.com)';
 
 const OUT_PATH = `fixtures_${SEASON}.json`;
@@ -121,88 +121,96 @@ function parseFixture(html, fixtureId, division) {
 }
 
 async function main() {
-  console.log(`Scraping York Mens Tennis League — Season ${SEASON} (TEMP: Division 8 only)`);
+  console.log(`Scraping York Mens Tennis League — Season ${SEASON}`);
 
   // Load existing data
   let existingData = { fixtures: [] };
   if (fs.existsSync(OUT_PATH)) {
     try {
       existingData = JSON.parse(fs.readFileSync(OUT_PATH));
+      console.log(`Loaded ${existingData.fixtures.length} existing fixtures from ${OUT_PATH}`);
     } catch (e) {}
   }
 
-  // Preserve all fixtures NOT in division 8
-  const allFixtures = existingData.fixtures.filter(f => f.division !== 8);
   const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]));
+  const allFixtures = [];
 
-  // Step 1: collect only Division 8 fixture IDs
-  const div = 8;
-  process.stdout.write(`Division ${div}: collecting fixture IDs...`);
-  const ids = await getFixtureIdsForDivision(div);
-  console.log(` ${ids.length} fixtures found`);
-  await sleep(DELAY_MS);
+  // Step 1: collect all fixture IDs from all division pages
+  const fixturesByDivision = {};
+  for (let div = 1; div <= DIVISIONS; div++) {
+    process.stdout.write(`Division ${div}: collecting fixture IDs...`);
+    const ids = await getFixtureIdsForDivision(div);
+    fixturesByDivision[div] = ids;
+    console.log(` ${ids.length} fixtures found`);
+    await sleep(DELAY_MS);
+  }
 
-  // Step 2: scrape each fixture for Division 8
+  // Step 2: scrape each fixture
   const errors = [];
   const today = new Date();
   today.setHours(23, 59, 59, 999);
 
-  console.log(`\nDivision ${div}: checking ${ids.length} fixtures`);
+  for (let div = 1; div <= DIVISIONS; div++) {
+    const ids = fixturesByDivision[div];
+    console.log(`\nDivision ${div}: checking ${ids.length} fixtures`);
 
-  for (const id of ids) {
-    const existing = existingMap.get(id);
-    
-    if (existing && existing.rubbers && existing.rubbers.length > 0) {
-      allFixtures.push(existing);
-      continue;
-    }
-
-    if (existing && existing.date) {
-      const cachedDate = new Date(existing.date);
-      if (cachedDate > today) {
-        process.stdout.write(`  Fixture ${id}... skipped (future: ${existing.date})\n`);
+    for (const id of ids) {
+      const existing = existingMap.get(id);
+      
+      // OPTIMIZATION 1: If we already have a successful scorecard, skip network call
+      if (existing && existing.rubbers && existing.rubbers.length > 0) {
         allFixtures.push(existing);
         continue;
       }
-    }
 
-    process.stdout.write(`  Fixture ${id}...`);
-    
-    const url = `${BASE_URL}/fixtures/${id}`;
-    let html;
-    try {
-      html = await fetchHtml(url);
-    } catch (err) {
-      console.log(` failed: ${err.message}`);
-      if (existing) allFixtures.push(existing);
-      errors.push(id);
-      continue;
-    }
+      // OPTIMIZATION 2: If we have a cached date and it is in the future, skip network call
+      if (existing && existing.date) {
+        const cachedDate = new Date(existing.date);
+        if (cachedDate > today) {
+          process.stdout.write(`  Fixture ${id}... skipped (future: ${existing.date})\n`);
+          allFixtures.push(existing);
+          continue;
+        }
+      }
 
-    const fixture = parseFixture(html, id, div);
-
-    if (fixture && fixture.date) {
-      const fixtureDate = new Date(fixture.date);
-      if (fixtureDate > today) {
-        console.log(` skipped (future: ${fixture.date})`);
-        allFixtures.push({ fixture_id: id, date: fixture.date, division: div, rubbers: [] });
+      process.stdout.write(`  Fixture ${id}...`);
+      
+      const url = `${BASE_URL}/fixtures/${id}`;
+      let html;
+      try {
+        html = await fetchHtml(url);
+      } catch (err) {
+        console.log(` failed: ${err.message}`);
+        if (existing) allFixtures.push(existing);
+        errors.push(id);
         continue;
       }
-    }
 
-    if (fixture && fixture.skipped) {
-      console.log(` skipped (${fixture.reason})`);
-      allFixtures.push(fixture);
-    } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
-      allFixtures.push(fixture);
-      console.log(` ${fixture.home_team} v ${fixture.away_team} (${fixture.rubbers.length} rubbers)`);
-    } else {
-      console.log(' skipped (no scorecard yet)');
-      allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : (existing ? existing.date : null), division: div, rubbers: [] });
-      errors.push(id);
+      const fixture = parseFixture(html, id, div);
+
+      if (fixture && fixture.date) {
+        const fixtureDate = new Date(fixture.date);
+        if (fixtureDate > today) {
+          console.log(` skipped (future: ${fixture.date})`);
+          allFixtures.push({ fixture_id: id, date: fixture.date, division: div, rubbers: [] });
+          continue;
+        }
+      }
+
+      if (fixture && fixture.skipped) {
+        console.log(` skipped (${fixture.reason})`);
+        allFixtures.push(fixture);
+      } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
+        allFixtures.push(fixture);
+        console.log(` ${fixture.home_team} v ${fixture.away_team} (${fixture.rubbers.length} rubbers)`);
+      } else {
+        console.log(' skipped (no scorecard yet)');
+        allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : (existing ? existing.date : null), division: div, rubbers: [] });
+        errors.push(id);
+      }
+      
+      await sleep(DELAY_MS);
     }
-    
-    await sleep(DELAY_MS);
   }
 
   // Step 3: sort by date, then write output
@@ -218,7 +226,7 @@ async function main() {
   };
 
   fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
-  console.log(`\nDone. ${output.fixture_count} fixtures with results (including other divisions) → ${OUT_PATH}`);
+  console.log(`\nDone. ${output.fixture_count} fixtures with results → ${OUT_PATH}`);
 }
 
 main().catch(err => {
