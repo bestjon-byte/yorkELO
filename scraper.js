@@ -4,10 +4,15 @@ const fs = require('fs');
 const BASE_URL = 'https://www.yorkmenstennisleague.co.uk';
 const SEASON = 2026;
 const DIVISIONS = 8;
-const DELAY_MS = 500; // polite delay between requests
+const DELAY_MS = 1000; // Increased to 1s to be polite
+const USER_AGENT = 'York-ELO-Tracker-Bot (Automated ELO Rating System; contact: your-email@example.com)';
+
+const OUT_PATH = `fixtures_${SEASON}.json`;
 
 async function fetchHtml(url) {
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    headers: { 'User-Agent': USER_AGENT }
+  });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return res.text();
 }
@@ -46,15 +51,15 @@ function parseFixture(html, fixtureId, division) {
 
   // The scorecard table
   const table = $('main table').first();
-  if (!table.length) return null; // fixture not yet played / no scorecard
+  if (!table.length) return { date, rubbers: [] }; // fixture not yet played / no scorecard
 
   // Away team name from thead (colspan=3 th)
   const awayTeam = $('thead th').filter((_, el) => $(el).attr('colspan') === '3').text().trim();
-  if (!awayTeam) return null; // incomplete scorecard
+  if (!awayTeam) return { date, rubbers: [] }; // incomplete scorecard
 
   // tbody rows
   const rows = table.find('tbody tr').toArray();
-  if (rows.length < 5) return null; // need sub-header + 3 data rows + summary
+  if (rows.length < 5) return { date, rubbers: [] }; // need sub-header + 3 data rows + summary
 
   // Sub-header row: home team name + away pair names
   const subHeaderCells = $(rows[0]).find('td').toArray();
@@ -115,19 +120,21 @@ function parseFixture(html, fixtureId, division) {
   };
 }
 
-async function scrapeFixture(fixtureId, division) {
-  const url = `${BASE_URL}/fixtures/${fixtureId}`;
-  try {
-    const html = await fetchHtml(url);
-    return parseFixture(html, fixtureId, division);
-  } catch (err) {
-    console.warn(`  Failed fixture ${fixtureId}: ${err.message}`);
-    return null;
-  }
-}
-
 async function main() {
   console.log(`Scraping York Mens Tennis League — Season ${SEASON}`);
+
+  // Load existing data to skip what we already have
+  let existingData = { fixtures: [] };
+  if (fs.existsSync(OUT_PATH)) {
+    try {
+      existingData = JSON.parse(fs.readFileSync(OUT_PATH));
+      console.log(`Loaded ${existingData.fixtures.length} existing fixtures from ${OUT_PATH}`);
+    } catch (e) {
+      console.warn(`Could not parse ${OUT_PATH}, starting fresh.`);
+    }
+  }
+
+  const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]));
 
   // Step 1: collect all fixture IDs from all division pages
   const fixturesByDivision = {};
@@ -142,23 +149,68 @@ async function main() {
   // Step 2: scrape each fixture
   const allFixtures = [];
   const errors = [];
+  const today = new Date();
+  today.setHours(23, 59, 59, 999); // End of today
 
   for (let div = 1; div <= DIVISIONS; div++) {
     const ids = fixturesByDivision[div];
-    console.log(`\nDivision ${div}: scraping ${ids.length} fixtures`);
+    console.log(`\nDivision ${div}: checking ${ids.length} fixtures`);
 
     for (const id of ids) {
+      const existing = existingMap.get(id);
+      
+      // Optimization: If we already have a successful scorecard, skip it
+      if (existing && existing.rubbers && existing.rubbers.length > 0) {
+        allFixtures.push(existing);
+        continue;
+      }
+
       process.stdout.write(`  Fixture ${id}...`);
-      const fixture = await scrapeFixture(id, div);
+      
+      const url = `${BASE_URL}/fixtures/${id}`;
+      let html;
+      try {
+        html = await fetchHtml(url);
+      } catch (err) {
+        console.log(` failed: ${err.message}`);
+        if (existing) allFixtures.push(existing);
+        errors.push(id);
+        continue;
+      }
+
+      const fixture = parseFixture(html, id, div);
+
+      if (fixture && fixture.date) {
+        const fixtureDate = new Date(fixture.date);
+        // Optimization: If the match is in the future, don't scrape it yet
+        if (fixtureDate > today) {
+          console.log(` skipped (future: ${fixture.date})`);
+          // Preserve what we had if anything
+          if (existing) {
+            allFixtures.push(existing);
+          } else {
+             allFixtures.push({ fixture_id: id, date: fixture.date, division: div, rubbers: [] });
+          }
+          continue;
+        }
+      }
+
       if (fixture && fixture.skipped) {
         console.log(` skipped (${fixture.reason})`);
-      } else if (fixture) {
+        allFixtures.push(fixture);
+      } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
         allFixtures.push(fixture);
         console.log(` ${fixture.home_team} v ${fixture.away_team} (${fixture.rubbers.length} rubbers)`);
       } else {
-        console.log(' skipped (no scorecard)');
+        console.log(' skipped (no scorecard yet)');
+        if (existing) {
+          allFixtures.push(existing);
+        } else {
+          allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : null, division: div, rubbers: [] });
+        }
         errors.push(id);
       }
+      
       await sleep(DELAY_MS);
     }
   }
@@ -169,17 +221,15 @@ async function main() {
   const output = {
     scraped_at: new Date().toISOString(),
     season: SEASON,
-    fixture_count: allFixtures.length,
-    rubber_count: allFixtures.reduce((n, f) => n + f.rubbers.length, 0),
+    fixture_count: allFixtures.filter(f => f.rubbers && f.rubbers.length > 0).length,
+    rubber_count: allFixtures.reduce((n, f) => n + (f.rubbers ? f.rubbers.length : 0), 0),
     skipped_fixture_ids: errors,
     fixtures: allFixtures,
   };
 
-  const outPath = `fixtures_${SEASON}.json`;
-  fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
+  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
 
-  console.log(`\nDone. ${allFixtures.length} fixtures, ${output.rubber_count} rubbers → ${outPath}`);
-  if (errors.length) console.log(`Skipped ${errors.length} fixture IDs (not yet played or parse error)`);
+  console.log(`\nDone. ${output.fixture_count} fixtures with results → ${OUT_PATH}`);
 }
 
 main().catch(err => {
