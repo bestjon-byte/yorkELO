@@ -23,7 +23,7 @@ function sleep(ms) {
 }
 
 /**
- * Scrapes the division page to get ALL fixtures and their dates in one go.
+ * Scrapes the division page to get ALL fixtures, dates, times, and teams in one go.
  */
 async function getFixturesFromDivisionPage(division) {
   const url = `${BASE_URL}/divisions/${division}/Division_${division}`;
@@ -31,6 +31,7 @@ async function getFixturesFromDivisionPage(division) {
   const $ = cheerio.load(html);
 
   const fixtures = [];
+  // The fixtures are in a table; rows containing links to /fixtures/ are our targets
   $('tr').each((_, tr) => {
     const row = $(tr);
     const link = row.find('a[href*="/fixtures/"]');
@@ -38,16 +39,35 @@ async function getFixturesFromDivisionPage(division) {
       const href = link.attr('href');
       const id = parseInt(href.match(/\/fixtures\/(\d+)$/)[1], 10);
       
+      const cells = row.find('td').toArray();
+      // League table structure: Date | Time | Home Team | Away Team | Score/Link
+      // Note: Structure can vary, but usually teams are the 3rd and 4th cells
       let date = null;
-      row.find('td').each((_, td) => {
+      let time = null;
+      let homeTeam = null;
+      let awayTeam = null;
+
+      $(cells).each((i, td) => {
         const text = $(td).text().trim();
-        if (text.match(/\d+\s+\w+\s+\d{4}/)) {
-          date = text;
-        }
+        if (text.match(/\d+\s+\w+\s+\d{4}/)) date = text; // "27 April 2026"
+        else if (text.match(/\d{2}:\d{2}/)) time = text;   // "18:30"
       });
+
+      // Find teams: They are usually the cells wrapping the score link or adjacent to it
+      // Standard layout: [Date] [Time] [Home] [v] [Away]
+      if (cells.length >= 5) {
+        homeTeam = $(cells[2]).text().trim();
+        awayTeam = $(cells[4]).text().trim();
+      }
       
       if (id) {
-        fixtures.push({ id, date });
+        fixtures.push({ 
+          id, 
+          date, 
+          time, 
+          home_team: homeTeam, 
+          away_team: awayTeam 
+        });
       }
     }
   });
@@ -154,8 +174,12 @@ async function main() {
       const id = item.id;
       const existing = existingMap.get(id);
 
-      // Determine the date (Division page is the source of truth for date changes)
-      const dateStr = item.date || (existing ? existing.date : null);
+      // Use the Division page as the source of truth for date, time, and teams
+      const dateStr = item.date;
+      const timeStr = item.time;
+      const homeTeam = item.home_team;
+      const awayTeam = item.away_team;
+
       let isRecent = false;
       let isFuture = false;
 
@@ -166,22 +190,34 @@ async function main() {
         isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
       }
 
-      // OPTIMIZATION 1: If it's in the future, save date and skip network.
+      // OPTIMIZATION 1: If it's in the future, save everything and skip network scorecard hit.
       if (isFuture) {
-        allFixtures.push({ fixture_id: id, date: dateStr, division: div, rubbers: [] });
+        allFixtures.push({ 
+          fixture_id: id, 
+          date: dateStr, 
+          time: timeStr,
+          home_team: homeTeam,
+          away_team: awayTeam,
+          division: div, 
+          rubbers: [] 
+        });
         continue;
       }
 
       // OPTIMIZATION 2: If we have a scorecard AND it's not recent, skip network.
+      // We update the date/time/teams from the division page just in case they were edited.
       if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
-        allFixtures.push(existing);
+        allFixtures.push({
+          ...existing,
+          date: dateStr || existing.date,
+          time: timeStr || existing.time,
+          home_team: homeTeam || existing.home_team,
+          away_team: awayTeam || existing.away_team
+        });
         continue;
       }
 
-      // If we get here, it's either:
-      // - A match in the past with no score yet.
-      // - A match in the past week (re-checking for corrections).
-      // - A match we've never seen before.
+      // Fetch scorecard for recent matches or missing results
       process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
       const url = `${BASE_URL}/fixtures/${id}`;
       try {
@@ -190,13 +226,27 @@ async function main() {
 
         if (fixture && fixture.skipped) {
           console.log(` skipped (${fixture.reason})`);
-          allFixtures.push(fixture);
+          allFixtures.push({ ...fixture, time: timeStr });
         } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
-          allFixtures.push(fixture);
-          console.log(` ${fixture.home_team} v ${fixture.away_team} (${fixture.rubbers.length} rubbers)`);
+          // Merge division-page metadata with scorecard-page details
+          allFixtures.push({ 
+            ...fixture, 
+            time: timeStr,
+            home_team: homeTeam || fixture.home_team,
+            away_team: awayTeam || fixture.away_team
+          });
+          console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
         } else {
           console.log(' no scorecard yet');
-          allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : dateStr, division: div, rubbers: [] });
+          allFixtures.push({ 
+            fixture_id: id, 
+            date: dateStr, 
+            time: timeStr,
+            home_team: homeTeam,
+            away_team: awayTeam,
+            division: div, 
+            rubbers: [] 
+          });
           errors.push(id);
         }
       } catch (err) {
