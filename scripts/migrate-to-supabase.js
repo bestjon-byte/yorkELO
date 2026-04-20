@@ -209,8 +209,8 @@ async function run() {
   const matchLogs   = buildPlayerMatchLogs(aliases, splits);
   const playerStats = buildPlayerStats(matchLogs);
 
-  // ---- Build fixture rows (all seasons) ----
-  const fixtureRows = [];
+  // ---- Build fixture rows (all seasons, deduplicated by fixture_id) ----
+  const fixtureMap = new Map();
   for (const year of ALL_SEASONS) {
     const file = `fixtures_${year}.json`;
     if (!fs.existsSync(file)) continue;
@@ -221,7 +221,8 @@ async function run() {
         homeGames = f.rubbers.reduce((s, r) => s + (r.home_games || 0), 0);
         awayGames = f.rubbers.reduce((s, r) => s + (r.away_games || 0), 0);
       }
-      fixtureRows.push({
+      
+      const row = {
         fixture_id: String(f.fixture_id),
         season:     f.season || year,
         division:   f.division,
@@ -232,10 +233,15 @@ async function run() {
         home_games: homeGames,
         away_games: awayGames,
         status:     (homeGames !== null) ? 'played' : 'upcoming',
-        is_conceded: f.skipped && f.reason === 'conceded'
-      });
+        is_conceded: !!(f.skipped && f.reason === 'conceded')
+      };
+      
+      // If we already saw this ID in an earlier year/file, overwrite it 
+      // (the 2026 file will naturally overwrite the 2026-skeletons if they appear in earlier files)
+      fixtureMap.set(row.fixture_id, row);
     }
   }
+  const fixtureRows = Array.from(fixtureMap.values());
 
   const playerRows = ratingsData.leaderboard.map((p, i) => ({
     name:           p.name,
@@ -294,14 +300,13 @@ async function run() {
   await clearTable('york_match_history', 'player_name');
   await clearTable('york_player_stats',  'player_name');
   await clearTable('york_players',       'name');
-  // Attempt to clear fixtures table (we'll ignore error if it doesn't exist yet)
   try { await clearTable('york_elo_fixtures', 'fixture_id'); } catch (e) {}
 
   console.log('\nInserting...');
   await batchInsert('york_players',       playerRows,  'york_players');
   await batchInsert('york_match_history', historyRows, 'york_match_history');
   await batchInsert('york_player_stats',  statsRows,   'york_player_stats');
-  await batchInsert('york_elo_fixtures',      fixtureRows, 'york_elo_fixtures');
+  await batchInsert('york_elo_fixtures',  fixtureRows, 'york_elo_fixtures');
 
   console.log('\nDone! Migration complete.');
 }
