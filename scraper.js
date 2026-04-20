@@ -111,7 +111,7 @@ function parseFixture(html, fixtureId, division) {
 }
 
 async function main() {
-  console.log(`Scraping York Mens Tennis League — Season ${SEASON} (Division 8 only)`);
+  console.log(`Scraping York Mens Tennis League — Season ${SEASON}`);
 
   let existingData = { fixtures: [] };
   if (fs.existsSync(OUT_PATH)) {
@@ -122,63 +122,64 @@ async function main() {
   }
 
   const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]));
-  const allFixtures = existingData.fixtures.filter(f => f.division !== 8); // Keep other divisions
-  
-  const div = 8;
-  process.stdout.write(`Division ${div}: fetching season schedule...`);
-  const divisionFixtures = await getFixturesFromDivisionPage(div);
-  console.log(` ${divisionFixtures.length} matches found`);
-  
+  const allFixtures = [];
   const errors = [];
   const now = new Date();
   const today = new Date();
   today.setHours(23, 59, 59, 999);
 
-  for (const item of divisionFixtures) {
-    const id = item.id;
-    const existing = existingMap.get(id);
-    const dateStr = item.date;
-    const timeStr = item.time;
-    const homeTeam = item.home_team;
-    const awayTeam = item.away_team;
+  for (let div = 1; div <= DIVISIONS; div++) {
+    process.stdout.write(`Division ${div}: fetching season schedule...`);
+    const divisionFixtures = await getFixturesFromDivisionPage(div);
+    console.log(` ${divisionFixtures.length} matches found`);
+    
+    for (const item of divisionFixtures) {
+      const id = item.id;
+      const existing = existingMap.get(id);
+      const dateStr = item.date;
+      const timeStr = item.time;
+      const homeTeam = item.home_team;
+      const awayTeam = item.away_team;
 
-    let isRecent = false, isFuture = false;
-    if (dateStr) {
-      const matchDate = new Date(dateStr);
-      isFuture = matchDate > today;
-      const diffDays = (now - matchDate) / (1000 * 60 * 60 * 24);
-      isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
-    }
+      let isRecent = false, isFuture = false;
+      if (dateStr) {
+        const matchDate = new Date(dateStr);
+        isFuture = matchDate > today;
+        const diffDays = (now - matchDate) / (1000 * 60 * 60 * 24);
+        isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
+      }
 
-    if (isFuture) {
-      allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
-      continue;
-    }
-
-    if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
-      allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team });
-      continue;
-    }
-
-    process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
-    try {
-      const html = await fetchHtml(`${BASE_URL}/fixtures/${id}`);
-      const fixture = parseFixture(html, id, div);
-      if (fixture && fixture.skipped) {
-        console.log(` skipped (${fixture.reason})`);
-        allFixtures.push({ ...fixture, time: timeStr });
-      } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
-        allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team });
-        console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
-      } else {
-        console.log(' no scorecard yet');
+      if (isFuture) {
         allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
+        continue;
+      }
+
+      if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
+        allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team });
+        continue;
+      }
+
+      process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
+      try {
+        const html = await fetchHtml(`${BASE_URL}/fixtures/${id}`);
+        const fixture = parseFixture(html, id, div);
+        if (fixture && fixture.skipped) {
+          console.log(` skipped (${fixture.reason})`);
+          allFixtures.push({ ...fixture, time: timeStr });
+        } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
+          allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team });
+          console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
+        } else {
+          console.log(' no scorecard yet');
+          allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
+          errors.push(id);
+        }
+      } catch (err) {
+        console.log(` failed: ${err.message}`);
+        if (existing) allFixtures.push(existing);
         errors.push(id);
       }
-    } catch (err) {
-      console.log(` failed: ${err.message}`);
-      if (existing) allFixtures.push(existing);
-      errors.push(id);
+      await sleep(DELAY_MS);
     }
     await sleep(DELAY_MS);
   }

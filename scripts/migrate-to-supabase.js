@@ -1,14 +1,6 @@
 /**
  * migrate-to-supabase.js
- * One-time (and re-runnable) script to push all local JSON data into Supabase.
- * Uses the SERVICE ROLE key for write access.
- *
- * Usage:
- *   node scripts/migrate-to-supabase.js
- *
- * Requires .env.local with:
- *   SUPABASE_URL=https://xxxx.supabase.co
- *   SUPABASE_SERVICE_KEY=eyJ...
+ * Pushes local JSON data into Supabase, including a new york_fixtures table.
  */
 
 try { require('dotenv').config({ path: '.env.local' }); } catch (_) {}
@@ -29,9 +21,6 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
 const CHUNK = 1000;
 
-// ---------------------------------------------------------------------------
-// Helpers (mirrors server.js logic)
-// ---------------------------------------------------------------------------
 function resolveAlias(name, aliases) {
   let r = name; const seen = new Set();
   while (aliases[r] && !seen.has(r)) { seen.add(r); r = aliases[r]; }
@@ -187,9 +176,6 @@ function buildPlayerStats(matchLogs) {
   return stats;
 }
 
-// ---------------------------------------------------------------------------
-// Supabase helpers
-// ---------------------------------------------------------------------------
 async function clearTable(table, filterCol) {
   const { error } = await supabase.from(table).delete().not(filterCol, 'is', null);
   if (error) throw new Error(`Clear ${table}: ${error.message}`);
@@ -207,14 +193,10 @@ async function batchInsert(table, rows, label) {
   console.log();
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
 async function run() {
   console.log('Loading local data...');
   const aliases = fs.existsSync('player-aliases.json') ? JSON.parse(fs.readFileSync('player-aliases.json')) : {};
 
-  // Merge in any aliases added via the admin tool (stored in york_aliases)
   const { data: dbAliases } = await supabase.from('york_aliases').select('variant_name, canonical_name');
   for (const { variant_name, canonical_name } of dbAliases || []) aliases[variant_name] = canonical_name;
   if (dbAliases?.length) console.log(`  + ${dbAliases.length} alias(es) from york_aliases table`);
@@ -227,7 +209,34 @@ async function run() {
   const matchLogs   = buildPlayerMatchLogs(aliases, splits);
   const playerStats = buildPlayerStats(matchLogs);
 
-  // ---- Build players rows ----
+  // ---- Build fixture rows (all seasons) ----
+  const fixtureRows = [];
+  for (const year of ALL_SEASONS) {
+    const file = `fixtures_${year}.json`;
+    if (!fs.existsSync(file)) continue;
+    const data = JSON.parse(fs.readFileSync(file));
+    for (const f of data.fixtures) {
+      let homeGames = null, awayGames = null;
+      if (f.rubbers && f.rubbers.length > 0) {
+        homeGames = f.rubbers.reduce((s, r) => s + (r.home_games || 0), 0);
+        awayGames = f.rubbers.reduce((s, r) => s + (r.away_games || 0), 0);
+      }
+      fixtureRows.push({
+        fixture_id: String(f.fixture_id),
+        season:     f.season || year,
+        division:   f.division,
+        date:       f.date,
+        time:       f.time || null,
+        home_team:  f.home_team,
+        away_team:  f.away_team,
+        home_games: homeGames,
+        away_games: awayGames,
+        status:     (homeGames !== null) ? 'played' : 'upcoming',
+        is_conceded: f.skipped && f.reason === 'conceded'
+      });
+    }
+  }
+
   const playerRows = ratingsData.leaderboard.map((p, i) => ({
     name:           p.name,
     rating:         p.rating,
@@ -239,7 +248,6 @@ async function run() {
     rank:           i + 1,
   }));
 
-  // ---- Build match_history rows ----
   const historyRows = [];
   for (const [playerName, eloHistory] of Object.entries(ratingsData.history)) {
     const log = matchLogs[playerName] || [];
@@ -266,7 +274,6 @@ async function run() {
     });
   }
 
-  // ---- Build player_stats rows ----
   const statsRows = Object.entries(playerStats).map(([playerName, s]) => ({
     player_name:   playerName,
     best_partner:  s.bestPartner,
@@ -278,6 +285,7 @@ async function run() {
   }));
 
   console.log(`\nData ready:`);
+  console.log(`  fixtures:      ${fixtureRows.length} rows`);
   console.log(`  players:       ${playerRows.length} rows`);
   console.log(`  match_history: ${historyRows.length} rows`);
   console.log(`  player_stats:  ${statsRows.length} rows`);
@@ -286,11 +294,14 @@ async function run() {
   await clearTable('york_match_history', 'player_name');
   await clearTable('york_player_stats',  'player_name');
   await clearTable('york_players',       'name');
+  // Attempt to clear fixtures table (we'll ignore error if it doesn't exist yet)
+  try { await clearTable('york_fixtures', 'fixture_id'); } catch (e) {}
 
   console.log('\nInserting...');
   await batchInsert('york_players',       playerRows,  'york_players');
   await batchInsert('york_match_history', historyRows, 'york_match_history');
   await batchInsert('york_player_stats',  statsRows,   'york_player_stats');
+  await batchInsert('york_fixtures',      fixtureRows, 'york_fixtures');
 
   console.log('\nDone! Migration complete.');
 }
