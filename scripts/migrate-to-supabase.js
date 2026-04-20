@@ -1,6 +1,6 @@
 /**
  * migrate-to-supabase.js
- * Pushes local JSON data into Supabase, including a new york_fixtures table.
+ * Pushes local JSON data into Supabase, including a new york_elo_fixtures table.
  */
 
 try { require('dotenv').config({ path: '.env.local' }); } catch (_) {}
@@ -295,13 +295,13 @@ async function run() {
   await clearTable('york_player_stats',  'player_name');
   await clearTable('york_players',       'name');
   // Attempt to clear fixtures table (we'll ignore error if it doesn't exist yet)
-  try { await clearTable('york_fixtures', 'fixture_id'); } catch (e) {}
+  try { await clearTable('york_elo_fixtures', 'fixture_id'); } catch (e) {}
 
   console.log('\nInserting...');
   await batchInsert('york_players',       playerRows,  'york_players');
   await batchInsert('york_match_history', historyRows, 'york_match_history');
   await batchInsert('york_player_stats',  statsRows,   'york_player_stats');
-  await batchInsert('york_fixtures',      fixtureRows, 'york_fixtures');
+  await batchInsert('york_elo_fixtures',      fixtureRows, 'york_elo_fixtures');
 
   console.log('\nDone! Migration complete.');
 }
