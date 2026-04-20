@@ -1,0 +1,529 @@
+{
+  "scraped_at": "2026-04-20T13:40:44.478Z",
+  "season": 2026,
+  "fixture_count": 2,
+  "rubber_count": 18,
+  "skipped_fixture_ids": [],
+  "fixtures": [
+    {
+      "fixture_id": 842,
+      "season": 2026,
+      "division": 8,
+      "date": "19 April 2026",
+      "home_team": "David Lloyd York 5",
+      "away_team": "Cawood 2",
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/842",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "John Reveley",
+          "home_player2": "Sean Greenheld",
+          "away_player1": "Mike Brennan",
+          "away_player2": "John Best",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "John Reveley",
+          "home_player2": "Sean Greenheld",
+          "away_player1": "Nas Shefta",
+          "away_player2": "Chris Abbott",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "John Reveley",
+          "home_player2": "Sean Greenheld",
+          "away_player1": "Steven Walter",
+          "away_player2": "Charlie Meacham",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Chris Marsh",
+          "home_player2": "Martin Jesper",
+          "away_player1": "Mike Brennan",
+          "away_player2": "John Best",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Chris Marsh",
+          "home_player2": "Martin Jesper",
+          "away_player1": "Nas Shefta",
+          "away_player2": "Chris Abbott",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Chris Marsh",
+          "home_player2": "Martin Jesper",
+          "away_player1": "Steven Walter",
+          "away_player2": "Charlie Meacham",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Mike Brennan",
+          "away_player2": "John Best",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Nas Shefta",
+          "away_player2": "Chris Abbott",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Steven Walter",
+          "away_player2": "Charlie Meacham",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ]
+    },
+    {
+      "fixture_id": 849,
+      "season": 2026,
+      "division": 8,
+      "date": "19 April 2026",
+      "home_team": "Bubwith 3",
+      "away_team": "Pocklington",
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/849",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Dave Corfield",
+          "home_player2": "Phil Corfield",
+          "away_player1": "Andrew Dommett",
+          "away_player2": "Herbie Harris-Collins",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Dave Corfield",
+          "home_player2": "Phil Corfield",
+          "away_player1": "Renatus Pranulis",
+          "away_player2": "Oliver Marshall",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Dave Corfield",
+          "home_player2": "Phil Corfield",
+          "away_player1": "Philip Marr",
+          "away_player2": "Edward Wakeham",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Andrew Pratt",
+          "home_player2": "Roger Barnes",
+          "away_player1": "Andrew Dommett",
+          "away_player2": "Herbie Harris-Collins",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Andrew Pratt",
+          "home_player2": "Roger Barnes",
+          "away_player1": "Renatus Pranulis",
+          "away_player2": "Oliver Marshall",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Andrew Pratt",
+          "home_player2": "Roger Barnes",
+          "away_player1": "Philip Marr",
+          "away_player2": "Edward Wakeham",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Andy Corfield",
+          "home_player2": "Beau Corfield",
+          "away_player1": "Andrew Dommett",
+          "away_player2": "Herbie Harris-Collins",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Andy Corfield",
+          "home_player2": "Beau Corfield",
+          "away_player1": "Renatus Pranulis",
+          "away_player2": "Oliver Marshall",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Andy Corfield",
+          "home_player2": "Beau Corfield",
+          "away_player1": "Philip Marr",
+          "away_player2": "Edward Wakeham",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        }
+      ]
+    },
+    {
+      "fixture_id": 841,
+      "date": "26 April 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 843,
+      "date": "26 April 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 845,
+      "date": "26 April 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 856,
+      "date": "3 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 860,
+      "date": "3 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 846,
+      "date": "10 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 847,
+      "date": "10 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 848,
+      "date": "10 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 850,
+      "date": "10 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 851,
+      "date": "17 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 853,
+      "date": "17 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 854,
+      "date": "17 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 855,
+      "date": "17 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 844,
+      "date": "24 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 864,
+      "date": "24 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 889,
+      "date": "24 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 857,
+      "date": "31 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 858,
+      "date": "31 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 859,
+      "date": "31 May 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 861,
+      "date": "7 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 862,
+      "date": "7 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 863,
+      "date": "7 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 865,
+      "date": "7 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 867,
+      "date": "14 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 869,
+      "date": "14 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 870,
+      "date": "14 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 871,
+      "date": "21 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 873,
+      "date": "21 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 875,
+      "date": "21 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 876,
+      "date": "28 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 877,
+      "date": "28 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 878,
+      "date": "28 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 879,
+      "date": "28 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 880,
+      "date": "28 June 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 881,
+      "date": "5 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 882,
+      "date": "5 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 883,
+      "date": "5 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 885,
+      "date": "5 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 886,
+      "date": "12 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 887,
+      "date": "12 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 888,
+      "date": "12 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 891,
+      "date": "19 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 893,
+      "date": "19 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 894,
+      "date": "19 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 872,
+      "date": "26 July 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 852,
+      "date": "2 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 866,
+      "date": "9 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 868,
+      "date": "9 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 874,
+      "date": "30 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 890,
+      "date": "30 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 892,
+      "date": "30 August 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 895,
+      "date": "6 September 2026",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 884,
+      "date": "13 September 2026",
+      "division": 8,
+      "rubbers": []
+    }
+  ]
+}
