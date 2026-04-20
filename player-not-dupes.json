@@ -1,19 +1,78 @@
 {
-  "Dave Hall Jr|||Dave Hall Sr": true,
-  "Charlie Price|||Charlie Rice": true,
-  "Steve Walker|||Steve Walter": true,
-  "David Bean|||David Whan": true,
-  "Name withheld|||Name withheld 2": true,
-  "Cam Campbell|||Ian Campbell": true,
-  "Luke Kay|||Mike Kay": true,
-  "Tom Baker|||Tom Barker": true,
-  "Mark Dawson|||Mark Lawson": true,
-  "Bob Shread|||Dom Shread": true,
-  "Jonny Kay|||Jonny Kaye": true,
-  "Andy Cossins|||Andy Cousins": true,
-  "David Moore|||David Moores": true,
-  "Nick Boid|||Nick Boyd": true,
-  "Steve Jones|||Steven Jones": true,
-  "Andy Boulton|||Andy Poulton": true,
-  "Mark Bland|||Mark Blane": true
+  "James Hanson|||James Hobson": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 18 August 2024 (fixtures: 2024103 vs 2024044)"
+  },
+  "Sam Hitchenor|||Tom Hitchenor": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 8 July 2018 (fixtures: 373 vs 598)"
+  },
+  "Cam Campbell|||Ian Campbell": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 13 August 2023 (fixtures: 2023383 vs 2023156)"
+  },
+  "Bob Shread|||Dom Shread": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 23 June 2019 (fixtures: 433 vs 187)"
+  },
+  "David Bean|||David Whan": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 12 May 2019 (fixtures: 63 vs 53)"
+  },
+  "Dave Stewart|||Dave Stuart": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 2 July 2023 (fixtures: 2023197 vs 2023420)"
+  },
+  "Andy Cossins|||Andy Cousins": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 27 May 2018 (fixtures: 559 vs 409)"
+  },
+  "Charlie Price|||Charlie Rice": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 9 September 2018 (fixtures: 505 vs 709)"
+  },
+  "David Moore|||David Moores": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 29 April 2018 (fixtures: 666 vs 569)"
+  },
+  "Jonny Kay|||Jonny Kaye": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 20 May 2018 (fixtures: 348 vs 404)"
+  },
+  "Mark Bland|||Mark Blane": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 10 June 2018 (fixtures: 357 vs 638)"
+  },
+  "Mark Dawson|||Mark Lawson": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 11 May 2025 (fixtures: 173 vs 286)"
+  },
+  "Nick Boid|||Nick Boyd": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 20 May 2018 (fixtures: 404 vs 576)"
+  },
+  "Steve Jones|||Steven Jones": {
+    "autoRejected": true,
+    "reason": "Same-date clash on 22 August 2021 (fixtures: 2020106,2020218 vs 2020051)"
+  },
+  "Max Los|||Zak Los": {
+    "manuallyRejected": true,
+    "reason": "Different people (similar name, same team)"
+  },
+  "Luke Kay|||Mike Kay": {
+    "manuallyRejected": true,
+    "reason": "Different people (similar name, same team)"
+  },
+  "Jonathan Marco Twelves|||Nathan Marco Twelves": {
+    "manuallyRejected": true,
+    "reason": "Different people (similar name, same team)"
+  },
+  "Bobby Lamb|||Toby Lamb": {
+    "manuallyRejected": true,
+    "reason": "Different people (similar name, same team)"
+  },
+  "Dave Hall Jr|||Dave Hall Sr": {
+    "manuallyRejected": true,
+    "reason": "Different people (similar name, same team)"
+  }
 }

@@ -69,6 +69,52 @@ function saveJson(file, data) {
 }
 
 // ---------------------------------------------------------------------------
+// Build player → date → [fixtureIds] map for same-date clash detection
+// ---------------------------------------------------------------------------
+function buildPlayerDateMap(fixtures) {
+  const dateMap = {};
+  for (const f of fixtures) {
+    if (!f.date || !f.fixture_id) continue;
+    const date = f.date;
+    const fid = String(f.fixture_id);
+    const addPlayer = name => {
+      if (!name) return;
+      if (!dateMap[name]) dateMap[name] = {};
+      if (!dateMap[name][date]) dateMap[name][date] = new Set();
+      dateMap[name][date].add(fid);
+    };
+    for (const r of (f.rubbers || [])) {
+      addPlayer(r.home_player1); addPlayer(r.home_player2);
+      addPlayer(r.away_player1); addPlayer(r.away_player2);
+    }
+  }
+  // Convert Sets to arrays
+  const result = {};
+  for (const [name, dates] of Object.entries(dateMap)) {
+    result[name] = {};
+    for (const [date, fidSet] of Object.entries(dates)) result[name][date] = [...fidSet];
+  }
+  return result;
+}
+
+// Returns clash info if name1 and name2 each appeared in a *different* fixture on the same date.
+function findSameDateClash(name1, name2, playerDateMap) {
+  const dates1 = playerDateMap[name1];
+  const dates2 = playerDateMap[name2];
+  if (!dates1 || !dates2) return null;
+  for (const date of Object.keys(dates1)) {
+    if (!dates2[date]) continue;
+    const fids1 = new Set(dates1[date]);
+    const fids2 = new Set(dates2[date]);
+    // Clash = either appeared in a fixture the other wasn't in on this date
+    if ([...fids1].some(id => !fids2.has(id)) || [...fids2].some(id => !fids1.has(id))) {
+      return { date, fixtures1: [...fids1], fixtures2: [...fids2] };
+    }
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // Build team → players map, tracking appearance count and seasons per player
 // ---------------------------------------------------------------------------
 function buildTeamPlayers(fixtures) {
@@ -103,13 +149,27 @@ function yearRange(years) {
 // ---------------------------------------------------------------------------
 // Find candidates — Phase 1 (same team) and Phase 2 (cross-team)
 // ---------------------------------------------------------------------------
-function findCandidates(teamPlayers, aliases, notDupes) {
+function findCandidates(teamPlayers, aliases, notDupes, playerDateMap) {
   const resolve = name => aliases[name] || name;
   const alreadyResolved = (a, b) => resolve(a) === resolve(b);
   const isNotDupe = (a, b) => notDupes[[a, b].sort().join('|||')];
 
   const phase1 = []; // same team, similar name
   const phase2 = []; // different teams, exact or similar name
+  let autoRejected = 0;
+
+  const checkClash = (a, b) => {
+    const clash = findSameDateClash(a, b, playerDateMap);
+    if (clash) {
+      const key = [a, b].sort().join('|||');
+      if (!notDupes[key]) {
+        notDupes[key] = { autoRejected: true, reason: `Same-date clash on ${clash.date} (fixtures: ${clash.fixtures1.join(',')} vs ${clash.fixtures2.join(',')})` };
+        autoRejected++;
+      }
+      return true;
+    }
+    return false;
+  };
 
   // Phase 1: same team, edit distance <= MAX_DIST
   for (const [team, players] of Object.entries(teamPlayers)) {
@@ -120,6 +180,7 @@ function findCandidates(teamPlayers, aliases, notDupes) {
         if (alreadyResolved(a, b) || isNotDupe(a, b)) continue;
         const dist = levenshtein(a, b);
         if (dist <= MAX_DIST) {
+          if (checkClash(a, b)) continue; // auto-rejected
           phase1.push({ phase: 1, team, teams: [team], name1: a, count1: players[a].count, name2: b, count2: players[b].count, distance: dist });
         }
       }
@@ -157,6 +218,8 @@ function findCandidates(teamPlayers, aliases, notDupes) {
       if (seenPairs.has(pairKey)) continue;
       seenPairs.add(pairKey);
 
+      if (checkClash(a, b)) continue; // auto-rejected
+
       const countA = nameIndex[a].reduce((s, x) => s + x.count, 0);
       const countB = nameIndex[b].reduce((s, x) => s + x.count, 0);
 
@@ -182,7 +245,7 @@ function findCandidates(teamPlayers, aliases, notDupes) {
   phase1.sort((a, b) => a.distance - b.distance || a.team.localeCompare(b.team));
   phase2.sort((a, b) => a.distance - b.distance || a.name1.localeCompare(b.name1));
 
-  return { phase1, phase2 };
+  return { phase1, phase2, autoRejected };
 }
 
 // ---------------------------------------------------------------------------
@@ -242,23 +305,47 @@ async function reviewBatch(label, candidates, total, offset, rl, aliases, notDup
   return { reviewed, quit: false };
 }
 
-async function interactiveReview(phase1, phase2, aliases, notDupes) {
-  const total = phase1.length + phase2.length;
-  if (total === 0) { console.log('\nNo pending candidates — all resolved!\n'); return; }
+// Auto-approve all same-team candidates (they've already passed the same-date clash check).
+// Picks the more-common spelling as canonical; handles alias chaining.
+function autoApprovePhase1(phase1, aliases) {
+  const resolve = name => {
+    let n = name;
+    const visited = new Set();
+    while (aliases[n] && !visited.has(n)) { visited.add(n); n = aliases[n]; }
+    return n;
+  };
 
+  let count = 0;
+  for (const c of phase1) {
+    const canonical = resolve(c.count1 >= c.count2 ? c.name1 : c.name2);
+    const minority  = resolve(canonical === resolve(c.name1) ? c.name2 : c.name1);
+    if (minority !== canonical) {
+      aliases[minority] = canonical;
+      count++;
+    }
+  }
+  saveJson(ALIASES_FILE, aliases);
+  return count;
+}
+
+async function interactiveReview(phase1, phase2, aliases, notDupes, manualPhase1) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  console.log(`\n${total} pairs to review: ${phase1.length} same-team, ${phase2.length} cross-team`);
-  console.log('y=merge  n=different people  c=custom name  s=skip  q=quit\n');
 
-  if (phase1.length > 0) {
+  if (manualPhase1 && phase1.length > 0) {
+    const total = phase1.length + phase2.length;
+    console.log(`\n${total} pairs to review: ${phase1.length} same-team, ${phase2.length} cross-team`);
+    console.log('y=merge  n=different people  c=custom name  s=skip  q=quit\n');
     console.log('━━━ Phase 1: Same team, similar name (likely typos) ━━━');
     const { quit } = await reviewBatch('same-team', phase1, total, 0, rl, aliases, notDupes);
     if (quit) { rl.close(); return; }
   }
 
   if (phase2.length > 0) {
-    console.log('\n━━━ Phase 2: Different teams, same/similar name (club move?) ━━━');
-    await reviewBatch('cross-team', phase2, total, phase1.length, rl, aliases, notDupes);
+    console.log(`\n━━━ Phase 2: Different teams, same/similar name (${phase2.length} to review) ━━━`);
+    console.log('y=merge  n=different people  c=custom name  s=skip  q=quit\n');
+    await reviewBatch('cross-team', phase2, phase2.length, 0, rl, aliases, notDupes);
+  } else if (phase2.length === 0) {
+    console.log('\nNo cross-team candidates to review.');
   }
 
   rl.close();
@@ -269,12 +356,19 @@ async function interactiveReview(phase1, phase2, aliases, notDupes) {
 // Main
 // ---------------------------------------------------------------------------
 async function main() {
-  const reportOnly = process.argv.includes('--report');
+  const reportOnly   = process.argv.includes('--report');
+  const manualPhase1 = process.argv.includes('--manual');
   const fixtures = loadAllFixtures();
   const aliases = loadJson(ALIASES_FILE);
   const notDupes = loadJson(NOT_DUPES_FILE);
   const teamPlayers = buildTeamPlayers(fixtures);
-  const { phase1, phase2 } = findCandidates(teamPlayers, aliases, notDupes);
+  const playerDateMap = buildPlayerDateMap(fixtures);
+  const { phase1, phase2, autoRejected } = findCandidates(teamPlayers, aliases, notDupes, playerDateMap);
+
+  if (autoRejected > 0) {
+    saveJson(NOT_DUPES_FILE, notDupes);
+    console.log(`\nAuto-rejected ${autoRejected} pair(s) with same-date fixture clashes → saved to ${NOT_DUPES_FILE}`);
+  }
 
   console.log(`\nFound ${phase1.length} same-team + ${phase2.length} cross-team candidates\n`);
 
@@ -301,7 +395,13 @@ async function main() {
     return;
   }
 
-  await interactiveReview(phase1, phase2, aliases, notDupes);
+  if (!manualPhase1 && phase1.length > 0) {
+    const count = autoApprovePhase1(phase1, aliases);
+    console.log(`Auto-approved ${count} same-team pair(s) (same team, no same-date clash) → saved to ${ALIASES_FILE}`);
+    console.log('  (run with --manual to review these individually instead)\n');
+  }
+
+  await interactiveReview(phase1, phase2, aliases, notDupes, manualPhase1);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });
