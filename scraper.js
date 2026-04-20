@@ -47,7 +47,7 @@ function parseFixture(html, fixtureId, division) {
 
   // Detect conceded fixtures — no tennis was played, no ELO impact
   const mainText = $('main').text();
-  if (mainText.includes('Match conceded by')) return { skipped: true, reason: 'conceded' };
+  if (mainText.includes('Match conceded by')) return { skipped: true, reason: 'conceded', date };
 
   // The scorecard table
   const table = $('main table').first();
@@ -159,10 +159,20 @@ async function main() {
     for (const id of ids) {
       const existing = existingMap.get(id);
       
-      // Optimization: If we already have a successful scorecard, skip it
+      // OPTIMIZATION 1: If we already have a successful scorecard, skip network call
       if (existing && existing.rubbers && existing.rubbers.length > 0) {
         allFixtures.push(existing);
         continue;
+      }
+
+      // OPTIMIZATION 2: If we have a cached date and it is in the future, skip network call
+      if (existing && existing.date) {
+        const cachedDate = new Date(existing.date);
+        if (cachedDate > today) {
+          process.stdout.write(`  Fixture ${id}... skipped (future: ${existing.date})\n`);
+          allFixtures.push(existing);
+          continue;
+        }
       }
 
       process.stdout.write(`  Fixture ${id}...`);
@@ -182,15 +192,10 @@ async function main() {
 
       if (fixture && fixture.date) {
         const fixtureDate = new Date(fixture.date);
-        // Optimization: If the match is in the future, don't scrape it yet
+        // Optimization: If the match is in the future, save the date but don't parse rubbers
         if (fixtureDate > today) {
           console.log(` skipped (future: ${fixture.date})`);
-          // Preserve what we had if anything
-          if (existing) {
-            allFixtures.push(existing);
-          } else {
-             allFixtures.push({ fixture_id: id, date: fixture.date, division: div, rubbers: [] });
-          }
+          allFixtures.push({ fixture_id: id, date: fixture.date, division: div, rubbers: [] });
           continue;
         }
       }
@@ -203,11 +208,7 @@ async function main() {
         console.log(` ${fixture.home_team} v ${fixture.away_team} (${fixture.rubbers.length} rubbers)`);
       } else {
         console.log(' skipped (no scorecard yet)');
-        if (existing) {
-          allFixtures.push(existing);
-        } else {
-          allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : null, division: div, rubbers: [] });
-        }
+        allFixtures.push({ fixture_id: id, date: fixture ? fixture.date : (existing ? existing.date : null), division: div, rubbers: [] });
         errors.push(id);
       }
       
