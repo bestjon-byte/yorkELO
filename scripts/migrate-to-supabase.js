@@ -26,7 +26,7 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
-const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025];
+const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
 const CHUNK = 1000;
 
 // ---------------------------------------------------------------------------
@@ -57,7 +57,28 @@ function applyAliases(fixtures, aliases) {
   }));
 }
 
-function buildDivisionMaps(aliases) {
+function applySplits(fixtures, splits) {
+  if (!Object.keys(splits).length) return fixtures;
+  const splitName = (name, team) => {
+    const defs = splits[name];
+    if (!defs) return name;
+    const club = teamToClub(team);
+    const def = defs.find(d => d.clubs.includes(club));
+    return def ? def.label : name;
+  };
+  return fixtures.map(f => ({
+    ...f,
+    rubbers: f.rubbers.map(r => ({
+      ...r,
+      home_player1: r.home_player1 ? splitName(r.home_player1, f.home_team) : r.home_player1,
+      home_player2: r.home_player2 ? splitName(r.home_player2, f.home_team) : r.home_player2,
+      away_player1: r.away_player1 ? splitName(r.away_player1, f.away_team) : r.away_player1,
+      away_player2: r.away_player2 ? splitName(r.away_player2, f.away_team) : r.away_player2,
+    })),
+  }));
+}
+
+function buildDivisionMaps(aliases, splits = {}) {
   const firstDiv = {}, lastDiv = {}, lastClub = {}, lastYear = {};
   for (const year of ALL_SEASONS) {
     const file = `fixtures_${year}.json`;
@@ -66,12 +87,17 @@ function buildDivisionMaps(aliases) {
       const homeClub = teamToClub(f.home_team);
       const awayClub = teamToClub(f.away_team);
       for (const r of f.rubbers) {
-        for (const [n, club] of [
-          [r.home_player1, homeClub], [r.home_player2, homeClub],
-          [r.away_player1, awayClub], [r.away_player2, awayClub],
+        for (const [n, team, club] of [
+          [r.home_player1, f.home_team, homeClub], [r.home_player2, f.home_team, homeClub],
+          [r.away_player1, f.away_team, awayClub], [r.away_player2, f.away_team, awayClub],
         ]) {
           if (!n) continue;
-          const canon = resolveAlias(n, aliases);
+          let canon = resolveAlias(n, aliases);
+          const splitDefs = splits[canon];
+          if (splitDefs) {
+            const def = splitDefs.find(d => d.clubs.includes(teamToClub(team)));
+            if (def) canon = def.label;
+          }
           if (!(canon in firstDiv)) firstDiv[canon] = f.division;
           if (!(canon in lastYear) || year > lastYear[canon]) {
             lastYear[canon] = year;
@@ -85,7 +111,7 @@ function buildDivisionMaps(aliases) {
   return { firstDiv, lastDiv, lastClub };
 }
 
-function buildPlayerMatchLogs(aliases) {
+function buildPlayerMatchLogs(aliases, splits = {}) {
   let all = [];
   for (const year of ALL_SEASONS) {
     const file = `fixtures_${year}.json`;
@@ -93,6 +119,7 @@ function buildPlayerMatchLogs(aliases) {
     all.push(...JSON.parse(fs.readFileSync(file)).fixtures);
   }
   all = applyAliases(all, aliases);
+  all = applySplits(all, splits);
   all.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const logs = {};
@@ -189,9 +216,12 @@ async function run() {
   for (const { variant_name, canonical_name } of dbAliases || []) aliases[variant_name] = canonical_name;
   if (dbAliases?.length) console.log(`  + ${dbAliases.length} alias(es) from york_aliases table`);
 
+  const splits = fs.existsSync('player-splits.json') ? JSON.parse(fs.readFileSync('player-splits.json')) : {};
+  if (Object.keys(splits).length) console.log(`  + ${Object.keys(splits).length} name split(s) from player-splits.json`);
+
   const ratingsData = JSON.parse(fs.readFileSync('ratings_all.json'));
-  const { firstDiv, lastDiv, lastClub } = buildDivisionMaps(aliases);
-  const matchLogs   = buildPlayerMatchLogs(aliases);
+  const { firstDiv, lastDiv, lastClub } = buildDivisionMaps(aliases, splits);
+  const matchLogs   = buildPlayerMatchLogs(aliases, splits);
   const playerStats = buildPlayerStats(matchLogs);
 
   // ---- Build players rows ----

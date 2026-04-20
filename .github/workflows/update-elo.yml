@@ -1,0 +1,51 @@
+name: Update ELO Database
+
+on:
+  schedule:
+    # Run Sunday 2pm, Sunday 8pm, Monday 8pm, Wednesday 8pm (UTC)
+    - cron: '0 14 * * 0'
+    - cron: '0 20 * * 0'
+    - cron: '0 20 * * 1'
+    - cron: '0 20 * * 3'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Scrape 2026 Fixtures
+        run: node scraper.js
+
+      - name: Apply Auto-Deduplication
+        run: node dedupe-auto.js
+
+      - name: Detect Name Conflicts
+        run: node scripts/detect-name-conflicts.js --write
+
+      - name: Calculate ELO Ratings
+        run: node elo.js
+
+      - name: Migrate to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/migrate-to-supabase.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add fixtures_2026.json player-aliases.json player-not-dupes.json player-splits.json ratings_all.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update 2026 ELO ratings [skip ci]"
+          git push

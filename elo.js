@@ -10,7 +10,8 @@ function seedRating(division) {
   return DIVISION_SEEDS[division] ?? 1200;
 }
 const ALIASES_FILE = 'player-aliases.json';
-const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025];
+const SPLITS_FILE  = 'player-splits.json';
+const ALL_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
 
 function expectedScore(playerRating, opponentRating) {
   return 1 / (1 + Math.pow(10, (opponentRating - playerRating) / 400));
@@ -27,6 +28,35 @@ function calcChange(playerRating, opponentRating, actualScore) {
 function loadAliases() {
   if (!fs.existsSync(ALIASES_FILE)) return {};
   return JSON.parse(fs.readFileSync(ALIASES_FILE));
+}
+
+function loadSplits() {
+  if (!fs.existsSync(SPLITS_FILE)) return {};
+  return JSON.parse(fs.readFileSync(SPLITS_FILE));
+}
+
+// Apply player splits: rename "Paul Birch" → "Paul Birch (Knaresborough)" etc.
+// based on which club/team the player appeared for in each rubber.
+function applySplits(fixtures, splits) {
+  if (Object.keys(splits).length === 0) return fixtures;
+  const clubOf = t => t.replace(/\s+\d+$/, '').trim();
+  const splitName = (name, team) => {
+    const defs = splits[name];
+    if (!defs) return name;
+    const club = clubOf(team);
+    const def = defs.find(d => d.clubs.includes(club));
+    return def ? def.label : name;
+  };
+  return fixtures.map(f => ({
+    ...f,
+    rubbers: f.rubbers.map(r => ({
+      ...r,
+      home_player1: r.home_player1 ? splitName(r.home_player1, f.home_team) : r.home_player1,
+      home_player2: r.home_player2 ? splitName(r.home_player2, f.home_team) : r.home_player2,
+      away_player1: r.away_player1 ? splitName(r.away_player1, f.away_team) : r.away_player1,
+      away_player2: r.away_player2 ? splitName(r.away_player2, f.away_team) : r.away_player2,
+    })),
+  }));
 }
 
 // Follow alias chain in case of chained aliases (A→B→C)
@@ -145,12 +175,18 @@ function run() {
     console.log(`Total: ${fixtures.length} fixtures, ${rubberTotal} rubbers across ${seasons.length} seasons`);
   }
 
-  // Apply player aliases before ELO processing
+  // Apply player aliases then splits before ELO processing
   const aliases = loadAliases();
   const aliasCount = Object.keys(aliases).length;
   if (aliasCount > 0) {
     console.log(`Applying ${aliasCount} player aliases...`);
     fixtures = applyAliases(fixtures, aliases);
+  }
+  const splits = loadSplits();
+  const splitCount = Object.keys(splits).length;
+  if (splitCount > 0) {
+    console.log(`Applying ${splitCount} player splits...`);
+    fixtures = applySplits(fixtures, splits);
   }
 
   const { ratings, history } = processFixtures(fixtures);

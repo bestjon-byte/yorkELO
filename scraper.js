@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const BASE_URL = 'https://www.yorkmenstennisleague.co.uk';
-const SEASON = 2025;
+const SEASON = 2026;
 const DIVISIONS = 8;
 const DELAY_MS = 500; // polite delay between requests
 
