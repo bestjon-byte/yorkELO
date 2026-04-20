@@ -39,6 +39,7 @@ function resolveAlias(name, aliases) {
 }
 
 function teamToClub(team) {
+  if (!team) return '';
   return team.replace(/\s+\d+$/, '').trim();
 }
 
@@ -47,7 +48,7 @@ function applyAliases(fixtures, aliases) {
   const resolve = n => n ? resolveAlias(n, aliases) : n;
   return fixtures.map(f => ({
     ...f,
-    rubbers: f.rubbers.map(r => ({
+    rubbers: (f.rubbers || []).map(r => ({
       ...r,
       home_player1: resolve(r.home_player1),
       home_player2: resolve(r.home_player2),
@@ -68,7 +69,7 @@ function applySplits(fixtures, splits) {
   };
   return fixtures.map(f => ({
     ...f,
-    rubbers: f.rubbers.map(r => ({
+    rubbers: (f.rubbers || []).map(r => ({
       ...r,
       home_player1: r.home_player1 ? splitName(r.home_player1, f.home_team) : r.home_player1,
       home_player2: r.home_player2 ? splitName(r.home_player2, f.home_team) : r.home_player2,
@@ -84,9 +85,10 @@ function buildDivisionMaps(aliases, splits = {}) {
     const file = `fixtures_${year}.json`;
     if (!fs.existsSync(file)) continue;
     for (const f of JSON.parse(fs.readFileSync(file)).fixtures) {
+      if (!f.home_team || !f.away_team) continue;
       const homeClub = teamToClub(f.home_team);
       const awayClub = teamToClub(f.away_team);
-      for (const r of f.rubbers) {
+      for (const r of (f.rubbers || [])) {
         for (const [n, team, club] of [
           [r.home_player1, f.home_team, homeClub], [r.home_player2, f.home_team, homeClub],
           [r.away_player1, f.away_team, awayClub], [r.away_player2, f.away_team, awayClub],
@@ -124,6 +126,7 @@ function buildPlayerMatchLogs(aliases, splits = {}) {
 
   const logs = {};
   for (const fixture of all) {
+    if (!fixture.rubbers) continue;
     for (const r of [...fixture.rubbers].sort((a, b) => a.rubber_order - b.rubber_order)) {
       if (!r.home_player1 || !r.home_player2 || !r.away_player1 || !r.away_player2) continue;
       if (r.winner === null) continue;
