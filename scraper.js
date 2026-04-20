@@ -8,7 +8,7 @@ const DELAY_MS = 1000;
 const USER_AGENT = 'York-ELO-Tracker-Bot (Automated ELO Rating System; contact: your-email@example.com)';
 
 const OUT_PATH = `fixtures_${SEASON}.json`;
-const RECHECK_DAYS = 7; // Re-check scores for matches played in the last 7 days
+const RECHECK_DAYS = 7;
 
 async function fetchHtml(url) {
   const res = await fetch(url, {
@@ -22,16 +22,12 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-/**
- * Scrapes the division page to get ALL fixtures, dates, times, and teams in one go.
- */
 async function getFixturesFromDivisionPage(division) {
   const url = `${BASE_URL}/divisions/${division}/Division_${division}`;
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
   const fixtures = [];
-  // The fixtures are in a table; rows containing links to /fixtures/ are our targets
   $('tr').each((_, tr) => {
     const row = $(tr);
     const link = row.find('a[href*="/fixtures/"]');
@@ -40,34 +36,21 @@ async function getFixturesFromDivisionPage(division) {
       const id = parseInt(href.match(/\/fixtures\/(\d+)$/)[1], 10);
       
       const cells = row.find('td').toArray();
-      // League table structure: Date | Time | Home Team | Away Team | Score/Link
-      // Note: Structure can vary, but usually teams are the 3rd and 4th cells
-      let date = null;
-      let time = null;
-      let homeTeam = null;
-      let awayTeam = null;
+      let date = null, time = null, homeTeam = null, awayTeam = null;
 
       $(cells).each((i, td) => {
         const text = $(td).text().trim();
-        if (text.match(/\d+\s+\w+\s+\d{4}/)) date = text; // "27 April 2026"
-        else if (text.match(/\d{2}:\d{2}/)) time = text;   // "18:30"
+        if (text.match(/\d+\s+\w+\s+\d{4}/)) date = text;
+        else if (text.match(/\d{2}:\d{2}/)) time = text;
       });
 
-      // Find teams: They are usually the cells wrapping the score link or adjacent to it
-      // Standard layout: [Date] [Time] [Home] [v] [Away]
       if (cells.length >= 5) {
         homeTeam = $(cells[2]).text().trim();
         awayTeam = $(cells[4]).text().trim();
       }
       
       if (id) {
-        fixtures.push({ 
-          id, 
-          date, 
-          time, 
-          home_team: homeTeam, 
-          away_team: awayTeam 
-        });
+        fixtures.push({ id, date, time, home_team: homeTeam, away_team: awayTeam });
       }
     }
   });
@@ -75,13 +58,10 @@ async function getFixturesFromDivisionPage(division) {
   return fixtures;
 }
 
-// Parse a single fixture page into structured data (scorecard details)
 function parseFixture(html, fixtureId, division) {
   const $ = cheerio.load(html);
-
   const dateText = $('main p').first().text().trim();
   const date = dateText.split(' - ')[0].trim();
-
   const mainText = $('main').text();
   if (mainText.includes('Match conceded by')) return { skipped: true, reason: 'conceded', date };
 
@@ -112,43 +92,26 @@ function parseFixture(html, fixtureId, division) {
     for (let colIdx = 0; colIdx < 3; colIdx++) {
       const scoreText = $(cells[colIdx + 1]).text().trim();
       const scoreParts = scoreText.split('-').map(s => parseInt(s.trim(), 10));
-      const homeGames = scoreParts[0];
-      const awayGames = scoreParts[1];
-
+      const homeGames = scoreParts[0], awayGames = scoreParts[1];
       let winner = null;
       if (!isNaN(homeGames) && !isNaN(awayGames)) {
         if (homeGames > awayGames) winner = 'home';
         else if (awayGames > homeGames) winner = 'away';
         else winner = 'draw';
       }
-
       rubbers.push({
         rubber_order: (rowIdx - 1) * 3 + (colIdx + 1),
-        home_player1: homePair.player1,
-        home_player2: homePair.player2,
-        away_player1: awayPairs[colIdx].player1,
-        away_player2: awayPairs[colIdx].player2,
-        home_games: homeGames,
-        away_games: awayGames,
-        winner,
+        home_player1: homePair.player1, home_player2: homePair.player2,
+        away_player1: awayPairs[colIdx].player1, away_player2: awayPairs[colIdx].player2,
+        home_games: homeGames, away_games: awayGames, winner,
       });
     }
   }
-
-  return {
-    fixture_id: fixtureId,
-    season: SEASON,
-    division,
-    date,
-    home_team: homeTeam,
-    away_team: awayTeam,
-    source_url: `${BASE_URL}/fixtures/${fixtureId}`,
-    rubbers,
-  };
+  return { fixture_id: fixtureId, season: SEASON, division, date, home_team: homeTeam, away_team: awayTeam, source_url: `${BASE_URL}/fixtures/${fixtureId}`, rubbers };
 }
 
 async function main() {
-  console.log(`Scraping York Mens Tennis League — Season ${SEASON}`);
+  console.log(`Scraping York Mens Tennis League — Season ${SEASON} (Division 8 only)`);
 
   let existingData = { fixtures: [] };
   if (fs.existsSync(OUT_PATH)) {
@@ -159,124 +122,71 @@ async function main() {
   }
 
   const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]));
-  const allFixtures = [];
+  const allFixtures = existingData.fixtures.filter(f => f.division !== 8); // Keep other divisions
+  
+  const div = 8;
+  process.stdout.write(`Division ${div}: fetching season schedule...`);
+  const divisionFixtures = await getFixturesFromDivisionPage(div);
+  console.log(` ${divisionFixtures.length} matches found`);
+  
   const errors = [];
   const now = new Date();
   const today = new Date();
   today.setHours(23, 59, 59, 999);
 
-  for (let div = 1; div <= DIVISIONS; div++) {
-    process.stdout.write(`Division ${div}: fetching season schedule...`);
-    const divisionFixtures = await getFixturesFromDivisionPage(div);
-    console.log(` ${divisionFixtures.length} matches found`);
-    
-    for (const item of divisionFixtures) {
-      const id = item.id;
-      const existing = existingMap.get(id);
+  for (const item of divisionFixtures) {
+    const id = item.id;
+    const existing = existingMap.get(id);
+    const dateStr = item.date;
+    const timeStr = item.time;
+    const homeTeam = item.home_team;
+    const awayTeam = item.away_team;
 
-      // Use the Division page as the source of truth for date, time, and teams
-      const dateStr = item.date;
-      const timeStr = item.time;
-      const homeTeam = item.home_team;
-      const awayTeam = item.away_team;
+    let isRecent = false, isFuture = false;
+    if (dateStr) {
+      const matchDate = new Date(dateStr);
+      isFuture = matchDate > today;
+      const diffDays = (now - matchDate) / (1000 * 60 * 60 * 24);
+      isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
+    }
 
-      let isRecent = false;
-      let isFuture = false;
+    if (isFuture) {
+      allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
+      continue;
+    }
 
-      if (dateStr) {
-        const matchDate = new Date(dateStr);
-        isFuture = matchDate > today;
-        const diffDays = (now - matchDate) / (1000 * 60 * 60 * 24);
-        isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
-      }
+    if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
+      allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team });
+      continue;
+    }
 
-      // OPTIMIZATION 1: If it's in the future, save everything and skip network scorecard hit.
-      if (isFuture) {
-        allFixtures.push({ 
-          fixture_id: id, 
-          date: dateStr, 
-          time: timeStr,
-          home_team: homeTeam,
-          away_team: awayTeam,
-          division: div, 
-          rubbers: [] 
-        });
-        continue;
-      }
-
-      // OPTIMIZATION 2: If we have a scorecard AND it's not recent, skip network.
-      // We update the date/time/teams from the division page just in case they were edited.
-      if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
-        allFixtures.push({
-          ...existing,
-          date: dateStr || existing.date,
-          time: timeStr || existing.time,
-          home_team: homeTeam || existing.home_team,
-          away_team: awayTeam || existing.away_team
-        });
-        continue;
-      }
-
-      // Fetch scorecard for recent matches or missing results
-      process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
-      const url = `${BASE_URL}/fixtures/${id}`;
-      try {
-        const html = await fetchHtml(url);
-        const fixture = parseFixture(html, id, div);
-
-        if (fixture && fixture.skipped) {
-          console.log(` skipped (${fixture.reason})`);
-          allFixtures.push({ ...fixture, time: timeStr });
-        } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
-          // Merge division-page metadata with scorecard-page details
-          allFixtures.push({ 
-            ...fixture, 
-            time: timeStr,
-            home_team: homeTeam || fixture.home_team,
-            away_team: awayTeam || fixture.away_team
-          });
-          console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
-        } else {
-          console.log(' no scorecard yet');
-          allFixtures.push({ 
-            fixture_id: id, 
-            date: dateStr, 
-            time: timeStr,
-            home_team: homeTeam,
-            away_team: awayTeam,
-            division: div, 
-            rubbers: [] 
-          });
-          errors.push(id);
-        }
-      } catch (err) {
-        console.log(` failed: ${err.message}`);
-        if (existing) allFixtures.push(existing);
+    process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
+    try {
+      const html = await fetchHtml(`${BASE_URL}/fixtures/${id}`);
+      const fixture = parseFixture(html, id, div);
+      if (fixture && fixture.skipped) {
+        console.log(` skipped (${fixture.reason})`);
+        allFixtures.push({ ...fixture, time: timeStr });
+      } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
+        allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team });
+        console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
+      } else {
+        console.log(' no scorecard yet');
+        allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
         errors.push(id);
       }
-      
-      await sleep(DELAY_MS);
+    } catch (err) {
+      console.log(` failed: ${err.message}`);
+      if (existing) allFixtures.push(existing);
+      errors.push(id);
     }
-    
     await sleep(DELAY_MS);
   }
 
   allFixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-  const output = {
-    scraped_at: new Date().toISOString(),
-    season: SEASON,
-    fixture_count: allFixtures.filter(f => f.rubbers && f.rubbers.length > 0).length,
-    rubber_count: allFixtures.reduce((n, f) => n + (f.rubbers ? f.rubbers.length : 0), 0),
-    skipped_fixture_ids: errors,
-    fixtures: allFixtures,
-  };
-
+  const output = { scraped_at: new Date().toISOString(), season: SEASON, fixture_count: allFixtures.filter(f => f.rubbers && f.rubbers.length > 0).length, rubber_count: allFixtures.reduce((n, f) => n + (f.rubbers ? f.rubbers.length : 0), 0), skipped_fixture_ids: errors, fixtures: allFixtures };
   fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));
   console.log(`\nDone. ${output.fixture_count} fixtures with results saved to ${OUT_PATH}`);
 }
 
-main().catch(err => {
-  console.error('Fatal:', err);
-  process.exit(1);
-});
+main().catch(err => { console.error('Fatal:', err); process.exit(1); });
