@@ -8,6 +8,7 @@ const DELAY_MS = 1000;
 const USER_AGENT = 'York-ELO-Tracker-Bot (Automated ELO Rating System; contact: your-email@example.com)';
 
 const OUT_PATH = `fixtures_${SEASON}.json`;
+const RECHECK_DAYS = 7; // Re-check scores for matches played in the last 7 days
 
 async function fetchHtml(url) {
   const res = await fetch(url, {
@@ -23,7 +24,6 @@ function sleep(ms) {
 
 /**
  * Scrapes the division page to get ALL fixtures and their dates in one go.
- * This prevents having to hit individual fixture pages just to find out when they are.
  */
 async function getFixturesFromDivisionPage(division) {
   const url = `${BASE_URL}/divisions/${division}/Division_${division}`;
@@ -31,7 +31,6 @@ async function getFixturesFromDivisionPage(division) {
   const $ = cheerio.load(html);
 
   const fixtures = [];
-  // The fixtures are usually in a table; we look for the links
   $('tr').each((_, tr) => {
     const row = $(tr);
     const link = row.find('a[href*="/fixtures/"]');
@@ -39,8 +38,6 @@ async function getFixturesFromDivisionPage(division) {
       const href = link.attr('href');
       const id = parseInt(href.match(/\/fixtures\/(\d+)$/)[1], 10);
       
-      // Try to find the date in the same row
-      // Usually the date is in one of the cells (e.g. "27 April 2026")
       let date = null;
       row.find('td').each((_, td) => {
         const text = $(td).text().trim();
@@ -62,15 +59,12 @@ async function getFixturesFromDivisionPage(division) {
 function parseFixture(html, fixtureId, division) {
   const $ = cheerio.load(html);
 
-  // Date (as a fallback/confirmation)
   const dateText = $('main p').first().text().trim();
   const date = dateText.split(' - ')[0].trim();
 
-  // Detect conceded fixtures
   const mainText = $('main').text();
   if (mainText.includes('Match conceded by')) return { skipped: true, reason: 'conceded', date };
 
-  // The scorecard table
   const table = $('main table').first();
   if (!table.length) return { date, rubbers: [] };
 
@@ -147,6 +141,7 @@ async function main() {
   const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]));
   const allFixtures = [];
   const errors = [];
+  const now = new Date();
   const today = new Date();
   today.setHours(23, 59, 59, 999);
 
@@ -155,32 +150,39 @@ async function main() {
     const divisionFixtures = await getFixturesFromDivisionPage(div);
     console.log(` ${divisionFixtures.length} matches found`);
     
-    // Process each match in the division
     for (const item of divisionFixtures) {
       const id = item.id;
       const existing = existingMap.get(id);
 
-      // 1. If we already have a scorecard, we are done.
-      if (existing && existing.rubbers && existing.rubbers.length > 0) {
+      // Determine the date (Division page is the source of truth for date changes)
+      const dateStr = item.date || (existing ? existing.date : null);
+      let isRecent = false;
+      let isFuture = false;
+
+      if (dateStr) {
+        const matchDate = new Date(dateStr);
+        isFuture = matchDate > today;
+        const diffDays = (now - matchDate) / (1000 * 60 * 60 * 24);
+        isRecent = diffDays <= RECHECK_DAYS && diffDays >= 0;
+      }
+
+      // OPTIMIZATION 1: If it's in the future, save date and skip network.
+      if (isFuture) {
+        allFixtures.push({ fixture_id: id, date: dateStr, division: div, rubbers: [] });
+        continue;
+      }
+
+      // OPTIMIZATION 2: If we have a scorecard AND it's not recent, skip network.
+      if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
         allFixtures.push(existing);
         continue;
       }
 
-      // 2. Determine the date (either from the division page or our cache)
-      const dateStr = item.date || (existing ? existing.date : null);
-      
-      // 3. If it's in the future, we record the date and skip the network hit.
-      if (dateStr) {
-        const matchDate = new Date(dateStr);
-        if (matchDate > today) {
-          allFixtures.push({ fixture_id: id, date: dateStr, division: div, rubbers: [] });
-          continue;
-        }
-      }
-
-      // 4. If we get here, the match is in the past/today and we don't have a scorecard.
-      // TIME TO HIT THE NETWORK.
-      process.stdout.write(`  Fixture ${id}...`);
+      // If we get here, it's either:
+      // - A match in the past with no score yet.
+      // - A match in the past week (re-checking for corrections).
+      // - A match we've never seen before.
+      process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
       const url = `${BASE_URL}/fixtures/${id}`;
       try {
         const html = await fetchHtml(url);
@@ -206,7 +208,7 @@ async function main() {
       await sleep(DELAY_MS);
     }
     
-    await sleep(DELAY_MS); // Extra delay between divisions
+    await sleep(DELAY_MS);
   }
 
   allFixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
