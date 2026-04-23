@@ -1,3 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>York Mens Tennis — Club Tracking</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d14;
+  --surface: #13131f;
+  --border:  #1f1f32;
+  --text:    #e2e2f0;
+  --muted:   #6b6b8a;
+  --accent:  #6d5acd;
+  --accent-mens:  #6d5acd;
+  --accent-mixed: #f43f5e;
+  --win:     #22c55e;
+  --loss:    #ef4444;
+  --draw:    #94a3b8;
+}
+
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+body.mixed { --accent: var(--accent-mixed); }
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #0d0d14 0%, #1a1030 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 24px;
+  display: flex; align-items: flex-start; flex-wrap: wrap; gap: 16px;
+}
+header > div { flex: 1; min-width: 0; }
+header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+header h1 span { color: var(--accent); }
+header p { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+
+/* League Toggle */
+.league-toggle {
+  display: inline-flex; background: var(--bg); border: 1px solid var(--border);
+  padding: 4px; border-radius: 10px; gap: 4px; margin-bottom: 12px;
+}
+.toggle-btn {
+  padding: 6px 14px; border-radius: 6px; border: none; background: transparent;
+  color: var(--muted); font-size: 0.75rem; font-weight: 700; cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn.active { background: var(--accent); color: #fff; }
+
+header nav { display: flex; align-items: center; gap: 6px; padding-top: 6px; }
+nav a {
+  color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border);
+  transition: all .15s;
+}
+nav a:hover { color: var(--text); border-color: rgba(109,90,205,0.4); }
+nav a.active {
+  color: var(--accent); border-color: rgba(109,90,205,0.4);
+  background: rgba(109,90,205,0.1); font-weight: 600;
+}
+
+/* ── Controls ── */
+.controls {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  padding: 14px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.ctrl-label {
+  font-size: 0.75rem; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .07em; white-space: nowrap;
+}
+.btn-group { display: flex; gap: 4px; }
+.tog-btn {
+  padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); font-size: 0.78rem;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.tog-btn:hover { border-color: var(--accent); color: var(--text); }
+.tog-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ctrl-sep { width: 1px; background: var(--border); align-self: stretch; margin: 2px 4px; }
+.count-badge {
+  margin-left: auto; font-size: 0.78rem; color: var(--muted);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 28px; height: 28px; border: 3px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading { display: flex; align-items: center; gap: 12px; padding: 60px; color: var(--muted); justify-content: center; }
+
+/* ── Main content ── */
+.main { flex: 1; padding: 28px 32px; max-width: 1400px; width: 100%; margin: 0 auto; }
+
+/* ── Division section ── */
+.div-section { margin-bottom: 40px; }
+.div-heading {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.div-heading h2 { font-size: 1.05rem; font-weight: 700; }
+.div-badge {
+  display: inline-block; padding: 3px 9px; border-radius: 5px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: .04em;
+}
+.div-count { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+
+/* ── Team cards grid ── */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* ── Team card ── */
+.team-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+}
+.team-card:hover { border-color: rgba(109,90,205,.35); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+
+.card-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.card-header-left { flex: 1; min-width: 0; }
+.card-team-name {
+  font-size: 1rem; font-weight: 700; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.card-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; flex-wrap: wrap; }
+.card-rubbers { font-size: 0.75rem; color: var(--muted); }
+
+.card-rating-block { text-align: right; flex-shrink: 0; }
+.card-avg-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+.card-avg-val { font-size: 1.75rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.card-top-label { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+.card-top-val { font-size: 0.82rem; font-weight: 600; }
+
+.card-stats {
+  padding: 10px 18px;
+  display: flex; gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.mini-stat { flex: 1; text-align: center; }
+.mini-stat-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.mini-stat-val { font-size: 0.9rem; font-weight: 700; margin-top: 2px; }
+
+/* Rating bar under avg */
+.avg-bar-wrap {
+  padding: 0 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.avg-bar-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.avg-bar-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
+
+/* ── Player list ── */
+.player-list { padding: 0; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px;
+  border-bottom: 1px solid rgba(31,31,50,.8);
+  transition: background .1s;
+}
+.player-row:last-child { border-bottom: none; }
+.player-row:hover { background: rgba(109,90,205,.07); }
+
+.player-rank {
+  font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums;
+  width: 18px; text-align: center; flex-shrink: 0;
+}
+.player-name-link {
+  flex: 1; font-size: 0.85rem; color: var(--text);
+  text-decoration: none; font-weight: 500; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.player-name-link:hover { color: #a78bfa; text-decoration: underline; }
+.player-appearances {
+  font-size: 0.72rem; color: var(--muted); white-space: nowrap; flex-shrink: 0;
+}
+.player-wr {
+  font-size: 0.72rem; font-weight: 600; white-space: nowrap;
+  flex-shrink: 0; min-width: 38px; text-align: right;
+}
+.player-rating-pill {
+  font-size: 0.72rem; font-weight: 700; padding: 2px 7px;
+  border-radius: 10px; flex-shrink: 0; font-variant-numeric: tabular-nums;
+}
+
+/* ── Ringer badges ── */
+.ringer-badge {
+  font-size: 0.62rem; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+  letter-spacing: .04em; cursor: pointer; border: none; flex-shrink: 0;
+  text-transform: uppercase; transition: opacity .15s;
+}
+.ringer-badge:hover { opacity: .8; }
+.ringer-badge.ringer  { background: rgba(251,191,36,.15); color: #fbbf24; border: 1px solid rgba(251,191,36,.35); }
+.ringer-badge.cheating { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.4); animation: pulse-red 2s infinite; }
+@keyframes pulse-red { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); } 50% { box-shadow: 0 0 0 4px rgba(239,68,68,0); } }
+
+/* ── Ringer modal ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 100;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px; max-width: 420px; width: 90%;
+  position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  background: none; border: none; color: var(--muted);
+  font-size: 1.2rem; cursor: pointer; padding: 4px 8px; border-radius: 4px;
+}
+.modal-close:hover { color: var(--text); background: var(--border); }
+.modal-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.modal-subtitle { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; }
+.modal-verdict {
+  font-size: 0.8rem; font-weight: 700; padding: 10px 14px;
+  border-radius: 8px; margin-bottom: 14px; line-height: 1.4;
+}
+.modal-verdict.cheating { background: rgba(239,68,68,.12); color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+.modal-verdict.ringer   { background: rgba(251,191,36,.10); color: #fbbf24; border: 1px solid rgba(251,191,36,.25); }
+.modal-team-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 8px; margin-bottom: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.modal-team-row.higher { border-color: rgba(239,68,68,.3); }
+.modal-team-row.current { border-color: rgba(109,90,205,.3); }
+.modal-team-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.modal-team-name { font-weight: 700; }
+.modal-team-stats { margin-left: auto; font-size: 0.75rem; color: var(--muted); text-align: right; }
+
+.expand-btn {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  width: 100%; padding: 9px; background: none; border: none;
+  border-top: 1px solid var(--border); color: var(--muted);
+  font-size: 0.75rem; cursor: pointer; transition: all .15s;
+}
+.expand-btn:hover { color: var(--accent); background: rgba(109,90,205,.06); }
+.expand-arrow { transition: transform .2s; display: inline-block; }
+.expand-btn.open .expand-arrow { transform: rotate(180deg); }
+
+/* ── Empty state ── */
+.empty {
+  text-align: center; padding: 60px 32px; color: var(--muted);
+}
+.empty h3 { font-size: 1rem; margin-bottom: 6px; }
+.empty p { font-size: 0.85rem; }
+
+/* ── Win rate colouring ── */
+.wr-good { color: var(--win); }
+.wr-ok   { color: #facc15; }
+.wr-bad  { color: var(--loss); }
+
+@media (max-width: 640px) {
+  header { padding: 20px 16px 18px; }
+  .controls { padding: 12px 16px; }
+  .main { padding: 16px; }
+  .teams-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="league-toggle">
+      <button class="toggle-btn active" id="btnMens" onclick="setLeague('mens')">Men's League</button>
+      <button class="toggle-btn" id="btnMixed" onclick="setLeague('mixed')">Mixed League</button>
+    </div>
+    <h1 id="mainTitle">York Men's Tennis — <span>Clubs</span></h1>
+    <p id="subtitle">Loading…</p>
+  </div>
+  <nav>
+    <a href="/">Leaderboard</a>
+    <a href="/clubs" class="active">Clubs</a>
+    <a href="/predict">Predictor</a>
+  </nav>
+</header>
+
+<div class="controls">
+  <span class="ctrl-label">Seasons</span>
+  <div class="btn-group" id="seasonsBtns">
+    <button class="tog-btn" data-seasons="1">This season</button>
+    <button class="tog-btn active" data-seasons="2">This + last</button>
+    <button class="tog-btn" data-seasons="3">Last 3</button>
+    <button class="tog-btn" data-seasons="0">All time</button>
+  </div>
+
+  <div class="ctrl-sep"></div>
+
+  <span class="ctrl-label">Min games</span>
+  <div class="btn-group" id="minAppBtns">
+    <button class="tog-btn active" data-min="3">3+</button>
+    <button class="tog-btn" data-min="6">6+</button>
+    <button class="tog-btn" data-min="9">9+</button>
+  </div>
+
+  <div class="ctrl-sep"></div>
+
+  <span class="ctrl-label">Division</span>
+  <div class="btn-group" id="divBtns">
+    <button class="tog-btn active" data-div="0">All</button>
+    <button class="tog-btn" data-div="1">D1</button>
+    <button class="tog-btn" data-div="2">D2</button>
+    <button class="tog-btn" data-div="3">D3</button>
+    <button class="tog-btn" data-div="4">D4</button>
+    <button class="tog-btn" data-div="5">D5</button>
+    <button class="tog-btn" data-div="6">D6</button>
+    <button class="tog-btn" data-div="7">D7</button>
+    <button class="tog-btn" data-div="8">D8</button>
+  </div>
+
+  <div class="count-badge" id="countBadge">—</div>
+</div>
+
+<div class="main" id="main">
+  <div class="loading"><div class="spinner"></div> Loading team data…</div>
+</div>
+
+<!-- Ringer detail modal -->
+<div class="modal-overlay" id="ringerOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="ringerClose">&#10005;</button>
+    <div id="ringerModalBody"></div>
+  </div>
+</div>
+
 <script>
 // ── State ─────────────────────────────────────────────────────────────────
 let allTeams = [];
