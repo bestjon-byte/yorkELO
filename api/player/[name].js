@@ -10,16 +10,18 @@ module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   const name = req.query.name;
+  const isMixed = req.query.league === 'mixed';
+  const tablePrefix = isMixed ? 'mixed_' : 'york_';
 
   const [historyResult, statsResult] = await Promise.all([
     supabase
-      .from('york_match_history')
+      .from(`${tablePrefix}match_history`)
       .select('*')
       .eq('player_name', name)
       .order('seq')
       .limit(10000),
     supabase
-      .from('york_player_stats')
+      .from(`${tablePrefix}player_stats`)
       .select('*')
       .eq('player_name', name)
       .maybeSingle(),
@@ -37,9 +39,9 @@ module.exports = async (req, res) => {
     bestPartner:  s.best_partner,
     worstPartner: s.worst_partner,
     nemesis:      s.nemesis,
-    nemesisPair:  s.nemesis_pair,
-    nemesisClub:  s.nemesis_club,
-    bestClub:     s.best_club,
+    nemesis_pair:  s.nemesis_pair,
+    nemesis_club:  s.nemesis_club,
+    best_club:     s.best_club,
   } : {};
 
   res.end(JSON.stringify({ stats, history: historyResult.data }));

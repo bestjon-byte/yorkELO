@@ -11,19 +11,22 @@ York Tennis ELO Rating System — a cross-divisional ELO rating system for the Y
 - **Runtime:** Node.js (CommonJS) + Cheerio for scraping
 - **Data:** JSON flat files (`fixtures_YYYY.json`, `ratings_all.json`)
 - **UI:** Vanilla JS single-page app served by `server.js` (built-in `http` module, no framework)
-- **Deployment:** Vercel (serverless functions in `api/`) + Supabase PostgreSQL (tables prefixed `york_` to avoid collision with existing Cawood DB tables)
+- **Deployment:** Vercel (serverless functions in `api/`) + Supabase PostgreSQL (tables prefixed `york_` or `mixed_`)
 
 ## Key Commands
 
 ```bash
 node scraper.js                  # scrape 2026 season → fixtures_2026.json
+node scraper-mixed.mjs           # scrape York Mixed League (all seasons/divisions) from MyDivision.com
 node scraper-archive.js [year]   # scrape one or all archive seasons (2018,2019,2021–2025)
 node dedupe-auto.js              # apply all confirmed bulk alias decisions
 node dedupe.js [--report|--manual]  # auto-approves Phase 1 (same-team, no clash); interactive Phase 2
-node elo.js                      # full multi-season ELO → ratings_all.json
+node elo.js                      # full multi-season ELO for Mens league → ratings_all.json
+node elo.js --mixed              # full multi-season ELO for Mixed league → mixed_ratings_all.json
 node scripts/detect-name-conflicts.js [--write]  # find same-name different-people; write player-splits.json
 node server.js                   # web UI at http://localhost:3000
-node scripts/migrate-to-supabase.js  # push all local JSON data to Supabase (re-runnable)
+node scripts/migrate-to-supabase.js  # push Mens local JSON data to Supabase (re-runnable)
+node scripts/migrate-mixed-to-supabase.js --league mixed # push Mixed local JSON data to Supabase
 node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management API
 /deploy                          # commit source changes with auto-generated message + push to main
 ```
@@ -45,8 +48,9 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 ## Supabase
 
 - ⚠️ **Two-code-path architecture for stats:** `server.js` computes all stats in-memory (local dev only). Vercel reads from Supabase. When adding new player stats, update ALL FOUR: `buildPlayerStats()` in `server.js`, `buildPlayerStats()` in `scripts/migrate-to-supabase.js`, the Supabase schema (`node scripts/sql.js "ALTER TABLE york_player_stats ADD COLUMN IF NOT EXISTS ..."`), and `api/player/[name].js`. Then re-run the migration.
-- `york_player_stats` JSONB columns: `best_partner`, `worst_partner`, `nemesis`, `nemesis_pair`, `nemesis_club`, `best_club`
-- Tables: `york_players`, `york_match_history`, `york_player_stats`, `york_aliases`
+- `york_player_stats` / `mixed_player_stats` JSONB columns: `best_partner`, `worst_partner`, `nemesis`, `nemesis_pair`, `nemesis_club`, `best_club`
+- Tables (Mens): `york_players`, `york_match_history`, `york_player_stats`, `york_aliases`, `york_elo_fixtures`
+- Tables (Mixed): `mixed_players`, `mixed_match_history`, `mixed_player_stats`, `mixed_aliases`, `mixed_elo_fixtures`
 - Default row cap is 1000 — use `.range(from, from+999)` pagination loop for full leaderboard (1830+ players)
 - Management API (`api.supabase.com`) requires personal access token (`SUPABASE_ACCESS_TOKEN`), not the service key. Returns 200 or 201 on success.
 - `york_aliases` table stores runtime merges (variant_name → canonical_name); merged with `player-aliases.json` at query time
@@ -54,6 +58,7 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 ## Date Format & Sorting
 
 - Fixture dates are stored as `"DD MonthName YYYY"` (e.g. `"28 April 2025"`) — never sort these as plain strings or "28" sorts before "5". Parse to `Date` / timestamp first.
+- Mixed league dates may come as `"DD.MM.YY"` from MyDivision; `scraper-mixed.mjs` converts these or the ELO engine handles them.
 
 ## Admin Merge Tool
 
@@ -65,7 +70,8 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 
 - **Unit of play:** Doubles rubber (pair vs pair). Team rating = average of two individual player ratings. Both players receive the same adjustment.
 - **Formula:** Standard ELO — `E = 1 / (1 + 10^((opponentRating - playerRating) / 400))`, `change = K * (actual - expected)`
-- **Initial rating:** Division-seeded (D1=1600, D2=1470, D3=1350, D4=1230, D5=1110, D6=1040, D7=970, D8=900) | **K:** 32 | **Floor:** 500 | **Ceiling:** 3000
+- **Initial rating (Mens):** Division-seeded (D1=1600, D2=1470, D3=1350, D4=1230, D5=1110, D6=1040, D7=970, D8=900) | **K:** 32 | **Floor:** 500 | **Ceiling:** 3000
+- **Initial rating (Mixed):** Division-seeded (D1=1600, D2=1480, D3=1360, D4=1240, D5=1120, D6=1040, D7=960, D8=880, D9=800, D10=720)
 - **No season resets** — ratings carry over continuously across seasons.
 - **Sequential processing:** Rubbers within a fixture are processed in `rubber_order` sequence. Each rubber updates ratings before the next is calculated.
 - **Draws (6-6):** `actualScore = 0.5` for both pairs.
@@ -75,16 +81,19 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 ## Scraper: York Men's League
 
 - **Source:** yorkmenstennisleague.co.uk — public HTML
-- **Seasons:** 2018, 2019, 2021–2025 (no 2020 — COVID)
+- **Seasons:** 2018, 2019, 2021–2026 (no 2020 — COVID)
 - **Format:** 8 divisions, 3 pairs per team, 9 rubbers per fixture
-- **2025 URLs:** `/divisions/{n}/Division_{n}` (fixture list), `/fixtures/{id}` (scorecard)
-- **Archive URLs:** `/archive/{year}/divisions.php?id={n}`, `/archive/{year}/result.php?id={id}`
-- **Archive fixture IDs** are strings like `"2021042"` — keep as strings, not integers
-- **Scorecard:** Matrix table — home pairs = rows, away pairs = columns. Score format `homeGames-awayGames`.
+
+## Scraper: York Mixed League
+
+- **Source:** mydivision.com — requires session cookies for match details.
+- **Seasons:** 2023–2026
+- **Format:** 10 divisions, 3 pairs per team, 9 rubbers per fixture
+- **Script:** `scraper-mixed.mjs` - requires `PHPSESSID` cookie.
 
 ## Deduplication Workflow
 
-- `player-aliases.json` — variant→canonical name map (~106 entries, same-team typos only)
+- `player-aliases.json` (Mens) / `mixed_player-aliases.json` (Mixed)
 - `player-not-dupes.json` — confirmed different-person pairs (14 auto-rejected clashes + 5 manual)
 - `dedupe.js` — Phase 1 (same-team) is **auto-approved by default** (same team + no same-date clash = safe merge). Use `--manual` to review Phase 1 manually. Phase 2 (cross-team) is always interactive.
 - Same-date clash detection: if two names appear in different fixtures on the same date → auto-rejected to not-dupes without prompting.
@@ -94,8 +103,8 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 
 ## Player Splits (same name, different people)
 
-- `player-splits.json` — maps a canonical name to multiple distinct people by club, e.g. `"Steve Jones"` → 3 people (Starbeck / DL Harrogate / Wetherby)
-- Generated by `node scripts/detect-name-conflicts.js --write` — uses Welsh-Powell graph colouring on a club-conflict graph (two clubs conflict if they share a date with different fixture IDs)
+- `player-splits.json` / `mixed_player-splits.json` — maps a canonical name to multiple distinct people by club
+- Generated by `node scripts/detect-name-conflicts.js --write` — uses Welsh-Powell graph colouring on a club-conflict graph
 - Club = team name with trailing number stripped: `"Starbeck 1"` → `"Starbeck"`, `"David Lloyd York 3"` → `"David Lloyd York"`
 - Both `elo.js` and `scripts/migrate-to-supabase.js` apply splits after aliases. Largest cluster keeps original name; others get `"Name (Club)"` suffix.
 - After any data change: run `detect-name-conflicts.js --write` → `elo.js` → `migrate-to-supabase.js`
@@ -108,11 +117,8 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 ## Build Phases
 
 1. **Phase 1a–c:** DONE — All 7 seasons scraped, ELO calculated, web UI live
-   - 2456 fixtures, 22,104 rubbers, 1852 players rated (after clean dedupe + splits)
-   - 2021 is genuinely short (150 fixtures) — COVID-shortened season, data is correct
-   - Fixture IDs in 2021 data start with "2020" — correct, just the league's internal numbering
 2. **Phase 1d:** TODO — live scrape trigger for new 2025 results mid-season
-3. **Phase 2:** TODO — Mixed League (MyDivision.com), unified cross-league ELO
+3. **Phase 2:** DONE — Mixed League (MyDivision.com), unified cross-league ELO architecture
 
 ## Playwright (UI Testing)
 

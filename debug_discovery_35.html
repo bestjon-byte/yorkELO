@@ -1,0 +1,363 @@
+<!--- ########################## START OF SCRIPT ################### --->
+<!--- ##################################### SCRIPT CLOSE ################### --->
+<link rel="stylesheet" type="text/css" href="css/mds.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="css/md.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/ajax.js"></script>
+<script type="text/javascript" src="css/ajaxactions.js"></script><script type="text/javascript">
+if ( window.self !== window.top ) {
+    window.top.location.href=window.location.href;
+}
+</script>
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+<A name=top></A>
+<head> 
+<title>MyDivision.com</title><meta name="description" content="My Division, Online Fixtures, Results and Tables for all sports at all levels. Results are entered on line by the Players, the League or both."><META NAME="Keywords" CONTENT="mydivision, my division, online, league, table, generator, fixture, player, league software, sports software, system, tennis, snooker, badminton, football, hockey, table tennis, rugby, darts, basketball, squash, sport, competition, league administration, manage leagues, birmingham, coventry, burton, metropolitan, helen cole, warwickshire, staffordshire, northamptonshire, northampton, wealden, sussex, derby, liverpool, manchester, swas, stirchley, district, spring, doubles, singles, tennis, league, south, summer, winter, planner, register, amateur, stats, head to head, contacts">
+<!--- ##################################### HINT SCRIPT ################### --->
+<style type="text/css">
+
+#hintbox{ /*CSS for pop up hint box */
+position:absolute;
+top: 0;
+background-color: #e7e7e7;
+width: 150px; /*Default width of hint.*/ 
+padding: 3px;
+border:1px solid black;
+font:normal 11px Verdana;
+line-height:18px;
+z-index:100;
+border-right: 3px solid black;
+border-bottom: 3px solid black;
+visibility: hidden;
+    	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-khtml-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+
+}
+
+.hintanchor{ /*CSS for link that shows hint onmouseover*/
+font-weight: bold;
+color: navy;
+margin: 3px 8px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+/***********************************************
+* Show Hint script - Scroll to Top - Flexi Slide Show - � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+		
+var horizontal_offset="9px" //horizontal offset of hint box from anchor link
+
+/////No further editting needed
+
+var vertical_offset="0" //horizontal offset of hint box from anchor link. No need to change.
+var ie=document.all
+var ns6=document.getElementById&&!document.all
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=(whichedge=="rightedge")? parseInt(horizontal_offset)*-1 : parseInt(vertical_offset)*-1
+if (whichedge=="rightedge"){
+var windowedge=ie && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-30 : window.pageXOffset+window.innerWidth-40
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetWidth+parseInt(horizontal_offset)
+}
+else{
+var windowedge=ie && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetHeight
+}
+return edgeoffset
+}
+
+function showhint(menucontents, obj, e, tipwidth){
+if ((ie||ns6) && document.getElementById("hintbox")){
+dropmenuobj=document.getElementById("hintbox")
+dropmenuobj.innerHTML=menucontents
+dropmenuobj.style.left=dropmenuobj.style.top=-500
+if (tipwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=tipwidth
+}
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+obj.offsetWidth+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+"px"
+dropmenuobj.style.visibility="visible"
+obj.onmouseout=hidetip
+}
+}
+
+function hidetip(e){
+dropmenuobj.style.visibility="hidden"
+dropmenuobj.style.left="-500px"
+}
+
+function createhintbox(){
+var divblock=document.createElement("div")
+divblock.setAttribute("id", "hintbox")
+document.body.appendChild(divblock)
+}
+
+if (window.addEventListener)
+window.addEventListener("load", createhintbox, false)
+else if (window.attachEvent)
+window.attachEvent("onload", createhintbox)
+else if (document.getElementById)
+window.onload=createhintbox
+
+</script>
+<!--- ##################################### HINT SCRIPT CLOSE ################### --->
+<style>
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #a34954;
+    color: yellow;
+    padding: 3px;
+    min-width: 100px;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.4);
+    font-size: 11px;
+    border: none;
+    cursor: pointer;
+    	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-khtml-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e7e7e7;
+  min-width: 500px;
+  max-width: 550px;
+  text-align: left;
+  overflow: visible;
+    box-shadow: 0px 16px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    padding: 12px 16px;
+    	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-khtml-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+
+/* Links inside the dropdown */
+/*.dropdown-content a {*/
+ /*   color: blue;*/
+ /*   padding: 2px 2px;*/
+ /*   text-decoration: none;*/
+ /*   display: block;*/
+/*}*/
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #000000;
+}
+/* Style The Fixtures Button OPEN */
+.btnopen {
+    background-color: #901e90;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    min-width: 50px;
+    max-width: 100px;
+    font-size: 11px;
+    border:solid 4px #901e90;
+    box-shadow: 0px 9px 9px 0px rgba(0,0,0,0.4);
+    cursor: pointer;
+    	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-khtml-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+/* Style The Fixtures Button Close */
+.btnclose {
+    background-color: #ffffff;
+    text-align: center;
+    color: blue;
+    padding: 3px;
+    min-width: 50px;
+    max-width: 100px;
+    font-size: 10px;
+    border:solid 2px #901e90;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.4);
+    cursor: pointer;
+    	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-khtml-border-radius: 6px; 
+	-webkit-border-radius: 6px;
+}
+/* Logo  */
+.logo {
+    position: absolute;
+    background-color: #ffffff;
+    max-width: 100%;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    padding: 1px 1px;
+}
+/* photo */
+.photo {
+    background-color: #ffffff;
+    max-width: 100%;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    padding: 1px 1px;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="include/scrolltopcontrol.js">
+
+</script>
+</head>
+
+<div class="page-container">
+ <div class="site-name"><img src="img/mdlogo.png"></div>
+ <div class="topbar">
+  <div class="topbar-top"><table border="0" width="99%"><tr><td width="33%"></td><td valign=center align=center><b><font color="ffff00">Welcome Jon</font></b></td><td align=right width="33%"><font size="1"><font color="ffffff"><b>Tennis Yorkshire</b></font></font></td></tr></table>
+  </div>
+  <div class="topbar-middle"><div class="topbar-middle-text"><font face="arial black, arial" color="#dddddd" size="5">York & District Mixed Tennis League</font></div></div>
+  <div class="topbar-bottom"><center><table border=0 width="99%" height="12px"><tr><td align=left valign=top width="154px">&nbsp;</td><td valign=top align=center width="*"><b><font size="1"><font color="ffff00">YDMTL Sponsor 2026 &nbsp; </font></font> <a href="http://www.itsports.co.uk" target="new"><font color="ffffff"><font size="1">I T Sports</font></font></a></b></td><td align=right valign=top width="154px"><a href="index.php?l=193&x=x"><b><font size="1"><font color="ffffff">Logout</font></font></b></a></td></tr></table></div>
+ </div>
+<div class="main-body"><div class="spacer-top"></div><div class="main-body-left"><table border="0" width="100%"><tr><td valign=top align=center><b>MyDivision Index</b><br><a href="index.php?l=193">Home</font></a>
+
+<img src="images/blank.gif" height="14" width="0"><br><a href="leagues.php?l=193&d=362">Leagues</font></a><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('193', '1', 'showleagues')">
+
+<img src="../images/plus.gif" id="showleagues_btn" height="9" alt="Show All Leagues" border="0"></a><img src="images/blank.gif" height="14" width="0"><br><table width="90%"><tr id="tbl_showleagues" style="display:none;" ><td><div id="showleagues"></div></td></tr></table><a href="faqs.php?l=193&d=362">FAQ's</font></a>
+
+<img src="images/blank.gif" height="14" width="0"><br><a href="guestbook.php?l=193&d=362">Guest Book</font></a>
+
+<img src="images/blank.gif" height="14" width="0"><br><hr color=#a34954></td></tr></table><table border="0" width="100%"><tr><td valign=top align=center><b>YDMTL Index</b><br><a href="leaguehome.php?l=193&d=362">YDMTL Home Page</font></a>
+
+			<img src="images/blank.gif" height="14" width="0"><br><a href="racketindex.php?l=193&d=362">Tables & Fixtures</font></a>
+
+			<img src="images/blank.gif" height="14" width="0"><br><a href="committee.php?l=193&d=362">Committee</font></a>
+
+	<img src="images/blank.gif" height="14" width="0"><br><a href="teamcontacts.php?l=193&d=362">Team Contacts</font></a>
+
+			<img src="images/blank.gif" height="14" width="0"><br><a href="leaguestats.php?l=193&d=362">League Stats</font></a>
+
+			<img src="images/blank.gif" height="14" width="0"><br><a href="honours.php?l=193&d=362">Honours Board</font></a>
+
+			<img src="images/blank.gif" height="14" width="0"><br><a href="news.php?l=193&d=362">News</font></a> (6)
+
+		<img src="images/blank.gif" height="14" width="0"><br><hr color=#a34954></td></tr></table><table border="0" width="100%"><tr><td valign=top align=center><b>Tennis Index</b><br><a href="clublist.php?l=193&d=362">Region Clubs</font></a>
+
+	<img src="images/blank.gif" height="14" width="0"><br><a href="search.php?l=193&d=362">Player Search</font></a>
+
+		<img src="images/blank.gif" height="14" width="0"><br><a href="https://www.mydivision.com/matchcard.php?l=193" target="new">Print Match Card</font></a>
+
+		<img src="images/blank.gif" height="14" width="0"><br><img src="images/blank.gif" height="14" width="0"><a href="mdconsentform.php?l=193&d=362" target="new">Print Consent Form</font></a><br><hr color=#a34954></td></tr></table><table border="0" width="100%"><tr><td valign=top align=center><b>My Index</b></td></tr><tr><td align=center><a href="options.php?l=193&d=362">Control Panel</font></a>
+
+	</td></tr></table><hr color=#a34954><table border="0" width="100%"><tr><td valign=top align=center><b>Shortcuts</b><a href="#" class="hintanchor" onMouseover="showhint('<b>Help Balloons</b> [?]<br>Tick the box to turn them on, untick to turn off.<br>Help whenever you need it!<br><br><b>Favourite Division</b><br>Tick the box to add a shortcut to this division via the \'My Index\' above, untick to remove the shortcut.<br>Maximum of ten shortcuts permitted.<br><br><b>Login Direct Division</b><br>If ticked you will be redirected straight to this division when you login. Ticking this division will automatically over-ride any previous division set.<br>If no division is selected anywhere on MyDivision, the page you are on will remain displayed when you login.', this, event, '300px')"><font size="1">[?]</font></a><br><font size="1">Help Balloons</font> <input type=checkbox onclick="window.location='/racketindex.php?l=193&d=362&id=&p=&h=n'; return true;" CHECKED> <img src="images/blank.gif" height="14" width="0"><br><font size="1">Favourite Division</font> <input type=checkbox onclick="window.location='/racketindex.php?l=193&d=362&fd=y'; return true;" > <img src="images/blank.gif" height="14" width="0"><br><font size="1">Login Direct Division</font> <input type=checkbox onclick="window.location='/racketindex.php?l=193&d=362&ld=y'; return true;" > <img src="images/blank.gif" height="3" width="0"><br><hr color=#a34954></td></tr></table></div><div class="spacer-left"></div><div class="main-body-middle"><form method="post" action="/racketindex.php?l=193&d="><table border="0" cellspacing="2" cellpadding="2" width="100%">
+ 	<tr>
+  	<td align=left><select name="season"><option value="35" SELECTED>2026</option>
+<option value="33">2025</option>
+<option value="31">2024</option>
+<option value="29">2023</option>
+</select> <select name="tablevalue"><option value="1" selected>Basic</option>
+<option value="2" >Extended</option>
+</select> <select name="division"><option value="362">Division 1</option>
+<option value="363">Division 2</option>
+<option value="364">Division 3</option>
+<option value="365">Division 4</option>
+<option value="366">Division 5</option>
+<option value="367">Division 6</option>
+<option value="368">Division 7</option>
+<option value="369">Division 8</option>
+<option value="370">Division 9</option>
+<option value="371">Division 10</option>
+</select>  <input type="submit" name="get_submit" value=">>"> </form>	</td><td align=right>42 Fixtures</td></tr></table><table width="100%"><tr><td width="33%"><font size="1">Last Updated: </font></td><td width="*" align=center><b>Division 1</b></td><td width="33%" align=right><font size="1">MyDivision.com</font></td></tr></table><table width="100%"><tr bgcolor = #a34954><td align=center><font color="ffff00">FC</font></td><td align=center><font color="ffff00">Pos</font></td><td><font color="ffff00">Team</font></td><td align=center><font color="ffff00">Pld</font></td><td align=center><font color="ffff00">W</font></td><td align=center><font color="ffff00">D</font></td><td align=center><font color="ffff00">L</font></td><td align=center><font color="ffff00">SF</font></td><td align=center><font color="ffff00">SA</font></td><td align=center><font color="ffff00">GF</font></td><td align=center><font color="ffff00">GA</font></td><td align=center><font color="ffff00">G+/-</font></td><td align=center><font color="ffff00">Pts</font></td></tr><tr bgcolor="#efefef"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3946', 'shows3946')">
+	<img src="../images/plus.gif" id="shows3946_btn" height="9" alt="Show All David Lloyd 1 Matches" border="0"></a></td><td align=center>1</td><td><a href="club.php?l=193&c=2940&tm=3946">David Lloyd 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3946" style="display:none;" ><td colspan="32"><div id="shows3946"></div></td><tr bgcolor="#e5e5e5"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3961', 'shows3961')">
+	<img src="../images/plus.gif" id="shows3961_btn" height="9" alt="Show All Heworth 1 Matches" border="0"></a></td><td align=center>2</td><td><a href="club.php?l=193&c=2945&tm=3961">Heworth 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3961" style="display:none;" ><td colspan="32"><div id="shows3961"></div></td><tr height="2" bgcolor="d1d1d1"><td colspan="32"></td></tr><tr bgcolor="#efefef"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3934', 'shows3934')">
+	<img src="../images/plus.gif" id="shows3934_btn" height="9" alt="Show All Poppleton 1 Matches" border="0"></a></td><td align=center>3</td><td><a href="club.php?l=193&c=2174&tm=3934">Poppleton 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3934" style="display:none;" ><td colspan="32"><div id="shows3934"></div></td><tr bgcolor="#e5e5e5"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3945', 'shows3945')">
+	<img src="../images/plus.gif" id="shows3945_btn" height="9" alt="Show All Wetherby 1 Matches" border="0"></a></td><td align=center>4</td><td><a href="club.php?l=193&c=2225&tm=3945">Wetherby 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3945" style="display:none;" ><td colspan="32"><div id="shows3945"></div></td><tr bgcolor="#efefef"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3935', 'shows3935')">
+	<img src="../images/plus.gif" id="shows3935_btn" height="9" alt="Show All Wigginton 1 Matches" border="0"></a></td><td align=center>5</td><td><a href="club.php?l=193&c=2939&tm=3935">Wigginton 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3935" style="display:none;" ><td colspan="32"><div id="shows3935"></div></td><tr height="2" bgcolor="d1d1d1"><td colspan="32"></td></tr><tr bgcolor="#e5e5e5"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3947', 'shows3947')">
+	<img src="../images/plus.gif" id="shows3947_btn" height="9" alt="Show All Wigginton 2 Matches" border="0"></a></td><td align=center>6</td><td><a href="club.php?l=193&c=2939&tm=3947">Wigginton 2</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3947" style="display:none;" ><td colspan="32"><div id="shows3947"></div></td><tr bgcolor="#efefef"><td align=center><a style="cursor:pointer" onclick="javascript:toggleShowLeagues('x', ':193:35:8364:3936', 'shows3936')">
+	<img src="../images/plus.gif" id="shows3936_btn" height="9" alt="Show All York 1 Matches" border="0"></a></td><td align=center>7</td><td><a href="club.php?l=193&c=2229&tm=3936">York 1</a></td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td><td align=center>0</td></tr><tr id="tbl_shows3936" style="display:none;" ><td colspan="32"><div id="shows3936"></div></td></table><table width="100%"><tr><td align=right></td></tr><tr><td align=center colspan="2"><hr color="#a34954" width="98%"></td></tr></table><a name="1"></a>&nbsp;&nbsp;<div class="dropdown"><button class="dropbtn"><b>Latest News</b></button><div class="dropdown-content"><font size="1"><b>Bank Account Details</b><br><i></i></font></b><br><font size="1">Please pay your fees to the league no later than 30th April. Fees are £10 per team for the 2026 season. Enter your club name as a reference and please email Sam Watson (Treasurer) if your club requires a receipt. Thank you.
+
+Account Name: YORK MIXED TENNIS LEAGUE
+Sort Code: 30-99-50
+Account Number: 33939868 </font><hr color=#a34954 width="60%"><br><font size="1"><b>MATCH SECRETARY</b><br><i></i></font></b><br><font size="1">Josh Hunt from Wigginton TC has taken on the role of Match Secretary. Thank you, Josh, for coming forward to take on this vital role and ensure the league continues.
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </font><hr color=#a34954 width="60%"><br><font size="1"><b>CONCEDED MATCH</b><br><i></i></font></b><br><font size="1">PLEASE NOTIFY THE MATCH SECRETARY OF ANY CONCEDED MATCHES AS SOON AS POSSIBLE.
+DO NOT DO ANYTHING ON THE WEBSITE, THIS HAS TO BE PROCESSED BY THE MATCH SECRETARY IN A SPECIFIC WAY. THANK YOU. </font><hr color=#a34954 width="60%"><br></div></div><a name="h"></a><table width="100%" border="0" align=center><tr><td align=center colspan=2><font color="a34954"><b>Division 1</b></font> <a style="cursor:pointer" onclick="javascript:togglePlayersTable('193','362:1776938581','35','1','8364','playerstable','n')"><b><font color="0000ff">Players Table</font></b> <img src="images/plus.gif" id="playerstable_btn" height="9" border="0"></a><a href="#" class="hintanchor" onMouseover="showhint('<b>Players Table</b><br>Shows the players that have played a minimum of 6 individual confirmed matches this season in this division.', this, event, '240px')"><font size="1">[?]</font></a></td></tr></table><div id="playerstable"><table border="0" width="100%" cellpadding="2" cellspacing="2"><tr><td colspan="2"><b>Division 1 Fixtures</b></td><td align=right colspan="5"><a href="#" class="hintanchor" onMouseover="showhint('<b>Easy Print</b><br>Allows you to print what is displayed without the Header, Drop Bars, Side Index and Footer.<br>To return to this page click on \'Back\' that will appear top right.<br><br>You can also print any teams fixtures via the <img src=images/plus.gif> in the FC column.', this, event, '250px')"><font size="1">[?]</font></a><img src="images/print.gif" border="0" alt="Printer Friendly"> <a href="printtable.php?&l=193&s=35&dt=4&d=362&u=8364"><font size="1">Table</font></a> <FONT color=#000000>|</FONT> <a href="printtablefix.php?&l=193&s=35&dt=4&d=362"><font size="1">Table with Fixtures</font></a> <FONT color=#000000>|</FONT> <a href="printfixtures.php?&l=193&s=35&dt=4&d=362"><font size="1">Fixtures</font></a></td></tr><tr bgcolor = #a34954><td><font color="ffff00">Date</font></td><td></td><td><font color="ffff00">Match</font> </td><td align=center><font color="ffff00">Sets</font></td><td align=center><font color="ffff00">Games</font></td><td></td></tr><tr bgcolor="#efefef"><td  >05.05.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115904', '8364::3945:3934:193', 'oldresults115904')"><img src="images/plus.gif" id="oldresults115904_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115904" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115904"></div></td></tr><tr id="tbl_result2115904" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115904"></div></td></tr><tr id="tbl_oldresults115904" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115904"></div></td></tr><tr bgcolor="#e5e5e5"><td  >06.05.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115915', '8364::3935:3947:193', 'oldresults115915')"><img src="images/plus.gif" id="oldresults115915_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115915" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115915"></div></td></tr><tr id="tbl_result2115915" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115915"></div></td></tr><tr id="tbl_oldresults115915" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115915"></div></td></tr><tr bgcolor="#efefef"><td  >07.05.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115925', '8364::3961:3936:193', 'oldresults115925')"><img src="images/plus.gif" id="oldresults115925_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115925" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115925"></div></td></tr><tr id="tbl_result2115925" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115925"></div></td></tr><tr id="tbl_oldresults115925" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115925"></div></td></tr><tr bgcolor="#e5e5e5"><td  >11.05.26 - Mon  </td><td align=center>               </td><td>York 1 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115934', '8364::3936:3945:193', 'oldresults115934')"><img src="images/plus.gif" id="oldresults115934_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115934" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115934"></div></td></tr><tr id="tbl_result2115934" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115934"></div></td></tr><tr id="tbl_oldresults115934" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115934"></div></td></tr><tr bgcolor="#efefef"><td  >12.05.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115916', '8364::3947:3946:193', 'oldresults115916')"><img src="images/plus.gif" id="oldresults115916_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115916" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115916"></div></td></tr><tr id="tbl_result2115916" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115916"></div></td></tr><tr id="tbl_oldresults115916" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115916"></div></td></tr><tr bgcolor="#e5e5e5"><td  >13.05.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115897', '8364::3934:3961:193', 'oldresults115897')"><img src="images/plus.gif" id="oldresults115897_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115897" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115897"></div></td></tr><tr id="tbl_result2115897" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115897"></div></td></tr><tr id="tbl_oldresults115897" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115897"></div></td></tr><tr bgcolor="#efefef"><td  >18.05.26 - Mon  </td><td align=center>               </td><td>York 1 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115933', '8364::3936:3934:193', 'oldresults115933')"><img src="images/plus.gif" id="oldresults115933_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115933" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115933"></div></td></tr><tr id="tbl_result2115933" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115933"></div></td></tr><tr id="tbl_oldresults115933" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115933"></div></td></tr><tr bgcolor="#e5e5e5"><td  >20.05.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115910', '8364::3935:3946:193', 'oldresults115910')"><img src="images/plus.gif" id="oldresults115910_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115910" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115910"></div></td></tr><tr id="tbl_result2115910" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115910"></div></td></tr><tr id="tbl_oldresults115910" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115910"></div></td></tr><tr bgcolor="#efefef"><td  >21.05.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115892', '8364::3961:3945:193', 'oldresults115892')"><img src="images/plus.gif" id="oldresults115892_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115892" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115892"></div></td></tr><tr id="tbl_result2115892" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115892"></div></td></tr><tr id="tbl_oldresults115892" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115892"></div></td></tr><tr bgcolor="#e5e5e5"><td  >25.05.26 - Mon  </td><td align=center>               </td><td>York 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115936', '8364::3936:3947:193', 'oldresults115936')"><img src="images/plus.gif" id="oldresults115936_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115936" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115936"></div></td></tr><tr id="tbl_result2115936" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115936"></div></td></tr><tr id="tbl_oldresults115936" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115936"></div></td></tr><tr bgcolor="#efefef"><td  >27.05.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115895', '8364::3934:3946:193', 'oldresults115895')"><img src="images/plus.gif" id="oldresults115895_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115895" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115895"></div></td></tr><tr id="tbl_result2115895" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115895"></div></td></tr><tr id="tbl_oldresults115895" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115895"></div></td></tr><tr bgcolor="#e5e5e5"><td  >27.05.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115912', '8364::3935:3961:193', 'oldresults115912')"><img src="images/plus.gif" id="oldresults115912_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115912" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115912"></div></td></tr><tr id="tbl_result2115912" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115912"></div></td></tr><tr id="tbl_oldresults115912" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115912"></div></td></tr><tr bgcolor="#efefef"><td  >02.06.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115918', '8364::3947:3961:193', 'oldresults115918')"><img src="images/plus.gif" id="oldresults115918_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115918" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115918"></div></td></tr><tr id="tbl_result2115918" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115918"></div></td></tr><tr id="tbl_oldresults115918" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115918"></div></td></tr><tr bgcolor="#e5e5e5"><td  >03.06.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115899', '8364::3934:3935:193', 'oldresults115899')"><img src="images/plus.gif" id="oldresults115899_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115899" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115899"></div></td></tr><tr id="tbl_result2115899" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115899"></div></td></tr><tr id="tbl_oldresults115899" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115899"></div></td></tr><tr bgcolor="#efefef"><td  >05.06.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115880', '8364::3946:3945:193', 'oldresults115880')"><img src="images/plus.gif" id="oldresults115880_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115880" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115880"></div></td></tr><tr id="tbl_result2115880" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115880"></div></td></tr><tr id="tbl_oldresults115880" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115880"></div></td></tr><tr bgcolor="#e5e5e5"><td  >08.06.26 - Mon  </td><td align=center>               </td><td>York 1 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115935', '8364::3936:3935:193', 'oldresults115935')"><img src="images/plus.gif" id="oldresults115935_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115935" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115935"></div></td></tr><tr id="tbl_result2115935" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115935"></div></td></tr><tr id="tbl_oldresults115935" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115935"></div></td></tr><tr bgcolor="#efefef"><td  >09.06.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115906', '8364::3945:3947:193', 'oldresults115906')"><img src="images/plus.gif" id="oldresults115906_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115906" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115906"></div></td></tr><tr id="tbl_result2115906" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115906"></div></td></tr><tr id="tbl_oldresults115906" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115906"></div></td></tr><tr bgcolor="#e5e5e5"><td  >11.06.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115889', '8364::3961:3946:193', 'oldresults115889')"><img src="images/plus.gif" id="oldresults115889_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115889" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115889"></div></td></tr><tr id="tbl_result2115889" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115889"></div></td></tr><tr id="tbl_oldresults115889" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115889"></div></td></tr><tr bgcolor="#efefef"><td  >16.06.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115919', '8364::3947:3934:193', 'oldresults115919')"><img src="images/plus.gif" id="oldresults115919_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115919" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115919"></div></td></tr><tr id="tbl_result2115919" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115919"></div></td></tr><tr id="tbl_oldresults115919" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115919"></div></td></tr><tr bgcolor="#e5e5e5"><td  >17.06.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115914', '8364::3935:3945:193', 'oldresults115914')"><img src="images/plus.gif" id="oldresults115914_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115914" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115914"></div></td></tr><tr id="tbl_result2115914" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115914"></div></td></tr><tr id="tbl_oldresults115914" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115914"></div></td></tr><tr bgcolor="#efefef"><td  >19.06.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115923', '8364::3946:3936:193', 'oldresults115923')"><img src="images/plus.gif" id="oldresults115923_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115923" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115923"></div></td></tr><tr id="tbl_result2115923" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115923"></div></td></tr><tr id="tbl_oldresults115923" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115923"></div></td></tr><tr bgcolor="#e5e5e5"><td  >22.06.26 - Mon  </td><td align=center>               </td><td>York 1 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115932', '8364::3936:3961:193', 'oldresults115932')"><img src="images/plus.gif" id="oldresults115932_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115932" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115932"></div></td></tr><tr id="tbl_result2115932" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115932"></div></td></tr><tr id="tbl_oldresults115932" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115932"></div></td></tr><tr bgcolor="#efefef"><td  >23.06.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115921', '8364::3947:3935:193', 'oldresults115921')"><img src="images/plus.gif" id="oldresults115921_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115921" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115921"></div></td></tr><tr id="tbl_result2115921" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115921"></div></td></tr><tr id="tbl_oldresults115921" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115921"></div></td></tr><tr bgcolor="#e5e5e5"><td  >24.06.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115898', '8364::3934:3945:193', 'oldresults115898')"><img src="images/plus.gif" id="oldresults115898_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115898" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115898"></div></td></tr><tr id="tbl_result2115898" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115898"></div></td></tr><tr id="tbl_oldresults115898" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115898"></div></td></tr><tr bgcolor="#efefef"><td  >30.06.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115927', '8364::3945:3936:193', 'oldresults115927')"><img src="images/plus.gif" id="oldresults115927_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115927" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115927"></div></td></tr><tr id="tbl_result2115927" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115927"></div></td></tr><tr id="tbl_oldresults115927" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115927"></div></td></tr><tr bgcolor="#e5e5e5"><td  >02.07.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115891', '8364::3961:3934:193', 'oldresults115891')"><img src="images/plus.gif" id="oldresults115891_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115891" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115891"></div></td></tr><tr id="tbl_result2115891" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115891"></div></td></tr><tr id="tbl_oldresults115891" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115891"></div></td></tr><tr bgcolor="#efefef"><td  >03.07.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115882', '8364::3946:3947:193', 'oldresults115882')"><img src="images/plus.gif" id="oldresults115882_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115882" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115882"></div></td></tr><tr id="tbl_result2115882" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115882"></div></td></tr><tr id="tbl_oldresults115882" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115882"></div></td></tr><tr bgcolor="#e5e5e5"><td  >07.07.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115903', '8364::3945:3961:193', 'oldresults115903')"><img src="images/plus.gif" id="oldresults115903_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115903" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115903"></div></td></tr><tr id="tbl_result2115903" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115903"></div></td></tr><tr id="tbl_oldresults115903" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115903"></div></td></tr><tr bgcolor="#efefef"><td  >08.07.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115926', '8364::3934:3936:193', 'oldresults115926')"><img src="images/plus.gif" id="oldresults115926_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115926" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115926"></div></td></tr><tr id="tbl_result2115926" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115926"></div></td></tr><tr id="tbl_oldresults115926" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115926"></div></td></tr><tr bgcolor="#e5e5e5"><td  >10.07.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115881', '8364::3946:3935:193', 'oldresults115881')"><img src="images/plus.gif" id="oldresults115881_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115881" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115881"></div></td></tr><tr id="tbl_result2115881" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115881"></div></td></tr><tr id="tbl_oldresults115881" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115881"></div></td></tr><tr bgcolor="#efefef"><td  >14.07.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115929', '8364::3947:3936:193', 'oldresults115929')"><img src="images/plus.gif" id="oldresults115929_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115929" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115929"></div></td></tr><tr id="tbl_result2115929" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115929"></div></td></tr><tr id="tbl_oldresults115929" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115929"></div></td></tr><tr bgcolor="#e5e5e5"><td  >16.07.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115893', '8364::3961:3935:193', 'oldresults115893')"><img src="images/plus.gif" id="oldresults115893_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115893" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115893"></div></td></tr><tr id="tbl_result2115893" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115893"></div></td></tr><tr id="tbl_oldresults115893" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115893"></div></td></tr><tr bgcolor="#efefef"><td  >17.07.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115879', '8364::3946:3934:193', 'oldresults115879')"><img src="images/plus.gif" id="oldresults115879_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115879" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115879"></div></td></tr><tr id="tbl_result2115879" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115879"></div></td></tr><tr id="tbl_oldresults115879" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115879"></div></td></tr><tr bgcolor="#e5e5e5"><td  >21.07.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115901', '8364::3945:3946:193', 'oldresults115901')"><img src="images/plus.gif" id="oldresults115901_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115901" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115901"></div></td></tr><tr id="tbl_result2115901" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115901"></div></td></tr><tr id="tbl_oldresults115901" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115901"></div></td></tr><tr bgcolor="#efefef"><td  >22.07.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - Poppleton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115913', '8364::3935:3934:193', 'oldresults115913')"><img src="images/plus.gif" id="oldresults115913_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115913" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115913"></div></td></tr><tr id="tbl_result2115913" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115913"></div></td></tr><tr id="tbl_oldresults115913" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115913"></div></td></tr><tr bgcolor="#e5e5e5"><td  >23.07.26 - Thu  </td><td align=center>               </td><td>Heworth 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115894', '8364::3961:3947:193', 'oldresults115894')"><img src="images/plus.gif" id="oldresults115894_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115894" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115894"></div></td></tr><tr id="tbl_result2115894" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115894"></div></td></tr><tr id="tbl_oldresults115894" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115894"></div></td></tr><tr bgcolor="#efefef"><td  >28.07.26 - Tue  </td><td align=center>               </td><td>Wigginton 2 - Wetherby 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115920', '8364::3947:3945:193', 'oldresults115920')"><img src="images/plus.gif" id="oldresults115920_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115920" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115920"></div></td></tr><tr id="tbl_result2115920" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115920"></div></td></tr><tr id="tbl_oldresults115920" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115920"></div></td></tr><tr bgcolor="#e5e5e5"><td  >29.07.26 - Wed  </td><td align=center>               </td><td>Wigginton 1 - York 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115928', '8364::3935:3936:193', 'oldresults115928')"><img src="images/plus.gif" id="oldresults115928_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115928" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115928"></div></td></tr><tr id="tbl_result2115928" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115928"></div></td></tr><tr id="tbl_oldresults115928" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115928"></div></td></tr><tr bgcolor="#efefef"><td  >31.07.26 - Fri  </td><td align=center>               </td><td>David Lloyd 1 - Heworth 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115878', '8364::3946:3961:193', 'oldresults115878')"><img src="images/plus.gif" id="oldresults115878_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115878" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115878"></div></td></tr><tr id="tbl_result2115878" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115878"></div></td></tr><tr id="tbl_oldresults115878" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115878"></div></td></tr><tr bgcolor="#e5e5e5"><td  >03.08.26 - Mon  </td><td align=center>               </td><td>York 1 - David Lloyd 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115930', '8364::3936:3946:193', 'oldresults115930')"><img src="images/plus.gif" id="oldresults115930_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115930" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115930"></div></td></tr><tr id="tbl_result2115930" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115930"></div></td></tr><tr id="tbl_oldresults115930" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115930"></div></td></tr><tr bgcolor="#efefef"><td  >04.08.26 - Tue  </td><td align=center>               </td><td>Wetherby 1 - Wigginton 1</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115905', '8364::3945:3935:193', 'oldresults115905')"><img src="images/plus.gif" id="oldresults115905_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115905" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115905"></div></td></tr><tr id="tbl_result2115905" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115905"></div></td></tr><tr id="tbl_oldresults115905" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115905"></div></td></tr><tr bgcolor="#e5e5e5"><td  >05.08.26 - Wed  </td><td align=center>               </td><td>Poppleton 1 - Wigginton 2</td><td align=center><font size="1"></font></td><td align=center><font size="1"></font></td><td align=center bgcolor=#ffffff><a style="cursor:pointer" onclick="javascript:toggleGetOldResults('115900', '8364::3934:3947:193', 'oldresults115900')"><img src="images/plus.gif" id="oldresults115900_btn" height="9" border="0"></a></td></tr><tr id="tbl_result115900" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result115900"></div></td></tr><tr id="tbl_result2115900" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="result2115900"></div></td></tr><tr id="tbl_oldresults115900" style="display:none;" bgcolor="#f6f6f6"><td colspan="8"><div id="oldresults115900"></div></td></tr></table><table width="100%"><tr><td valign=top>Start times 18.30 unless otherwise stated<br>                    </td><td valign=top align=right><font size="1"><b>League visits: 5895 <br>Division 1 visits: 1056</font></b></td></tr></table></div><center>
+These statistics are powered by <a href="http://www.mydivision.com" target="_BLANK">MyDivision.com</a><br>
+</center></div><div class="spacer-right"></div><div class="main-body-right"> <body oncopy="return false" onpaste="return false" oncut="return false"><table border="0" width="100%" cellpadding="1" cellspacing="0"><tr><td align=center colspan="2"><b>Divisional Secretary</b><br></td></tr><tr><td><font size="1"><b></b></font></td></tr><tr><td colspan="2"><font size="1">Joshua Hunt</font></td></tr><tr><td colspan="2"><hr color=#a34954></td></tr><tr><td align=center colspan="2"><b>Team Contacts</b><br><br></td></tr><tr><td><font size="1"><b>David Lloyd 1</b></font></td></tr><tr><td colspan="2"><font size="1">Ed Barker-Wyatt</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>Heworth 1</b></font></td></tr><tr><td colspan="2"><font size="1">Sally Hicks</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>Poppleton 1</b></font></td></tr><tr><td colspan="2"><font size="1">Belinda Turnbull</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>Wetherby 1</b></font></td></tr><tr><td colspan="2"><font size="1">Angela Wood</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>Wigginton 1</b></font></td></tr><tr><td colspan="2"><font size="1">Emma Foster</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>Wigginton 2</b></font></td></tr><tr><td colspan="2"><font size="1">Phil Langley</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td><font size="1"><b>York 1</b></font></td></tr><tr><td colspan="2"><font size="1">Tim Bennet</font></td></tr><tr><td colspan="2"><hr color="cdcdcd"></td></tr><tr><td colspan="2"><hr color=#a34954></td></tr></table></div>To view contact details<br><br><li> You need to be linked to a club in this league<br><i>How do I link to my club?<br><a href="http://mydivision.com/faq_print.php?fid=88" target="new"><font size="1">click here</font></a> for details</i></div></div> </form>
+<div class="push"></div><!--leave blank--!>
+</div>
+<div class="footer">
+ <div class="footer_container">
+  <div class="footer_section_1">
+   <div class="footer_header">Resource Links</div>
+    <font color="ffffff">&#149</font> <a href="faqs.php?l=193"><font size="1">FAQ's</font></a><br>
+    <font color="ffffff">&#149</font> <a href="privacy.php?l=193"><font size="1">Privacy Policy</font></a><br><font color="ffffff">&#149</font> <a href="contactus.php?l=193&m=109"><font size="1">Contact Us</font></a><br>
+  </div>
+
+  <div class="footer_section_1"><div class="footer_header">Tennis Connect</div><font color="ffffff">&#149</font> <a href="http://ausopen.com/" target="new"><font size="1">Australian Open</font></a><br><font color="ffffff">&#149</font> <a href="http://www.daviscup.com" target="new"><font size="1">Davis Cup</font></a><br><font color="ffffff">&#149</font> <a href="http://www.rolandgarros.com" target="new"><font size="1">French Open</font></a><br><font color="ffffff">&#149</font> <a href="http://www.usopen.org" target="new"><font size="1">US Open</font></a><br><font color="ffffff">&#149</font> <a href="http://www.wimbledon.com" target="new"><font size="1">Wimbledon</font></a><br></div><div class="footer_section_2">
+   <div class="footer_header">About MyDivision.com</div>
+   For over 25 years we have successfully managed tennis leagues within the Midlands. For the first eight seasons we manually created tables offline and uploaded them.<br>In 2014 we introduced our online fixture/result/table service with the option to involve player participation. We have improved our system each year by adding new features, sometimes at a leagues request but mostly for everyones benefit.<br>MyDivision is now one of the best outside of the professional game.
+  </div>
+  <div class="footer_cleaner"></div>
+  <div class="footer_footer">
+   Copyright &#169 MyDivision 2000 - 2026 
+  </div>  
+  <div class="footer_cleaner"></div>
+ </div>
+</div>
+
+
+
+</body>
+</html>

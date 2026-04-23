@@ -5,17 +5,23 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 );
 
-const SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025];
+const MENS_SEASONS = [2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];
+const MIXED_SEASONS = [2023, 2024, 2025, 2026];
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 
+  const query = req.query || Object.fromEntries(new URL(req.url, 'http://localhost').searchParams);
+  const isMixed = query.league === 'mixed';
+  const tablePrefix = isMixed ? 'mixed_' : 'york_';
+  const seasons = isMixed ? MIXED_SEASONS : MENS_SEASONS;
+
   // Paginate to get all players past Supabase's default 1000-row cap
   let leaderboard = [], from = 0, fetchError = null;
   while (true) {
     const { data, error } = await supabase
-      .from('york_players')
+      .from(`${tablePrefix}players`)
       .select('*')
       .order('rank')
       .range(from, from + 999);
@@ -33,5 +39,5 @@ module.exports = async (req, res) => {
 
   const clubs = [...new Set(leaderboard.map(p => p.club).filter(Boolean))].sort();
 
-  res.end(JSON.stringify({ leaderboard, seasons: SEASONS, clubs }));
+  res.end(JSON.stringify({ leaderboard, seasons, clubs }));
 };
