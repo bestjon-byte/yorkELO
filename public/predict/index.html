@@ -1,361 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>York Mens Tennis — Match Predictor</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:      #0d0d14;
-  --surface: #13131f;
-  --border:  #1f1f32;
-  --text:    #e2e2f0;
-  --muted:   #6b6b8a;
-  --accent:  #6d5acd;
-  --accent-mens:  #6d5acd;
-  --accent-mixed: #f43f5e;
-  --home:    #7c6bdd;
-  --away:    #e05252;
-  --draw:    #94a3b8;
-}
-
-body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
-body.mixed { --accent: var(--accent-mixed); }
-
-/* ── Header ─────────────────────────────────────────────────────────────── */
-header { background: linear-gradient(135deg, #0d0d14 0%, #1a1030 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
-header > div { flex: 1; min-width: 0; }
-header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
-header h1 span { color: var(--accent); }
-
-/* League Toggle */
-.league-toggle {
-  display: inline-flex; background: var(--bg); border: 1px solid var(--border);
-  padding: 4px; border-radius: 10px; gap: 4px; margin-bottom: 12px;
-}
-.toggle-btn {
-  padding: 6px 14px; border-radius: 6px; border: none; background: transparent;
-  color: var(--muted); font-size: 0.75rem; font-weight: 700; cursor: pointer;
-  transition: all 0.2s;
-}
-.toggle-btn.active { background: var(--accent); color: #fff; }
-
-nav { display: flex; align-items: center; padding-top: 6px; }
-nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 6px 14px; border-radius: 6px; border: 1px solid transparent; margin-left: 4px; transition: all 0.15s; }
-nav a:hover { color: var(--text); border-color: var(--border); }
-nav a.active { color: #a78bfa; border-color: rgba(109,90,205,0.45); background: rgba(109,90,205,0.1); }
-
-/* ── Main ───────────────────────────────────────────────────────────────── */
-main { max-width: 1080px; margin: 0 auto; padding: 32px 24px; }
-
-/* ── Tabs ───────────────────────────────────────────────────────────────── */
-.tabs { display: inline-flex; gap: 3px; margin-bottom: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 4px; }
-.tab { padding: 8px 22px; border-radius: 7px; border: none; cursor: pointer; font-size: 0.875rem; font-weight: 500; color: var(--muted); background: transparent; transition: all 0.15s; }
-.tab.active { background: var(--accent); color: #fff; }
-.tab:not(.active):hover { color: var(--text); }
-
-/* ── Games setting ──────────────────────────────────────────────────────── */
-.games-bar {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 16px; width: fit-content;
-}
-.games-bar label { font-size: 0.78rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
-.games-input {
-  width: 64px; background: var(--bg); border: 1px solid var(--border);
-  color: var(--text); padding: 5px 8px; border-radius: 6px; font-size: 0.88rem;
-  font-weight: 700; text-align: center; outline: none;
-  font-variant-numeric: tabular-nums;
-}
-.games-input:focus { border-color: var(--accent); }
-.games-bar span { font-size: 0.72rem; color: var(--muted); }
-
-/* ── Match Builder Grid ─────────────────────────────────────────────────── */
-.match-grid { display: grid; grid-template-columns: 1fr 38px 1fr; gap: 0; align-items: start; margin-bottom: 28px; }
-.vs-col { display: flex; align-items: center; justify-content: center; padding-top: 68px; font-size: 0.8rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; }
-
-/* ── Team Card ──────────────────────────────────────────────────────────── */
-.team-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: visible; }
-.team-card-header { padding: 10px 18px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; border-radius: 14px 14px 0 0; }
-.team-card.home .team-card-header { background: rgba(124,107,221,0.15); color: #a78bfa; border-bottom: 1px solid rgba(124,107,221,0.2); }
-.team-card.away .team-card-header { background: rgba(224,82,82,0.12); color: #f87171; border-bottom: 1px solid rgba(224,82,82,0.18); }
-.team-card.neutral .team-card-header { background: rgba(109,90,205,0.1); color: var(--muted); border-bottom: 1px solid var(--border); }
-.team-card-body { padding: 16px 18px; }
-
-/* ── Club Select ────────────────────────────────────────────────────────── */
-.field-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 5px; }
-.club-select {
-  width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
-  padding: 8px 28px 8px 10px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-  outline: none; cursor: pointer; appearance: none; margin-bottom: 10px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6b8a' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 9px center; transition: border-color 0.15s;
-}
-.team-card.home .club-select:focus { border-color: var(--home); }
-.team-card.away .club-select:focus { border-color: var(--away); }
-.club-select option { background: var(--surface); }
-
-.team-name-input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 8px; font-size: 0.88rem; font-weight: 600; margin-bottom: 18px; outline: none; transition: border-color 0.15s; }
-.team-card.home .team-name-input:focus { border-color: var(--home); }
-.team-card.away .team-name-input:focus { border-color: var(--away); }
-
-/* ── Club pills (multi-select) ──────────────────────────────────────────── */
-.club-filter-row { margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
-.club-filter-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
-.club-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-.club-pill { padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.12s; white-space: nowrap; }
-.club-pill:hover { color: var(--text); border-color: #4a4a6a; }
-.club-pill.active { background: rgba(109,90,205,0.18); border-color: rgba(109,90,205,0.5); color: #a78bfa; font-weight: 600; }
-
-/* ── Pair Row ───────────────────────────────────────────────────────────── */
-.pair-row + .pair-row { margin-top: 14px; }
-.pair-label { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-bottom: 6px; }
-.pair-players { display: flex; flex-direction: column; gap: 5px; }
-
-/* ── Player Picker ──────────────────────────────────────────────────────── */
-.player-picker { position: relative; }
-.picker-trigger { display: flex; align-items: center; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; min-height: 34px; overflow: hidden; transition: border-color 0.15s; cursor: text; }
-.picker-trigger:focus-within { border-color: var(--accent); }
-.picker-trigger.has-value { border-color: rgba(124,107,221,0.4); background: rgba(109,90,205,0.06); }
-.picker-trigger.has-value:focus-within { border-color: rgba(124,107,221,0.7); }
-.picker-input { flex: 1; background: transparent; border: none; color: var(--text); padding: 6px 10px; font-size: 0.82rem; outline: none; min-width: 0; }
-.picker-input::placeholder { color: var(--muted); }
-.picker-badge { font-size: 0.7rem; font-weight: 700; color: var(--accent); padding: 0 6px; white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; display: none; }
-.picker-clear { padding: 0 8px; color: var(--muted); cursor: pointer; font-size: 1rem; line-height: 34px; flex-shrink: 0; transition: color 0.1s; display: none; user-select: none; }
-.picker-clear:hover { color: #f87171; }
-.picker-dropdown { position: absolute; z-index: 300; top: calc(100% + 4px); left: 0; right: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 10px 32px rgba(0,0,0,0.6); max-height: 220px; overflow-y: auto; display: none; }
-.picker-dropdown.open { display: block; }
-.picker-option { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; cursor: pointer; font-size: 0.82rem; border-bottom: 1px solid rgba(31,31,50,0.8); transition: background 0.08s; }
-.picker-option:last-child { border-bottom: none; }
-.picker-option:hover, .picker-option.focused { background: rgba(109,90,205,0.13); }
-.po-name { font-weight: 500; }
-.po-meta { display: flex; gap: 8px; align-items: center; font-size: 0.72rem; color: var(--muted); }
-.po-rating { font-variant-numeric: tabular-nums; font-weight: 700; }
-.picker-empty { padding: 12px 16px; text-align: center; color: var(--muted); font-size: 0.82rem; }
-
-/* ── Action bar ─────────────────────────────────────────────────────────── */
-.action-bar { text-align: center; margin-bottom: 40px; }
-.generate-btn { background: var(--accent); color: #fff; border: none; padding: 13px 40px; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(109,90,205,0.35); }
-.generate-btn:hover:not(:disabled) { background: #8476e5; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(109,90,205,0.5); }
-.generate-btn:active:not(:disabled) { transform: none; }
-.generate-btn:disabled { opacity: 0.28; cursor: not-allowed; box-shadow: none; }
-.action-hint { color: var(--muted); font-size: 0.78rem; margin-top: 10px; }
-
-/* ── Scorecard ──────────────────────────────────────────────────────────── */
-.scorecard-wrap { animation: slideUp 0.3s ease; }
-@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.sc-meta { margin-bottom: 18px; }
-.sc-teams { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.sc-teams .home-name { color: #a78bfa; }
-.sc-teams .away-name { color: #f87171; }
-.sc-teams .sep { color: var(--muted); font-weight: 400; font-size: 1rem; }
-.sc-sub { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
-.sc-table-wrap { overflow-x: auto; margin-bottom: 20px; }
-table.sc { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 500px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); }
-table.sc th, table.sc td { border: 1px solid var(--border); }
-.sc-corner { padding: 12px 16px; background: var(--bg); vertical-align: bottom; min-width: 130px; }
-.sc-corner-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.sc-away-hdr { padding: 12px 14px; text-align: center; vertical-align: top; min-width: 140px; background: rgba(224,82,82,0.06); }
-.sc-home-hdr { padding: 12px 16px; vertical-align: top; background: rgba(124,107,221,0.07); }
-.sc-pair-lbl { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px; }
-.sc-pair-names { font-size: 0.8rem; font-weight: 600; line-height: 1.5; }
-.sc-pair-elo { font-size: 0.68rem; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
-.sc-cell { text-align: center; vertical-align: middle; padding: 14px 12px; }
-.sc-score { font-size: 1.2rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-.sc-prob { font-size: 0.66rem; color: var(--muted); margin-top: 4px; }
-.sc-winner { display: inline-block; font-size: 0.58rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; padding: 2px 6px; border-radius: 3px; margin-top: 5px; }
-.sc-sum-hdr { padding: 10px 16px; background: rgba(13,13,20,0.7); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); vertical-align: middle; }
-.sc-sum-cell { text-align: center; padding: 10px 8px; background: rgba(13,13,20,0.7); }
-.sc-col-tally { font-size: 0.85rem; font-weight: 800; font-variant-numeric: tabular-nums; }
-.result-banner { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; }
-.result-scoreline { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.result-home { color: #a78bfa; }
-.result-away { color: #f87171; }
-.result-score-num { font-size: 2.6rem; }
-.result-divider { color: var(--border); font-size: 1.5rem; }
-.result-verdict { margin-top: 10px; font-size: 0.88rem; font-weight: 600; }
-.result-detail { color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
-
-/* ── Single Rubber ──────────────────────────────────────────────────────── */
-.rubber-grid { display: grid; grid-template-columns: 1fr 38px 1fr; gap: 0; align-items: start; margin-bottom: 28px; }
-.rubber-vs { display: flex; align-items: center; justify-content: center; padding-top: 48px; }
-.vs-txt { font-size: 0.8rem; font-weight: 800; color: var(--muted); letter-spacing: 0.08em; }
-.rubber-result { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; animation: slideUp 0.3s ease; }
-.prob-section { margin: 20px 0; }
-.prob-track { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; display: flex; }
-.prob-home { height: 100%; background: var(--home); border-radius: 5px 0 0 5px; transition: width 0.5s ease; }
-.prob-away { height: 100%; background: var(--away); border-radius: 0 5px 5px 0; transition: width 0.5s ease; }
-.prob-labels { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
-.rr-result-main { text-align: center; margin: 24px 0 20px; }
-.rr-score { font-size: 1.4rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-bottom: 8px; }
-.rr-verdict { font-size: 1rem; font-weight: 700; }
-.rr-elo-row { display: flex; margin-top: 20px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.rr-elo-item { flex: 1; padding: 12px 16px; text-align: center; }
-.rr-elo-item + .rr-elo-item { border-left: 1px solid var(--border); }
-.rr-elo-lbl { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.rr-elo-val { font-size: 1.1rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: 4px; }
-
-/* ── 4-Player Rotation ──────────────────────────────────────────────────── */
-.rotation-players { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
-.rot-player-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: visible; }
-.rot-player-header {
-  padding: 8px 14px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; border-radius: 12px 12px 0 0; border-bottom: 1px solid var(--border);
-}
-.rot-player-header.pa { background: rgba(109,90,205,0.15); color: #a78bfa; border-bottom-color: rgba(109,90,205,0.2); }
-.rot-player-header.pb { background: rgba(239,68,68,0.12); color: #f87171; border-bottom-color: rgba(239,68,68,0.18); }
-.rot-player-header.pc { background: rgba(16,185,129,0.12); color: #34d399; border-bottom-color: rgba(16,185,129,0.18); }
-.rot-player-header.pd { background: rgba(245,166,35,0.12); color: #fbbf24; border-bottom-color: rgba(245,166,35,0.2); }
-.rot-player-body { padding: 12px 14px; }
-
-/* Rotation results */
-.rot-results { animation: slideUp 0.3s ease; }
-.rot-rubbers { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-.rot-rubber-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-  padding: 16px 20px; display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 16px;
-}
-.rot-rubber-num {
-  font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--muted); margin-bottom: 6px;
-}
-.rot-pair-names { font-size: 0.88rem; font-weight: 700; line-height: 1.5; }
-.rot-pair-elo { font-size: 0.7rem; color: var(--muted); margin-top: 3px; font-variant-numeric: tabular-nums; }
-.rot-score-col { text-align: center; }
-.rot-score { font-size: 1.5rem; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-.rot-prob { font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
-.rot-winner-tag { display: inline-block; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; padding: 2px 7px; border-radius: 3px; margin-top: 6px; }
-.rot-pair-left { text-align: left; }
-.rot-pair-right { text-align: right; }
-
-/* Rotation summary table */
-.rot-summary { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-.rot-summary-title { padding: 12px 18px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); border-bottom: 1px solid var(--border); background: rgba(13,13,20,0.5); }
-table.rot-table { width: 100%; border-collapse: collapse; }
-table.rot-table th { padding: 10px 16px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); text-align: left; border-bottom: 1px solid var(--border); }
-table.rot-table th:not(:first-child) { text-align: center; }
-table.rot-table td { padding: 12px 16px; font-size: 0.88rem; border-bottom: 1px solid var(--border); }
-table.rot-table td:not(:first-child) { text-align: center; font-variant-numeric: tabular-nums; }
-table.rot-table tr:last-child td { border-bottom: none; }
-.rot-player-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-
-/* ── Responsive ─────────────────────────────────────────────────────────── */
-@media (max-width: 680px) {
-  .match-grid, .rubber-grid { grid-template-columns: 1fr; }
-  .vs-col, .rubber-vs { padding: 8px 0; }
-  .rotation-players { grid-template-columns: 1fr; }
-  .rot-rubber-card { grid-template-columns: 1fr; text-align: center; }
-  .rot-pair-right { text-align: center; }
-  header { padding: 14px 16px; }
-  header h1 { font-size: 1.2rem; flex: 1 1 100%; }
-  main { padding: 20px 12px; }
-  /* Tabs: full-width, smaller text */
-  .tabs { display: flex; width: 100%; box-sizing: border-box; }
-  .tab { flex: 1; padding: 8px 6px; font-size: 0.78rem; text-align: center; }
-  /* games-bar: hide verbose explanation */
-  .games-bar span { display: none; }
-  .games-bar { gap: 8px; }
-  /* Prevent iOS Safari zoom on input focus */
-  input, select, .club-select, .team-name-input, .picker-input, .games-input { font-size: 1rem; }
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div>
-    <div class="league-toggle">
-      <button class="toggle-btn active" id="btnMens" onclick="setLeague('mens')">Men's League</button>
-      <button class="toggle-btn" id="btnMixed" onclick="setLeague('mixed')">Mixed League</button>
-    </div>
-    <h1 id="mainTitle">York Men's Tennis — <span>Predictor</span></h1>
-  </div>
-  <nav>
-    <a href="/">Leaderboard</a>
-    <a href="/clubs">Clubs</a>
-    <a href="/predict" class="active">Predictor</a>
-  </nav>
-</header>
-
-<main>
-  <div class="tabs" id="tabs">
-    <button class="tab active" data-tab="match">Full Match</button>
-    <button class="tab" data-tab="rubber">Single Rubber</button>
-    <button class="tab" data-tab="rotation">4-Player Rotation</button>
-  </div>
-
-  <div class="games-bar">
-    <label for="gamesInput">Games per rubber</label>
-    <input type="number" id="gamesInput" class="games-input" min="1" max="99" value="12">
-    <span>— score based on best of this many games</span>
-  </div>
-
-  <!-- ── Full Match Tab ────────────────────────────────────────────────── -->
-  <div id="tabMatch">
-    <div class="match-grid">
-      <div class="team-card home">
-        <div class="team-card-header">Home Team</div>
-        <div class="team-card-body">
-          <div class="field-label">Club</div>
-          <select class="club-select" id="homeClubSelect"><option value="">All players</option></select>
-          <div class="field-label">Team name</div>
-          <input id="homeTeamName" class="team-name-input" placeholder="e.g. Cawood 2" autocomplete="off">
-          <div id="homePairsContainer"></div>
-        </div>
-      </div>
-      <div class="vs-col">VS</div>
-      <div class="team-card away">
-        <div class="team-card-header">Away Team</div>
-        <div class="team-card-body">
-          <div class="field-label">Club</div>
-          <select class="club-select" id="awayClubSelect"><option value="">All players</option></select>
-          <div class="field-label">Team name</div>
-          <input id="awayTeamName" class="team-name-input" placeholder="e.g. Wigginton 4" autocomplete="off">
-          <div id="awayPairsContainer"></div>
-        </div>
-      </div>
-    </div>
-    <div class="action-bar">
-      <button class="generate-btn" id="generateBtn" disabled onclick="generateScorecard()">Generate Scorecard</button>
-      <div class="action-hint" id="generateHint">Select all 12 players to predict</div>
-    </div>
-    <div id="scorecardOutput"></div>
-  </div>
-
-  <!-- ── Single Rubber Tab ─────────────────────────────────────────────── -->
-  <div id="tabRubber" style="display:none">
-    <div class="club-filter-row">
-      <div class="club-filter-label">Filter by club — select any to narrow player lists</div>
-      <div class="club-pills" id="rubberClubPills"></div>
-    </div>
-    <div class="rubber-grid">
-      <div class="team-card home">
-        <div class="team-card-header">Pair A</div>
-        <div class="team-card-body" id="rubberAContainer"></div>
-      </div>
-      <div class="rubber-vs"><div class="vs-txt">VS</div></div>
-      <div class="team-card away">
-        <div class="team-card-header">Pair B</div>
-        <div class="team-card-body" id="rubberBContainer"></div>
-      </div>
-    </div>
-    <div id="rubberOutput"></div>
-  </div>
-
-  <!-- ── 4-Player Rotation Tab ─────────────────────────────────────────── -->
-  <div id="tabRotation" style="display:none">
-    <div class="club-filter-row">
-      <div class="club-filter-label">Filter by club — select any to narrow player lists</div>
-      <div class="club-pills" id="rotationClubPills"></div>
-    </div>
-    <div class="rotation-players" id="rotationPlayers"></div>
-    <div id="rotationOutput"></div>
-  </div>
-</main>
-
 <script>
 'use strict';
 
@@ -372,6 +14,52 @@ const clubFilters = {
   rubber:   new Set(),
   rotation: new Set(),
 };
+
+let currentLeague = new URLSearchParams(window.location.search).get('league') || 'mens';
+
+// ── League Management ────────────────────────────────────────────────────────
+function setLeague(league) {
+  if (currentLeague === league) return;
+  currentLeague = league;
+  
+  // Update UI
+  document.body.classList.toggle('mixed', league === 'mixed');
+  document.getElementById('btnMens').classList.toggle('active', league === 'mens');
+  document.getElementById('btnMixed').classList.toggle('active', league === 'mixed');
+  document.getElementById('mainTitle').innerHTML = `York ${league === 'mixed' ? 'Mixed' : 'Men\'s'} Tennis — <span>Predictor</span>`;
+  
+  // Update URL without reload
+  const url = new URL(window.location);
+  url.searchParams.set('league', league);
+  window.history.pushState({}, '', url);
+
+  // Clear selections
+  for (const k in sel) {
+    const trigger = document.getElementById(`dd-${k}`)?.previousElementSibling;
+    if (trigger) {
+      const input = trigger.querySelector('.picker-input');
+      const badge = trigger.querySelector('.picker-badge');
+      const clearBtn = trigger.querySelector('.picker-clear');
+      const dropdown = document.getElementById(`dd-${k}`);
+      if (input) clearSel(k, input, badge, clearBtn, trigger, dropdown);
+    } else {
+      delete sel[k];
+    }
+  }
+  
+  clubFilters.home = '';
+  clubFilters.away = '';
+  clubFilters.rubber.clear();
+  clubFilters.rotation.clear();
+
+  // Reset club selects
+  document.getElementById('homeClubSelect').value = '';
+  document.getElementById('awayClubSelect').value = '';
+  document.getElementById('homeTeamName').value = '';
+  document.getElementById('awayTeamName').value = '';
+
+  init();
+}
 
 // Player colours for rotation
 const ROT_COLORS = { rotA: '#a78bfa', rotB: '#f87171', rotC: '#34d399', rotD: '#fbbf24' };
@@ -394,7 +82,7 @@ function ratingColor(r) {
   if (r >= 1100) return '#10b981';
   return '#64748b';
 }
-function divColor(d) { return ['','#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899'][d] || '#64748b'; }
+function divColor(d) { return ['','#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899','#ec4899','#ec4899'][d] || '#64748b'; }
 
 // ── ELO Math ──────────────────────────────────────────────────────────────────
 function winProb(homeAvg, awayAvg) { return 1 / (1 + Math.pow(10, (awayAvg - homeAvg) / 400)); }
@@ -433,7 +121,19 @@ function getPool(slotKey, query) {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
-  const res  = await fetch('/api/leaderboard');
+  document.body.classList.toggle('mixed', currentLeague === 'mixed');
+  document.getElementById('btnMens').classList.toggle('active', currentLeague === 'mens');
+  document.getElementById('btnMixed').classList.toggle('active', currentLeague === 'mixed');
+  document.getElementById('mainTitle').innerHTML = `York ${currentLeague === 'mixed' ? 'Mixed' : 'Men\'s'} Tennis — <span>Predictor</span>`;
+
+  // Update nav links to preserve league
+  document.querySelectorAll('nav a').forEach(a => {
+    const url = new URL(a.href, window.location.origin);
+    url.searchParams.set('league', currentLeague);
+    a.href = url.pathname + url.search;
+  });
+
+  const res  = await fetch(`/api/leaderboard?league=${currentLeague}`);
   const data = await res.json();
   allPlayers = data.leaderboard;
   allClubs   = data.clubs;
@@ -441,9 +141,22 @@ async function init() {
   populateClubSelects();
   buildClubPills('rubberClubPills',   'rubber');
   buildClubPills('rotationClubPills', 'rotation');
+  
+  // Clear any existing UI containers before rebuilding
+  document.getElementById('homePairsContainer').innerHTML = '';
+  document.getElementById('awayPairsContainer').innerHTML = '';
+  document.getElementById('rubberAContainer').innerHTML = '';
+  document.getElementById('rubberBContainer').innerHTML = '';
+  document.getElementById('rotationPlayers').innerHTML = '';
+
   buildMatchUI();
   buildRubberUI();
   buildRotationUI();
+
+  // Reset output areas
+  document.getElementById('scorecardOutput').innerHTML = '';
+  document.getElementById('rubberOutput').innerHTML = '';
+  document.getElementById('rotationOutput').innerHTML = '';
 
   document.getElementById('tabs').addEventListener('click', e => {
     const tab = e.target.closest('.tab');
@@ -460,6 +173,7 @@ async function init() {
 function populateClubSelects() {
   ['home', 'away'].forEach(side => {
     const el = document.getElementById(`${side}ClubSelect`);
+    el.innerHTML = '<option value="">Select club…</option>'; // Reset
     allClubs.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; el.appendChild(o); });
     el.addEventListener('change', () => {
       clubFilters[side] = el.value;
@@ -472,6 +186,7 @@ function populateClubSelects() {
 // ── Club pills (multi-select, reusable) ──────────────────────────────────────
 function buildClubPills(containerId, filterKey) {
   const container = document.getElementById(containerId);
+  container.innerHTML = ''; // Reset
   allClubs.forEach(club => {
     const btn = document.createElement('button');
     btn.className = 'club-pill';
@@ -587,9 +302,11 @@ function pickPlayer(slotKey, name, rating, input, badge, clearBtn, trigger, drop
 
 function clearSel(slotKey, input, badge, clearBtn, trigger, dropdown) {
   delete sel[slotKey];
-  input.value = ''; input.readOnly = false;
-  badge.style.display = 'none'; clearBtn.style.display = 'none';
-  trigger.classList.remove('has-value'); dropdown.classList.remove('open');
+  if (input) { input.value = ''; input.readOnly = false; }
+  if (badge) badge.style.display = 'none';
+  if (clearBtn) clearBtn.style.display = 'none';
+  if (trigger) trigger.classList.remove('has-value');
+  if (dropdown) dropdown.classList.remove('open');
   if (callbacks[slotKey]) callbacks[slotKey]();
 }
 
