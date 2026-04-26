@@ -36,6 +36,23 @@ async function fetchPlayers(supabase, tablePrefix) {
   return { rows, error: null };
 }
 
+async function fetchFixtures(supabase, tablePrefix, minSeason) {
+  let rows = [], from = 0;
+  while (true) {
+    let q = supabase
+      .from(`${tablePrefix}elo_fixtures`)
+      .select('home_team, away_team, division, season')
+      .range(from, from + 999);
+    if (minSeason != null) q = q.gte('season', minSeason);
+    const { data, error } = await q;
+    if (error) return { rows: null, error };
+    rows.push(...data);
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return { rows, error: null };
+}
+
 // Build per-player per-season fixture list (one entry per distinct fixture, not per rubber).
 // Each fixture = one match = 3 rubbers, so we deduplicate by fixture_id.
 function buildPlayerFixtures(historyRows) {
@@ -170,16 +187,34 @@ module.exports = async (req, res) => {
     process.env.SUPABASE_SERVICE_KEY
   );
 
-  const [{ rows: historyRows, error: histErr }, { rows: playerRows, error: playerErr }] =
-    await Promise.all([fetchHistory(supabase, tablePrefix, minSeason), fetchPlayers(supabase, tablePrefix)]);
+  const [{ rows: historyRows, error: histErr }, { rows: playerRows, error: playerErr }, { rows: fixtureRows, error: fixErr }] =
+    await Promise.all([
+      fetchHistory(supabase, tablePrefix, minSeason),
+      fetchPlayers(supabase, tablePrefix),
+      fetchFixtures(supabase, tablePrefix, minSeason)
+    ]);
 
   if (histErr) { res.statusCode = 500; res.end(JSON.stringify({ error: histErr.message })); return; }
   if (playerErr) { res.statusCode = 500; res.end(JSON.stringify({ error: playerErr.message })); return; }
+  if (fixErr) { res.statusCode = 500; res.end(JSON.stringify({ error: fixErr.message })); return; }
 
   const ratingMap = {};
   for (const p of playerRows) ratingMap[p.name] = p.rating;
 
   const teamData = {};
+  
+  // Ensure all teams from fixtures exist in teamData, even if they have no match history
+  if (fixtureRows) {
+    for (const f of fixtureRows) {
+      if (f.home_team && !teamData[f.home_team]) {
+        teamData[f.home_team] = { players: new Map(), wins: 0, losses: 0, draws: 0, division: f.division || null };
+      }
+      if (f.away_team && !teamData[f.away_team]) {
+        teamData[f.away_team] = { players: new Map(), wins: 0, losses: 0, draws: 0, division: f.division || null };
+      }
+    }
+  }
+
   for (const r of historyRows) {
     if (!r.team || !r.player_name) continue;
     if (!teamData[r.team]) {
@@ -216,18 +251,17 @@ module.exports = async (req, res) => {
         ringerInfo: getRingerInfo(pname, teamName, td.division, playerFixtures),
       });
     }
-    if (playerList.length === 0) continue;
-
+    // Allow empty teams to be included so they appear in clubs view (e.g., season start)
     playerList.sort((a, b) => b.rating - a.rating);
     const ratings = playerList.map(p => p.rating);
-    const avgRating = Math.round(ratings.reduce((a, b) => a + b, 0) / ratings.length);
+    const avgRating = ratings.length > 0 ? Math.round(ratings.reduce((a, b) => a + b, 0) / ratings.length) : null;
     const totalRubbers = td.wins + td.losses + td.draws;
 
     teams.push({
       name: teamName,
       division: td.division,
       avgRating,
-      topRating: ratings[0],
+      topRating: ratings.length > 0 ? ratings[0] : null,
       playerCount: playerList.length,
       winRate: totalRubbers > 0
         ? Math.round(((td.wins + 0.5 * td.draws) / totalRubbers) * 100)
@@ -237,7 +271,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  teams.sort((a, b) => (a.division || 99) - (b.division || 99) || b.avgRating - a.avgRating);
+  teams.sort((a, b) => (a.division || 99) - (b.division || 99) || (b.avgRating || 0) - (a.avgRating || 0));
 
   res.end(JSON.stringify({
     teams,
