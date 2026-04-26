@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-04-22T20:58:17.729Z",
+  "scraped_at": "2026-04-26T14:41:00.099Z",
   "season": 2026,
   "fixture_count": 419,
   "rubber_count": 3771,
@@ -5002,13 +5002,13 @@
       "time": "10:00"
     },
     {
-      "fixture_id": 679,
+      "fixture_id": 680,
       "season": 2026,
       "division": 5,
       "date": "10 May 2026",
-      "home_team": "Harlow 2",
-      "away_team": "Racquets 2",
-      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/679",
+      "home_team": "Sutton Upon Derwent 2",
+      "away_team": "Boston Spa 2",
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/680",
       "rubbers": [
         {
           "rubber_order": 1,
@@ -5104,13 +5104,13 @@
       "time": "10:00"
     },
     {
-      "fixture_id": 680,
+      "fixture_id": 679,
       "season": 2026,
       "division": 5,
       "date": "10 May 2026",
-      "home_team": "Sutton Upon Derwent 2",
-      "away_team": "Boston Spa 2",
-      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/680",
+      "home_team": "Harlow 2",
+      "away_team": "Racquets 2",
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/679",
       "rubbers": [
         {
           "rubber_order": 1,
@@ -25603,7 +25603,7 @@
           "winner": null
         }
       ],
-      "time": null
+      "time": "10:00"
     },
     {
       "fixture_id": 705,
