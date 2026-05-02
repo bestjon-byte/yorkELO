@@ -6,10 +6,11 @@
  * Outputs standardized mixed_fixtures_YYYY.json files.
  *
  * Usage:
- *   node scraper-mixed.mjs
+ *   node scraper-mixed.mjs               # all seasons (initial/full backfill)
+ *   node scraper-mixed.mjs --year 2026   # current season only (used by GitHub Action)
  */
 
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -41,6 +42,27 @@ const SEASONS = {
 
 const DELAY_MS = 1000
 const MATCH_DELAY_MS = 500
+const RECHECK_DAYS = 7
+
+// --year YYYY limits processing to a single season (used by GitHub Action)
+const yearArgIdx = process.argv.indexOf('--year')
+const yearFilter = yearArgIdx !== -1 ? parseInt(process.argv[yearArgIdx + 1]) : null
+
+const SEASONS_TO_RUN = yearFilter
+  ? Object.fromEntries(Object.entries(SEASONS).filter(([, y]) => y === yearFilter))
+  : SEASONS
+
+if (yearFilter && Object.keys(SEASONS_TO_RUN).length === 0) {
+  console.error(`ERROR: --year ${yearFilter} not found in SEASONS map.`)
+  process.exit(1)
+}
+
+function parseFixtureDate(dateStr) {
+  // MyDivision format: "DD.MM.YY"
+  const m = /^(\d{1,2})\.(\d{1,2})\.(\d{2})$/.exec(dateStr)
+  if (m) return new Date(2000 + parseInt(m[3]), parseInt(m[2]) - 1, parseInt(m[1]))
+  return new Date(dateStr)
+}
 
 async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -133,10 +155,10 @@ async function getDivisions(seasonId) {
   return divisions.sort((a, b) => a.number - b.number)
 }
 
-async function scrapeDivisionMatches(seasonId, divisionId, divNumber, year) {
+async function scrapeDivisionMatches(seasonId, divisionId, divNumber, year, existingMap) {
   console.log(`  Scraping Div ${divNumber} (ID: ${divisionId})...`)
   const url = `${BASE_URL}/racketindex.php?l=${LEAGUE_ID}&d=${divisionId}`
-  
+
   const html = await fetchWithRetry(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -144,15 +166,16 @@ async function scrapeDivisionMatches(seasonId, divisionId, divNumber, year) {
   })
 
   const rowRegex = /<tr bgcolor="#(?:efefef|e5e5e5)">\s*<td\s*>(.*?)<\/td>\s*<td align=center>(.*?)<\/td>\s*<td>(.*?)<\/td>\s*<td align=center>(.*?)<\/td>\s*<td align=center>(.*?)<\/td>\s*<td align=center bgcolor=#ffffff>(.*?)<\/td>/g
-  
+
   const fixtures = []
+  const now = Date.now()
   let match
   while ((match = rowRegex.exec(html)) !== null) {
     const [_, dateRaw, noteRaw, teamsRaw, setsRaw, gamesRaw, actionRaw] = match
-    
+
     const date = dateRaw.split(' - ')[0].trim()
     const [homeTeam, awayTeam] = teamsRaw.split(' - ').map(t => t.trim())
-    
+
     let homeSets = null, awaySets = null
     if (setsRaw.includes('v')) {
       const setsParts = setsRaw.replace(/<[^>]*>/g, '').split('v')
@@ -185,14 +208,28 @@ async function scrapeDivisionMatches(seasonId, divisionId, divNumber, year) {
       away_sets: awaySets,
       home_games: homeGames,
       away_games: awayGames,
-      source_url: `${BASE_URL}/scorecard.php?m=${matchId}`, // MyDivision common pattern
+      source_url: `${BASE_URL}/scorecard.php?m=${matchId}`,
       rubbers: []
     }
 
-    // Fetch details if match is completed
     if (homeSets !== null) {
+      const existing = existingMap.get(matchId)
+      const hasRubbers = existing && existing.rubbers && existing.rubbers.length > 0
+
+      if (hasRubbers) {
+        const diffDays = (now - parseFixtureDate(date)) / (1000 * 60 * 60 * 24)
+        const isRecent = diffDays >= 0 && diffDays <= RECHECK_DAYS
+        if (!isRecent) {
+          fixture.rubbers = existing.rubbers
+          process.stdout.write(`    [cached] ${homeTeam} v ${awayTeam}\n`)
+          fixtures.push(fixture)
+          continue
+        }
+        process.stdout.write(`    [re-checking] ${homeTeam} v ${awayTeam}...\n`)
+      }
+
       fixture.rubbers = await fetchMatchDetails(matchId, mParam)
-      await sleep(MATCH_DELAY_MS) // Polite delay
+      await sleep(MATCH_DELAY_MS)
     }
 
     fixtures.push(fixture)
@@ -278,20 +315,31 @@ async function fetchMatchDetails(matchId, mParam) {
 }
 
 async function main() {
-  for (const [seasonId, year] of Object.entries(SEASONS)) {
+  console.log(yearFilter ? `Scraping Mixed League — Season ${yearFilter}` : 'Scraping Mixed League — All seasons')
+
+  for (const [seasonId, year] of Object.entries(SEASONS_TO_RUN)) {
     console.log(`\n=== Processing Season ${year} (ID: ${seasonId}) ===`)
-    
+
+    const outPath = resolve(ROOT, `mixed_fixtures_${year}.json`)
+    let existingData = { fixtures: [] }
+    if (existsSync(outPath)) {
+      try {
+        existingData = JSON.parse(readFileSync(outPath, 'utf8'))
+        console.log(`  Loaded ${existingData.fixtures.length} existing fixtures.`)
+      } catch (e) {}
+    }
+    const existingMap = new Map(existingData.fixtures.map(f => [f.fixture_id, f]))
+
     const divisions = await getDivisions(seasonId)
     console.log(`Found ${divisions.length} divisions.`)
 
     const seasonFixtures = []
     for (const div of divisions) {
-      const divFixtures = await scrapeDivisionMatches(seasonId, div.id, div.number, year)
+      const divFixtures = await scrapeDivisionMatches(seasonId, div.id, div.number, year, existingMap)
       seasonFixtures.push(...divFixtures)
       await sleep(DELAY_MS)
     }
 
-    const outPath = resolve(ROOT, `mixed_fixtures_${year}.json`)
     const output = {
       scraped_at: new Date().toISOString(),
       season: year,
@@ -299,9 +347,9 @@ async function main() {
       rubber_count: seasonFixtures.reduce((n, f) => n + f.rubbers.length, 0),
       fixtures: seasonFixtures
     }
-    
+
     writeFileSync(outPath, JSON.stringify(output, null, 2))
-    console.log(`Saved ${seasonFixtures.length} matches to ${outPath}`)
+    console.log(`Saved ${seasonFixtures.length} fixtures to ${outPath}`)
   }
 
   console.log('\nAll seasons complete.')

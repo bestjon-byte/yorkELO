@@ -26,7 +26,7 @@ jobs:
       - name: Scrape Mixed League Fixtures
         env:
           MD_COOKIE: ${{ secrets.MD_COOKIE }}
-        run: node scraper-mixed.mjs
+        run: node scraper-mixed.mjs --year 2026
 
       - name: Calculate Mixed ELO Ratings
         run: node elo.js --mixed
