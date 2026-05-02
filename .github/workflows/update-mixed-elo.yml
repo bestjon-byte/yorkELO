@@ -1,0 +1,46 @@
+name: Update Mixed ELO Database
+
+on:
+  schedule:
+    # Run Sunday 3pm, Sunday 9pm, Tuesday 9pm (UTC) — mixed league nights
+    - cron: '0 15 * * 0'
+    - cron: '0 21 * * 0'
+    - cron: '0 21 * * 2'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Scrape Mixed League Fixtures
+        env:
+          MD_COOKIE: ${{ secrets.MD_COOKIE }}
+        run: node scraper-mixed.mjs
+
+      - name: Calculate Mixed ELO Ratings
+        run: node elo.js --mixed
+
+      - name: Migrate Mixed Data to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/migrate-mixed-to-supabase.js --league mixed
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add mixed_fixtures_*.json mixed_ratings_all.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update 2026 Mixed ELO ratings [skip ci]"
+          git push

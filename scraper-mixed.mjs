@@ -16,8 +16,16 @@ import { fileURLToPath } from 'node:url'
 const __dir = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dir, '.')
 
-// Provided Cookie from user session (Updated with full auth)
-const COOKIE = 'PHPSESSID=1d01qt1mk4ft5nte6t4luilcs2; md_cookie=31536000; md_user_id=8364; md_password=JlA%2FnfJY195mddxPItVmY19dhP3Ld7rzG6'
+// Persistent "remember me" cookies from MyDivision.com (md_user_id + md_password).
+// Set MD_COOKIE env var to: md_user_id=XXXX; md_password=YYYY
+// Obtain by logging in at mydivision.com and copying those two cookies from DevTools.
+// These last ~1 year. When the scraper starts returning "Please login", refresh this secret.
+if (!process.env.MD_COOKIE) {
+  console.error('ERROR: MD_COOKIE environment variable is not set.')
+  console.error('Set it to: md_user_id=XXXX; md_password=YYYY (from your MyDivision.com browser cookies)')
+  process.exit(1)
+}
+const COOKIE = process.env.MD_COOKIE
 const USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36'
 
 const BASE_URL = 'https://www.mydivision.com'
@@ -204,8 +212,9 @@ async function fetchMatchDetails(matchId, mParam) {
     const html = await fetchWithRetry(url)
     
     if (html.includes('Please login')) {
-      console.warn(`    [Warning] Login required for match ${matchId}. Check if cookie is still valid.`)
-      return []
+      console.error(`ERROR: MyDivision.com returned "Please login" for match ${matchId}.`)
+      console.error('The MD_COOKIE has expired. Update the GitHub Secret (md_user_id + md_password) by logging in at mydivision.com.')
+      process.exit(1)
     }
 
     // Pre-process HTML: strip out comments and noisy tags to simplify regex
