@@ -47,9 +47,9 @@ async function getFixturesFromDivisionPage(division) {
         else if (text.match(/\d{2}:\d{2}/)) time = text;
       });
 
-      if (cells.length >= 5) {
-        homeTeam = $(cells[2]).text().trim();
-        awayTeam = $(cells[4]).text().trim();
+      if (cells.length >= 4) {
+        homeTeam = $(cells[1]).text().trim() || null;
+        awayTeam = $(cells[3]).text().trim() || null;
       }
       
       if (id) {
@@ -153,7 +153,7 @@ async function main() {
       }
 
       if (isFuture) {
-        allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
+        allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam || existing?.home_team || null, away_team: awayTeam || existing?.away_team || null, division: div, rubbers: [] });
         continue;
       }
 
