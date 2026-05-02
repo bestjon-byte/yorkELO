@@ -2,10 +2,8 @@ name: Update Mixed ELO Database
 
 on:
   schedule:
-    # Run Sunday 3pm, Sunday 9pm, Tuesday 9pm (UTC) — mixed league nights
-    - cron: '0 15 * * 0'
-    - cron: '0 21 * * 0'
-    - cron: '0 21 * * 2'
+    # 10pm BST (UTC+1) = 21:00 UTC. Shifts to 9pm GMT in winter.
+    - cron: '0 21 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
