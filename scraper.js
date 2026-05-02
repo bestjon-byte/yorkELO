@@ -40,7 +40,10 @@ async function getFixturesFromDivisionPage(division) {
 
       $(cells).each((i, td) => {
         const text = $(td).text().trim();
+        // Full date: "26 April 2026"
         if (text.match(/\d+\s+\w+\s+\d{4}/)) date = text;
+        // Short date: "26 Apr" — append season year so RECHECK_DAYS logic works
+        else if (text.match(/^\d{1,2}\s+[A-Za-z]{3}$/)) date = `${text} ${SEASON}`;
         else if (text.match(/\d{2}:\d{2}/)) time = text;
       });
 
@@ -78,7 +81,7 @@ function parseFixture(html, fixtureId, division) {
   const homeTeam = $(subHeaderCells[0]).text().trim();
   const awayPairs = [1, 2, 3].map(i => {
     const cell = $(subHeaderCells[i]);
-    const players = cell.html().split('<br>').map(p => cheerio.load(p).text().trim()).filter(Boolean);
+    const players = (cell.html() || '').replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').split('\n').map(s => s.trim()).filter(Boolean);
     return { player1: players[0] || '', player2: players[1] || '' };
   });
 
@@ -86,7 +89,7 @@ function parseFixture(html, fixtureId, division) {
   for (let rowIdx = 1; rowIdx <= 3; rowIdx++) {
     const cells = $(rows[rowIdx]).find('td').toArray();
     const pairCell = $(cells[0]);
-    const homePlayers = pairCell.html().split('<br>').map(p => cheerio.load(p).text().trim()).filter(Boolean);
+    const homePlayers = (pairCell.html() || '').replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').split('\n').map(s => s.trim()).filter(Boolean);
     const homePair = { player1: homePlayers[0] || '', player2: homePlayers[1] || '' };
 
     for (let colIdx = 0; colIdx < 3; colIdx++) {
@@ -154,7 +157,9 @@ async function main() {
         continue;
       }
 
-      if (existing && existing.rubbers && existing.rubbers.length > 0 && !isRecent) {
+      // Treat fixtures with rubbers but no player names as "no results yet"
+      const hasResults = existing && (existing.rubbers || []).some(r => r.home_player1 || r.away_player1);
+      if (existing && hasResults && !isRecent) {
         allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team });
         continue;
       }
