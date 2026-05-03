@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-03T12:59:35.206Z",
+  "scraped_at": "2026-05-03T14:09:59.081Z",
   "season": 2026,
   "fixture_count": 33,
   "rubber_count": 297,
@@ -3176,96 +3176,96 @@
       "rubbers": [
         {
           "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Brad Triffitt",
+          "away_player2": "Mike Triffitt",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
         },
         {
           "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Nigel Harvey",
+          "away_player2": "Steve Duckenfield",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
         },
         {
           "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Afta Phetcharat",
+          "home_player2": "Roy Kwabia",
+          "away_player1": "Ian Humphreys",
+          "away_player2": "Simon Freeman",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
         },
         {
           "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Sean Greenheld",
+          "home_player2": "John Benson",
+          "away_player1": "Brad Triffitt",
+          "away_player2": "Mike Triffitt",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
         },
         {
           "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Sean Greenheld",
+          "home_player2": "John Benson",
+          "away_player1": "Nigel Harvey",
+          "away_player2": "Steve Duckenfield",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
         },
         {
           "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Sean Greenheld",
+          "home_player2": "John Benson",
+          "away_player1": "Ian Humphreys",
+          "away_player2": "Simon Freeman",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
         },
         {
           "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "John Reveley",
+          "home_player2": "William Browne",
+          "away_player1": "Brad Triffitt",
+          "away_player2": "Mike Triffitt",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
         },
         {
           "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "John Reveley",
+          "home_player2": "William Browne",
+          "away_player1": "Nigel Harvey",
+          "away_player2": "Steve Duckenfield",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
         },
         {
           "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "John Reveley",
+          "home_player2": "William Browne",
+          "away_player1": "Ian Humphreys",
+          "away_player2": "Simon Freeman",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         }
       ],
-      "time": "10:00"
+      "time": null
     },
     {
       "fixture_id": 860,
@@ -3367,7 +3367,7 @@
           "winner": null
         }
       ],
-      "time": "10:00"
+      "time": null
     },
     {
       "fixture_id": 453,
