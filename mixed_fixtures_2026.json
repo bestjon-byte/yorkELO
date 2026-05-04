@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-03T21:39:18.892Z",
+  "scraped_at": "2026-05-04T21:58:04.804Z",
   "season": 2026,
-  "fixture_count": 0,
-  "rubber_count": 0,
+  "fixture_count": 1,
+  "rubber_count": 9,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -2167,12 +2167,103 @@
       "date": "04.05.26",
       "home_team": "Rowntree Park 2",
       "away_team": "Wigginton 3",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 4,
+      "away_sets": 5,
+      "home_games": 52,
+      "away_games": 56,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115744",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "Zoltan Siba",
+          "away_player2": "Julie Noonan",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Rich Rhodes",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "Brad Colvin",
+          "away_player2": "Kate Dance",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "Thomas Langley",
+          "away_player2": "Fran Critchley",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "Thomas Langley",
+          "away_player2": "Fran Critchley",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Rich Rhodes",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "Zoltan Siba",
+          "away_player2": "Julie Noonan",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "Brad Colvin",
+          "away_player2": "Kate Dance",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "Brad Colvin",
+          "away_player2": "Kate Dance",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Rich Rhodes",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "Thomas Langley",
+          "away_player2": "Fran Critchley",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "Zoltan Siba",
+          "away_player2": "Julie Noonan",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115759",
