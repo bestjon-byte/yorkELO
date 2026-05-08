@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-07T21:55:45.747Z",
+  "generated_at": "2026-05-08T21:57:56.668Z",
   "seasons": [
     2023,
     2024,
     2025,
     2026
   ],
-  "player_count": 1404,
+  "player_count": 1408,
   "leaderboard": [
     {
       "name": "Nick Turnbull",
@@ -45,6 +45,12 @@
       "last_played": "08.08.25"
     },
     {
+      "name": "Nicola Davies",
+      "rating": 1886.3,
+      "rubbers_played": 123,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Tim Bennett",
       "rating": 1885.7,
       "rubbers_played": 83,
@@ -57,22 +63,16 @@
       "last_played": "19.08.25"
     },
     {
-      "name": "Jill Le Pla",
-      "rating": 1881.4,
-      "rubbers_played": 116,
-      "last_played": "20.08.25"
-    },
-    {
       "name": "Harrison Taylor",
       "rating": 1881.3,
       "rubbers_played": 45,
       "last_played": "22.07.25"
     },
     {
-      "name": "Nicola Davies",
-      "rating": 1866.3,
-      "rubbers_played": 120,
-      "last_played": "05.05.26"
+      "name": "Jill Le Pla",
+      "rating": 1869.7,
+      "rubbers_played": 119,
+      "last_played": "07.05.26"
     },
     {
       "name": "James Shaw",
@@ -255,6 +255,12 @@
       "last_played": "24.06.25"
     },
     {
+      "name": "Karen Mitchell",
+      "rating": 1710.7,
+      "rubbers_played": 96,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Athena Rios",
       "rating": 1708.4,
       "rubbers_played": 24,
@@ -271,12 +277,6 @@
       "rating": 1703.1,
       "rubbers_played": 27,
       "last_played": "11.06.25"
-    },
-    {
-      "name": "Karen Mitchell",
-      "rating": 1699.7,
-      "rubbers_played": 93,
-      "last_played": "05.08.25"
     },
     {
       "name": "Sarah Blacker",
@@ -357,16 +357,16 @@
       "last_played": "05.05.26"
     },
     {
-      "name": "Brad Swainston",
-      "rating": 1662.2,
-      "rubbers_played": 33,
-      "last_played": "05.08.25"
-    },
-    {
       "name": "Jackie Eccles",
       "rating": 1662.1,
       "rubbers_played": 57,
       "last_played": "07.08.25"
+    },
+    {
+      "name": "Alex McClean",
+      "rating": 1661.4,
+      "rubbers_played": 105,
+      "last_played": "07.05.26"
     },
     {
       "name": "Laura Robson",
@@ -379,12 +379,6 @@
       "rating": 1659.3,
       "rubbers_played": 57,
       "last_played": "14.07.25"
-    },
-    {
-      "name": "Jess Mitchell",
-      "rating": 1658.2,
-      "rubbers_played": 102,
-      "last_played": "05.08.25"
     },
     {
       "name": "Johnny Kay",
@@ -411,16 +405,16 @@
       "last_played": "28.05.25"
     },
     {
-      "name": "Alex McClean",
-      "rating": 1650.4,
-      "rubbers_played": 102,
-      "last_played": "29.07.25"
-    },
-    {
       "name": "Sebastian Lobley",
       "rating": 1648.6,
       "rubbers_played": 6,
       "last_played": "27.06.25"
+    },
+    {
+      "name": "Kate Lewis",
+      "rating": 1647.7,
+      "rubbers_played": 87,
+      "last_played": "07.05.26"
     },
     {
       "name": "Przemyslaw Kwolek",
@@ -439,6 +433,18 @@
       "rating": 1643,
       "rubbers_played": 102,
       "last_played": "05.05.26"
+    },
+    {
+      "name": "Brad Swainston",
+      "rating": 1642.6,
+      "rubbers_played": 36,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "Jess Mitchell",
+      "rating": 1638.6,
+      "rubbers_played": 105,
+      "last_played": "07.05.26"
     },
     {
       "name": "Jan Dyl",
@@ -499,12 +505,6 @@
       "rating": 1631.3,
       "rubbers_played": 72,
       "last_played": "19.05.25"
-    },
-    {
-      "name": "Kate Lewis",
-      "rating": 1630.5,
-      "rubbers_played": 84,
-      "last_played": "07.08.25"
     },
     {
       "name": "Ali Lewis",
@@ -669,12 +669,6 @@
       "last_played": "20.08.24"
     },
     {
-      "name": "Martin George",
-      "rating": 1596.3,
-      "rubbers_played": 117,
-      "last_played": "20.08.25"
-    },
-    {
       "name": "Adam Gregory",
       "rating": 1595.4,
       "rubbers_played": 9,
@@ -783,6 +777,12 @@
       "last_played": "07.08.25"
     },
     {
+      "name": "Martin George",
+      "rating": 1571.5,
+      "rubbers_played": 120,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Alex Gurnell",
       "rating": 1570.8,
       "rubbers_played": 24,
@@ -817,12 +817,6 @@
       "rating": 1568.7,
       "rubbers_played": 18,
       "last_played": "27.08.25"
-    },
-    {
-      "name": "Peter Gray",
-      "rating": 1568.4,
-      "rubbers_played": 96,
-      "last_played": "05.08.25"
     },
     {
       "name": "Matt Waudby",
@@ -868,7 +862,7 @@
     },
     {
       "name": "Ali Wortley",
-      "rating": 1559,
+      "rating": 1558.8,
       "rubbers_played": 90,
       "last_played": "05.05.26"
     },
@@ -889,6 +883,18 @@
       "rating": 1557.8,
       "rubbers_played": 42,
       "last_played": "23.07.24"
+    },
+    {
+      "name": "Andy Ivel",
+      "rating": 1556.8,
+      "rubbers_played": 120,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "Peter Gray",
+      "rating": 1556.7,
+      "rubbers_played": 99,
+      "last_played": "07.05.26"
     },
     {
       "name": "James Ford",
@@ -951,12 +957,6 @@
       "last_played": "28.07.25"
     },
     {
-      "name": "Steve Broughton",
-      "rating": 1545.3,
-      "rubbers_played": 102,
-      "last_played": "29.07.25"
-    },
-    {
       "name": "Dave Hendry",
       "rating": 1544.2,
       "rubbers_played": 6,
@@ -981,12 +981,6 @@
       "last_played": "11.07.23"
     },
     {
-      "name": "Andy Ivel",
-      "rating": 1539.7,
-      "rubbers_played": 117,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "Pete Wilson",
       "rating": 1534.3,
       "rubbers_played": 21,
@@ -1005,16 +999,16 @@
       "last_played": "05.05.26"
     },
     {
-      "name": "Charlotte Mitchell",
-      "rating": 1530.9,
-      "rubbers_played": 96,
-      "last_played": "05.08.25"
-    },
-    {
       "name": "Ben Macaulay",
       "rating": 1530.2,
       "rubbers_played": 27,
       "last_played": "06.05.26"
+    },
+    {
+      "name": "Charlotte Mitchell",
+      "rating": 1528.8,
+      "rubbers_played": 99,
+      "last_played": "07.05.26"
     },
     {
       "name": "Luke Crowther",
@@ -1059,15 +1053,15 @@
       "last_played": "04.05.26"
     },
     {
-      "name": "Andy Rudd",
-      "rating": 1524.1,
-      "rubbers_played": 90,
-      "last_played": "05.05.26"
-    },
-    {
       "name": "Nick Latcham",
       "rating": 1524,
       "rubbers_played": 63,
+      "last_played": "05.05.26"
+    },
+    {
+      "name": "Andy Rudd",
+      "rating": 1523.9,
+      "rubbers_played": 90,
       "last_played": "05.05.26"
     },
     {
@@ -1111,6 +1105,12 @@
       "rating": 1516.7,
       "rubbers_played": 12,
       "last_played": "07.08.24"
+    },
+    {
+      "name": "Steve Broughton",
+      "rating": 1511.2,
+      "rubbers_played": 105,
+      "last_played": "07.05.26"
     },
     {
       "name": "Freya Devine",
@@ -1209,12 +1209,6 @@
       "last_played": "20.08.24"
     },
     {
-      "name": "Jack Lewis",
-      "rating": 1489.7,
-      "rubbers_played": 60,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "George Hobson",
       "rating": 1487.4,
       "rubbers_played": 56,
@@ -1267,6 +1261,12 @@
       "rating": 1478.5,
       "rubbers_played": 15,
       "last_played": "06.08.25"
+    },
+    {
+      "name": "Carl Mutarelli-Atkinson",
+      "rating": 1477.3,
+      "rubbers_played": 114,
+      "last_played": "07.05.26"
     },
     {
       "name": "Richard Whaley",
@@ -1389,6 +1389,12 @@
       "last_played": "14.08.24"
     },
     {
+      "name": "Jack Lewis",
+      "rating": 1466.2,
+      "rubbers_played": 63,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Sally Ramsden",
       "rating": 1466,
       "rubbers_played": 27,
@@ -1429,12 +1435,6 @@
       "rating": 1462.4,
       "rubbers_played": 45,
       "last_played": "06.08.25"
-    },
-    {
-      "name": "Anne Jackson",
-      "rating": 1462.2,
-      "rubbers_played": 27,
-      "last_played": "05.06.25"
     },
     {
       "name": "Charlie Conroy",
@@ -1599,6 +1599,12 @@
       "last_played": "05.08.25"
     },
     {
+      "name": "Anne Jackson",
+      "rating": 1438.7,
+      "rubbers_played": 30,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Jamie Winspear",
       "rating": 1438.6,
       "rubbers_played": 63,
@@ -1623,6 +1629,12 @@
       "last_played": "04.05.26"
     },
     {
+      "name": "Andy Graham",
+      "rating": 1437.4,
+      "rubbers_played": 75,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Pauline Belt",
       "rating": 1435.9,
       "rubbers_played": 117,
@@ -1641,10 +1653,10 @@
       "last_played": "06.08.25"
     },
     {
-      "name": "Carl Mutarelli-Atkinson",
-      "rating": 1435,
-      "rubbers_played": 111,
-      "last_played": "14.07.25"
+      "name": "Roisin Astell",
+      "rating": 1434.4,
+      "rubbers_played": 81,
+      "last_played": "07.05.26"
     },
     {
       "name": "Ruth Jones",
@@ -1701,12 +1713,6 @@
       "last_played": "26.06.25"
     },
     {
-      "name": "Hannah Nash",
-      "rating": 1426.1,
-      "rubbers_played": 105,
-      "last_played": "20.08.25"
-    },
-    {
       "name": "Tom Hardy",
       "rating": 1425.9,
       "rubbers_played": 78,
@@ -1731,6 +1737,12 @@
       "last_played": "10.08.23"
     },
     {
+      "name": "tbc",
+      "rating": 1423.6,
+      "rubbers_played": 6,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Daniel Cranidge",
       "rating": 1422.2,
       "rubbers_played": 78,
@@ -1741,12 +1753,6 @@
       "rating": 1421.4,
       "rubbers_played": 60,
       "last_played": "14.08.24"
-    },
-    {
-      "name": "Phil Sinton",
-      "rating": 1420.7,
-      "rubbers_played": 87,
-      "last_played": "07.08.25"
     },
     {
       "name": "Tony Downing",
@@ -1767,12 +1773,6 @@
       "last_played": "05.05.26"
     },
     {
-      "name": "Andy Graham",
-      "rating": 1417.3,
-      "rubbers_played": 72,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "Ben Louden",
       "rating": 1416.3,
       "rubbers_played": 6,
@@ -1789,6 +1789,12 @@
       "rating": 1415.9,
       "rubbers_played": 36,
       "last_played": "05.05.26"
+    },
+    {
+      "name": "Hannah Nash",
+      "rating": 1415.1,
+      "rubbers_played": 108,
+      "last_played": "07.05.26"
     },
     {
       "name": "Chris Oldfield",
@@ -1821,10 +1827,10 @@
       "last_played": "15.08.23"
     },
     {
-      "name": "Emma Whiting",
-      "rating": 1408.2,
-      "rubbers_played": 102,
-      "last_played": "07.08.25"
+      "name": "Phil Sinton",
+      "rating": 1407.7,
+      "rubbers_played": 90,
+      "last_played": "07.05.26"
     },
     {
       "name": "Dee D'alessio",
@@ -1855,12 +1861,6 @@
       "rating": 1403.8,
       "rubbers_played": 9,
       "last_played": "15.06.23"
-    },
-    {
-      "name": "James Moss",
-      "rating": 1403.5,
-      "rubbers_played": 81,
-      "last_played": "22.07.25"
     },
     {
       "name": "Alex Bolam",
@@ -1917,6 +1917,18 @@
       "last_played": "16.07.24"
     },
     {
+      "name": "Emma Whiting",
+      "rating": 1395.2,
+      "rubbers_played": 105,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "James Sheldon",
+      "rating": 1394.8,
+      "rubbers_played": 3,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Elaine Hilton",
       "rating": 1394.5,
       "rubbers_played": 36,
@@ -1929,6 +1941,12 @@
       "last_played": "29.07.25"
     },
     {
+      "name": "Sarah Skidmore",
+      "rating": 1393.5,
+      "rubbers_played": 78,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Clara Robinson",
       "rating": 1393.4,
       "rubbers_played": 12,
@@ -1939,6 +1957,12 @@
       "rating": 1392.9,
       "rubbers_played": 12,
       "last_played": "08.08.23"
+    },
+    {
+      "name": "James Moss",
+      "rating": 1392.5,
+      "rubbers_played": 84,
+      "last_played": "07.05.26"
     },
     {
       "name": "Jake Abbas",
@@ -1954,15 +1978,21 @@
     },
     {
       "name": "Phil Wood",
-      "rating": 1390.5,
-      "rubbers_played": 87,
-      "last_played": "29.07.25"
+      "rating": 1388.5,
+      "rubbers_played": 90,
+      "last_played": "07.05.26"
     },
     {
       "name": "Vicky Wrigley",
       "rating": 1388.5,
       "rubbers_played": 75,
       "last_played": "17.07.25"
+    },
+    {
+      "name": "Laura Turnbull",
+      "rating": 1386.7,
+      "rubbers_played": 93,
+      "last_played": "07.05.26"
     },
     {
       "name": "Ryan Curtis",
@@ -1983,12 +2013,6 @@
       "last_played": "07.08.25"
     },
     {
-      "name": "Roisin Astell",
-      "rating": 1384.2,
-      "rubbers_played": 78,
-      "last_played": "05.05.26"
-    },
-    {
       "name": "Lucy Steward",
       "rating": 1382.9,
       "rubbers_played": 18,
@@ -1999,6 +2023,18 @@
       "rating": 1382.6,
       "rubbers_played": 30,
       "last_played": "08.07.25"
+    },
+    {
+      "name": "Jono Scutt",
+      "rating": 1382.4,
+      "rubbers_played": 3,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "Clare Parkes",
+      "rating": 1382.4,
+      "rubbers_played": 3,
+      "last_played": "07.05.26"
     },
     {
       "name": "Paul Reddish",
@@ -2025,22 +2061,16 @@
       "last_played": "29.07.25"
     },
     {
-      "name": "Goldie Cosby",
-      "rating": 1380.7,
-      "rubbers_played": 63,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "Annafie Beaumont",
       "rating": 1378.7,
       "rubbers_played": 81,
       "last_played": "28.07.25"
     },
     {
-      "name": "Anne Stephenson",
-      "rating": 1378.6,
-      "rubbers_played": 15,
-      "last_played": "17.07.25"
+      "name": "Liz Bramley",
+      "rating": 1378.3,
+      "rubbers_played": 63,
+      "last_played": "05.05.26"
     },
     {
       "name": "Rachel Clark",
@@ -2049,10 +2079,10 @@
       "last_played": "06.05.26"
     },
     {
-      "name": "Liz Bramley",
+      "name": "Joseph Greaney",
       "rating": 1377.5,
-      "rubbers_played": 63,
-      "last_played": "05.05.26"
+      "rubbers_played": 15,
+      "last_played": "07.05.26"
     },
     {
       "name": "Sam Benn",
@@ -2065,12 +2095,6 @@
       "rating": 1375.5,
       "rubbers_played": 51,
       "last_played": "23.07.25"
-    },
-    {
-      "name": "Joseph Greaney",
-      "rating": 1374.9,
-      "rubbers_played": 12,
-      "last_played": "05.08.25"
     },
     {
       "name": "Chris Hobson",
@@ -2091,10 +2115,10 @@
       "last_played": "06.08.24"
     },
     {
-      "name": "Oli Scutt",
-      "rating": 1371.3,
-      "rubbers_played": 39,
-      "last_played": "07.08.25"
+      "name": "Anne Stephenson",
+      "rating": 1371.7,
+      "rubbers_played": 18,
+      "last_played": "07.05.26"
     },
     {
       "name": "Charlie Dodds",
@@ -2113,12 +2137,6 @@
       "rating": 1369.1,
       "rubbers_played": 57,
       "last_played": "11.07.24"
-    },
-    {
-      "name": "Hannah Blackburn",
-      "rating": 1368.7,
-      "rubbers_played": 93,
-      "last_played": "17.07.25"
     },
     {
       "name": "Catherine Davies",
@@ -2149,12 +2167,6 @@
       "rating": 1367.3,
       "rubbers_played": 36,
       "last_played": "23.07.25"
-    },
-    {
-      "name": "Sarah Skidmore",
-      "rating": 1366.5,
-      "rubbers_played": 75,
-      "last_played": "16.07.25"
     },
     {
       "name": "Ilianna Evangeliou",
@@ -2205,12 +2217,6 @@
       "last_played": "02.07.25"
     },
     {
-      "name": "Andrew Corfield",
-      "rating": 1359.3,
-      "rubbers_played": 126,
-      "last_played": "11.06.25"
-    },
-    {
       "name": "Ellie Stephenson",
       "rating": 1358.8,
       "rubbers_played": 15,
@@ -2227,12 +2233,6 @@
       "rating": 1358.3,
       "rubbers_played": 6,
       "last_played": "31.07.25"
-    },
-    {
-      "name": "Suzi Rix",
-      "rating": 1358,
-      "rubbers_played": 54,
-      "last_played": "29.07.25"
     },
     {
       "name": "Charlotte Todd",
@@ -2271,6 +2271,12 @@
       "last_played": "09.06.25"
     },
     {
+      "name": "Mia Mutarelli-Atkinson",
+      "rating": 1353.7,
+      "rubbers_played": 105,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Ollie Steel",
       "rating": 1353.6,
       "rubbers_played": 6,
@@ -2296,7 +2302,7 @@
     },
     {
       "name": "Nick Clemishaw",
-      "rating": 1352.7,
+      "rating": 1352.3,
       "rubbers_played": 123,
       "last_played": "05.05.26"
     },
@@ -2311,6 +2317,18 @@
       "rating": 1351.4,
       "rubbers_played": 51,
       "last_played": "28.07.25"
+    },
+    {
+      "name": "Goldie Cosby",
+      "rating": 1349.8,
+      "rubbers_played": 66,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "Oli Scutt",
+      "rating": 1348.7,
+      "rubbers_played": 42,
+      "last_played": "07.05.26"
     },
     {
       "name": "Saowaree Chun Ngam",
@@ -2355,6 +2373,12 @@
       "last_played": "20.06.24"
     },
     {
+      "name": "Andrew Corfield",
+      "rating": 1342.1,
+      "rubbers_played": 129,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Laura Delafield",
       "rating": 1341.6,
       "rubbers_played": 3,
@@ -2386,21 +2410,21 @@
     },
     {
       "name": "Lynne Marriage",
-      "rating": 1336.6,
+      "rating": 1336.5,
       "rubbers_played": 84,
       "last_played": "05.05.26"
+    },
+    {
+      "name": "Malek Murison",
+      "rating": 1336,
+      "rubbers_played": 54,
+      "last_played": "07.05.26"
     },
     {
       "name": "Chris Mitchell Smith",
       "rating": 1335.9,
       "rubbers_played": 18,
       "last_played": "03.07.25"
-    },
-    {
-      "name": "Laura Turnbull",
-      "rating": 1335.8,
-      "rubbers_played": 90,
-      "last_played": "20.05.25"
     },
     {
       "name": "Sarah Boville",
@@ -2439,12 +2463,6 @@
       "last_played": "29.05.25"
     },
     {
-      "name": "Duncan Rix",
-      "rating": 1329.7,
-      "rubbers_played": 6,
-      "last_played": "07.05.25"
-    },
-    {
       "name": "Kate Dance",
       "rating": 1327.8,
       "rubbers_played": 102,
@@ -2463,6 +2481,12 @@
       "last_played": "07.06.23"
     },
     {
+      "name": "Suzi Rix",
+      "rating": 1324,
+      "rubbers_played": 57,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Ricky Littlechild",
       "rating": 1323.3,
       "rubbers_played": 3,
@@ -2475,16 +2499,22 @@
       "last_played": "05.05.26"
     },
     {
+      "name": "Duncan Rix",
+      "rating": 1322.8,
+      "rubbers_played": 9,
+      "last_played": "07.05.26"
+    },
+    {
+      "name": "Hannah Blackburn",
+      "rating": 1322,
+      "rubbers_played": 96,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Steve Jones",
       "rating": 1321.8,
       "rubbers_played": 15,
       "last_played": "07.05.25"
-    },
-    {
-      "name": "Doug Smith",
-      "rating": 1320.8,
-      "rubbers_played": 54,
-      "last_played": "05.05.26"
     },
     {
       "name": "Monica Haritakis",
@@ -2523,12 +2553,6 @@
       "last_played": "03.05.23"
     },
     {
-      "name": "Kate Scutt",
-      "rating": 1314.7,
-      "rubbers_played": 51,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "Rossanna Marriott",
       "rating": 1313.9,
       "rubbers_played": 6,
@@ -2551,12 +2575,6 @@
       "rating": 1312.2,
       "rubbers_played": 9,
       "last_played": "18.06.25"
-    },
-    {
-      "name": "Mia Mutarelli-Atkinson",
-      "rating": 1311.4,
-      "rubbers_played": 102,
-      "last_played": "31.07.25"
     },
     {
       "name": "Richard Sansbury",
@@ -2587,6 +2605,12 @@
       "rating": 1307.8,
       "rubbers_played": 18,
       "last_played": "14.06.23"
+    },
+    {
+      "name": "Doug Smith",
+      "rating": 1307.1,
+      "rubbers_played": 57,
+      "last_played": "05.05.26"
     },
     {
       "name": "James Baron",
@@ -2637,6 +2661,12 @@
       "last_played": "05.05.26"
     },
     {
+      "name": "Ruth Greaney",
+      "rating": 1297.7,
+      "rubbers_played": 30,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Sarah Smelik",
       "rating": 1296.9,
       "rubbers_played": 69,
@@ -2653,12 +2683,6 @@
       "rating": 1296.1,
       "rubbers_played": 12,
       "last_played": "11.07.24"
-    },
-    {
-      "name": "Ruth Greaney",
-      "rating": 1295.1,
-      "rubbers_played": 27,
-      "last_played": "04.05.26"
     },
     {
       "name": "Sue Espiner",
@@ -2689,6 +2713,12 @@
       "rating": 1293,
       "rubbers_played": 33,
       "last_played": "25.07.23"
+    },
+    {
+      "name": "Kate Scutt",
+      "rating": 1292.1,
+      "rubbers_played": 54,
+      "last_played": "07.05.26"
     },
     {
       "name": "Rachel Butterworth",
@@ -2737,12 +2767,6 @@
       "rating": 1287.9,
       "rubbers_played": 12,
       "last_played": "29.05.25"
-    },
-    {
-      "name": "Malek Murison",
-      "rating": 1285.8,
-      "rubbers_played": 51,
-      "last_played": "24.07.25"
     },
     {
       "name": "Evie Capewell",
@@ -2799,12 +2823,6 @@
       "last_played": "07.06.23"
     },
     {
-      "name": "Michelle Hall",
-      "rating": 1274.8,
-      "rubbers_played": 57,
-      "last_played": "06.08.25"
-    },
-    {
       "name": "Mattie Blackburn",
       "rating": 1273.4,
       "rubbers_played": 3,
@@ -2848,7 +2866,7 @@
     },
     {
       "name": "Sarah Falkingham",
-      "rating": 1265.6,
+      "rating": 1265.5,
       "rubbers_played": 111,
       "last_played": "05.05.26"
     },
@@ -2857,12 +2875,6 @@
       "rating": 1265.4,
       "rubbers_played": 132,
       "last_played": "23.06.25"
-    },
-    {
-      "name": "Anna Airaksinen",
-      "rating": 1265.2,
-      "rubbers_played": 87,
-      "last_played": "26.06.25"
     },
     {
       "name": "Dave Tomlinson",
@@ -2923,6 +2935,12 @@
       "rating": 1259.4,
       "rubbers_played": 6,
       "last_played": "08.07.25"
+    },
+    {
+      "name": "Michelle Hall",
+      "rating": 1257.5,
+      "rubbers_played": 60,
+      "last_played": "07.05.26"
     },
     {
       "name": "Tracy Fowler",
@@ -2986,7 +3004,7 @@
     },
     {
       "name": "Lucy Falkingham",
-      "rating": 1251.9,
+      "rating": 1251.6,
       "rubbers_played": 105,
       "last_played": "05.05.26"
     },
@@ -3001,6 +3019,12 @@
       "rating": 1251.1,
       "rubbers_played": 77,
       "last_played": "05.05.26"
+    },
+    {
+      "name": "Anna Airaksinen",
+      "rating": 1250.8,
+      "rubbers_played": 90,
+      "last_played": "07.05.26"
     },
     {
       "name": "Jo Coverdale",
@@ -3217,12 +3241,6 @@
       "rating": 1219.5,
       "rubbers_played": 54,
       "last_played": "06.08.25"
-    },
-    {
-      "name": "Andy Hodges",
-      "rating": 1218.5,
-      "rubbers_played": 90,
-      "last_played": "29.07.25"
     },
     {
       "name": "Sarah Mawby",
@@ -3507,6 +3525,12 @@
       "last_played": "04.05.26"
     },
     {
+      "name": "Andy Hodges",
+      "rating": 1171.8,
+      "rubbers_played": 93,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Claire Evans",
       "rating": 1171.5,
       "rubbers_played": 114,
@@ -3604,7 +3628,7 @@
     },
     {
       "name": "Rachel Smith",
-      "rating": 1153.5,
+      "rating": 1153.1,
       "rubbers_played": 27,
       "last_played": "05.05.26"
     },
@@ -3655,12 +3679,6 @@
       "rating": 1148.3,
       "rubbers_played": 48,
       "last_played": "16.07.25"
-    },
-    {
-      "name": "Jon Los",
-      "rating": 1147.8,
-      "rubbers_played": 90,
-      "last_played": "06.08.25"
     },
     {
       "name": "Rachel Hicks",
@@ -3909,6 +3927,12 @@
       "last_played": "06.05.26"
     },
     {
+      "name": "Jon Los",
+      "rating": 1116.9,
+      "rubbers_played": 93,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Karen Coomer",
       "rating": 1116.1,
       "rubbers_played": 39,
@@ -3973,6 +3997,12 @@
       "rating": 1109,
       "rubbers_played": 24,
       "last_played": "29.07.25"
+    },
+    {
+      "name": "Dan Russell",
+      "rating": 1108.3,
+      "rubbers_played": 102,
+      "last_played": "07.05.26"
     },
     {
       "name": "Abigail Green",
@@ -4087,6 +4117,12 @@
       "rating": 1100.6,
       "rubbers_played": 6,
       "last_played": "24.07.25"
+    },
+    {
+      "name": "Jonny Herrera",
+      "rating": 1099.9,
+      "rubbers_played": 27,
+      "last_played": "07.05.26"
     },
     {
       "name": "Mick Douglas",
@@ -4329,12 +4365,6 @@
       "last_played": "06.05.26"
     },
     {
-      "name": "Dan Russell",
-      "rating": 1081.4,
-      "rubbers_played": 99,
-      "last_played": "07.08.25"
-    },
-    {
       "name": "Liz Pockington",
       "rating": 1079.4,
       "rubbers_played": 90,
@@ -4467,10 +4497,22 @@
       "last_played": "05.08.25"
     },
     {
+      "name": "Georgia Musgrave",
+      "rating": 1065.6,
+      "rubbers_played": 66,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Zhesi He",
       "rating": 1064.7,
       "rubbers_played": 6,
       "last_played": "10.06.25"
+    },
+    {
+      "name": "Sue Warren",
+      "rating": 1063.7,
+      "rubbers_played": 36,
+      "last_played": "07.05.26"
     },
     {
       "name": "Sophie Mccracken",
@@ -4539,12 +4581,6 @@
       "last_played": "23.08.23"
     },
     {
-      "name": "Sue Warren",
-      "rating": 1053.7,
-      "rubbers_played": 36,
-      "last_played": "07.05.26"
-    },
-    {
       "name": "Adam Raistrick",
       "rating": 1053.7,
       "rubbers_played": 3,
@@ -4581,12 +4617,6 @@
       "last_played": "27.06.25"
     },
     {
-      "name": "Jonny Herrera",
-      "rating": 1049,
-      "rubbers_played": 24,
-      "last_played": "23.07.24"
-    },
-    {
       "name": "Lisa Debenham",
       "rating": 1048.2,
       "rubbers_played": 81,
@@ -4603,6 +4633,12 @@
       "rating": 1048,
       "rubbers_played": 9,
       "last_played": "11.07.24"
+    },
+    {
+      "name": "Stephen Packer",
+      "rating": 1047.3,
+      "rubbers_played": 39,
+      "last_played": "07.05.26"
     },
     {
       "name": "Harriet Flynn",
@@ -4683,12 +4719,6 @@
       "last_played": "05.05.26"
     },
     {
-      "name": "Stephen Packer",
-      "rating": 1035.9,
-      "rubbers_played": 39,
-      "last_played": "07.05.26"
-    },
-    {
       "name": "Stuart Langley",
       "rating": 1035.2,
       "rubbers_played": 63,
@@ -4759,12 +4789,6 @@
       "rating": 1031.4,
       "rubbers_played": 30,
       "last_played": "10.05.24"
-    },
-    {
-      "name": "Georgia Musgrave",
-      "rating": 1030.8,
-      "rubbers_played": 63,
-      "last_played": "03.07.25"
     },
     {
       "name": "Paul Yoward",
@@ -5038,7 +5062,7 @@
     },
     {
       "name": "Dave Hearn",
-      "rating": 998.4,
+      "rating": 998.2,
       "rubbers_played": 81,
       "last_played": "05.05.26"
     },
@@ -5325,6 +5349,12 @@
       "last_played": "07.08.25"
     },
     {
+      "name": "Leon Speck",
+      "rating": 967.2,
+      "rubbers_played": 33,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Tim Crawshaw",
       "rating": 966.7,
       "rubbers_played": 6,
@@ -5419,12 +5449,6 @@
       "rating": 958.3,
       "rubbers_played": 3,
       "last_played": "25.07.23"
-    },
-    {
-      "name": "Leon Speck",
-      "rating": 957.2,
-      "rubbers_played": 33,
-      "last_played": "07.05.26"
     },
     {
       "name": "Theresa Roberts-Hardy",
@@ -5895,10 +5919,10 @@
       "last_played": "06.05.26"
     },
     {
-      "name": "tbc",
-      "rating": 900.1,
-      "rubbers_played": 6,
-      "last_played": "07.05.26"
+      "name": "Catherine Rhodes",
+      "rating": 898.8,
+      "rubbers_played": 3,
+      "last_played": "06.05.26"
     },
     {
       "name": "Sophie Evans",
@@ -6609,6 +6633,12 @@
       "last_played": "17.06.25"
     },
     {
+      "name": "Sarah Rigby",
+      "rating": 829.1,
+      "rubbers_played": 33,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Roger Barnes",
       "rating": 828.3,
       "rubbers_played": 24,
@@ -6715,12 +6745,6 @@
       "rating": 819.4,
       "rubbers_played": 6,
       "last_played": "03.08.23"
-    },
-    {
-      "name": "Sarah Rigby",
-      "rating": 818.7,
-      "rubbers_played": 33,
-      "last_played": "07.05.26"
     },
     {
       "name": "Anna Mehkish",
@@ -7251,6 +7275,12 @@
       "last_played": "07.07.23"
     },
     {
+      "name": "Izzy Anstee",
+      "rating": 762.4,
+      "rubbers_played": 12,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Seb Patel",
       "rating": 762.3,
       "rubbers_played": 3,
@@ -7312,7 +7342,7 @@
     },
     {
       "name": "Charlie Smithch",
-      "rating": 758.4,
+      "rating": 758.9,
       "rubbers_played": 9,
       "last_played": "07.05.26"
     },
@@ -7405,12 +7435,6 @@
       "rating": 751.8,
       "rubbers_played": 3,
       "last_played": "14.06.24"
-    },
-    {
-      "name": "Izzy Anstee",
-      "rating": 751,
-      "rubbers_played": 12,
-      "last_played": "07.05.26"
     },
     {
       "name": "Marie Cross",
@@ -7713,6 +7737,12 @@
       "last_played": "17.07.25"
     },
     {
+      "name": "Paul Ward",
+      "rating": 720,
+      "rubbers_played": 3,
+      "last_played": "07.05.26"
+    },
+    {
       "name": "Sue Mclure",
       "rating": 719.6,
       "rubbers_played": 3,
@@ -7767,12 +7797,6 @@
       "last_played": "04.07.25"
     },
     {
-      "name": "Paul Ward",
-      "rating": 709.6,
-      "rubbers_played": 3,
-      "last_played": "07.05.26"
-    },
-    {
       "name": "Lucy Holliday",
       "rating": 708.3,
       "rubbers_played": 66,
@@ -7804,7 +7828,7 @@
     },
     {
       "name": "Ian Broadbent",
-      "rating": 704.3,
+      "rating": 704.8,
       "rubbers_played": 27,
       "last_played": "07.05.26"
     },
@@ -8320,7 +8344,7 @@
     },
     {
       "name": "Archie Hobson",
-      "rating": 601.4,
+      "rating": 602.1,
       "rubbers_played": 27,
       "last_played": "07.05.26"
     },
@@ -8349,14 +8373,8 @@
       "last_played": "25.07.25"
     },
     {
-      "name": "Rachael Goode",
-      "rating": 573.2,
-      "rubbers_played": 60,
-      "last_played": "07.05.26"
-    },
-    {
       "name": "Izzy Hobson",
-      "rating": 561.4,
+      "rating": 562.1,
       "rubbers_played": 57,
       "last_played": "07.05.26"
     },
@@ -8383,6 +8401,12 @@
       "rating": 541.3,
       "rubbers_played": 12,
       "last_played": "18.06.24"
+    },
+    {
+      "name": "Rachael Goode",
+      "rating": 540.2,
+      "rubbers_played": 60,
+      "last_played": "07.05.26"
     },
     {
       "name": "Jonathan Gray",
@@ -19528,6 +19552,21 @@
         "date": "05.05.26",
         "fixture_id": "115904",
         "rating": 1866.2519048382096
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1870.008418322551
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1875.9804433085187
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1886.3492369569722
       }
     ],
     "Anna Coggrave": [
@@ -22605,6 +22644,21 @@
         "date": "20.08.25",
         "fixture_id": "106484",
         "rating": 1881.3690794657648
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1877.6125659814234
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1883.968680992376
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1869.6865934008904
       }
     ],
     "Arran Tate": [
@@ -28824,6 +28878,21 @@
         "date": "07.08.25",
         "fixture_id": "106456",
         "rating": 1489.7067724030414
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1492.5401569844894
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1486.1840419735368
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1466.1885263488643
       }
     ],
     "James Denmark": [
@@ -31727,6 +31796,21 @@
         "date": "05.05.26",
         "fixture_id": "115865",
         "rating": 1384.1919703068447
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1398.2921644931187
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1418.6609023271508
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1434.3598447591146
       }
     ],
     "Elias Aviles": [
@@ -51392,6 +51476,21 @@
         "date": "16.07.25",
         "fixture_id": "106656",
         "rating": 1366.5215331458019
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1384.3695346080372
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1404.6330685263442
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1393.5013480674368
       }
     ],
     "Jessica Cawood": [
@@ -52176,6 +52275,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1420.7015612776336
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1402.2152808931817
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1411.7247230037
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1407.711206699078
       }
     ],
     "David Morritt": [
@@ -53461,6 +53575,21 @@
         "date": "05.08.25",
         "fixture_id": "106502",
         "rating": 1662.1976802307413
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1666.0956614255933
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1669.2163219710458
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1642.5819127155967
       }
     ],
     "Trevor Watson": [
@@ -56048,6 +56177,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1408.1581442291963
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1389.6718638447444
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1399.1813059552628
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1395.1677896506408
       }
     ],
     "Lisa Eade": [
@@ -60659,6 +60803,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1539.673954986015
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1546.0371952385944
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1553.297427761396
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1556.8422181506533
       }
     ],
     "Ewan Page": [
@@ -61203,6 +61362,21 @@
         "date": "06.08.25",
         "fixture_id": "106753",
         "rating": 1147.7866074895796
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1129.9386060273443
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1120.429163916826
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1116.8843735275686
       }
     ],
     "Ellie Stephenson": [
@@ -62291,6 +62465,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1630.5281920426664
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1636.891432295246
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1644.1516648180475
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1647.6964552073048
       }
     ],
     "James Gaines": [
@@ -66797,6 +66986,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1380.7203885841545
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1362.8723871219192
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1353.3629450114008
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1349.8181546221435
       }
     ],
     "Catherine Davies": [
@@ -68054,6 +68258,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1371.3290012292525
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1364.965760976673
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1344.702227058366
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1348.715743362988
       }
     ],
     "Kate Scutt": [
@@ -68311,6 +68530,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1314.7252957641401
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1308.3620555115606
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1288.0985215932535
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1292.1120378978756
       }
     ],
     "David Gamble": [
@@ -69913,6 +70147,21 @@
         "date": "14.07.25",
         "fixture_id": "106547",
         "rating": 1434.9510028214027
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1430.1642725299605
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1450.6838883823204
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1477.3182976377695
       }
     ],
     "Maria Mutarelli": [
@@ -70802,6 +71051,21 @@
         "date": "11.06.25",
         "fixture_id": "106565",
         "rating": 1359.3257801589161
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1355.427798964064
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1351.9703726171276
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1342.0524956010945
       }
     ],
     "Sarah Falkingham": [
@@ -71353,12 +71617,12 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1248.6380632886405
+        "rating": 1248.6321399814628
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1265.552715243749
+        "rating": 1265.532470076
       }
     ],
     "Martin George": [
@@ -71946,6 +72210,21 @@
         "date": "20.08.25",
         "fixture_id": "106484",
         "rating": 1596.3035371950043
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1593.4701526135564
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1581.8940307029357
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1571.5252370544822
       }
     ],
     "Laura Robson": [
@@ -73784,6 +74063,21 @@
         "date": "22.07.25",
         "fixture_id": "106446",
         "rating": 1403.5078597865763
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1378.4669456105328
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1372.494920624565
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1392.4904362492375
       }
     ],
     "Hannah Nash": [
@@ -74311,6 +74605,21 @@
         "date": "20.08.25",
         "fixture_id": "106484",
         "rating": 1426.1414377173728
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1401.1005235413293
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1395.1284985553616
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1415.124014180034
       }
     ],
     "Nick Latcham": [
@@ -88094,17 +88403,17 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1356.1130395782418
+        "rating": 1356.3529809959746
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1370.1066810539
+        "rating": 1370.664544736719
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1377.4889764379425
+        "rating": 1378.2674551859109
       }
     ],
     "Kieran Stinson": [
@@ -88701,12 +89010,12 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1251.5293225380412
+        "rating": 1251.5233992308636
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1268.4439744931497
+        "rating": 1268.4237293254007
       }
     ],
     "Lynne Marriage": [
@@ -89128,7 +89437,7 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1336.5515117073319
+        "rating": 1336.5431896020964
       }
     ],
     "Peter Gray": [
@@ -89611,6 +89920,21 @@
         "date": "05.08.25",
         "fixture_id": "106457",
         "rating": 1568.3845331530513
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1564.6280196687098
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1570.9841346796625
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1556.7020470881769
       }
     ],
     "Julia Raybauld": [
@@ -92243,6 +92567,21 @@
         "date": "26.06.25",
         "fixture_id": "106532",
         "rating": 1265.235216154388
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1256.6588162079534
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1253.538155662501
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1250.761094530048
       }
     ],
     "Marion Owens": [
@@ -97227,19 +97566,34 @@
         "rating": 1307.0573434090036
       },
       {
-        "date": "05.05.26",
-        "fixture_id": "115759",
-        "rating": 1299.403934520985
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1298.480943462569
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1295.3602829171166
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1292.5832217846637
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1313.3975759966434
+        "rating": 1285.169754314378
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1320.7798713806858
+        "rating": 1299.4813180551225
+      },
+      {
+        "date": "05.05.26",
+        "fixture_id": "115759",
+        "rating": 1307.0842285043143
       }
     ],
     "Bradley Triffitt": [
@@ -103172,6 +103526,21 @@
         "date": "29.07.25",
         "fixture_id": "106499",
         "rating": 1545.2502093314686
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1540.0737135231586
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1519.7049756891265
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1511.2484425041273
       }
     ],
     "Teena Gallon": [
@@ -104213,6 +104582,21 @@
         "date": "29.07.25",
         "fixture_id": "106499",
         "rating": 1218.4701751600155
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1204.3699809737416
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1184.8716377001142
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1171.8112777124938
       }
     ],
     "Hannah Blackburn": [
@@ -104680,6 +105064,21 @@
         "date": "17.07.25",
         "fixture_id": "106489",
         "rating": 1368.6514512236827
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1354.5512570374087
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1335.0529137637814
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1321.992553776161
       }
     ],
     "Stuart Turner": [
@@ -105858,6 +106257,21 @@
         "date": "29.07.25",
         "fixture_id": "106499",
         "rating": 1357.9931966268014
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1352.8167008184914
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1332.4479629844593
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1323.99142979946
       }
     ],
     "Tony Howard": [
@@ -107321,6 +107735,21 @@
         "date": "07.08.25",
         "fixture_id": "106456",
         "rating": 1417.2575494096502
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1421.0140628939916
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1426.9860878799593
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1437.3548815284128
       }
     ],
     "Hilary Spencer": [
@@ -113044,6 +113473,21 @@
         "date": "06.08.25",
         "fixture_id": "106455",
         "rating": 1274.772373053158
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1270.874391858306
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1267.4169655113694
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1257.4990884953363
       }
     ],
     "Sandra Burley": [
@@ -118078,7 +118522,7 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 1053.6821438227903
+        "rating": 1063.6634245621062
       }
     ],
     "Hilary Brown": [
@@ -119550,6 +119994,21 @@
         "date": "20.05.25",
         "fixture_id": "106605",
         "rating": 1335.7698710173213
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1360.8107851933648
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1372.3869071039855
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1386.6689946954712
       }
     ],
     "Liz Walker": [
@@ -122719,6 +123178,21 @@
         "date": "29.07.25",
         "fixture_id": "106499",
         "rating": 1650.3962495778258
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1655.182979869268
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1658.6404062162044
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1661.4174673486573
       }
     ],
     "Karen Mitchell": [
@@ -123186,6 +123660,21 @@
         "date": "05.08.25",
         "fixture_id": "106502",
         "rating": 1699.7246352559898
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1704.511365547432
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1707.9687918943685
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1710.7458530268214
       }
     ],
     "Steve Temple": [
@@ -124647,6 +125136,21 @@
         "date": "05.08.25",
         "fixture_id": "106502",
         "rating": 1658.2186973465018
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1662.1166785413538
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1665.2373390868063
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1638.6029298313572
       }
     ],
     "Paul Harrison": [
@@ -125853,6 +126357,21 @@
         "date": "29.07.25",
         "fixture_id": "106499",
         "rating": 1390.5157306267288
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1399.0921305731633
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1378.5725147208034
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1388.4903917368365
       }
     ],
     "Charlotte Mitchell": [
@@ -126335,6 +126854,21 @@
         "date": "05.08.25",
         "fixture_id": "106502",
         "rating": 1530.8557238493763
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1539.4321237958109
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1518.912507943451
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1528.830384959484
       }
     ],
     "Rob Williams": [
@@ -138724,6 +139258,21 @@
         "date": "07.08.25",
         "fixture_id": "106557",
         "rating": 1081.3680086659556
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1099.2160101281909
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1119.479544046498
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1108.3478235875905
       }
     ],
     "Andrew Malcolm-Neale": [
@@ -148557,17 +149106,17 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1526.6222079986871
+        "rating": 1526.3822665809544
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1531.7211436076736
+        "rating": 1531.4871254971185
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1524.080685629213
+        "rating": 1523.8549896238933
       }
     ],
     "Ali Wortley": [
@@ -149009,17 +149558,17 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1561.5749981873848
+        "rating": 1561.335056769652
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1566.6739337963713
+        "rating": 1566.4399156858162
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1559.0334758179106
+        "rating": 1558.807779812591
       }
     ],
     "David Latimer": [
@@ -150270,7 +150819,7 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 998.436468202014
+        "rating": 998.2158531368649
       }
     ],
     "Lucy Falkingham": [
@@ -150797,7 +151346,7 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1251.8582877307967
+        "rating": 1251.6376726656474
       }
     ],
     "Anthony Georgiou": [
@@ -152328,12 +152877,12 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1369.5667311640784
+        "rating": 1369.2488088989921
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1352.65207920897
+        "rating": 1352.348478804455
       }
     ],
     "Julie Oneill": [
@@ -170921,6 +171470,21 @@
         "date": "31.07.25",
         "fixture_id": "106453",
         "rating": 1311.3764675198931
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1306.589737228451
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1327.109353080811
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115821",
+        "rating": 1353.74376233626
       }
     ],
     "Shelagh Elcock": [
@@ -179645,6 +180209,21 @@
         "date": "03.07.25",
         "fixture_id": "106668",
         "rating": 1030.8189754356854
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1037.658049831315
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1057.1563931049425
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1065.6129262899417
       }
     ],
     "Steve Plowman": [
@@ -182895,6 +183474,21 @@
         "date": "23.07.24",
         "fixture_id": "97300",
         "rating": 1049.001036714167
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1074.0419508902105
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1085.6180728008312
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1099.9001603923168
       }
     ],
     "Mike Buckley": [
@@ -195368,17 +195962,17 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 811.3016455952037
+        "rating": 822.6472552498504
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 820.3572940113418
+        "rating": 831.2849148825679
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 818.7021900961641
+        "rating": 829.1337379445204
       }
     ],
     "Jackie Mason": [
@@ -220183,17 +220777,17 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 589.6253662127051
+        "rating": 578.2797565580584
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 579.1483895405389
+        "rating": 556.0887760828416
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 573.2089154917807
+        "rating": 540.1680212947675
       }
     ],
     "John Tongue": [
@@ -227765,6 +228359,21 @@
         "date": "07.05.25",
         "fixture_id": "106493",
         "rating": 1329.6569819668537
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1322.817907571224
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1338.4927189155098
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1322.793776483546
       }
     ],
     "Marc Bickers": [
@@ -228700,6 +229309,21 @@
         "date": "17.07.25",
         "fixture_id": "106489",
         "rating": 1378.5533078025314
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1371.7142334069017
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1387.3890447511876
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1371.6901023192238
       }
     ],
     "Clara Robinson": [
@@ -229327,6 +229951,21 @@
         "date": "24.07.25",
         "fixture_id": "106665",
         "rating": 1285.828236721091
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1299.9284309073648
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1320.297168741397
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1335.9961111733608
       }
     ],
     "Becks Breese": [
@@ -232142,7 +232781,7 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 957.2126519315966
+        "rating": 967.1939326709124
       }
     ],
     "Evie Capewell": [
@@ -233804,12 +234443,12 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1170.366839778584
+        "rating": 1170.0489175134978
       },
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1153.4521878234757
+        "rating": 1153.1485874189607
       }
     ],
     "Erin Proctor": [
@@ -243330,12 +243969,12 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 566.1710492988102
+        "rating": 566.5890380822308
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 561.397087898297
+        "rating": 562.0732129803422
       }
     ],
     "Charlie Sinclair-lack": [
@@ -247845,12 +248484,12 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 606.2139527013621
+        "rating": 606.6319414847827
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 601.4399913008489
+        "rating": 602.1161163828941
       }
     ],
     "Sam Birch": [
@@ -248261,7 +248900,7 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 704.3439309985063
+        "rating": 704.8400040213762
       }
     ],
     "Stuart Hanley": [
@@ -251396,6 +252035,21 @@
         "date": "05.06.25",
         "fixture_id": "106610",
         "rating": 1462.2333853054959
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1465.0667698869438
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1458.7106548759912
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1438.7151392513188
       }
     ],
     "Matt Walke": [
@@ -251749,6 +252403,21 @@
         "date": "04.05.26",
         "fixture_id": "115875",
         "rating": 1295.1046355425196
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1300.2811313508296
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1284.6063200065437
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1297.666679994164
       }
     ],
     "Chris Mitchell Smith": [
@@ -252022,7 +252691,7 @@
       {
         "date": "05.05.26",
         "fixture_id": "115759",
-        "rating": 1415.945761245487
+        "rating": 1415.9374391402514
       }
     ],
     "Phil Young": [
@@ -252350,6 +253019,21 @@
         "date": "05.08.25",
         "fixture_id": "106457",
         "rating": 1374.9498048660776
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1380.1263006743875
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1364.4514893301016
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1377.511849317722
       }
     ],
     "Nick Pears": [
@@ -255392,12 +256076,12 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 1031.091738767338
+        "rating": 1042.8057425703885
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 1035.8657001678512
+        "rating": 1047.321567672277
       }
     ],
     "Hollie Jamieson": [
@@ -262333,7 +263017,7 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 758.4405641385671
+        "rating": 758.936637161437
       }
     ],
     "Dawn Henderson": [
@@ -262855,12 +263539,12 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 746.1777053675685
+        "rating": 757.8917091706189
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 750.9516667680817
+        "rating": 762.4075342725075
       }
     ],
     "Alexander Capewell": [
@@ -262965,6 +263649,38 @@
         "rating": 1458.9378798339503
       }
     ],
+    "tbc": [
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1477.166615418552
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1465.5904935079313
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115845",
+        "rating": 1455.221699859478
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115035",
+        "rating": 1461.6764480819932
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115035",
+        "rating": 1439.4854676067764
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115035",
+        "rating": 1423.5647128187022
+      }
+    ],
     "Matt Hindle": [
       {
         "date": "06.05.26",
@@ -263014,6 +263730,57 @@
         "date": "06.05.26",
         "fixture_id": "115791",
         "rating": 1348.3834619863119
+      }
+    ],
+    "Jono Scutt": [
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1378.486280384452
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1371.2260478616504
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1382.3577683205579
+      }
+    ],
+    "Clare Parkes": [
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1378.486280384452
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1371.2260478616504
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115797",
+        "rating": 1382.3577683205579
+      }
+    ],
+    "James Sheldon": [
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1366.8390743956297
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1386.337417669257
+      },
+      {
+        "date": "07.05.26",
+        "fixture_id": "115814",
+        "rating": 1394.7939508542563
       }
     ],
     "Alexander Beard": [
@@ -263186,7 +263953,7 @@
         "rating": 846.8921325882069
       }
     ],
-    "tbc": [
+    "Catherine Rhodes": [
       {
         "date": "06.05.26",
         "fixture_id": "115553",
@@ -263201,21 +263968,6 @@
         "date": "06.05.26",
         "fixture_id": "115553",
         "rating": 898.7559271182619
-      },
-      {
-        "date": "07.05.26",
-        "fixture_id": "115035",
-        "rating": 916.5562849954239
-      },
-      {
-        "date": "07.05.26",
-        "fixture_id": "115035",
-        "rating": 906.0793083232577
-      },
-      {
-        "date": "07.05.26",
-        "fixture_id": "115035",
-        "rating": 900.1398342744994
       }
     ],
     "Colin Sladden": [
@@ -263409,17 +264161,17 @@
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 702.199642122838
+        "rating": 713.5452517774847
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 711.255290538976
+        "rating": 722.1829114102022
       },
       {
         "date": "07.05.26",
         "fixture_id": "115035",
-        "rating": 709.6001866237984
+        "rating": 720.0317344721547
       }
     ]
   }
