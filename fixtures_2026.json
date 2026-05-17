@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-13T21:27:57.266Z",
+  "scraped_at": "2026-05-17T13:09:57.293Z",
   "season": 2026,
-  "fixture_count": 61,
-  "rubber_count": 549,
+  "fixture_count": 90,
+  "rubber_count": 810,
   "skipped_fixture_ids": [],
   "fixtures": [
     {
@@ -3268,108 +3268,6 @@
       "time": null
     },
     {
-      "fixture_id": 860,
-      "season": 2026,
-      "division": 8,
-      "date": "3 May 2026",
-      "home_team": "Bubwith 3",
-      "away_team": "Cawood 2",
-      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/860",
-      "rubbers": [
-        {
-          "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        }
-      ],
-      "time": null
-    },
-    {
       "fixture_id": 453,
       "season": 2026,
       "division": 1,
@@ -6227,273 +6125,3063 @@
     },
     {
       "fixture_id": 457,
+      "season": 2026,
+      "division": 1,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Wigginton 1",
       "away_team": "David Lloyd York 2",
-      "division": 1,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/457",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 458,
+      "season": 2026,
+      "division": 1,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Poppleton 1",
       "away_team": "David Lloyd Harrogate 1",
-      "division": 1,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/458",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 459,
+      "season": 2026,
+      "division": 1,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "David Lloyd York 1",
       "away_team": "Racquets 1",
-      "division": 1,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/459",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 460,
+      "season": 2026,
+      "division": 1,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "York 1",
       "away_team": "Wigginton 2",
-      "division": 1,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/460",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Tim Bennet",
+          "home_player2": "Jake Lonsdale",
+          "away_player1": "James Walker",
+          "away_player2": "Phil Langley",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Tim Bennet",
+          "home_player2": "Jake Lonsdale",
+          "away_player1": "Matt Waudby",
+          "away_player2": "Andy Withers",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Tim Bennet",
+          "home_player2": "Jake Lonsdale",
+          "away_player1": "Seb Holowkiewicz",
+          "away_player2": "Jason Whiting",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Pierre-Luc Emond",
+          "home_player2": "Steve Smith",
+          "away_player1": "James Walker",
+          "away_player2": "Phil Langley",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Pierre-Luc Emond",
+          "home_player2": "Steve Smith",
+          "away_player1": "Matt Waudby",
+          "away_player2": "Andy Withers",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Pierre-Luc Emond",
+          "home_player2": "Steve Smith",
+          "away_player1": "Seb Holowkiewicz",
+          "away_player2": "Jason Whiting",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Richard Cranidge",
+          "home_player2": "Daniel Cranidge",
+          "away_player1": "James Walker",
+          "away_player2": "Phil Langley",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Richard Cranidge",
+          "home_player2": "Daniel Cranidge",
+          "away_player1": "Matt Waudby",
+          "away_player2": "Andy Withers",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Richard Cranidge",
+          "home_player2": "Daniel Cranidge",
+          "away_player1": "Seb Holowkiewicz",
+          "away_player2": "Jason Whiting",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 513,
+      "season": 2026,
+      "division": 2,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Heworth 1",
       "away_team": "Fulford 1",
-      "division": 2,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/513",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Zac Sheppard",
+          "home_player2": "Daehyun Chung",
+          "away_player1": "Arran Tate",
+          "away_player2": "Pip Cook",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Zac Sheppard",
+          "home_player2": "Daehyun Chung",
+          "away_player1": "Steven Macdonald",
+          "away_player2": "Patrick Herriott",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Zac Sheppard",
+          "home_player2": "Daehyun Chung",
+          "away_player1": "Graham Randall",
+          "away_player2": "Nick Milner",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "David Hicks",
+          "home_player2": "Ryan Gale",
+          "away_player1": "Arran Tate",
+          "away_player2": "Pip Cook",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "David Hicks",
+          "home_player2": "Ryan Gale",
+          "away_player1": "Steven Macdonald",
+          "away_player2": "Patrick Herriott",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "David Hicks",
+          "home_player2": "Ryan Gale",
+          "away_player1": "Graham Randall",
+          "away_player2": "Nick Milner",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Will Ellis",
+          "home_player2": "Tom Hardy",
+          "away_player1": "Arran Tate",
+          "away_player2": "Pip Cook",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Will Ellis",
+          "home_player2": "Tom Hardy",
+          "away_player1": "Steven Macdonald",
+          "away_player2": "Patrick Herriott",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Will Ellis",
+          "home_player2": "Tom Hardy",
+          "away_player1": "Graham Randall",
+          "away_player2": "Nick Milner",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 514,
+      "season": 2026,
+      "division": 2,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Harlow 1",
       "away_team": "York 2",
-      "division": 2,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/514",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 516,
+      "season": 2026,
+      "division": 2,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Knaresborough 1",
       "away_team": "Boston Spa 1",
-      "division": 2,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/516",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 569,
+      "season": 2026,
+      "division": 3,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Rowntree Park 1",
       "away_team": "Copmanthorpe 1",
-      "division": 3,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/569",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Damien Pease",
+          "home_player2": "Matty Douglas",
+          "away_player1": "Matty Blackburn",
+          "away_player2": "Sam Benn",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Damien Pease",
+          "home_player2": "Matty Douglas",
+          "away_player1": "Jonny Holbeck",
+          "away_player2": "Alex Waters",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Damien Pease",
+          "home_player2": "Matty Douglas",
+          "away_player1": "Rob Abbot",
+          "away_player2": "Graham Garbutt",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "George Pullin",
+          "home_player2": "Devon Kelly",
+          "away_player1": "Matty Blackburn",
+          "away_player2": "Sam Benn",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "George Pullin",
+          "home_player2": "Devon Kelly",
+          "away_player1": "Jonny Holbeck",
+          "away_player2": "Alex Waters",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "George Pullin",
+          "home_player2": "Devon Kelly",
+          "away_player1": "Rob Abbot",
+          "away_player2": "Graham Garbutt",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Samson Sharratt",
+          "home_player2": "Tom Ratcliffe",
+          "away_player1": "Matty Blackburn",
+          "away_player2": "Sam Benn",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Samson Sharratt",
+          "home_player2": "Tom Ratcliffe",
+          "away_player1": "Jonny Holbeck",
+          "away_player2": "Alex Waters",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Samson Sharratt",
+          "home_player2": "Tom Ratcliffe",
+          "away_player1": "Rob Abbot",
+          "away_player2": "Graham Garbutt",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 570,
+      "season": 2026,
+      "division": 3,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Selby 1",
       "away_team": "Harrogate Spa 1",
-      "division": 3,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/570",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 571,
+      "season": 2026,
+      "division": 3,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Bubwith 1",
       "away_team": "Poppleton 2",
-      "division": 3,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/571",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 625,
+      "season": 2026,
+      "division": 4,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Cawood 1",
       "away_team": "Wetherby 2",
-      "division": 4,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/625",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 626,
+      "season": 2026,
+      "division": 4,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Starbeck 1",
       "away_team": "David Lloyd York 3",
-      "division": 4,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/626",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 627,
+      "season": 2026,
+      "division": 4,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "York 3",
       "away_team": "Wilberfoss",
-      "division": 4,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/627",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 628,
+      "season": 2026,
+      "division": 4,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "David Lloyd Harrogate 2",
       "away_team": "Wigginton 3",
-      "division": 4,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/628",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 681,
+      "season": 2026,
+      "division": 5,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Boston Spa 2",
       "away_team": "York 4",
-      "division": 5,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/681",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 682,
+      "season": 2026,
+      "division": 5,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Racquets 2",
       "away_team": "Sutton Upon Derwent 2",
-      "division": 5,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/682",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 683,
+      "season": 2026,
+      "division": 5,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Fulford 2",
       "away_team": "Harlow 2",
-      "division": 5,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/683",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 684,
+      "season": 2026,
+      "division": 5,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Harrogate Spa 2",
       "away_team": "Rowntree Park 2",
-      "division": 5,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/684",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Craig Chew",
+          "home_player2": "Jake Blackband",
+          "away_player1": "Alex Anderson",
+          "away_player2": "Russ Warin",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Craig Chew",
+          "home_player2": "Jake Blackband",
+          "away_player1": "Zach Bowen",
+          "away_player2": "James Chantry",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Craig Chew",
+          "home_player2": "Jake Blackband",
+          "away_player1": "CONOR HOLNESS",
+          "away_player2": "Martin Pinsold",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "David James",
+          "home_player2": "Jack Bartholomew",
+          "away_player1": "Alex Anderson",
+          "away_player2": "Russ Warin",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "David James",
+          "home_player2": "Jack Bartholomew",
+          "away_player1": "Zach Bowen",
+          "away_player2": "James Chantry",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "David James",
+          "home_player2": "Jack Bartholomew",
+          "away_player1": "CONOR HOLNESS",
+          "away_player2": "Martin Pinsold",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Michael Chew",
+          "home_player2": "Jamie Sigsworth",
+          "away_player1": "Alex Anderson",
+          "away_player2": "Russ Warin",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Michael Chew",
+          "home_player2": "Jamie Sigsworth",
+          "away_player1": "Zach Bowen",
+          "away_player2": "James Chantry",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Michael Chew",
+          "home_player2": "Jamie Sigsworth",
+          "away_player1": "CONOR HOLNESS",
+          "away_player2": "Martin Pinsold",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 737,
+      "season": 2026,
+      "division": 6,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Appleton Roebuck 1",
       "away_team": "Bubwith 2",
-      "division": 6,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/737",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Geoff Bullock",
+          "home_player2": "John Giles",
+          "away_player1": "Luke Edwards",
+          "away_player2": "Kieran Stinson",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Geoff Bullock",
+          "home_player2": "John Giles",
+          "away_player1": "Darryl Fisher",
+          "away_player2": "Sid Mohapatra",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Geoff Bullock",
+          "home_player2": "John Giles",
+          "away_player1": "Steve Newman",
+          "away_player2": "Steve Pinion",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Andrew Cossins",
+          "home_player2": "Simon Newall",
+          "away_player1": "Luke Edwards",
+          "away_player2": "Kieran Stinson",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Andrew Cossins",
+          "home_player2": "Simon Newall",
+          "away_player1": "Darryl Fisher",
+          "away_player2": "Sid Mohapatra",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Andrew Cossins",
+          "home_player2": "Simon Newall",
+          "away_player1": "Steve Newman",
+          "away_player2": "Steve Pinion",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "James Dutton",
+          "home_player2": "Steve Temple",
+          "away_player1": "Luke Edwards",
+          "away_player2": "Kieran Stinson",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "James Dutton",
+          "home_player2": "Steve Temple",
+          "away_player1": "Darryl Fisher",
+          "away_player2": "Sid Mohapatra",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "James Dutton",
+          "home_player2": "Steve Temple",
+          "away_player1": "Steve Newman",
+          "away_player2": "Steve Pinion",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 738,
+      "season": 2026,
+      "division": 6,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Poppleton 3",
       "away_team": "Knaresborough 2",
-      "division": 6,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/738",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 739,
+      "season": 2026,
+      "division": 6,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Copmanthorpe 2",
       "away_team": "Selby 2",
-      "division": 6,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/739",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 740,
+      "season": 2026,
+      "division": 6,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Market Weighton",
       "away_team": "Heworth 2",
-      "division": 6,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/740",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Iestyn Halford",
+          "home_player2": "Ralph Windham",
+          "away_player1": "Andy Cuttill",
+          "away_player2": "Adam Rothery",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Iestyn Halford",
+          "home_player2": "Ralph Windham",
+          "away_player1": "Andy Clegg",
+          "away_player2": "Jonny Jackson",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Iestyn Halford",
+          "home_player2": "Ralph Windham",
+          "away_player1": "Jeff Watkins",
+          "away_player2": "Phil Quinlan",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Aled Edwards",
+          "home_player2": "Nick Collins",
+          "away_player1": "Andy Cuttill",
+          "away_player2": "Adam Rothery",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Aled Edwards",
+          "home_player2": "Nick Collins",
+          "away_player1": "Andy Clegg",
+          "away_player2": "Jonny Jackson",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Aled Edwards",
+          "home_player2": "Nick Collins",
+          "away_player1": "Jeff Watkins",
+          "away_player2": "Phil Quinlan",
+          "home_games": 12,
+          "away_games": 0,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Ken Bottomer",
+          "home_player2": "Ryan Curtis",
+          "away_player1": "Andy Cuttill",
+          "away_player2": "Adam Rothery",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Ken Bottomer",
+          "home_player2": "Ryan Curtis",
+          "away_player1": "Andy Clegg",
+          "away_player2": "Jonny Jackson",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Ken Bottomer",
+          "home_player2": "Ryan Curtis",
+          "away_player1": "Jeff Watkins",
+          "away_player2": "Phil Quinlan",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 793,
+      "season": 2026,
+      "division": 7,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Riccall",
       "away_team": "Bishopthorpe 1",
-      "division": 7,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/793",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 794,
+      "season": 2026,
+      "division": 7,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "York 5",
       "away_team": "Dunnington",
-      "division": 7,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/794",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 795,
+      "season": 2026,
+      "division": 7,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "New Earswick",
       "away_team": "Wigginton 4",
-      "division": 7,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/795",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 796,
+      "season": 2026,
+      "division": 7,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "David Lloyd York 4",
       "away_team": "Wistow",
-      "division": 7,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/796",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 851,
+      "season": 2026,
+      "division": 8,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Wigginton 5",
       "away_team": "Rufforth",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/851",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Rob W",
+          "home_player2": "Peter Kirk",
+          "away_player1": "Bryce Tuckett",
+          "away_player2": "Oli Tullie",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Rob W",
+          "home_player2": "Peter Kirk",
+          "away_player1": "David Laws",
+          "away_player2": "Chris Peart",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Rob W",
+          "home_player2": "Peter Kirk",
+          "away_player1": "Justin Vaughn",
+          "away_player2": "Cooper Smith",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Will Turner",
+          "home_player2": "Basil Plowman",
+          "away_player1": "Bryce Tuckett",
+          "away_player2": "Oli Tullie",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Will Turner",
+          "home_player2": "Basil Plowman",
+          "away_player1": "David Laws",
+          "away_player2": "Chris Peart",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Will Turner",
+          "home_player2": "Basil Plowman",
+          "away_player1": "Justin Vaughn",
+          "away_player2": "Cooper Smith",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Bertie Hardisty",
+          "away_player1": "Bryce Tuckett",
+          "away_player2": "Oli Tullie",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Bertie Hardisty",
+          "away_player1": "David Laws",
+          "away_player2": "Chris Peart",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Bertie Hardisty",
+          "away_player1": "Justin Vaughn",
+          "away_player2": "Cooper Smith",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 853,
+      "season": 2026,
+      "division": 8,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Pocklington",
       "away_team": "Heworth 3",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/853",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 854,
+      "season": 2026,
+      "division": 8,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Rowntree Park 3",
       "away_team": "Cawood 2",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/854",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 855,
+      "season": 2026,
+      "division": 8,
       "date": "17 May 2026",
-      "time": "10:00",
       "home_team": "Bishopthorpe 2",
       "away_team": "Bubwith 3",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/855",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Andy Greenall",
+          "home_player2": "Will Rice",
+          "away_player1": "Andrew Pratt",
+          "away_player2": "Phil Corfield",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Andy Greenall",
+          "home_player2": "Will Rice",
+          "away_player1": "Gareth Price",
+          "away_player2": "Matt Uttley",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Andy Greenall",
+          "home_player2": "Will Rice",
+          "away_player1": "Beau Corfield",
+          "away_player2": "Dave Corfield",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Craig Hirst",
+          "home_player2": "Neal Chapman",
+          "away_player1": "Andrew Pratt",
+          "away_player2": "Phil Corfield",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Craig Hirst",
+          "home_player2": "Neal Chapman",
+          "away_player1": "Gareth Price",
+          "away_player2": "Matt Uttley",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Craig Hirst",
+          "home_player2": "Neal Chapman",
+          "away_player1": "Beau Corfield",
+          "away_player2": "Dave Corfield",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Paul Lewis",
+          "home_player2": "Sam Birch",
+          "away_player1": "Andrew Pratt",
+          "away_player2": "Phil Corfield",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Paul Lewis",
+          "home_player2": "Sam Birch",
+          "away_player1": "Gareth Price",
+          "away_player2": "Matt Uttley",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Paul Lewis",
+          "home_player2": "Sam Birch",
+          "away_player1": "Beau Corfield",
+          "away_player2": "Dave Corfield",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 673,
@@ -8598,6 +11286,15 @@
       "time": "10:00",
       "home_team": "Knaresborough 3",
       "away_team": "Poppleton 4",
+      "division": 8,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 860,
+      "date": "2 Aug 2026",
+      "time": "10:00",
+      "home_team": "Bubwith 3",
+      "away_team": "Cawood 2",
       "division": 8,
       "rubbers": []
     },
