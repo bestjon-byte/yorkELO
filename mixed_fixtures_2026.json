@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-17T21:53:21.795Z",
+  "scraped_at": "2026-05-18T22:01:04.636Z",
   "season": 2026,
-  "fixture_count": 60,
-  "rubber_count": 540,
+  "fixture_count": 61,
+  "rubber_count": 549,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -549,13 +549,104 @@
       "division": 1,
       "date": "18.05.26",
       "home_team": "York 1",
-      "away_team": "Poppleton 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "away_team": "<font color=\"ff0000\">Poppleton 1</font>",
+      "home_sets": 0,
+      "away_sets": 8,
+      "home_games": 22,
+      "away_games": 86,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115933",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Jake Lonsdale",
+          "home_player2": "Fay Wise",
+          "away_player1": "Nick Turnbull",
+          "away_player2": "Rebecca Turnbull",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Tim Bennett",
+          "home_player2": "Lucy Titchener",
+          "away_player1": "James Silson",
+          "away_player2": "Belinda Turnbull",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Steve Smith",
+          "home_player2": "Tracy Fowler",
+          "away_player1": "Jed Devine",
+          "away_player2": "Freya Devine",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Jake Lonsdale",
+          "home_player2": "Fay Wise",
+          "away_player1": "Jed Devine",
+          "away_player2": "Freya Devine",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Tim Bennett",
+          "home_player2": "Lucy Titchener",
+          "away_player1": "Nick Turnbull",
+          "away_player2": "Rebecca Turnbull",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Steve Smith",
+          "home_player2": "Tracy Fowler",
+          "away_player1": "James Silson",
+          "away_player2": "Belinda Turnbull",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Jake Lonsdale",
+          "home_player2": "Fay Wise",
+          "away_player1": "James Silson",
+          "away_player2": "Belinda Turnbull",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Tim Bennett",
+          "home_player2": "Lucy Titchener",
+          "away_player1": "Jed Devine",
+          "away_player2": "Freya Devine",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Steve Smith",
+          "home_player2": "Tracy Fowler",
+          "away_player1": "Nick Turnbull",
+          "away_player2": "Rebecca Turnbull",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115910",
@@ -1817,7 +1908,7 @@
         },
         {
           "rubber_order": 3,
-          "home_player1": "Kevin Todd",
+          "home_player1": "Phil Wood",
           "home_player2": "Charlotte Mitchell",
           "away_player1": "Jez Catchpole",
           "away_player2": "Anne Jackson",
@@ -1847,7 +1938,7 @@
         },
         {
           "rubber_order": 6,
-          "home_player1": "Kevin Todd",
+          "home_player1": "Phil Wood",
           "home_player2": "Charlotte Mitchell",
           "away_player1": "Andy Graham",
           "away_player2": "Linda Opie",
@@ -1877,7 +1968,7 @@
         },
         {
           "rubber_order": 9,
-          "home_player1": "Kevin Todd",
+          "home_player1": "Phil Wood",
           "home_player2": "Charlotte Mitchell",
           "away_player1": "Jonny Herrera",
           "away_player2": "Laura Turnbull",
