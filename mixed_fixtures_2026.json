@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-22T22:05:31.274Z",
+  "scraped_at": "2026-05-23T21:52:34.877Z",
   "season": 2026,
-  "fixture_count": 86,
-  "rubber_count": 774,
+  "fixture_count": 87,
+  "rubber_count": 783,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -3764,20 +3764,6 @@
       "rubbers": []
     },
     {
-      "fixture_id": "115807",
-      "season": 2026,
-      "division": 3,
-      "date": "19.05.26",
-      "home_team": "Wetherby 2",
-      "away_team": "Alne",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
-      "source_url": "https://www.mydivision.com/scorecard.php?m=115807",
-      "rubbers": []
-    },
-    {
       "fixture_id": "115776",
       "season": 2026,
       "division": 3,
@@ -4706,6 +4692,20 @@
       "home_games": null,
       "away_games": null,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115796",
+      "rubbers": []
+    },
+    {
+      "fixture_id": "115807",
+      "season": 2026,
+      "division": 3,
+      "date": "11.08.26",
+      "home_team": "Wetherby 2",
+      "away_team": "Alne",
+      "home_sets": null,
+      "away_sets": null,
+      "home_games": null,
+      "away_games": null,
+      "source_url": "https://www.mydivision.com/scorecard.php?m=115807",
       "rubbers": []
     },
     {
@@ -6564,20 +6564,6 @@
       ]
     },
     {
-      "fixture_id": "115679",
-      "season": 2026,
-      "division": 5,
-      "date": "14.05.26",
-      "home_team": "Cliffe 1",
-      "away_team": "Sutton On Derwent 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
-      "source_url": "https://www.mydivision.com/scorecard.php?m=115679",
-      "rubbers": []
-    },
-    {
       "fixture_id": "115682",
       "season": 2026,
       "division": 5,
@@ -7719,6 +7705,20 @@
       "rubbers": []
     },
     {
+      "fixture_id": "115679",
+      "season": 2026,
+      "division": 5,
+      "date": "20.08.26",
+      "home_team": "Cliffe 1",
+      "away_team": "Sutton On Derwent 2",
+      "home_sets": null,
+      "away_sets": null,
+      "home_games": null,
+      "away_games": null,
+      "source_url": "https://www.mydivision.com/scorecard.php?m=115679",
+      "rubbers": []
+    },
+    {
       "fixture_id": "115625",
       "season": 2026,
       "division": 6,
@@ -8250,12 +8250,103 @@
       "date": "14.05.26",
       "home_team": "York 6",
       "away_team": "Stillington 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 0,
+      "away_sets": 0,
+      "home_games": 0,
+      "away_games": 55,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115664",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 6,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "No Show",
+          "home_player2": "No Show",
+          "away_player1": "&",
+          "away_player2": "",
+          "home_games": 0,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115621",
@@ -9775,7 +9866,7 @@
       "division": 7,
       "date": "19.05.26",
       "home_team": "Bubwith 3",
-      "away_team": "<font color=\"ff0000\">Tollerton</font>",
+      "away_team": "Tollerton",
       "home_sets": 8,
       "away_sets": 0,
       "home_games": 81,
@@ -12512,7 +12603,7 @@
       "division": 9,
       "date": "22.05.26",
       "home_team": "Wetherby 3",
-      "away_team": "<font color=\"ff0000\">Dunnington 2</font>",
+      "away_team": "Dunnington 2",
       "home_sets": 1,
       "away_sets": 5,
       "home_games": 44,
@@ -13618,7 +13709,7 @@
       "division": 10,
       "date": "21.05.26",
       "home_team": "Riccall 2",
-      "away_team": "<font color=\"ff0000\">Tadcaster</font>",
+      "away_team": "Tadcaster",
       "home_sets": 9,
       "away_sets": 0,
       "home_games": 80,
@@ -13639,7 +13730,7 @@
           "rubber_order": 2,
           "home_player1": "Stephen Packer",
           "home_player2": "Becky Cannon",
-          "away_player1": "tbc",
+          "away_player1": "Charlie Fell",
           "away_player2": "Hilary Robinson",
           "home_games": 11,
           "away_games": 1,
@@ -13679,7 +13770,7 @@
           "rubber_order": 6,
           "home_player1": "Paul Ward",
           "home_player2": "Jayne Lees",
-          "away_player1": "tbc",
+          "away_player1": "Charlie Fell",
           "away_player2": "Hilary Robinson",
           "home_games": 9,
           "away_games": 3,
@@ -13689,7 +13780,7 @@
           "rubber_order": 7,
           "home_player1": "Leon Speck",
           "home_player2": "Sue Warren",
-          "away_player1": "tbc",
+          "away_player1": "Charlie Fell",
           "away_player2": "Hilary Robinson",
           "home_games": 9,
           "away_games": 3,
