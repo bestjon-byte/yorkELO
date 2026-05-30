@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-05-29T22:28:03.085Z",
+  "scraped_at": "2026-05-30T21:59:34.904Z",
   "season": 2026,
-  "fixture_count": 120,
-  "rubber_count": 1080,
+  "fixture_count": 121,
+  "rubber_count": 1089,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -8683,7 +8683,7 @@
       "division": 5,
       "date": "29.05.26",
       "home_team": "David Lloyd 4",
-      "away_team": "<font color=\"ff0000\">Cliffe 1</font>",
+      "away_team": "Cliffe 1",
       "home_sets": 1,
       "away_sets": 7,
       "home_games": 34,
@@ -16859,7 +16859,7 @@
       "division": 10,
       "date": "28.05.26",
       "home_team": "Sutton On Derwent 4",
-      "away_team": "<font color=\"ff0000\">Rufforth 4</font>",
+      "away_team": "Rufforth 4",
       "home_sets": 2,
       "away_sets": 1,
       "home_games": 56,
@@ -16964,13 +16964,104 @@
       "division": 10,
       "date": "29.05.26",
       "home_team": "Tadcaster",
-      "away_team": "Bishopthorpe 3",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "away_team": "<font color=\"ff0000\">Bishopthorpe 3</font>",
+      "home_sets": 4,
+      "away_sets": 5,
+      "home_games": 52,
+      "away_games": 56,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115049",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Hilary Robinson",
+          "away_player1": "Philip Rigby",
+          "away_player2": "Judith Rigby",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Craig Redmond",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "Will Rice",
+          "away_player2": "Katie Lewis",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Jeremy Fieldman",
+          "home_player2": "Amber Bannon",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Liz Carney",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Hilary Robinson",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Liz Carney",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Craig Redmond",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "Philip Rigby",
+          "away_player2": "Judith Rigby",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Jeremy Fieldman",
+          "home_player2": "Amber Bannon",
+          "away_player1": "Will Rice",
+          "away_player2": "Katie Lewis",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Hilary Robinson",
+          "away_player1": "Will Rice",
+          "away_player2": "Katie Lewis",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Craig Redmond",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Liz Carney",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Jeremy Fieldman",
+          "home_player2": "Amber Bannon",
+          "away_player1": "Philip Rigby",
+          "away_player2": "Judith Rigby",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115017",
