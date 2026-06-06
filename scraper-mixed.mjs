@@ -174,7 +174,9 @@ async function scrapeDivisionMatches(seasonId, divisionId, divNumber, year, exis
     const [_, dateRaw, noteRaw, teamsRaw, setsRaw, gamesRaw, actionRaw] = match
 
     const date = dateRaw.split(' - ')[0].trim()
-    const [homeTeam, awayTeam] = teamsRaw.split(' - ').map(t => t.trim())
+    // MyDivision wraps the losing team in <font color="ff0000">…</font>; strip tags so
+    // markup doesn't leak into team names (split on ' - ' first — separator is outside the tags)
+    const [homeTeam, awayTeam] = teamsRaw.split(' - ').map(t => t.replace(/<[^>]*>/g, '').trim())
 
     let homeSets = null, awaySets = null
     if (setsRaw.includes('v')) {
