@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-06T22:02:20.323Z",
+  "scraped_at": "2026-06-07T22:01:42.143Z",
   "season": 2026,
-  "fixture_count": 152,
-  "rubber_count": 1368,
+  "fixture_count": 153,
+  "rubber_count": 1377,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -1390,12 +1390,103 @@
       "date": "05.06.26",
       "home_team": "David Lloyd 1",
       "away_team": "Wetherby 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 2,
+      "away_sets": 5,
+      "home_games": 44,
+      "away_games": 64,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115880",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Maddie Turnbull",
+          "away_player1": "Fraser Cummings",
+          "away_player2": "Evie Parkin",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Theo Barnard",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Andy Jones",
+          "away_player2": "Angela Wood",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Xander Stringer",
+          "home_player2": "Miri Georgiou",
+          "away_player1": "Richard Whaley",
+          "away_player2": "Amelia Moran",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Maddie Turnbull",
+          "away_player1": "Richard Whaley",
+          "away_player2": "Amelia Moran",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Theo Barnard",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Fraser Cummings",
+          "away_player2": "Evie Parkin",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Xander Stringer",
+          "home_player2": "Miri Georgiou",
+          "away_player1": "Andy Jones",
+          "away_player2": "Angela Wood",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Maddie Turnbull",
+          "away_player1": "Andy Jones",
+          "away_player2": "Angela Wood",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Theo Barnard",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Richard Whaley",
+          "away_player2": "Amelia Moran",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Xander Stringer",
+          "home_player2": "Miri Georgiou",
+          "away_player1": "Fraser Cummings",
+          "away_player2": "Evie Parkin",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115935",
