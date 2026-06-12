@@ -209,7 +209,7 @@ async function run() {
   const matchLogs   = buildPlayerMatchLogs(aliases, splits);
   const playerStats = buildPlayerStats(matchLogs);
 
-  // ---- Build fixture rows (all seasons, deduplicated by fixture_id) ----
+  // ---- Build fixture rows (all seasons, deduplicated by season:fixture_id) ----
   const fixtureMap = new Map();
   for (const year of ALL_SEASONS) {
     const file = `fixtures_${year}.json`;
@@ -236,9 +236,11 @@ async function run() {
         is_conceded: !!(f.skipped && f.reason === 'conceded')
       };
       
-      // If we already saw this ID in an earlier year/file, overwrite it 
-      // (the 2026 file will naturally overwrite the 2026-skeletons if they appear in earlier files)
-      fixtureMap.set(row.fixture_id, row);
+      // fixture_id is only unique WITHIN a season — the league site restarts
+      // numbering each year (e.g. 2026 id 634 collides with a 2018 match), so
+      // key by season:fixture_id to keep every season's fixtures. Within a
+      // single season a later file still overwrites an earlier skeleton.
+      fixtureMap.set(`${row.season}:${row.fixture_id}`, row);
     }
   }
   const fixtureRows = Array.from(fixtureMap.values());
