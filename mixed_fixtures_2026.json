@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-20T22:04:16.410Z",
+  "scraped_at": "2026-06-22T07:07:11.478Z",
   "season": 2026,
   "fixture_count": 211,
   "rubber_count": 1899,
@@ -4331,20 +4331,6 @@
       ]
     },
     {
-      "fixture_id": "115827",
-      "season": 2026,
-      "division": 2,
-      "date": "11.06.26",
-      "home_team": "Bubwith 1",
-      "away_team": "York 4",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
-      "source_url": "https://www.mydivision.com/scorecard.php?m=115827",
-      "rubbers": []
-    },
-    {
       "fixture_id": "115833",
       "season": 2026,
       "division": 2,
@@ -5273,6 +5259,20 @@
       "home_games": null,
       "away_games": null,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115847",
+      "rubbers": []
+    },
+    {
+      "fixture_id": "115827",
+      "season": 2026,
+      "division": 2,
+      "date": "10.08.26",
+      "home_team": "Bubwith 1",
+      "away_team": "York 4",
+      "home_sets": null,
+      "away_sets": null,
+      "home_games": null,
+      "away_games": null,
+      "source_url": "https://www.mydivision.com/scorecard.php?m=115827",
       "rubbers": []
     },
     {
@@ -7194,20 +7194,6 @@
       ]
     },
     {
-      "fixture_id": "115769",
-      "season": 2026,
-      "division": 3,
-      "date": "11.06.26",
-      "home_team": "Alne",
-      "away_team": "Sutton On Derwent 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
-      "source_url": "https://www.mydivision.com/scorecard.php?m=115769",
-      "rubbers": []
-    },
-    {
       "fixture_id": "115798",
       "season": 2026,
       "division": 3,
@@ -8167,6 +8153,20 @@
       "rubbers": []
     },
     {
+      "fixture_id": "115769",
+      "season": 2026,
+      "division": 3,
+      "date": "20.08.26",
+      "home_team": "Alne",
+      "away_team": "Sutton On Derwent 1",
+      "home_sets": null,
+      "away_sets": null,
+      "home_games": null,
+      "away_games": null,
+      "source_url": "https://www.mydivision.com/scorecard.php?m=115769",
+      "rubbers": []
+    },
+    {
       "fixture_id": "115744",
       "season": 2026,
       "division": 4,
@@ -8795,20 +8795,6 @@
           "winner": "home"
         }
       ]
-    },
-    {
-      "fixture_id": "115757",
-      "season": 2026,
-      "division": 4,
-      "date": "19.05.26",
-      "home_team": "Wilberfoss 1",
-      "away_team": "Wigginton 3",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
-      "source_url": "https://www.mydivision.com/scorecard.php?m=115757",
-      "rubbers": []
     },
     {
       "fixture_id": "115728",
@@ -10481,6 +10467,20 @@
       "home_games": null,
       "away_games": null,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115733",
+      "rubbers": []
+    },
+    {
+      "fixture_id": "115757",
+      "season": 2026,
+      "division": 4,
+      "date": "13.08.26",
+      "home_team": "Wilberfoss 1",
+      "away_team": "Wigginton 3",
+      "home_sets": null,
+      "away_sets": null,
+      "home_games": null,
+      "away_games": null,
+      "source_url": "https://www.mydivision.com/scorecard.php?m=115757",
       "rubbers": []
     },
     {
