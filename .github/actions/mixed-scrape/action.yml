@@ -1,0 +1,56 @@
+name: 'Mixed ELO Scrape'
+description: 'Scrape York Mixed League, recalc ELO, migrate to Supabase, and commit results'
+
+# Shared by the retry-chain jobs in update-mixed-elo.yml. mydivision.com's WAF
+# blocks a random subset of GitHub's runner IPs, so a single attempt fails ~35%
+# of the time. Each job that calls this action runs on a fresh runner (= fresh
+# IP), so retrying on a new job — not in-process — is what recovers the run.
+
+inputs:
+  md_cookie:
+    description: 'MyDivision.com remember-me cookie (md_user_id=...; md_password=...)'
+    required: true
+  supabase_url:
+    description: 'Supabase project URL'
+    required: true
+  supabase_service_key:
+    description: 'Supabase service role key'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      shell: bash
+      run: npm install
+
+    - name: Scrape Mixed League Fixtures
+      shell: bash
+      env:
+        MD_COOKIE: ${{ inputs.md_cookie }}
+      run: node scraper-mixed.mjs --year 2026
+
+    - name: Calculate Mixed ELO Ratings
+      shell: bash
+      run: node elo.js --mixed
+
+    - name: Migrate Mixed Data to Supabase
+      shell: bash
+      env:
+        SUPABASE_URL: ${{ inputs.supabase_url }}
+        SUPABASE_SERVICE_KEY: ${{ inputs.supabase_service_key }}
+      run: node scripts/migrate-mixed-to-supabase.js --league mixed
+
+    - name: Commit and Push changes
+      shell: bash
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add mixed_fixtures_*.json mixed_ratings_all.json
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update 2026 Mixed ELO ratings [skip ci]"
+        git push

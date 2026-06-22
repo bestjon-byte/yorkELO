@@ -6,39 +6,75 @@ on:
     - cron: '0 21 * * *'
   workflow_dispatch: # Allow manual triggering
 
+# Each scrape leaves from a random GitHub runner IP; mydivision.com's WAF blocks
+# a subset of those, so ~35% of single attempts get a 409. Retrying in-process
+# can't help (same runner = same IP). Instead we chain up to three attempts as
+# separate jobs — each a fresh runner with a fresh IP. With a ~35% per-attempt
+# failure rate, three attempts succeed ~96% of the time; the run only goes red
+# if all three fail (something genuinely wrong, e.g. an expired MD_COOKIE).
+
+concurrency:
+  group: mixed-elo
+  cancel-in-progress: false
+
 jobs:
-  update:
+  attempt-1:
+    runs-on: ubuntu-latest
+    continue-on-error: true # a WAF 409 here is expected — let attempt-2 recover
+    outputs:
+      ok: ${{ steps.scrape.outcome == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: scrape
+        uses: ./.github/actions/mixed-scrape
+        with:
+          md_cookie: ${{ secrets.MD_COOKIE }}
+          supabase_url: ${{ secrets.SUPABASE_URL }}
+          supabase_service_key: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+  attempt-2:
+    needs: attempt-1
+    if: ${{ always() && needs.attempt-1.outputs.ok != 'true' }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    outputs:
+      ok: ${{ steps.scrape.outcome == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: scrape
+        uses: ./.github/actions/mixed-scrape
+        with:
+          md_cookie: ${{ secrets.MD_COOKIE }}
+          supabase_url: ${{ secrets.SUPABASE_URL }}
+          supabase_service_key: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+  attempt-3:
+    needs: [attempt-1, attempt-2]
+    if: ${{ always() && needs.attempt-1.outputs.ok != 'true' && needs.attempt-2.outputs.ok != 'true' }}
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.scrape.outcome == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: scrape
+        uses: ./.github/actions/mixed-scrape
+        with:
+          md_cookie: ${{ secrets.MD_COOKIE }}
+          supabase_url: ${{ secrets.SUPABASE_URL }}
+          supabase_service_key: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
+  result:
+    needs: [attempt-1, attempt-2, attempt-3]
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Scrape Mixed League Fixtures
-        env:
-          MD_COOKIE: ${{ secrets.MD_COOKIE }}
-        run: node scraper-mixed.mjs --year 2026
-
-      - name: Calculate Mixed ELO Ratings
-        run: node elo.js --mixed
-
-      - name: Migrate Mixed Data to Supabase
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: node scripts/migrate-mixed-to-supabase.js --league mixed
-
-      - name: Commit and Push changes
+      - name: Require at least one successful attempt
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add mixed_fixtures_*.json mixed_ratings_all.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update 2026 Mixed ELO ratings [skip ci]"
-          git push
+          if [[ "${{ needs.attempt-1.outputs.ok }}" == "true" \
+             || "${{ needs.attempt-2.outputs.ok }}" == "true" \
+             || "${{ needs.attempt-3.outputs.ok }}" == "true" ]]; then
+            echo "✅ Mixed scrape succeeded on at least one attempt."
+          else
+            echo "❌ All attempts failed — likely an expired MD_COOKIE or a wider WAF block, not the usual intermittent 409."
+            exit 1
+          fi
