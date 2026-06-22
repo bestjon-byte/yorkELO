@@ -170,7 +170,7 @@ async function main() {
         const fixture = parseFixture(html, id, div);
         if (fixture && fixture.skipped) {
           console.log(` skipped (${fixture.reason})`);
-          allFixtures.push({ ...fixture, time: timeStr });
+          allFixtures.push({ fixture_id: id, season: SEASON, division: div, date: fixture.date || dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, source_url: `${BASE_URL}/fixtures/${id}`, skipped: true, reason: fixture.reason, rubbers: [] });
         } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
           allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team });
           console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);

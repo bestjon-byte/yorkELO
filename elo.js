@@ -54,7 +54,7 @@ function applySplits(fixtures, splits) {
   };
   return fixtures.map(f => ({
     ...f,
-    rubbers: f.rubbers.map(r => ({
+    rubbers: (f.rubbers || []).map(r => ({
       ...r,
       home_player1: r.home_player1 ? splitName(r.home_player1, f.home_team) : r.home_player1,
       home_player2: r.home_player2 ? splitName(r.home_player2, f.home_team) : r.home_player2,
@@ -80,7 +80,7 @@ function applyAliases(fixtures, aliases) {
   const resolve = name => name ? resolveAlias(name, aliases) : name;
   return fixtures.map(f => ({
     ...f,
-    rubbers: f.rubbers.map(r => ({
+    rubbers: (f.rubbers || []).map(r => ({
       ...r,
       home_player1: resolve(r.home_player1),
       home_player2: resolve(r.home_player2),
