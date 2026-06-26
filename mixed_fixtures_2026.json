@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-25T22:19:17.886Z",
+  "scraped_at": "2026-06-26T22:10:24.137Z",
   "season": 2026,
-  "fixture_count": 229,
-  "rubber_count": 2061,
+  "fixture_count": 235,
+  "rubber_count": 2115,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -5254,12 +5254,103 @@
       "date": "23.06.26",
       "home_team": "Rowntree Park 1",
       "away_team": "Poppleton 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 5,
+      "away_sets": 2,
+      "home_games": 56,
+      "away_games": 52,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115852",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Tom Fowler",
+          "home_player2": "Jill Le Pla",
+          "away_player1": "Luke Howard",
+          "away_player2": "Freya Devine",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "James Moss",
+          "home_player2": "Hannah Nash",
+          "away_player1": "Andy Graham",
+          "away_player2": "Linda Opie",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Russ Warin",
+          "home_player2": "Laura Robson",
+          "away_player1": "Jonny Herrera",
+          "away_player2": "Laura Turnbull",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Tom Fowler",
+          "home_player2": "Jill Le Pla",
+          "away_player1": "Jonny Herrera",
+          "away_player2": "Laura Turnbull",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "James Moss",
+          "home_player2": "Hannah Nash",
+          "away_player1": "Luke Howard",
+          "away_player2": "Freya Devine",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Russ Warin",
+          "home_player2": "Laura Robson",
+          "away_player1": "Andy Graham",
+          "away_player2": "Linda Opie",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Tom Fowler",
+          "home_player2": "Jill Le Pla",
+          "away_player1": "Andy Graham",
+          "away_player2": "Linda Opie",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "James Moss",
+          "home_player2": "Hannah Nash",
+          "away_player1": "Jonny Herrera",
+          "away_player2": "Laura Turnbull",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Russ Warin",
+          "home_player2": "Laura Robson",
+          "away_player1": "Luke Howard",
+          "away_player2": "Freya Devine",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115862",
@@ -8404,12 +8495,103 @@
       "date": "25.06.26",
       "home_team": "Alne",
       "away_team": "York 5",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 5,
+      "away_sets": 3,
+      "home_games": 60,
+      "away_games": 48,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115771",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Steve Broughton",
+          "home_player2": "Rosanna Marriott",
+          "away_player1": "Chris Mitchell Smith",
+          "away_player2": "Ruth Greaney",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Andy Hodges",
+          "home_player2": "Teena Gallon",
+          "away_player1": "Malek Murison",
+          "away_player2": "Roisin Astell",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Ralph Plowman",
+          "home_player2": "Hannah Blackburn",
+          "away_player1": "James Sheldon",
+          "away_player2": "Georgia Musgrave",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Steve Broughton",
+          "home_player2": "Rosanna Marriott",
+          "away_player1": "James Sheldon",
+          "away_player2": "Georgia Musgrave",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Andy Hodges",
+          "home_player2": "Teena Gallon",
+          "away_player1": "Chris Mitchell Smith",
+          "away_player2": "Ruth Greaney",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Ralph Plowman",
+          "home_player2": "Hannah Blackburn",
+          "away_player1": "Malek Murison",
+          "away_player2": "Roisin Astell",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Steve Broughton",
+          "home_player2": "Rosanna Marriott",
+          "away_player1": "Malek Murison",
+          "away_player2": "Roisin Astell",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Andy Hodges",
+          "home_player2": "Teena Gallon",
+          "away_player1": "James Sheldon",
+          "away_player2": "Georgia Musgrave",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Ralph Plowman",
+          "home_player2": "Hannah Blackburn",
+          "away_player1": "Chris Mitchell Smith",
+          "away_player2": "Ruth Greaney",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115783",
@@ -10938,12 +11120,103 @@
       "date": "25.06.26",
       "home_team": "Bubwith 2",
       "away_team": "Wistow 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 1,
+      "away_sets": 6,
+      "home_games": 44,
+      "away_games": 64,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115734",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Kieran Stinson",
+          "home_player2": "Sarah Falkingham",
+          "away_player1": "Greg Allen-hirst",
+          "away_player2": "Lucy Falkingham",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Doug Smith",
+          "home_player2": "Maria Mutarelli",
+          "away_player1": "Paul Reddish",
+          "away_player2": "Sue Hudson",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Andrew Corfield",
+          "home_player2": "Margaret Ward",
+          "away_player1": "Nick Clemishaw",
+          "away_player2": "Rachel Smith",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Kieran Stinson",
+          "home_player2": "Sarah Falkingham",
+          "away_player1": "Nick Clemishaw",
+          "away_player2": "Rachel Smith",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Doug Smith",
+          "home_player2": "Maria Mutarelli",
+          "away_player1": "Greg Allen-hirst",
+          "away_player2": "Lucy Falkingham",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Andrew Corfield",
+          "home_player2": "Margaret Ward",
+          "away_player1": "Paul Reddish",
+          "away_player2": "Sue Hudson",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Kieran Stinson",
+          "home_player2": "Sarah Falkingham",
+          "away_player1": "Paul Reddish",
+          "away_player2": "Sue Hudson",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Doug Smith",
+          "home_player2": "Maria Mutarelli",
+          "away_player1": "Nick Clemishaw",
+          "away_player2": "Rachel Smith",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Andrew Corfield",
+          "home_player2": "Margaret Ward",
+          "away_player1": "Greg Allen-hirst",
+          "away_player2": "Lucy Falkingham",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        }
+      ]
     },
     {
       "fixture_id": "115745",
@@ -14067,12 +14340,103 @@
       "date": "25.06.26",
       "home_team": "Cliffe 1",
       "away_team": "Bishopthorpe 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 7,
+      "away_sets": 2,
+      "home_games": 78,
+      "away_games": 30,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115673",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Dave Tomlinson",
+          "home_player2": "Jane Pemberton",
+          "away_player1": "Ollie Wright",
+          "away_player2": "Erin Proctor",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Richard Sansbury",
+          "home_player2": "Jen Marshall",
+          "away_player1": "Neil Chapman",
+          "away_player2": "Katie Lewis",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Matt Lowe",
+          "home_player2": "Jo Earl",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Sharron Fletcher",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Dave Tomlinson",
+          "home_player2": "Jane Pemberton",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Sharron Fletcher",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Richard Sansbury",
+          "home_player2": "Jen Marshall",
+          "away_player1": "Ollie Wright",
+          "away_player2": "Erin Proctor",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Matt Lowe",
+          "home_player2": "Jo Earl",
+          "away_player1": "Neil Chapman",
+          "away_player2": "Katie Lewis",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Dave Tomlinson",
+          "home_player2": "Jane Pemberton",
+          "away_player1": "Neil Chapman",
+          "away_player2": "Katie Lewis",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Richard Sansbury",
+          "home_player2": "Jen Marshall",
+          "away_player1": "Paul Lewis",
+          "away_player2": "Sharron Fletcher",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Matt Lowe",
+          "home_player2": "Jo Earl",
+          "away_player1": "Ollie Wright",
+          "away_player2": "Erin Proctor",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115685",
@@ -19555,12 +19919,103 @@
       "date": "25.06.26",
       "home_team": "Wheldrake",
       "away_team": "Bishopthorpe 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 5,
+      "away_sets": 3,
+      "home_games": 62,
+      "away_games": 46,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115615",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Glenn Kirby",
+          "home_player2": "Laura Harben",
+          "away_player1": "Andrew Richardson",
+          "away_player2": "Jane Parkin",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Paul Butler",
+          "home_player2": "Annaleigh Marshall",
+          "away_player1": "Will Rice",
+          "away_player2": "Sue Hanley",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "David Murtagh",
+          "home_player2": "Jackie Williamson",
+          "away_player1": "Andy Greenall",
+          "away_player2": "Liz Carney",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Glenn Kirby",
+          "home_player2": "Laura Harben",
+          "away_player1": "Andy Greenall",
+          "away_player2": "Liz Carney",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Paul Butler",
+          "home_player2": "Annaleigh Marshall",
+          "away_player1": "Andrew Richardson",
+          "away_player2": "Jane Parkin",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "David Murtagh",
+          "home_player2": "Jackie Williamson",
+          "away_player1": "Will Rice",
+          "away_player2": "Sue Hanley",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Glenn Kirby",
+          "home_player2": "Laura Harben",
+          "away_player1": "Will Rice",
+          "away_player2": "Sue Hanley",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Paul Butler",
+          "home_player2": "Annaleigh Marshall",
+          "away_player1": "Andy Greenall",
+          "away_player2": "Liz Carney",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "David Murtagh",
+          "home_player2": "Jackie Williamson",
+          "away_player1": "Andrew Richardson",
+          "away_player2": "Jane Parkin",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115598",
@@ -26958,7 +27413,7 @@
           "home_player1": "Mik Stobbs",
           "home_player2": "Denise Reilly",
           "away_player1": "Alex Cummins",
-          "away_player2": "tbc",
+          "away_player2": "Jodie Thompson",
           "home_games": 7,
           "away_games": 5,
           "winner": "home"
@@ -26968,7 +27423,7 @@
           "home_player1": "Cooper Smith",
           "home_player2": "Jazz Hirst",
           "away_player1": "Brad Hall",
-          "away_player2": "tbc",
+          "away_player2": "Heidi Styles",
           "home_games": 7,
           "away_games": 5,
           "winner": "home"
@@ -26998,7 +27453,7 @@
           "home_player1": "Cooper Smith",
           "home_player2": "Jazz Hirst",
           "away_player1": "Alex Cummins",
-          "away_player2": "tbc",
+          "away_player2": "Jodie Thompson",
           "home_games": 2,
           "away_games": 10,
           "winner": "away"
@@ -27008,7 +27463,7 @@
           "home_player1": "Maguire Agnew",
           "home_player2": "Sheila Adey",
           "away_player1": "Brad Hall",
-          "away_player2": "tbc",
+          "away_player2": "Heidi Styles",
           "home_games": 4,
           "away_games": 8,
           "winner": "away"
@@ -27018,7 +27473,7 @@
           "home_player1": "Mik Stobbs",
           "home_player2": "Denise Reilly",
           "away_player1": "Brad Hall",
-          "away_player2": "tbc",
+          "away_player2": "Heidi Styles",
           "home_games": 10,
           "away_games": 2,
           "winner": "home"
@@ -27038,7 +27493,7 @@
           "home_player1": "Maguire Agnew",
           "home_player2": "Sheila Adey",
           "away_player1": "Alex Cummins",
-          "away_player2": "tbc",
+          "away_player2": "Jodie Thompson",
           "home_games": 3,
           "away_games": 9,
           "winner": "away"
@@ -27052,12 +27507,103 @@
       "date": "25.06.26",
       "home_team": "Sutton On Derwent 4",
       "away_team": "Riccall 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 0,
+      "away_sets": 9,
+      "home_games": 27,
+      "away_games": 81,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115046",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Alistair Barlow",
+          "home_player2": "Charlie Smithch",
+          "away_player1": "Leon Speck",
+          "away_player2": "Sue Warren",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Archie Hobson",
+          "home_player2": "Izzy Hobson",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Lizzie Campbell",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "George Black",
+          "home_player2": "Rachael Goode",
+          "away_player1": "Steve Davis",
+          "away_player2": "Izzy Anstee",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Alistair Barlow",
+          "home_player2": "Charlie Smithch",
+          "away_player1": "Steve Davis",
+          "away_player2": "Izzy Anstee",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Archie Hobson",
+          "home_player2": "Izzy Hobson",
+          "away_player1": "Leon Speck",
+          "away_player2": "Sue Warren",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "George Black",
+          "home_player2": "Rachael Goode",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Lizzie Campbell",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Alistair Barlow",
+          "home_player2": "Charlie Smithch",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Lizzie Campbell",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Archie Hobson",
+          "home_player2": "Izzy Hobson",
+          "away_player1": "Steve Davis",
+          "away_player2": "Izzy Anstee",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "George Black",
+          "home_player2": "Rachael Goode",
+          "away_player1": "Leon Speck",
+          "away_player2": "Sue Warren",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115025",
