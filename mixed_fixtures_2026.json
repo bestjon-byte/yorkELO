@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-26T22:10:24.137Z",
+  "scraped_at": "2026-06-27T22:01:01.293Z",
   "season": 2026,
-  "fixture_count": 235,
-  "rubber_count": 2115,
+  "fixture_count": 236,
+  "rubber_count": 2124,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -14445,12 +14445,103 @@
       "date": "26.06.26",
       "home_team": "David Lloyd 4",
       "away_team": "Riccall 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 0,
+      "away_sets": 9,
+      "home_games": 25,
+      "away_games": 83,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115685",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Dean Ross",
+          "home_player2": "Zhesi He",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Naz Hosseinian",
+          "home_player2": "Kirsty Kennedy",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Izzy Anstee",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Dean Ross",
+          "home_player2": "Zhesi He",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Izzy Anstee",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Naz Hosseinian",
+          "home_player2": "Kirsty Kennedy",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Dean Ross",
+          "home_player2": "Zhesi He",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "Stephen Packer",
+          "away_player2": "Izzy Anstee",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Naz Hosseinian",
+          "home_player2": "Kirsty Kennedy",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115689",
