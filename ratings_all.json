@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T16:15:14.354Z",
+  "generated_at": "2026-06-28T20:14:07.661Z",
   "seasons": [
     2018,
     2019,
@@ -10,7 +10,7 @@
     2025,
     2026
   ],
-  "player_count": 1984,
+  "player_count": 1985,
   "leaderboard": [
     {
       "name": "Nick Turnbull",
@@ -1147,6 +1147,12 @@
       "last_played": "10 August 2025"
     },
     {
+      "name": "Tony Downing",
+      "rating": 1553.1,
+      "rubbers_played": 155,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "John Kaye",
       "rating": 1552.6,
       "rubbers_played": 11,
@@ -1339,12 +1345,6 @@
       "last_played": "28 June 2026"
     },
     {
-      "name": "Ben Drummond",
-      "rating": 1521.3,
-      "rubbers_played": 242,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Max Semenowski",
       "rating": 1520.6,
       "rubbers_played": 6,
@@ -1459,6 +1459,12 @@
       "last_played": "21 Jun 2026"
     },
     {
+      "name": "Ben Drummond",
+      "rating": 1512.4,
+      "rubbers_played": 245,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Matt Collins",
       "rating": 1512.2,
       "rubbers_played": 36,
@@ -1523,12 +1529,6 @@
       "rating": 1507.1,
       "rubbers_played": 255,
       "last_played": "28 June 2026"
-    },
-    {
-      "name": "Tony Downing",
-      "rating": 1506.8,
-      "rubbers_played": 152,
-      "last_played": "31 May 2026"
     },
     {
       "name": "Dan Bruce",
@@ -2275,12 +2275,6 @@
       "last_played": "10 June 2018"
     },
     {
-      "name": "Carlos Gabaldon",
-      "rating": 1426.3,
-      "rubbers_played": 113,
-      "last_played": "31 May 2026"
-    },
-    {
       "name": "Matt Stephenson",
       "rating": 1426,
       "rubbers_played": 3,
@@ -2389,6 +2383,12 @@
       "last_played": "4 September 2022"
     },
     {
+      "name": "Pete Smith",
+      "rating": 1414.6,
+      "rubbers_played": 229,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Dan Poole",
       "rating": 1414.6,
       "rubbers_played": 6,
@@ -2408,12 +2408,6 @@
     },
     {
       "name": "Andrew Gold",
-      "rating": 1413.6,
-      "rubbers_played": 3,
-      "last_played": "31 August 2025"
-    },
-    {
-      "name": "James Gold",
       "rating": 1413.6,
       "rubbers_played": 3,
       "last_played": "31 August 2025"
@@ -2473,6 +2467,12 @@
       "last_played": "2 June 2024"
     },
     {
+      "name": "Dave Rowlands",
+      "rating": 1409.9,
+      "rubbers_played": 99,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Daniel Cranidge",
       "rating": 1409.9,
       "rubbers_played": 147,
@@ -2509,6 +2509,12 @@
       "last_played": "4 July 2021"
     },
     {
+      "name": "Carlos Gabaldon",
+      "rating": 1405.1,
+      "rubbers_played": 116,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "William Howard",
       "rating": 1405,
       "rubbers_played": 150,
@@ -2531,12 +2537,6 @@
       "rating": 1404.1,
       "rubbers_played": 6,
       "last_played": "27 August 2023"
-    },
-    {
-      "name": "Pete Smith",
-      "rating": 1402.4,
-      "rubbers_played": 226,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Roger Fawcus",
@@ -2675,12 +2675,6 @@
       "rating": 1384.5,
       "rubbers_played": 12,
       "last_played": "31 August 2025"
-    },
-    {
-      "name": "Dave Rowlands",
-      "rating": 1384.1,
-      "rubbers_played": 96,
-      "last_played": "7 Jun 2026"
     },
     {
       "name": "Daehyun Chung",
@@ -2851,12 +2845,6 @@
       "last_played": "14 Jun 2026"
     },
     {
-      "name": "Adam Raistrick",
-      "rating": 1365,
-      "rubbers_played": 198,
-      "last_played": "14 Jun 2026"
-    },
-    {
       "name": "Malcolm Forsyth",
       "rating": 1364,
       "rubbers_played": 9,
@@ -2885,6 +2873,12 @@
       "rating": 1362.3,
       "rubbers_played": 71,
       "last_played": "22 September 2019"
+    },
+    {
+      "name": "James Gold",
+      "rating": 1361.3,
+      "rubbers_played": 6,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Peter Grey",
@@ -2939,6 +2933,12 @@
       "rating": 1355.7,
       "rubbers_played": 42,
       "last_played": "14 Jun 2026"
+    },
+    {
+      "name": "Adam Raistrick",
+      "rating": 1355.6,
+      "rubbers_played": 201,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Mike Hodges",
@@ -3097,6 +3097,12 @@
       "last_played": "7 Jun 2026"
     },
     {
+      "name": "Richard Franks",
+      "rating": 1341.8,
+      "rubbers_played": 161,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Callum Mackinnon",
       "rating": 1340.6,
       "rubbers_played": 6,
@@ -3253,12 +3259,6 @@
       "last_played": "31 May 2026"
     },
     {
-      "name": "Andy Bromley",
-      "rating": 1325.9,
-      "rubbers_played": 181,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Richard Clarke",
       "rating": 1325,
       "rubbers_played": 15,
@@ -3367,12 +3367,6 @@
       "last_played": "28 June 2026"
     },
     {
-      "name": "Richard Franks",
-      "rating": 1317.8,
-      "rubbers_played": 158,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Darren Gee",
       "rating": 1317.3,
       "rubbers_played": 3,
@@ -3385,16 +3379,16 @@
       "last_played": "18 July 2021"
     },
     {
+      "name": "Andy Bromley",
+      "rating": 1317,
+      "rubbers_played": 184,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Alex Waters",
       "rating": 1316.5,
       "rubbers_played": 39,
       "last_played": "28 June 2026"
-    },
-    {
-      "name": "Charlie Meacham",
-      "rating": 1316.3,
-      "rubbers_played": 130,
-      "last_played": "14 Jun 2026"
     },
     {
       "name": "James Wild",
@@ -3436,6 +3430,12 @@
       "name": "Jeremy Reddish",
       "rating": 1313.6,
       "rubbers_played": 123,
+      "last_played": "28 June 2026"
+    },
+    {
+      "name": "Jim Nichols",
+      "rating": 1313.5,
+      "rubbers_played": 101,
       "last_played": "28 June 2026"
     },
     {
@@ -3733,12 +3733,6 @@
       "last_played": "12 September 2021"
     },
     {
-      "name": "Jim Nichols",
-      "rating": 1289.6,
-      "rubbers_played": 98,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Steve Ellis",
       "rating": 1289.3,
       "rubbers_played": 9,
@@ -3835,6 +3829,12 @@
       "last_played": "21 Jun 2026"
     },
     {
+      "name": "Mike Connolly",
+      "rating": 1279.8,
+      "rubbers_played": 207,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Richard Broadbent",
       "rating": 1278.7,
       "rubbers_played": 3,
@@ -3863,12 +3863,6 @@
       "rating": 1275.1,
       "rubbers_played": 30,
       "last_played": "28 June 2026"
-    },
-    {
-      "name": "John Huffington",
-      "rating": 1275,
-      "rubbers_played": 248,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Keigan Freeman Hacker",
@@ -3925,6 +3919,12 @@
       "last_played": "28 June 2026"
     },
     {
+      "name": "Charlie Meacham",
+      "rating": 1272.8,
+      "rubbers_played": 133,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Steve Lockett",
       "rating": 1272.7,
       "rubbers_played": 3,
@@ -3935,6 +3935,12 @@
       "rating": 1272.3,
       "rubbers_played": 12,
       "last_played": "14 September 2025"
+    },
+    {
+      "name": "John Huffington",
+      "rating": 1272.1,
+      "rubbers_played": 251,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Matt Richards",
@@ -4057,6 +4063,12 @@
       "last_played": "14 Jun 2026"
     },
     {
+      "name": "Jordan Gregory",
+      "rating": 1263,
+      "rubbers_played": 206,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "David Latimer",
       "rating": 1262.9,
       "rubbers_played": 167,
@@ -4147,12 +4159,6 @@
       "last_played": "14 May 2023"
     },
     {
-      "name": "Mike Connolly",
-      "rating": 1255.8,
-      "rubbers_played": 204,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Trevor Groate",
       "rating": 1255.3,
       "rubbers_played": 9,
@@ -4207,22 +4213,10 @@
       "last_played": "15 July 2018"
     },
     {
-      "name": "Colin Lefley",
-      "rating": 1252.4,
-      "rubbers_played": 110,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Sam Orbaum",
       "rating": 1251.7,
       "rubbers_played": 3,
       "last_played": "15 May 2022"
-    },
-    {
-      "name": "Jordan Gregory",
-      "rating": 1251.2,
-      "rubbers_played": 203,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "James Murphy",
@@ -4321,6 +4315,12 @@
       "last_played": "21 Jun 2026"
     },
     {
+      "name": "Mark McCandless",
+      "rating": 1243.5,
+      "rubbers_played": 27,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Liam Moore",
       "rating": 1243,
       "rubbers_played": 99,
@@ -4385,12 +4385,6 @@
       "rating": 1237.5,
       "rubbers_played": 58,
       "last_played": "28 June 2026"
-    },
-    {
-      "name": "Antony Beattie",
-      "rating": 1236.1,
-      "rubbers_played": 12,
-      "last_played": "17 August 2025"
     },
     {
       "name": "Andy Hodges",
@@ -4459,10 +4453,10 @@
       "last_played": "19 August 2018"
     },
     {
-      "name": "Mark McCandless",
+      "name": "Colin Lefley",
       "rating": 1231.2,
-      "rubbers_played": 24,
-      "last_played": "21 Jun 2026"
+      "rubbers_played": 113,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Gary Saunders",
@@ -4525,6 +4519,12 @@
       "last_played": "21 Jun 2026"
     },
     {
+      "name": "Antony Beattie",
+      "rating": 1226.8,
+      "rubbers_played": 15,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Ben McWalter",
       "rating": 1225.6,
       "rubbers_played": 6,
@@ -4547,6 +4547,12 @@
       "rating": 1225.4,
       "rubbers_played": 15,
       "last_played": "11 June 2023"
+    },
+    {
+      "name": "Neil Pratt",
+      "rating": 1224.8,
+      "rubbers_played": 182,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Mark Howarth",
@@ -4612,6 +4618,12 @@
       "name": "Ryan Curtis",
       "rating": 1220.9,
       "rubbers_played": 15,
+      "last_played": "28 June 2026"
+    },
+    {
+      "name": "Sam Duffy",
+      "rating": 1220.9,
+      "rubbers_played": 27,
       "last_played": "28 June 2026"
     },
     {
@@ -4735,6 +4747,12 @@
       "last_played": "9 September 2018"
     },
     {
+      "name": "Nathan Stretton",
+      "rating": 1212.4,
+      "rubbers_played": 3,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Rich Gillies",
       "rating": 1212.2,
       "rubbers_played": 23,
@@ -4811,12 +4829,6 @@
       "rating": 1206.6,
       "rubbers_played": 9,
       "last_played": "1 June 2025"
-    },
-    {
-      "name": "Neil Pratt",
-      "rating": 1206.5,
-      "rubbers_played": 179,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Phil Rigby",
@@ -5159,12 +5171,6 @@
       "rating": 1184.1,
       "rubbers_played": 23,
       "last_played": "2 July 2023"
-    },
-    {
-      "name": "Sam Duffy",
-      "rating": 1183.4,
-      "rubbers_played": 24,
-      "last_played": "14 Jun 2026"
     },
     {
       "name": "Matt Buckley",
@@ -5605,6 +5611,12 @@
       "last_played": "28 June 2026"
     },
     {
+      "name": "David Warner",
+      "rating": 1153.2,
+      "rubbers_played": 24,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Andrew Walton",
       "rating": 1152.4,
       "rubbers_played": 6,
@@ -5647,12 +5659,6 @@
       "last_played": "7 July 2019"
     },
     {
-      "name": "Adrian Shakeshaft",
-      "rating": 1148.7,
-      "rubbers_played": 203,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Mark Tebbutt",
       "rating": 1148.6,
       "rubbers_played": 72,
@@ -5681,6 +5687,18 @@
       "rating": 1147.2,
       "rubbers_played": 6,
       "last_played": "23 June 2024"
+    },
+    {
+      "name": "Sam Pratt",
+      "rating": 1146.1,
+      "rubbers_played": 124,
+      "last_played": "28 June 2026"
+    },
+    {
+      "name": "Adrian Shakeshaft",
+      "rating": 1145.8,
+      "rubbers_played": 206,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Matt Jones",
@@ -5729,6 +5747,12 @@
       "rating": 1142.4,
       "rubbers_played": 9,
       "last_played": "28 August 2022"
+    },
+    {
+      "name": "Charlie Dodds",
+      "rating": 1142.3,
+      "rubbers_played": 179,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Paul Godden",
@@ -5917,12 +5941,6 @@
       "last_played": "19 August 2018"
     },
     {
-      "name": "Max Toomey",
-      "rating": 1130.5,
-      "rubbers_played": 6,
-      "last_played": "14 Jun 2026"
-    },
-    {
       "name": "Jason Paver",
       "rating": 1130.4,
       "rubbers_played": 3,
@@ -5969,18 +5987,6 @@
       "rating": 1128.5,
       "rubbers_played": 63,
       "last_played": "2 June 2024"
-    },
-    {
-      "name": "Sam Pratt",
-      "rating": 1127.8,
-      "rubbers_played": 121,
-      "last_played": "21 Jun 2026"
-    },
-    {
-      "name": "David Warner",
-      "rating": 1127.3,
-      "rubbers_played": 21,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Alex Trembath",
@@ -6127,6 +6133,12 @@
       "last_played": "2 July 2023"
     },
     {
+      "name": "Richard Tate",
+      "rating": 1114.8,
+      "rubbers_played": 12,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Graham Ward",
       "rating": 1114.4,
       "rubbers_played": 12,
@@ -6173,12 +6185,6 @@
       "rating": 1112.1,
       "rubbers_played": 69,
       "last_played": "31 August 2025"
-    },
-    {
-      "name": "John Best",
-      "rating": 1112.1,
-      "rubbers_played": 81,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "John Wroot",
@@ -6443,12 +6449,6 @@
       "rating": 1097,
       "rubbers_played": 12,
       "last_played": "31 August 2025"
-    },
-    {
-      "name": "Charlie Dodds",
-      "rating": 1095.9,
-      "rubbers_played": 176,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Malcolm Barnes",
@@ -6721,6 +6721,12 @@
       "last_played": "14 Jun 2026"
     },
     {
+      "name": "Max Toomey",
+      "rating": 1078.2,
+      "rubbers_played": 9,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Dave Patmore",
       "rating": 1077.9,
       "rubbers_played": 6,
@@ -6731,12 +6737,6 @@
       "rating": 1077.8,
       "rubbers_played": 12,
       "last_played": "3 September 2023"
-    },
-    {
-      "name": "Richard Tate",
-      "rating": 1077.3,
-      "rubbers_played": 9,
-      "last_played": "14 Jun 2026"
     },
     {
       "name": "Ray Pahang",
@@ -6881,6 +6881,18 @@
       "rating": 1069,
       "rubbers_played": 6,
       "last_played": "20 August 2023"
+    },
+    {
+      "name": "John Best",
+      "rating": 1068.7,
+      "rubbers_played": 84,
+      "last_played": "28 June 2026"
+    },
+    {
+      "name": "Gordon Milne",
+      "rating": 1067.9,
+      "rubbers_played": 164,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Ben Tranter",
@@ -7087,12 +7099,6 @@
       "last_played": "28 June 2026"
     },
     {
-      "name": "Gordon Milne",
-      "rating": 1056.1,
-      "rubbers_played": 161,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Peter Clarke",
       "rating": 1055.9,
       "rubbers_played": 50,
@@ -7256,9 +7262,9 @@
     },
     {
       "name": "Gabriel Sadi",
-      "rating": 1046,
-      "rubbers_played": 45,
-      "last_played": "21 Jun 2026"
+      "rating": 1045.8,
+      "rubbers_played": 48,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Chris Houseman",
@@ -7277,12 +7283,6 @@
       "rating": 1045,
       "rubbers_played": 18,
       "last_played": "16 July 2023"
-    },
-    {
-      "name": "Ed Beckett",
-      "rating": 1044.7,
-      "rubbers_played": 36,
-      "last_played": "7 Jun 2026"
     },
     {
       "name": "Olivier Ryszawy",
@@ -7565,6 +7565,12 @@
       "rating": 1027.8,
       "rubbers_played": 15,
       "last_played": "31 May 2026"
+    },
+    {
+      "name": "Ed Beckett",
+      "rating": 1027.3,
+      "rubbers_played": 39,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Albert Forsey",
@@ -8113,12 +8119,6 @@
       "last_played": "2 September 2018"
     },
     {
-      "name": "Neil Little",
-      "rating": 996.7,
-      "rubbers_played": 119,
-      "last_played": "17 August 2025"
-    },
-    {
       "name": "Leon Codrai",
       "rating": 996.4,
       "rubbers_played": 24,
@@ -8233,15 +8233,15 @@
       "last_played": "4 September 2022"
     },
     {
-      "name": "Simon Westbrook",
-      "rating": 992.6,
-      "rubbers_played": 74,
-      "last_played": "14 Jun 2026"
-    },
-    {
       "name": "Matt Uttley",
       "rating": 992.4,
       "rubbers_played": 17,
+      "last_played": "28 June 2026"
+    },
+    {
+      "name": "Simon Westbrook",
+      "rating": 992.3,
+      "rubbers_played": 77,
       "last_played": "28 June 2026"
     },
     {
@@ -8615,6 +8615,12 @@
       "rating": 970.7,
       "rubbers_played": 6,
       "last_played": "3 May 2026"
+    },
+    {
+      "name": "Neil Little",
+      "rating": 970.2,
+      "rubbers_played": 122,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Jack Cameron",
@@ -9715,12 +9721,6 @@
       "last_played": "24 May 2026"
     },
     {
-      "name": "Chris Iles",
-      "rating": 917,
-      "rubbers_played": 104,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "Bertie Hardisty",
       "rating": 916.7,
       "rubbers_played": 6,
@@ -9815,12 +9815,6 @@
       "rating": 910.7,
       "rubbers_played": 6,
       "last_played": "19 Apr 2026"
-    },
-    {
-      "name": "Robert Field",
-      "rating": 910.2,
-      "rubbers_played": 48,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Craig Allison",
@@ -10111,6 +10105,12 @@
       "last_played": "28 June 2026"
     },
     {
+      "name": "Andy Gillies",
+      "rating": 895.8,
+      "rubbers_played": 36,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Robin Stacey",
       "rating": 895.7,
       "rubbers_played": 6,
@@ -10171,6 +10171,12 @@
       "last_played": "8 September 2019"
     },
     {
+      "name": "Robert Field",
+      "rating": 892.8,
+      "rubbers_played": 51,
+      "last_played": "28 June 2026"
+    },
+    {
       "name": "Alex Hanley",
       "rating": 892.6,
       "rubbers_played": 30,
@@ -10223,6 +10229,12 @@
       "rating": 890.5,
       "rubbers_played": 12,
       "last_played": "1 September 2019"
+    },
+    {
+      "name": "Chris Iles",
+      "rating": 890.5,
+      "rubbers_played": 107,
+      "last_played": "28 June 2026"
     },
     {
       "name": "William Browne",
@@ -10541,12 +10553,6 @@
       "rating": 872,
       "rubbers_played": 13,
       "last_played": "19 May 2019"
-    },
-    {
-      "name": "Andy Gillies",
-      "rating": 871.9,
-      "rubbers_played": 33,
-      "last_played": "21 Jun 2026"
     },
     {
       "name": "Dougie Molyneux",
@@ -11635,12 +11641,6 @@
       "last_played": "27 July 2025"
     },
     {
-      "name": "Ray Locke",
-      "rating": 742.1,
-      "rubbers_played": 126,
-      "last_played": "21 Jun 2026"
-    },
-    {
       "name": "North Pyper",
       "rating": 742,
       "rubbers_played": 11,
@@ -11705,6 +11705,12 @@
       "rating": 725.2,
       "rubbers_played": 21,
       "last_played": "10 May 2026"
+    },
+    {
+      "name": "Ray Locke",
+      "rating": 724.5,
+      "rubbers_played": 129,
+      "last_played": "28 June 2026"
     },
     {
       "name": "Phil Wood",
@@ -66278,6 +66284,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 1095.9497683098482
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1117.8833305340117
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1133.106751909102
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1142.2714355073101
       }
     ],
     "Martyn Turnbull": [
@@ -124915,6 +124936,21 @@
         "date": "17 August 2025",
         "fixture_id": 48,
         "rating": 996.7157474971068
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 993.0945532190117
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 979.4812731106923
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 970.2081449224779
       }
     ],
     "Ian Hamilton": [
@@ -129540,6 +129576,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 1275.0012850711119
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1267.8923698266585
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1255.9346757417359
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1272.086231635699
       }
     ],
     "Neil Pratt": [
@@ -130437,6 +130488,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 1206.480471448607
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1200.5290809831658
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1206.6242203221116
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1224.7733501927944
       }
     ],
     "Simon Gray": [
@@ -136119,6 +136185,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 639,
         "rating": 1364.9696470094682
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1358.8745076705225
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1370.832201755445
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1355.6087803803548
       }
     ],
     "Dan Bridge-Clarke": [
@@ -161724,6 +161805,21 @@
         "date": "31 May 2026",
         "fixture_id": 630,
         "rating": 1506.761919455123
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1528.6954816792866
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1543.9189030543769
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1553.083586652585
       }
     ],
     "Paul Whurr": [
@@ -180460,6 +180556,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 699,
         "rating": 1402.3677384236028
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1403.4040177757847
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1408.2704858546174
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1414.6365342924732
       }
     ],
     "Glenn Williams": [
@@ -181719,6 +181830,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 699,
         "rating": 1251.181059718184
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1274.9653995847004
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1283.9663041756119
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1262.9773403493007
       }
     ],
     "Mike Sokol": [
@@ -187269,6 +187395,21 @@
         "date": "31 May 2026",
         "fixture_id": 686,
         "rating": 1426.305133088746
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1425.268853736564
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1401.4845138700477
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1405.1057081481429
       }
     ],
     "Chris White": [
@@ -191155,6 +191296,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 643,
         "rating": 1521.3113253312222
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1527.262715796663
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1534.3716310411164
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1512.4380688169529
       }
     ],
     "Duncan Warren-Rix": [
@@ -194658,6 +194814,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 641,
         "rating": 1255.8416898971493
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1271.1619680999652
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1275.4389493821702
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1279.8085707154792
       }
     ],
     "Nick Lumb": [
@@ -240557,6 +240728,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 1148.6868686116202
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1141.5779533671669
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1129.6202592822442
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1145.7718151762074
       }
     ],
     "Simon Willis": [
@@ -243477,6 +243663,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 1127.7644103444463
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1121.8130198790052
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1127.908159217951
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1146.0572890886338
       }
     ],
     "Jack Fowler": [
@@ -256928,6 +257129,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 641,
         "rating": 1317.8257715883478
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1333.1460497911637
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1337.4230310733687
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1341.7926524066777
       }
     ],
     "Will Rogers": [
@@ -284900,6 +285116,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 699,
         "rating": 1056.0877128355944
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1079.8720527021108
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1088.8729572930222
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1067.883993466711
       }
     ],
     "Matt Ralph": [
@@ -312920,6 +313151,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 810,
         "rating": 742.1075534673749
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 737.7379321340661
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 732.7857622857468
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 724.5048921004876
       }
     ],
     "Clive Christiansen": [
@@ -328073,6 +328319,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 643,
         "rating": 1325.8664371784657
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1331.8178276439066
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1338.92674288836
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1316.9931806641964
       }
     ],
     "Tim Williams": [
@@ -339334,6 +339595,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 700,
         "rating": 871.8801058964087
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 865.5140574585528
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 886.5030212848641
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 895.7761494730785
       }
     ],
     "Peter Jones": [
@@ -340628,6 +340904,21 @@
         "date": "7 Jun 2026",
         "fixture_id": 633,
         "rating": 1384.0779819641866
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1400.125830832486
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1404.9913328716784
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1409.9435027199977
       }
     ],
     "Eddie Raistrick": [
@@ -363265,6 +363556,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 699,
         "rating": 916.989423447562
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 913.3682291694669
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 899.7549490611475
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 890.4818208729331
       }
     ],
     "Rich Timmins": [
@@ -380354,6 +380660,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 700,
         "rating": 1252.3551078386306
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1251.3188284864486
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1227.5344886199323
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1231.1556828980274
       }
     ],
     "Ollie Dundas": [
@@ -391079,6 +391400,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 639,
         "rating": 1316.295441354023
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1298.1463114833402
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1281.994755589377
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1272.830071991169
       }
     ],
     "Bert Caplan": [
@@ -422631,6 +422967,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 693,
         "rating": 992.5847527939949
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 987.7182847151623
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 978.7173801242509
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 992.3306602325703
       }
     ],
     "James Murphy": [
@@ -423645,6 +423996,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 700,
         "rating": 1289.561004716394
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1283.1949562785383
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1304.1839201048494
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1313.457048293064
       }
     ],
     "Ian Noble": [
@@ -436671,6 +437037,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 873,
         "rating": 1112.1399391195255
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1093.9908092488427
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1077.8392533548795
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1068.6745697566714
       }
     ],
     "Matthew Toy": [
@@ -439776,6 +440157,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 700,
         "rating": 1046.0459583429922
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1041.1794902641595
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1032.178585673248
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1045.7918657815674
       }
     ],
     "Lleyton Scott": [
@@ -450016,6 +450412,21 @@
         "date": "7 Jun 2026",
         "fixture_id": 803,
         "rating": 1044.7098563442198
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1040.4328750620148
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1035.5673730228223
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1027.2909286919285
       }
     ],
     "Alistair Scott-Somers": [
@@ -461707,6 +462118,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 644,
         "rating": 910.2356266876227
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 905.9586454054177
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 901.0931433662253
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 892.8166990353316
       }
     ],
     "Joe Rigby": [
@@ -462354,6 +462780,21 @@
         "date": "17 August 2025",
         "fixture_id": 214,
         "rating": 1236.1311533144765
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1230.0360139755308
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1241.9937080604534
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 646,
+        "rating": 1226.770286685363
       }
     ],
     "Paul Copley": [
@@ -480070,6 +480511,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 637,
         "rating": 1077.308033276185
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1098.2255670795932
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1106.502011410487
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1114.7828815957464
       }
     ],
     "Lindsay Edgar": [
@@ -481735,6 +482191,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 641,
         "rating": 1127.333146218593
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1143.3809950868922
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1148.2464971260847
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1153.198666974404
       }
     ],
     "Oliver Walsh": [
@@ -483446,6 +483917,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 637,
         "rating": 1183.3862019590376
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1204.303735762446
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1212.5801800933398
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1220.8610502785991
       }
     ],
     "John Barker": [
@@ -484093,6 +484579,21 @@
         "date": "21 Jun 2026",
         "fixture_id": 699,
         "rating": 1231.22437379961
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1232.260653151792
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1237.1271212306247
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 702,
+        "rating": 1243.4931696684805
       }
     ],
     "Liam McCreesh": [
@@ -486003,6 +486504,21 @@
         "date": "31 August 2025",
         "fixture_id": 107,
         "rating": 1413.62555232836
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1398.3052741255442
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1382.257425257245
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1361.3398914538366
       }
     ],
     "Oscar Calvert": [
@@ -490556,6 +491072,21 @@
         "date": "14 Jun 2026",
         "fixture_id": 638,
         "rating": 1130.5041884018046
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1115.1839101989888
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1099.1360613306895
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1078.2185275272811
       }
     ],
     "Mark Hopwood": [
@@ -491154,6 +491685,23 @@
         "date": "28 June 2026",
         "fixture_id": 590,
         "rating": 1345.787352718938
+      }
+    ],
+    "Nathan Stretton": [
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1225.630378666691
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1220.6782088183718
+      },
+      {
+        "date": "28 June 2026",
+        "fixture_id": 645,
+        "rating": 1212.3973386331124
       }
     ],
     "Tom Smith": [
