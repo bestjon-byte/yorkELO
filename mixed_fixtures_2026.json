@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-06-28T22:00:11.351Z",
+  "scraped_at": "2026-06-29T22:07:46.002Z",
   "season": 2026,
-  "fixture_count": 236,
-  "rubber_count": 2124,
+  "fixture_count": 237,
+  "rubber_count": 2133,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -11225,12 +11225,103 @@
       "date": "29.06.26",
       "home_team": "Rowntree Park 2",
       "away_team": "Wilberfoss 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 5,
+      "away_sets": 2,
+      "home_games": 57,
+      "away_games": 51,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115745",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "Tony Downing",
+          "away_player2": "Christine Twigge",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "Adrian Shakeshaft",
+          "away_player2": "Dinah Burke",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Conor Holness",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "tbc",
+          "away_player2": "Bev Tebbutt",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "tbc",
+          "away_player2": "Bev Tebbutt",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "Tony Downing",
+          "away_player2": "Christine Twigge",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Conor Holness",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "Adrian Shakeshaft",
+          "away_player2": "Dinah Burke",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Martin Pinfold",
+          "home_player2": "Julia Raybauld",
+          "away_player1": "Adrian Shakeshaft",
+          "away_player2": "Dinah Burke",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Alexander Beard",
+          "home_player2": "Ashley Beard",
+          "away_player1": "tbc",
+          "away_player2": "Bev Tebbutt",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Conor Holness",
+          "home_player2": "Brooke Morrison",
+          "away_player1": "Tony Downing",
+          "away_player2": "Christine Twigge",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115723",
