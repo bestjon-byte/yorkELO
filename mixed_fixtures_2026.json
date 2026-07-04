@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-03T22:02:47.183Z",
+  "scraped_at": "2026-07-04T21:56:25.017Z",
   "season": 2026,
-  "fixture_count": 260,
-  "rubber_count": 2340,
+  "fixture_count": 261,
+  "rubber_count": 2349,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -29915,12 +29915,103 @@
       "date": "03.07.26",
       "home_team": "Tadcaster",
       "away_team": "Sutton On Derwent 4",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 6,
+      "away_sets": 3,
+      "home_games": 70,
+      "away_games": 38,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115054",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Racheal Farrington",
+          "away_player1": "Ian Broadbent",
+          "away_player2": "Bea Los",
+          "home_games": 12,
+          "away_games": 0,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Jonathan Gray",
+          "home_player2": "Helen Taylor",
+          "away_player1": "Rory Ridley",
+          "away_player2": "Rachael Goode",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Andrew Robinson",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "George Black",
+          "away_player2": "Charlie Smithch",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Racheal Farrington",
+          "away_player1": "George Black",
+          "away_player2": "Charlie Smithch",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Jonathan Gray",
+          "home_player2": "Helen Taylor",
+          "away_player1": "Ian Broadbent",
+          "away_player2": "Bea Los",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Andrew Robinson",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "Rory Ridley",
+          "away_player2": "Rachael Goode",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Ian Cheung",
+          "home_player2": "Racheal Farrington",
+          "away_player1": "Rory Ridley",
+          "away_player2": "Rachael Goode",
+          "home_games": 12,
+          "away_games": 0,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Jonathan Gray",
+          "home_player2": "Helen Taylor",
+          "away_player1": "George Black",
+          "away_player2": "Charlie Smithch",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Andrew Robinson",
+          "home_player2": "Kirkby Rachel",
+          "away_player1": "Ian Broadbent",
+          "away_player2": "Bea Los",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115016",
