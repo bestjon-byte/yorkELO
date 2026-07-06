@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-05T21:58:51.282Z",
+  "scraped_at": "2026-07-06T22:12:02.713Z",
   "season": 2026,
-  "fixture_count": 261,
-  "rubber_count": 2349,
+  "fixture_count": 262,
+  "rubber_count": 2358,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -15698,12 +15698,103 @@
       "date": "06.07.26",
       "home_team": "Heworth 2",
       "away_team": "David Lloyd 4",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 9,
+      "away_sets": 0,
+      "home_games": 93,
+      "away_games": 15,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115696",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "David Hicks",
+          "home_player2": "Smriti Safaya",
+          "away_player1": "Lee Brayford",
+          "away_player2": "Katy Fowler",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Tom Hardy",
+          "home_player2": "Helen Gray",
+          "away_player1": "Naz Hosseinian",
+          "away_player2": "Kirsty Kennedy",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Joel Grainger",
+          "home_player2": "Rachel Hicks",
+          "away_player1": "tbc",
+          "away_player2": "Jessica Fox",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "David Hicks",
+          "home_player2": "Smriti Safaya",
+          "away_player1": "tbc",
+          "away_player2": "Jessica Fox",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Tom Hardy",
+          "home_player2": "Helen Gray",
+          "away_player1": "Lee Brayford",
+          "away_player2": "Katy Fowler",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Joel Grainger",
+          "home_player2": "Rachel Hicks",
+          "away_player1": "Naz Hosseinian",
+          "away_player2": "Kirsty Kennedy",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "David Hicks",
+          "home_player2": "Smriti Safaya",
+          "away_player1": "Naz Hosseinian",
+          "away_player2": "Kirsty Kennedy",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Tom Hardy",
+          "home_player2": "Helen Gray",
+          "away_player1": "tbc",
+          "away_player2": "Jessica Fox",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Joel Grainger",
+          "home_player2": "Rachel Hicks",
+          "away_player1": "Lee Brayford",
+          "away_player2": "Katy Fowler",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115692",
