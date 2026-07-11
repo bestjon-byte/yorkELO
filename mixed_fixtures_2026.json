@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-10T21:59:23.058Z",
+  "scraped_at": "2026-07-11T21:45:34.265Z",
   "season": 2026,
-  "fixture_count": 293,
-  "rubber_count": 2637,
+  "fixture_count": 294,
+  "rubber_count": 2646,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -2559,12 +2559,103 @@
       "date": "10.07.26",
       "home_team": "David Lloyd 1",
       "away_team": "Wigginton 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 5,
+      "away_sets": 3,
+      "home_games": 52,
+      "away_games": 56,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115881",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Tom Bowman",
+          "home_player2": "Cheyenne Fee",
+          "away_player1": "Ben Walker",
+          "away_player2": "Lucy Jones",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Jan Dyl",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Josh Hunt",
+          "away_player2": "Kate Reader",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Sam Toomey",
+          "home_player2": "Gillie Foxton",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Naomi Fellows",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Tom Bowman",
+          "home_player2": "Cheyenne Fee",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Naomi Fellows",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Jan Dyl",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Ben Walker",
+          "away_player2": "Lucy Jones",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Sam Toomey",
+          "home_player2": "Gillie Foxton",
+          "away_player1": "Josh Hunt",
+          "away_player2": "Kate Reader",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Tom Bowman",
+          "home_player2": "Cheyenne Fee",
+          "away_player1": "Josh Hunt",
+          "away_player2": "Kate Reader",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Jan Dyl",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Naomi Fellows",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Sam Toomey",
+          "home_player2": "Gillie Foxton",
+          "away_player1": "Ben Walker",
+          "away_player2": "Lucy Jones",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115929",
