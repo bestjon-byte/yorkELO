@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-19T21:43:12.320Z",
+  "scraped_at": "2026-07-20T21:17:53.669Z",
   "season": 2026,
   "fixture_count": 313,
   "rubber_count": 2817,
@@ -29953,7 +29953,7 @@
         {
           "rubber_order": 1,
           "home_player1": "Rob Jackson",
-          "home_player2": "Dave Corfield",
+          "home_player2": "David Myers",
           "away_player1": "Steve Plant",
           "away_player2": "Chris Dight",
           "home_games": 10,
@@ -29963,7 +29963,7 @@
         {
           "rubber_order": 2,
           "home_player1": "Rob Jackson",
-          "home_player2": "Dave Corfield",
+          "home_player2": "David Myers",
           "away_player1": "James Lethaby",
           "away_player2": "Will Rogers",
           "home_games": 6,
@@ -29973,7 +29973,7 @@
         {
           "rubber_order": 3,
           "home_player1": "Rob Jackson",
-          "home_player2": "Dave Corfield",
+          "home_player2": "David Myers",
           "away_player1": "Andy Davis",
           "away_player2": "Cameron Bell",
           "home_games": 2,
@@ -31890,93 +31890,93 @@
       "rubbers": [
         {
           "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Peter Kirk",
+          "home_player2": "Joel Brown",
+          "away_player1": "Ian Bews",
+          "away_player2": "Bob Douglas",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
         },
         {
           "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Peter Kirk",
+          "home_player2": "Joel Brown",
+          "away_player1": "Ryan De Koning",
+          "away_player2": "Dan Cashdan",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
         },
         {
           "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Peter Kirk",
+          "home_player2": "Joel Brown",
+          "away_player1": "Johan Kuylenstierna",
+          "away_player2": "Paul Boyes-Watson",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
         },
         {
           "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Les Almond",
+          "away_player1": "Ian Bews",
+          "away_player2": "Bob Douglas",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
         },
         {
           "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Les Almond",
+          "away_player1": "Ryan De Koning",
+          "away_player2": "Dan Cashdan",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
         },
         {
           "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Alan Wreglesworth",
+          "home_player2": "Les Almond",
+          "away_player1": "Johan Kuylenstierna",
+          "away_player2": "Paul Boyes-Watson",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
         },
         {
           "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Will Turner",
+          "home_player2": "Chris Turner",
+          "away_player1": "Ian Bews",
+          "away_player2": "Bob Douglas",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
         },
         {
           "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Will Turner",
+          "home_player2": "Chris Turner",
+          "away_player1": "Ryan De Koning",
+          "away_player2": "Dan Cashdan",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
         },
         {
           "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Will Turner",
+          "home_player2": "Chris Turner",
+          "away_player1": "Johan Kuylenstierna",
+          "away_player2": "Paul Boyes-Watson",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
         }
       ],
       "time": null
