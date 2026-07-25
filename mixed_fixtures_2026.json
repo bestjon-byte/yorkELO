@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-24T22:02:40.513Z",
+  "scraped_at": "2026-07-25T21:52:51.432Z",
   "season": 2026,
-  "fixture_count": 349,
-  "rubber_count": 3140,
+  "fixture_count": 350,
+  "rubber_count": 3149,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -8040,12 +8040,103 @@
       "date": "23.07.26",
       "home_team": "Poppleton 2",
       "away_team": "York 4",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 3,
+      "away_sets": 3,
+      "home_games": 50,
+      "away_games": 58,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115848",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Luke Howard",
+          "home_player2": "Freya Devine",
+          "away_player1": "Jake Abbas",
+          "away_player2": "Laura Rhodes",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Jack Lewis",
+          "home_player2": "Laura Turnbull",
+          "away_player1": "Joe Constable",
+          "away_player2": "Jess Southwell",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Andy Graham",
+          "home_player2": "Linda Opie",
+          "away_player1": "Bradley Austin",
+          "away_player2": "Debbie Holman",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Luke Howard",
+          "home_player2": "Freya Devine",
+          "away_player1": "Bradley Austin",
+          "away_player2": "Debbie Holman",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Jack Lewis",
+          "home_player2": "Laura Turnbull",
+          "away_player1": "Jake Abbas",
+          "away_player2": "Laura Rhodes",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Andy Graham",
+          "home_player2": "Linda Opie",
+          "away_player1": "Joe Constable",
+          "away_player2": "Jess Southwell",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Luke Howard",
+          "home_player2": "Freya Devine",
+          "away_player1": "Joe Constable",
+          "away_player2": "Jess Southwell",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Jack Lewis",
+          "home_player2": "Laura Turnbull",
+          "away_player1": "Bradley Austin",
+          "away_player2": "Debbie Holman",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Andy Graham",
+          "home_player2": "Linda Opie",
+          "away_player1": "Jake Abbas",
+          "away_player2": "Laura Rhodes",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115870",
