@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-01T21:52:19.389Z",
+  "scraped_at": "2026-08-02T21:52:43.533Z",
   "season": 2026,
-  "fixture_count": 386,
-  "rubber_count": 3473,
+  "fixture_count": 387,
+  "rubber_count": 3482,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -22068,12 +22068,103 @@
       "date": "30.07.26",
       "home_team": "Sutton On Derwent 2",
       "away_team": "Riccall 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 2,
+      "away_sets": 7,
+      "home_games": 35,
+      "away_games": 73,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115722",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "James Sweeting",
+          "home_player2": "Emma Scutt",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Matt Ward",
+          "home_player2": "Nicola Graham",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "James Bolton",
+          "home_player2": "Sally Simpson",
+          "away_player1": "Andrew Dunning",
+          "away_player2": "Izzy Anstee",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "James Sweeting",
+          "home_player2": "Emma Scutt",
+          "away_player1": "Andrew Dunning",
+          "away_player2": "Izzy Anstee",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Matt Ward",
+          "home_player2": "Nicola Graham",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "James Bolton",
+          "home_player2": "Sally Simpson",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "James Sweeting",
+          "home_player2": "Emma Scutt",
+          "away_player1": "Steven Capewell",
+          "away_player2": "Evie Capewell",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Matt Ward",
+          "home_player2": "Nicola Graham",
+          "away_player1": "Andrew Dunning",
+          "away_player2": "Izzy Anstee",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "James Bolton",
+          "home_player2": "Sally Simpson",
+          "away_player1": "Ben Drummond",
+          "away_player2": "Rachel Clark",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115695",
