@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-07-29T20:57:35.331Z",
+  "scraped_at": "2026-08-02T13:09:15.582Z",
   "season": 2026,
-  "fixture_count": 317,
-  "rubber_count": 2853,
+  "fixture_count": 321,
+  "rubber_count": 2889,
   "skipped_fixture_ids": [],
   "fixtures": [
     {
@@ -31987,7 +31987,7 @@
       "fixture_id": 647,
       "season": 2026,
       "division": 4,
-      "date": "26 July 2026",
+      "date": "26 Jul 2026",
       "home_team": "Wigginton 3",
       "away_team": "Starbeck 1",
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/647",
@@ -32089,7 +32089,7 @@
       "fixture_id": 679,
       "season": 2026,
       "division": 5,
-      "date": "26 July 2026",
+      "date": "26 Jul 2026",
       "home_team": "Harlow 2",
       "away_team": "Racquets 2",
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/679",
@@ -32191,7 +32191,7 @@
       "fixture_id": 708,
       "season": 2026,
       "division": 5,
-      "date": "26 July 2026",
+      "date": "26 Jul 2026",
       "home_team": "Boston Spa 2",
       "away_team": "Sutton Upon Derwent 2",
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/708",
@@ -32293,7 +32293,7 @@
       "fixture_id": 872,
       "season": 2026,
       "division": 8,
-      "date": "26 July 2026",
+      "date": "26 Jul 2026",
       "home_team": "Bubwith 3",
       "away_team": "Knaresborough 3",
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/872",
@@ -32393,39 +32393,411 @@
     },
     {
       "fixture_id": 475,
-      "date": "2 Aug 2026",
-      "time": null,
+      "season": 2026,
+      "division": 1,
+      "date": "2 August 2026",
       "home_team": "Wigginton 2",
       "away_team": "Wigginton 1",
-      "division": 1,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/475",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": null
     },
     {
       "fixture_id": 519,
-      "date": "2 Aug 2026",
-      "time": "10:00",
+      "season": 2026,
+      "division": 2,
+      "date": "2 August 2026",
       "home_team": "York 2",
       "away_team": "Wetherby 1",
-      "division": 2,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/519",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 852,
-      "date": "2 Aug 2026",
-      "time": "10:00",
+      "season": 2026,
+      "division": 8,
+      "date": "2 August 2026",
       "home_team": "Knaresborough 3",
       "away_team": "Poppleton 4",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/852",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 860,
-      "date": "2 Aug 2026",
-      "time": "10:00",
+      "season": 2026,
+      "division": 8,
+      "date": "2 August 2026",
       "home_team": "Bubwith 3",
       "away_team": "Cawood 2",
-      "division": 8,
-      "rubbers": []
+      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/860",
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "",
+          "home_player2": "",
+          "away_player1": "",
+          "away_player2": "",
+          "home_games": null,
+          "away_games": null,
+          "winner": null
+        }
+      ],
+      "time": "10:00"
     },
     {
       "fixture_id": 533,
