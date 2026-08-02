@@ -130,12 +130,14 @@ async function main() {
   const now = new Date();
   const today = new Date();
   today.setHours(23, 59, 59, 999);
+  let totalDivisionLinks = 0;
 
   for (let div = 1; div <= DIVISIONS; div++) {
     process.stdout.write(`Division ${div}: fetching season schedule...`);
     const divisionFixtures = await getFixturesFromDivisionPage(div);
     console.log(` ${divisionFixtures.length} matches found`);
-    
+    totalDivisionLinks += divisionFixtures.length;
+
     for (const item of divisionFixtures) {
       const id = item.id;
       const existing = existingMap.get(id);
@@ -187,6 +189,14 @@ async function main() {
       await sleep(DELAY_MS);
     }
     await sleep(DELAY_MS);
+  }
+
+  // A genuinely fixture-free season would still list upcoming/empty rows on
+  // the division pages — 0 links across every division means the site didn't
+  // respond as expected (blocked, down, markup changed), not that the season
+  // is actually empty. Bail out rather than overwrite known-good data with it.
+  if (totalDivisionLinks === 0 && existingData.fixtures.length > 0) {
+    throw new Error(`All ${DIVISIONS} division pages returned 0 fixture links, but ${existingData.fixtures.length} were already known — treating as a failed scrape, not a real 0. Leaving ${OUT_PATH} untouched.`);
   }
 
   allFixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
