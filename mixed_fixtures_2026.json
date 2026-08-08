@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-07T21:35:53.991Z",
+  "scraped_at": "2026-08-08T21:26:40.958Z",
   "season": 2026,
-  "fixture_count": 419,
-  "rubber_count": 3770,
+  "fixture_count": 421,
+  "rubber_count": 3788,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -23762,12 +23762,103 @@
       "date": "07.08.26",
       "home_team": "David Lloyd 4",
       "away_team": "Sutton On Derwent 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 0,
+      "away_sets": 9,
+      "home_games": 16,
+      "away_games": 92,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115686",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "Chris Hobson",
+          "away_player2": "Sally Simpson",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Andrei Romanov",
+          "home_player2": "Emma Moore",
+          "away_player1": "tbc",
+          "away_player2": "Clare Parkes",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Dave Rowland",
+          "home_player2": "Katelyn Ross",
+          "away_player1": "Alex Patient",
+          "away_player2": "tbc",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "Alex Patient",
+          "away_player2": "tbc",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Andrei Romanov",
+          "home_player2": "Emma Moore",
+          "away_player1": "Chris Hobson",
+          "away_player2": "Sally Simpson",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Dave Rowland",
+          "home_player2": "Katelyn Ross",
+          "away_player1": "tbc",
+          "away_player2": "Clare Parkes",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Lee Brayford",
+          "home_player2": "Katy Fowler",
+          "away_player1": "tbc",
+          "away_player2": "Clare Parkes",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Andrei Romanov",
+          "home_player2": "Emma Moore",
+          "away_player1": "Alex Patient",
+          "away_player2": "tbc",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Dave Rowland",
+          "home_player2": "Katelyn Ross",
+          "away_player1": "Chris Hobson",
+          "away_player2": "Sally Simpson",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115694",
@@ -40419,12 +40510,103 @@
       "date": "06.08.26",
       "home_team": "Stamford Bridge",
       "away_team": "Wetherby 3",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 2,
+      "away_sets": 5,
+      "home_games": 42,
+      "away_games": 66,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115146",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Ben Muir",
+          "home_player2": "Natalie Muir",
+          "away_player1": "Adam Chandler",
+          "away_player2": "Eleanor Gold",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Fabian Blair",
+          "home_player2": "Claire Twigg",
+          "away_player1": "George Heaton",
+          "away_player2": "Annabel Walker",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Alistair Sommerville",
+          "home_player2": "Rachel Thomas",
+          "away_player1": "Tony Cutler",
+          "away_player2": "Heather Cavell",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Ben Muir",
+          "home_player2": "Natalie Muir",
+          "away_player1": "Tony Cutler",
+          "away_player2": "Heather Cavell",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Fabian Blair",
+          "home_player2": "Claire Twigg",
+          "away_player1": "Adam Chandler",
+          "away_player2": "Eleanor Gold",
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Alistair Sommerville",
+          "home_player2": "Rachel Thomas",
+          "away_player1": "George Heaton",
+          "away_player2": "Annabel Walker",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Ben Muir",
+          "home_player2": "Natalie Muir",
+          "away_player1": "George Heaton",
+          "away_player2": "Annabel Walker",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Fabian Blair",
+          "home_player2": "Claire Twigg",
+          "away_player1": "Tony Cutler",
+          "away_player2": "Heather Cavell",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Alistair Sommerville",
+          "home_player2": "Rachel Thomas",
+          "away_player1": "Adam Chandler",
+          "away_player2": "Eleanor Gold",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115126",
