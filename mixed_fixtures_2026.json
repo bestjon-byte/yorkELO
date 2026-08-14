@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-13T21:40:58.968Z",
+  "scraped_at": "2026-08-14T21:21:36.784Z",
   "season": 2026,
-  "fixture_count": 433,
-  "rubber_count": 3896,
+  "fixture_count": 434,
+  "rubber_count": 3905,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -3924,12 +3924,103 @@
       "date": "12.08.26",
       "home_team": "Wigginton 1",
       "away_team": "Wigginton 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 9,
+      "away_sets": 0,
+      "home_games": 72,
+      "away_games": 36,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115915",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Josh Hunt",
+          "home_player2": "Lucy Jones",
+          "away_player1": "Ben Storey",
+          "away_player2": "Sarah Blacker",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "James Shaw",
+          "home_player2": "Eleanor Walker",
+          "away_player1": "Phil Langley",
+          "away_player2": "Kate Dance",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Seb Holowkiewicz",
+          "home_player2": "Gayle Audley",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Fran Critchley",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Josh Hunt",
+          "home_player2": "Lucy Jones",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Fran Critchley",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "James Shaw",
+          "home_player2": "Eleanor Walker",
+          "away_player1": "Ben Storey",
+          "away_player2": "Sarah Blacker",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Seb Holowkiewicz",
+          "home_player2": "Gayle Audley",
+          "away_player1": "Phil Langley",
+          "away_player2": "Kate Dance",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Josh Hunt",
+          "home_player2": "Lucy Jones",
+          "away_player1": "Phil Langley",
+          "away_player2": "Kate Dance",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "James Shaw",
+          "home_player2": "Eleanor Walker",
+          "away_player1": "Andrew Withers",
+          "away_player2": "Fran Critchley",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Seb Holowkiewicz",
+          "home_player2": "Gayle Audley",
+          "away_player1": "Ben Storey",
+          "away_player2": "Sarah Blacker",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115923",
@@ -19018,7 +19109,7 @@
           "rubber_order": 3,
           "home_player1": "Adrian Shakeshaft",
           "home_player2": "Christine Twigge",
-          "away_player1": "tbc",
+          "away_player1": "Basil Plowman",
           "away_player2": "Natasia Wiszniewska",
           "home_games": 5,
           "away_games": 7,
@@ -19028,7 +19119,7 @@
           "rubber_order": 4,
           "home_player1": "Tony Downing",
           "home_player2": "Rachel Booth",
-          "away_player1": "tbc",
+          "away_player1": "Basil Plowman",
           "away_player2": "Natasia Wiszniewska",
           "home_games": 6,
           "away_games": 6,
@@ -19068,7 +19159,7 @@
           "rubber_order": 8,
           "home_player1": "Sam Pratt",
           "home_player2": "Georgia Pratt",
-          "away_player1": "tbc",
+          "away_player1": "Basil Plowman",
           "away_player2": "Natasia Wiszniewska",
           "home_games": 6,
           "away_games": 6,
