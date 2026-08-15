@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-14T21:21:36.784Z",
+  "scraped_at": "2026-08-15T21:17:37.060Z",
   "season": 2026,
-  "fixture_count": 434,
-  "rubber_count": 3905,
+  "fixture_count": 435,
+  "rubber_count": 3914,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -4029,12 +4029,103 @@
       "date": "14.08.26",
       "home_team": "David Lloyd 1",
       "away_team": "York 1",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 6,
+      "away_sets": 3,
+      "home_games": 69,
+      "away_games": 39,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115923",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Jake Lonsdale",
+          "away_player2": "Fay Wise",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Kian Kamyab",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Steve Smith",
+          "away_player2": "Wendy Stirke",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Seb Wraith-lobley",
+          "home_player2": "Imogen Stevens",
+          "away_player1": "Pierre-luc Emond",
+          "away_player2": "Andrea Mayne",
+          "home_games": 11,
+          "away_games": 1,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Pierre-luc Emond",
+          "away_player2": "Andrea Mayne",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Kian Kamyab",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Jake Lonsdale",
+          "away_player2": "Fay Wise",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Seb Wraith-lobley",
+          "home_player2": "Imogen Stevens",
+          "away_player1": "Steve Smith",
+          "away_player2": "Wendy Stirke",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Hugo Barnard",
+          "home_player2": "Milly Sidaway",
+          "away_player1": "Steve Smith",
+          "away_player2": "Wendy Stirke",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Kian Kamyab",
+          "home_player2": "Amelia Baranska",
+          "away_player1": "Pierre-luc Emond",
+          "away_player2": "Andrea Mayne",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Seb Wraith-lobley",
+          "home_player2": "Imogen Stevens",
+          "away_player1": "Jake Lonsdale",
+          "away_player2": "Fay Wise",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115906",
