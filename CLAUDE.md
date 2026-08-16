@@ -37,6 +37,14 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 - **Scoring format:** The league uses "best of N games" (default 12), NOT standard tennis sets. Score = `round(p × N)` vs `N − round(p × N)`. Never use a hardcoded tennis-set lookup table.
 - **Player picker dropdowns:** When a club filter is active, show ALL matching players — do not cap the list. Only cap (e.g. 10) when no filter is active and the user hasn't typed anything.
 
+## MCP Server (remote connector)
+
+- `api/mcp.js` — a remote MCP server exposing the league data as tools, for connecting to any MCP client (Claude, etc.) via URL: `https://<deployment>/api/mcp`
+- Stateless Streamable HTTP transport (`@modelcontextprotocol/sdk`) — builds a fresh `McpServer` + transport per request since Vercel functions don't share memory across invocations. No auth (data is public league results).
+- Tools: `search_players`, `get_player`, `get_leaderboard`, `get_match_history`, `compare_players`, `list_clubs` — all take an optional `league: "mens" | "mixed"` param.
+- Locally testable via `server.js`, which delegates `/api/mcp` straight to the handler (same pattern as `/api/team-ratings`).
+- When adding a new tool, only touch `api/mcp.js` — it reads directly from Supabase like `api/leaderboard.js` / `api/player/[name].js`, so it does NOT need the four-places update that `buildPlayerStats()` changes require.
+
 ## Vercel Deployment
 
 - Local `server.js` does not auto-serve directory index files. Fix: `if (!path.extname(filePath)) filePath = filePath.replace(/\/?$/, '/index.html')` before `fs.readFile`. Vercel handles this automatically.

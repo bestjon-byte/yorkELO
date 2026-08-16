@@ -233,6 +233,11 @@ const server = http.createServer((req, res) => {
     return teamRatingsHandler(req, res);
   }
 
+  if (pathname === '/api/mcp') {
+    const mcpHandler = require('./api/mcp');
+    return mcpHandler(req, res);
+  }
+
   let filePath = pathname === '/' ? '/index.html' : pathname;
   if (!path.extname(filePath)) filePath = filePath.replace(/\/?$/, '/index.html');
   const fullPath = path.join(__dirname, 'public', filePath);
