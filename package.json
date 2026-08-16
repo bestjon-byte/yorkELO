@@ -12,8 +12,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@supabase/supabase-js": "2.98.0",
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "dotenv": "16.6.1",
