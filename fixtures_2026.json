@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-08-16T21:12:31.792Z",
+  "scraped_at": "2026-08-17T06:24:34.356Z",
   "season": 2026,
   "fixture_count": 350,
   "rubber_count": 3150,
@@ -105,7 +105,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 57,
+      "away_games": 51,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 842,
@@ -207,7 +212,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 52,
+      "away_games": 56,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 849,
@@ -309,7 +319,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 449,
@@ -411,7 +426,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 450,
@@ -513,7 +533,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 64,
+      "away_games": 44,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 451,
@@ -615,7 +640,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 452,
@@ -717,7 +747,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 505,
@@ -819,7 +854,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 507,
@@ -921,7 +961,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 508,
@@ -1023,7 +1068,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 64,
+      "away_games": 44,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 561,
@@ -1125,7 +1175,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 562,
@@ -1227,7 +1282,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 564,
@@ -1329,7 +1389,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 617,
@@ -1431,7 +1496,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 618,
@@ -1533,7 +1603,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 76,
+      "away_games": 32,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 619,
@@ -1635,7 +1710,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 43,
+      "away_games": 65,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 620,
@@ -1737,7 +1817,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 674,
@@ -1839,7 +1924,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 7,
+      "away_points": 5,
+      "conceded_by": null
     },
     {
       "fixture_id": 675,
@@ -1941,7 +2031,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 676,
@@ -2043,7 +2138,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 729,
@@ -2145,7 +2245,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 730,
@@ -2247,7 +2352,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 28,
+      "away_games": 80,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 731,
@@ -2349,7 +2459,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 38,
+      "away_games": 70,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 732,
@@ -2451,7 +2566,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 27,
+      "away_games": 81,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 785,
@@ -2553,7 +2673,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 5.5,
+      "away_points": 6.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 786,
@@ -2655,7 +2780,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 787,
@@ -2757,7 +2887,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 788,
@@ -2859,7 +2994,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 76,
+      "away_games": 32,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 841,
@@ -2961,7 +3101,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 843,
@@ -3063,7 +3208,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 845,
@@ -3165,7 +3315,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 856,
@@ -3267,7 +3422,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 6.5,
+      "away_points": 5.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 453,
@@ -3369,7 +3529,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 16,
+      "away_games": 92,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 454,
@@ -3471,7 +3636,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 455,
@@ -3573,7 +3743,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 456,
@@ -3675,7 +3850,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 25,
+      "away_games": 83,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 512,
@@ -3777,7 +3957,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 52,
+      "away_games": 56,
+      "home_points": 5.5,
+      "away_points": 6.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 509,
@@ -3879,7 +4064,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 510,
@@ -3981,7 +4171,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 565,
@@ -4083,7 +4278,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 27,
+      "away_games": 81,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 567,
@@ -4185,7 +4385,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 568,
@@ -4287,7 +4492,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 621,
@@ -4389,7 +4599,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 48,
+      "away_games": 60,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 623,
@@ -4491,7 +4706,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 624,
@@ -4593,7 +4813,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 31,
+      "away_games": 77,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 677,
@@ -4695,7 +4920,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 678,
@@ -4797,7 +5027,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 57,
+      "away_games": 51,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 680,
@@ -4899,7 +5134,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 733,
@@ -5001,7 +5241,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 80,
+      "away_games": 28,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 734,
@@ -5103,7 +5348,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 81,
+      "away_games": 27,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 735,
@@ -5205,7 +5455,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 39,
+      "away_games": 69,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 736,
@@ -5307,7 +5562,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 789,
@@ -5409,7 +5669,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 790,
@@ -5511,7 +5776,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 81,
+      "away_games": 27,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 791,
@@ -5613,7 +5883,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 85,
+      "away_games": 23,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 792,
@@ -5715,7 +5990,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 26,
+      "away_games": 82,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 846,
@@ -5817,7 +6097,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 23,
+      "away_games": 85,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 847,
@@ -5919,7 +6204,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 32,
+      "away_games": 76,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 848,
@@ -6021,7 +6311,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 18,
+      "away_games": 90,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 850,
@@ -6123,7 +6418,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 457,
@@ -6225,7 +6525,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 100,
+      "away_games": 8,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 458,
@@ -6327,7 +6632,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 459,
@@ -6429,7 +6739,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 460,
@@ -6531,7 +6846,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 513,
@@ -6633,7 +6953,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 514,
@@ -6735,7 +7060,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 70,
+      "away_games": 38,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 516,
@@ -6837,7 +7167,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 66,
+      "away_games": 42,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 569,
@@ -6939,7 +7274,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 570,
@@ -7041,7 +7381,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 571,
@@ -7143,7 +7488,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 625,
@@ -7245,7 +7595,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 626,
@@ -7347,7 +7702,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 627,
@@ -7449,7 +7809,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 628,
@@ -7551,7 +7916,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 681,
@@ -7653,7 +8023,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 682,
@@ -7755,7 +8130,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 683,
@@ -7857,7 +8237,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 22,
+      "away_games": 86,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 684,
@@ -7959,7 +8344,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 737,
@@ -8061,7 +8451,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 738,
@@ -8163,7 +8558,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 739,
@@ -8265,7 +8665,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 32,
+      "away_games": 76,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 740,
@@ -8367,7 +8772,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 793,
@@ -8469,7 +8879,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 794,
@@ -8571,7 +8986,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 795,
@@ -8673,7 +9093,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 796,
@@ -8775,7 +9200,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 851,
@@ -8877,7 +9307,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 853,
@@ -8979,7 +9414,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 854,
@@ -9081,7 +9521,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 855,
@@ -9183,7 +9628,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 673,
@@ -9285,7 +9735,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 844,
@@ -9387,7 +9842,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 864,
@@ -9489,7 +9949,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 42,
+      "away_games": 66,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 889,
@@ -9591,7 +10056,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 461,
@@ -9693,7 +10163,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 462,
@@ -9795,7 +10270,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 463,
@@ -9897,7 +10377,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 464,
@@ -9999,7 +10484,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 517,
@@ -10101,7 +10591,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 5.5,
+      "away_points": 6.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 520,
@@ -10203,7 +10698,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 574,
@@ -10305,7 +10805,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 46,
+      "away_games": 62,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 575,
@@ -10407,7 +10912,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 48,
+      "away_games": 60,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 576,
@@ -10509,7 +11019,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 42,
+      "away_games": 66,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 629,
@@ -10611,7 +11126,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 66,
+      "away_games": 42,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 630,
@@ -10713,7 +11233,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 41,
+      "away_games": 67,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 631,
@@ -10815,7 +11340,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 632,
@@ -10917,7 +11447,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 79,
+      "away_games": 29,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 685,
@@ -11019,7 +11554,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 57,
+      "away_games": 51,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 686,
@@ -11121,7 +11661,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 79,
+      "away_games": 29,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 687,
@@ -11223,7 +11768,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 688,
@@ -11325,7 +11875,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 741,
@@ -11427,7 +11982,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 742,
@@ -11529,7 +12089,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 743,
@@ -11631,7 +12196,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 92,
+      "away_games": 16,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 744,
@@ -11733,7 +12303,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 797,
@@ -11835,7 +12410,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 798,
@@ -11937,7 +12517,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 57,
+      "away_games": 51,
+      "home_points": 7,
+      "away_points": 5,
+      "conceded_by": null
     },
     {
       "fixture_id": 799,
@@ -12039,7 +12624,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 800,
@@ -12141,7 +12731,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 857,
@@ -12243,7 +12838,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 858,
@@ -12345,7 +12945,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 43,
+      "away_games": 65,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 859,
@@ -12447,7 +13052,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 43,
+      "away_games": 65,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 465,
@@ -12549,7 +13159,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 103,
+      "away_games": 5,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 466,
@@ -12651,7 +13266,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 467,
@@ -12753,7 +13373,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 468,
@@ -12855,7 +13480,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 35,
+      "away_games": 73,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 521,
@@ -12957,7 +13587,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 54,
+      "away_games": 54,
+      "home_points": 6,
+      "away_points": 6,
+      "conceded_by": null
     },
     {
       "fixture_id": 522,
@@ -13059,7 +13694,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 81,
+      "away_games": 27,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 523,
@@ -13161,7 +13801,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 79,
+      "away_games": 29,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 577,
@@ -13263,7 +13908,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 78,
+      "away_games": 30,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 578,
@@ -13365,7 +14015,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 579,
@@ -13467,7 +14122,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 64,
+      "away_games": 44,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 633,
@@ -13569,7 +14229,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 634,
@@ -13671,7 +14336,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 38,
+      "away_games": 70,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 635,
@@ -13773,7 +14443,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 82,
+      "away_games": 26,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 689,
@@ -13875,7 +14550,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 690,
@@ -13977,7 +14657,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 38,
+      "away_games": 70,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 691,
@@ -14079,7 +14764,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 692,
@@ -14181,7 +14871,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 745,
@@ -14283,7 +14978,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 746,
@@ -14385,7 +15085,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 17,
+      "away_games": 91,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 747,
@@ -14487,7 +15192,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 748,
@@ -14589,7 +15299,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 801,
@@ -14691,7 +15406,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 32,
+      "away_games": 76,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 802,
@@ -14793,7 +15513,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 41,
+      "away_games": 67,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 803,
@@ -14895,7 +15620,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 31,
+      "away_games": 77,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 804,
@@ -14997,7 +15727,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 861,
@@ -15099,7 +15834,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 71,
+      "away_games": 37,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 862,
@@ -15201,7 +15941,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 863,
@@ -15303,7 +16048,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 865,
@@ -15405,7 +16155,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 5.5,
+      "away_points": 6.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 469,
@@ -15507,7 +16262,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 8,
+      "away_games": 100,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 470,
@@ -15609,7 +16369,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 471,
@@ -15711,7 +16476,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 66,
+      "away_games": 42,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 472,
@@ -15813,7 +16583,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 526,
@@ -15915,7 +16690,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 38,
+      "away_games": 70,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 527,
@@ -16017,7 +16797,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 48,
+      "away_games": 60,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 528,
@@ -16119,7 +16904,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 54,
+      "away_games": 54,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 581,
@@ -16221,7 +17011,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 28,
+      "away_games": 80,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 583,
@@ -16323,7 +17118,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 42,
+      "away_games": 66,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 637,
@@ -16425,7 +17225,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 638,
@@ -16527,7 +17332,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 42,
+      "away_games": 66,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 639,
@@ -16629,7 +17439,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 640,
@@ -16731,7 +17546,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 6,
+      "away_points": 6,
+      "conceded_by": null
     },
     {
       "fixture_id": 693,
@@ -16833,7 +17653,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 694,
@@ -16935,7 +17760,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 695,
@@ -17037,7 +17867,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 696,
@@ -17139,7 +17974,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 750,
@@ -17241,7 +18081,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 751,
@@ -17343,7 +18188,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 37,
+      "away_games": 71,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 752,
@@ -17356,6 +18206,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/752",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 55,
+      "away_games": 0,
+      "home_points": 6,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -17458,7 +18313,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 806,
@@ -17560,7 +18420,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 807,
@@ -17662,7 +18527,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 80,
+      "away_games": 28,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 808,
@@ -17764,7 +18634,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 867,
@@ -17866,7 +18741,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 82,
+      "away_games": 26,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 869,
@@ -17968,7 +18848,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 7,
+      "away_points": 5,
+      "conceded_by": null
     },
     {
       "fixture_id": 870,
@@ -18070,7 +18955,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 474,
@@ -18172,7 +19062,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 33,
+      "away_games": 75,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 476,
@@ -18274,7 +19169,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 529,
@@ -18376,7 +19276,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 530,
@@ -18478,7 +19383,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 531,
@@ -18580,7 +19490,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 585,
@@ -18682,7 +19597,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 586,
@@ -18784,7 +19704,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 588,
@@ -18886,7 +19811,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 641,
@@ -18988,7 +19918,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 66,
+      "away_games": 42,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 642,
@@ -19090,7 +20025,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 643,
@@ -19192,7 +20132,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 39,
+      "away_games": 69,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 644,
@@ -19294,7 +20239,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 697,
@@ -19396,7 +20346,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 35,
+      "away_games": 73,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 698,
@@ -19498,7 +20453,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 699,
@@ -19600,7 +20560,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 700,
@@ -19702,7 +20667,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 753,
@@ -19804,7 +20774,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 26,
+      "away_games": 82,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 754,
@@ -19906,7 +20881,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 755,
@@ -20008,7 +20988,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 81,
+      "away_games": 27,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 756,
@@ -20110,7 +21095,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 37,
+      "away_games": 71,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 809,
@@ -20212,7 +21202,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 64,
+      "away_games": 44,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 810,
@@ -20314,7 +21309,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 41,
+      "away_games": 67,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 812,
@@ -20416,7 +21416,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 7,
+      "away_points": 5,
+      "conceded_by": null
     },
     {
       "fixture_id": 871,
@@ -20429,6 +21434,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/871",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 40,
+      "away_games": 0,
+      "home_points": 3,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -20531,7 +21541,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 93,
+      "away_games": 15,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 875,
@@ -20633,7 +21648,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 477,
@@ -20735,7 +21755,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 18,
+      "away_games": 90,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 478,
@@ -20837,7 +21862,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 479,
@@ -20939,7 +21969,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 480,
@@ -21041,7 +22076,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 535,
@@ -21143,7 +22183,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 536,
@@ -21245,7 +22290,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 589,
@@ -21347,7 +22397,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 590,
@@ -21449,7 +22504,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 592,
@@ -21551,7 +22611,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 645,
@@ -21653,7 +22718,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 85,
+      "away_games": 23,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 646,
@@ -21755,7 +22825,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 648,
@@ -21857,7 +22932,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 701,
@@ -21959,7 +23039,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 54,
+      "away_games": 54,
+      "home_points": 6,
+      "away_points": 6,
+      "conceded_by": null
     },
     {
       "fixture_id": 702,
@@ -22061,7 +23146,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 703,
@@ -22163,7 +23253,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 42,
+      "away_games": 66,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 704,
@@ -22265,7 +23360,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 757,
@@ -22367,7 +23467,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 758,
@@ -22469,7 +23574,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 759,
@@ -22571,7 +23681,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 75,
+      "away_games": 33,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 760,
@@ -22673,7 +23788,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 82,
+      "away_games": 26,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 813,
@@ -22775,7 +23895,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 814,
@@ -22877,7 +24002,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 815,
@@ -22894,8 +24024,8 @@
           "home_player2": "Greg Allen-Hirst",
           "away_player1": "Alistair Crooks",
           "away_player2": "Will Abbas",
-          "home_games": 10,
-          "away_games": 2,
+          "home_games": 12,
+          "away_games": 0,
           "winner": "home"
         },
         {
@@ -22924,9 +24054,9 @@
           "home_player2": "Ray Pahang",
           "away_player1": "Alistair Crooks",
           "away_player2": "Will Abbas",
-          "home_games": 5,
-          "away_games": 7,
-          "winner": "away"
+          "home_games": 12,
+          "away_games": 0,
+          "winner": "home"
         },
         {
           "rubber_order": 5,
@@ -22954,9 +24084,9 @@
           "home_player2": "George Watson",
           "away_player1": "Alistair Crooks",
           "away_player2": "Will Abbas",
-          "home_games": 3,
-          "away_games": 9,
-          "winner": "away"
+          "home_games": 12,
+          "away_games": 0,
+          "winner": "home"
         },
         {
           "rubber_order": 8,
@@ -22979,7 +24109,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 88,
+      "away_games": 20,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 816,
@@ -23081,7 +24216,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 31,
+      "away_games": 77,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 876,
@@ -23183,7 +24323,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 75,
+      "away_games": 33,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 877,
@@ -23285,7 +24430,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 54,
+      "away_games": 54,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 878,
@@ -23387,7 +24537,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 879,
@@ -23489,7 +24644,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 880,
@@ -23591,7 +24751,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 481,
@@ -23693,7 +24858,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 79,
+      "away_games": 29,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 482,
@@ -23795,7 +24965,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 76,
+      "away_games": 32,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 483,
@@ -23897,7 +25072,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 484,
@@ -23999,7 +25179,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 65,
+      "away_games": 43,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 537,
@@ -24101,7 +25286,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 538,
@@ -24203,7 +25393,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 540,
@@ -24305,7 +25500,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 593,
@@ -24407,7 +25607,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 70,
+      "away_games": 38,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 595,
@@ -24509,7 +25714,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 596,
@@ -24611,7 +25821,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 649,
@@ -24713,7 +25928,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 650,
@@ -24815,7 +26035,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 651,
@@ -24917,7 +26142,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 705,
@@ -25019,7 +26249,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 706,
@@ -25121,7 +26356,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 30,
+      "away_games": 78,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 707,
@@ -25223,7 +26463,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 41,
+      "away_games": 67,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 761,
@@ -25325,7 +26570,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 762,
@@ -25427,7 +26677,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 27,
+      "away_games": 81,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 763,
@@ -25529,7 +26784,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 764,
@@ -25631,7 +26891,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 817,
@@ -25733,7 +26998,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 818,
@@ -25835,7 +27105,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 46,
+      "away_games": 62,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 819,
@@ -25882,8 +27157,8 @@
           "home_player2": "Sam Dewhirst",
           "away_player1": "Basil Plowman",
           "away_player2": "Thomas Langley",
-          "home_games": 5,
-          "away_games": 7,
+          "home_games": 0,
+          "away_games": 12,
           "winner": "away"
         },
         {
@@ -25892,8 +27167,8 @@
           "home_player2": "Sam Dewhirst",
           "away_player1": "Justin Spenceley",
           "away_player2": "Ben Turner",
-          "home_games": 5,
-          "away_games": 7,
+          "home_games": 0,
+          "away_games": 12,
           "winner": "away"
         },
         {
@@ -25902,9 +27177,9 @@
           "home_player2": "Sam Dewhirst",
           "away_player1": "Phil Wheatley",
           "away_player2": "Rob Watson",
-          "home_games": 7,
-          "away_games": 5,
-          "winner": "home"
+          "home_games": 0,
+          "away_games": 12,
+          "winner": "away"
         },
         {
           "rubber_order": 7,
@@ -25937,7 +27212,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 21,
+      "away_games": 87,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 820,
@@ -26039,7 +27319,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 75,
+      "away_games": 33,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 881,
@@ -26141,7 +27426,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 22,
+      "away_games": 86,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 882,
@@ -26243,7 +27533,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 883,
@@ -26345,7 +27640,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 44,
+      "away_games": 64,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 885,
@@ -26447,7 +27747,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 24,
+      "away_games": 84,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 485,
@@ -26549,7 +27854,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 26,
+      "away_games": 82,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 486,
@@ -26651,7 +27961,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 39,
+      "away_games": 69,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 487,
@@ -26753,7 +28068,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 69,
+      "away_games": 39,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 488,
@@ -26855,7 +28175,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 541,
@@ -26957,7 +28282,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 542,
@@ -27059,7 +28389,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 52,
+      "away_games": 56,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 544,
@@ -27161,7 +28496,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 597,
@@ -27263,7 +28603,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 32,
+      "away_games": 76,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 598,
@@ -27365,7 +28710,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 599,
@@ -27467,7 +28817,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 48,
+      "away_games": 60,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 653,
@@ -27569,7 +28924,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 654,
@@ -27671,7 +29031,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 31,
+      "away_games": 77,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 655,
@@ -27773,7 +29138,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 709,
@@ -27875,7 +29245,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 710,
@@ -27977,7 +29352,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 5,
+      "away_points": 7,
+      "conceded_by": null
     },
     {
       "fixture_id": 711,
@@ -28079,7 +29459,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 82,
+      "away_games": 26,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 712,
@@ -28181,7 +29566,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 768,
@@ -28194,6 +29584,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/768",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 69,
+      "away_games": 0,
+      "home_points": 9,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -28296,7 +29691,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 766,
@@ -28398,7 +29798,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 767,
@@ -28411,6 +29816,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/767",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 76,
+      "away_games": 0,
+      "home_points": 10.5,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -28513,7 +29923,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 822,
@@ -28615,7 +30030,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 823,
@@ -28717,7 +30137,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 59,
+      "away_games": 49,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 824,
@@ -28819,7 +30244,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 90,
+      "away_games": 18,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 886,
@@ -28921,7 +30351,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 78,
+      "away_games": 30,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 887,
@@ -29023,7 +30458,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 888,
@@ -29125,7 +30565,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 489,
@@ -29227,7 +30672,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 490,
@@ -29329,7 +30779,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 36,
+      "away_games": 72,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 491,
@@ -29431,7 +30886,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 89,
+      "away_games": 19,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 492,
@@ -29533,7 +30993,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 53,
+      "away_games": 55,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 545,
@@ -29635,7 +31100,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 547,
@@ -29737,7 +31207,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 548,
@@ -29839,7 +31314,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 602,
@@ -29941,7 +31421,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 603,
@@ -30043,7 +31528,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 2,
+      "away_points": 10,
+      "conceded_by": null
     },
     {
       "fixture_id": 604,
@@ -30145,7 +31635,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 658,
@@ -30247,7 +31742,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 76,
+      "away_games": 32,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 659,
@@ -30349,7 +31849,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 84,
+      "away_games": 24,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 660,
@@ -30451,7 +31956,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 32,
+      "away_games": 76,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 713,
@@ -30553,7 +32063,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 714,
@@ -30655,7 +32170,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 41,
+      "away_games": 67,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 715,
@@ -30757,7 +32277,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 716,
@@ -30859,7 +32384,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 68,
+      "away_games": 40,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 769,
@@ -30961,7 +32491,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 79,
+      "away_games": 29,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 770,
@@ -31063,7 +32598,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 63,
+      "away_games": 45,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 771,
@@ -31165,7 +32705,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 12,
+      "away_games": 96,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 772,
@@ -31267,7 +32812,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 74,
+      "away_games": 34,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 825,
@@ -31369,7 +32919,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 78,
+      "away_games": 30,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 826,
@@ -31471,7 +33026,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 827,
@@ -31573,7 +33133,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 828,
@@ -31675,7 +33240,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 34,
+      "away_games": 74,
+      "home_points": 1.5,
+      "away_points": 10.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 891,
@@ -31777,7 +33347,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 52,
+      "away_games": 56,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 893,
@@ -31879,7 +33454,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 24,
+      "away_games": 84,
+      "home_points": 0.5,
+      "away_points": 11.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 894,
@@ -31981,7 +33561,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 57,
+      "away_games": 51,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 647,
@@ -32083,7 +33668,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 9,
+      "away_points": 3,
+      "conceded_by": null
     },
     {
       "fixture_id": 679,
@@ -32185,7 +33775,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 56,
+      "away_games": 52,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 708,
@@ -32287,7 +33882,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 70,
+      "away_games": 38,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 872,
@@ -32389,7 +33989,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 475,
@@ -32491,7 +34096,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 60,
+      "away_games": 48,
+      "home_points": 6,
+      "away_points": 6,
+      "conceded_by": null
     },
     {
       "fixture_id": 519,
@@ -32593,7 +34203,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 55,
+      "away_games": 53,
+      "home_points": 8,
+      "away_points": 4,
+      "conceded_by": null
     },
     {
       "fixture_id": 852,
@@ -32695,7 +34310,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 50,
+      "away_games": 58,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 860,
@@ -32797,7 +34417,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 36,
+      "away_games": 72,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 533,
@@ -32899,7 +34524,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 67,
+      "away_games": 41,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 656,
@@ -33001,7 +34631,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 749,
@@ -33103,7 +34738,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 72,
+      "away_games": 36,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 866,
@@ -33205,7 +34845,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 58,
+      "away_games": 50,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 868,
@@ -33307,7 +34952,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 9.5,
+      "away_points": 2.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 493,
@@ -33409,7 +35059,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 54,
+      "away_games": 54,
+      "home_points": 5.5,
+      "away_points": 6.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 494,
@@ -33511,7 +35166,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 82,
+      "away_games": 26,
+      "home_points": 11.5,
+      "away_points": 0.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 495,
@@ -33613,7 +35273,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 77,
+      "away_games": 31,
+      "home_points": 10,
+      "away_points": 2,
+      "conceded_by": null
     },
     {
       "fixture_id": 496,
@@ -33715,7 +35380,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 78,
+      "away_games": 30,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 549,
@@ -33817,7 +35487,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 64,
+      "away_games": 44,
+      "home_points": 7.5,
+      "away_points": 4.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 550,
@@ -33919,7 +35594,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 61,
+      "away_games": 47,
+      "home_points": 7,
+      "away_points": 5,
+      "conceded_by": null
     },
     {
       "fixture_id": 551,
@@ -34021,7 +35701,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 30,
+      "away_games": 78,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 605,
@@ -34123,7 +35808,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 51,
+      "away_games": 57,
+      "home_points": 4.5,
+      "away_points": 7.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 606,
@@ -34225,7 +35915,12 @@
           "winner": "draw"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 46,
+      "away_games": 62,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 607,
@@ -34327,7 +36022,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 48,
+      "away_games": 60,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 661,
@@ -34429,7 +36129,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 40,
+      "away_games": 68,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 662,
@@ -34531,7 +36236,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 45,
+      "away_games": 63,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 663,
@@ -34633,7 +36343,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 36,
+      "away_games": 72,
+      "home_points": 0,
+      "away_points": 12,
+      "conceded_by": null
     },
     {
       "fixture_id": 664,
@@ -34735,7 +36450,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 47,
+      "away_games": 61,
+      "home_points": 2.5,
+      "away_points": 9.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 717,
@@ -34837,7 +36557,12 @@
           "winner": null
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 49,
+      "away_games": 59,
+      "home_points": 4,
+      "away_points": 8,
+      "conceded_by": null
     },
     {
       "fixture_id": 718,
@@ -34850,6 +36575,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/718",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 70,
+      "away_games": 0,
+      "home_points": 9,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -34952,7 +36682,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 43,
+      "away_games": 65,
+      "home_points": 3,
+      "away_points": 9,
+      "conceded_by": null
     },
     {
       "fixture_id": 720,
@@ -35054,7 +36789,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 43,
+      "away_games": 65,
+      "home_points": 3.5,
+      "away_points": 8.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 773,
@@ -35156,7 +36896,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 62,
+      "away_games": 46,
+      "home_points": 8.5,
+      "away_points": 3.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 774,
@@ -35258,7 +37003,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 83,
+      "away_games": 25,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 775,
@@ -35271,6 +37021,11 @@
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/775",
       "skipped": true,
       "reason": "conceded",
+      "home_games": 64,
+      "away_games": 0,
+      "home_points": 8,
+      "away_points": 0,
+      "conceded_by": "away",
       "rubbers": []
     },
     {
@@ -35373,7 +37128,12 @@
           "winner": "away"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 35,
+      "away_games": 73,
+      "home_points": 1,
+      "away_points": 11,
+      "conceded_by": null
     },
     {
       "fixture_id": 829,
@@ -35475,7 +37235,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 73,
+      "away_games": 35,
+      "home_points": 10.5,
+      "away_points": 1.5,
+      "conceded_by": null
     },
     {
       "fixture_id": 830,
@@ -35488,96 +37253,101 @@
       "rubbers": [
         {
           "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Andy Dunning",
+          "home_player2": "Glenn kirby",
+          "away_player1": "Sean Tymon",
+          "away_player2": "Kevin Warrington",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         },
         {
           "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Andy Dunning",
+          "home_player2": "Glenn kirby",
+          "away_player1": "John Newland",
+          "away_player2": "Nathan Latimer",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
         },
         {
           "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Andy Dunning",
+          "home_player2": "Glenn kirby",
+          "away_player1": "Craig Elmer-Allison",
+          "away_player2": "Rob Fox",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
         },
         {
           "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Davies",
+          "home_player2": "Leon Speck",
+          "away_player1": "Sean Tymon",
+          "away_player2": "Kevin Warrington",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         },
         {
           "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Davies",
+          "home_player2": "Leon Speck",
+          "away_player1": "John Newland",
+          "away_player2": "Nathan Latimer",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         },
         {
           "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Davies",
+          "home_player2": "Leon Speck",
+          "away_player1": "Craig Elmer-Allison",
+          "away_player2": "Rob Fox",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         },
         {
           "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Packer",
+          "home_player2": "Andrew Murtagh",
+          "away_player1": "Sean Tymon",
+          "away_player2": "Kevin Warrington",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
         },
         {
           "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Packer",
+          "home_player2": "Andrew Murtagh",
+          "away_player1": "John Newland",
+          "away_player2": "Nathan Latimer",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
         },
         {
           "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
+          "home_player1": "Steve Packer",
+          "home_player2": "Andrew Murtagh",
+          "away_player1": "Craig Elmer-Allison",
+          "away_player2": "Rob Fox",
+          "home_games": 10,
+          "away_games": 2,
+          "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 85,
+      "away_games": 23,
+      "home_points": 12,
+      "away_points": 0,
+      "conceded_by": null
     },
     {
       "fixture_id": 831,
@@ -35679,7 +37449,12 @@
           "winner": "home"
         }
       ],
-      "time": null
+      "time": null,
+      "home_games": 76,
+      "away_games": 32,
+      "home_points": 11,
+      "away_points": 1,
+      "conceded_by": null
     },
     {
       "fixture_id": 832,
@@ -35781,7 +37556,12 @@
           "winner": null
         }
       ],
-      "time": "10:00"
+      "time": "10:00",
+      "home_games": null,
+      "away_games": null,
+      "home_points": null,
+      "away_points": null,
+      "conceded_by": null
     },
     {
       "fixture_id": 497,
