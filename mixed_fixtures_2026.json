@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-16T21:16:28.882Z",
+  "scraped_at": "2026-08-17T21:22:09.651Z",
   "season": 2026,
-  "fixture_count": 435,
-  "rubber_count": 3914,
+  "fixture_count": 436,
+  "rubber_count": 3923,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -33352,12 +33352,103 @@
       "date": "12.08.26",
       "home_team": "Fulford 4",
       "away_team": "Cawood",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 2,
+      "away_sets": 7,
+      "home_games": 37,
+      "away_games": 71,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115583",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Ben Egron",
+          "home_player2": "Carolyn Taylor",
+          "away_player1": "Mike Brennan",
+          "away_player2": "Joanne Abbott",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Jonathan Spooner",
+          "home_player2": "Julia Baker",
+          "away_player1": "Marc Hodge",
+          "away_player2": "Shelagh Elcock",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Zak Meadowcroft",
+          "home_player2": "Kate Shatrova",
+          "away_player1": "Chris Abbott",
+          "away_player2": "Miriam Ridha",
+          "home_games": 3,
+          "away_games": 9,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Ben Egron",
+          "home_player2": "Carolyn Taylor",
+          "away_player1": "Chris Abbott",
+          "away_player2": "Miriam Ridha",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Jonathan Spooner",
+          "home_player2": "Julia Baker",
+          "away_player1": "Mike Brennan",
+          "away_player2": "Joanne Abbott",
+          "home_games": 1,
+          "away_games": 11,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Zak Meadowcroft",
+          "home_player2": "Kate Shatrova",
+          "away_player1": "Marc Hodge",
+          "away_player2": "Shelagh Elcock",
+          "home_games": 4,
+          "away_games": 8,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Ben Egron",
+          "home_player2": "Carolyn Taylor",
+          "away_player1": "Marc Hodge",
+          "away_player2": "Shelagh Elcock",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Jonathan Spooner",
+          "home_player2": "Julia Baker",
+          "away_player1": "Chris Abbott",
+          "away_player2": "Miriam Ridha",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Zak Meadowcroft",
+          "home_player2": "Kate Shatrova",
+          "away_player1": "Mike Brennan",
+          "away_player2": "Joanne Abbott",
+          "home_games": 2,
+          "away_games": 10,
+          "winner": "away"
+        }
+      ]
     },
     {
       "fixture_id": "115578",
