@@ -22,6 +22,11 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/** Total games on one side of a cached fixture's scorecard. */
+function sumRubberGames(fixture, field) {
+  return (fixture.rubbers || []).reduce((sum, r) => sum + (r[field] || 0), 0);
+}
+
 async function getFixturesFromDivisionPage(division) {
   const url = `${BASE_URL}/divisions/${division}/Division_${division}`;
   const html = await fetchHtml(url);
@@ -47,13 +52,35 @@ async function getFixturesFromDivisionPage(division) {
         else if (text.match(/\d{2}:\d{2}/)) time = text;
       });
 
+      let homeGames = null, awayGames = null, homePoints = null, awayPoints = null, concededBy = null;
       if (cells.length >= 4) {
         homeTeam = $(cells[1]).text().trim() || null;
         awayTeam = $(cells[3]).text().trim() || null;
+
+        // The middle cell carries the authoritative match score as
+        // "9.5 (64) - 2.5 (44)" — points out of 12, then games — followed by a
+        // status marker ("[P]" played, "[E ConA]" conceded). These game totals
+        // INCLUDE games awarded for conceded rubbers, which never appear on the
+        // fixture scorecard, so they are the only place a walkover award can be
+        // read from. Do not anchor the match: the marker trails the score.
+        const scoreText = $(cells[2]).text().trim();
+        const score = /^([\d.]+)\s*\((\d+)\)\s*-\s*([\d.]+)\s*\((\d+)\)/.exec(scoreText);
+        if (score) {
+          homePoints = parseFloat(score[1]);
+          homeGames = parseInt(score[2], 10);
+          awayPoints = parseFloat(score[3]);
+          awayGames = parseInt(score[4], 10);
+        }
+        // "[E ConA]" / "[E ConH]" marks which side conceded. The points the
+        // league awards for a concession are a committee decision that varies
+        // case by case (6 for 55 games, 10.5 for 76, 3 for 40 — no formula
+        // fits), so the published points above are the only reliable source.
+        const marker = /\[\s*E\s+Con([AH])\s*\]/i.exec(scoreText);
+        if (marker) concededBy = marker[1].toUpperCase() === 'A' ? 'away' : 'home';
       }
-      
+
       if (id) {
-        fixtures.push({ id, date, time, home_team: homeTeam, away_team: awayTeam });
+        fixtures.push({ id, date, time, home_team: homeTeam, away_team: awayTeam, home_games: homeGames, away_games: awayGames, home_points: homePoints, away_points: awayPoints, conceded_by: concededBy });
       }
     }
   });
@@ -161,9 +188,22 @@ async function main() {
 
       // Treat fixtures with rubbers but no player names as "no results yet"
       const hasResults = existing && (existing.rubbers || []).some(r => r.home_player1 || r.away_player1);
-      if (existing && hasResults && !isRecent) {
-        allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team });
+
+      // Results can be amended upstream long after we first captured them
+      // (rubbers re-scored as walkovers, corrections). Compare the cached
+      // scorecard against the division page's match score — if they disagree
+      // the cache is stale and must be re-fetched however old the fixture is,
+      // otherwise `hasResults && !isRecent` would freeze the old score forever.
+      const cachedStale = hasResults && item.home_games != null &&
+        (sumRubberGames(existing, 'home_games') !== item.home_games ||
+         sumRubberGames(existing, 'away_games') !== item.away_games);
+
+      if (existing && hasResults && !isRecent && !cachedStale) {
+        allFixtures.push({ ...existing, date: dateStr || existing.date, time: timeStr || existing.time, home_team: homeTeam || existing.home_team, away_team: awayTeam || existing.away_team, home_games: item.home_games ?? existing.home_games ?? null, away_games: item.away_games ?? existing.away_games ?? null, home_points: item.home_points ?? existing.home_points ?? null, away_points: item.away_points ?? existing.away_points ?? null, conceded_by: item.conceded_by ?? existing.conceded_by ?? null });
         continue;
+      }
+      if (cachedStale) {
+        console.log(`  Fixture ${id}: cached score ${sumRubberGames(existing, 'home_games')}-${sumRubberGames(existing, 'away_games')} no longer matches the division page (${item.home_games}-${item.away_games}) — re-fetching`);
       }
 
       process.stdout.write(`  Fixture ${id}${isRecent ? ' (re-checking)' : ''}...`);
@@ -171,14 +211,18 @@ async function main() {
         const html = await fetchHtml(`${BASE_URL}/fixtures/${id}`);
         const fixture = parseFixture(html, id, div);
         if (fixture && fixture.skipped) {
-          console.log(` skipped (${fixture.reason})`);
-          allFixtures.push({ fixture_id: id, season: SEASON, division: div, date: fixture.date || dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, source_url: `${BASE_URL}/fixtures/${id}`, skipped: true, reason: fixture.reason, rubbers: [] });
+          // A conceded fixture has no scorecard to parse, but the league still
+          // awards the non-offending side games — carry the division page's
+          // totals through so the league table can credit them.
+          const award = item.home_games != null ? ` — ${item.home_games}-${item.away_games} awarded` : '';
+          console.log(` skipped (${fixture.reason})${award}`);
+          allFixtures.push({ fixture_id: id, season: SEASON, division: div, date: fixture.date || dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, source_url: `${BASE_URL}/fixtures/${id}`, skipped: true, reason: fixture.reason, home_games: item.home_games, away_games: item.away_games, home_points: item.home_points, away_points: item.away_points, conceded_by: item.conceded_by, rubbers: [] });
         } else if (fixture && fixture.rubbers && fixture.rubbers.length > 0) {
-          allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team });
+          allFixtures.push({ ...fixture, time: timeStr, home_team: homeTeam || fixture.home_team, away_team: awayTeam || fixture.away_team, home_games: item.home_games, away_games: item.away_games, home_points: item.home_points, away_points: item.away_points, conceded_by: item.conceded_by });
           console.log(` ${homeTeam || fixture.home_team} v ${awayTeam || fixture.away_team} (${fixture.rubbers.length} rubbers)`);
         } else {
           console.log(' no scorecard yet');
-          allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, rubbers: [] });
+          allFixtures.push({ fixture_id: id, date: dateStr, time: timeStr, home_team: homeTeam, away_team: awayTeam, division: div, home_games: item.home_games, away_games: item.away_games, home_points: item.home_points, away_points: item.away_points, conceded_by: item.conceded_by, rubbers: [] });
           errors.push(id);
         }
       } catch (err) {

@@ -216,12 +216,22 @@ async function run() {
     if (!fs.existsSync(file)) continue;
     const data = JSON.parse(fs.readFileSync(file));
     for (const f of data.fixtures) {
+      // Prefer the match score published on the division page (captured by
+      // scraper.js as f.home_games/f.away_games): unlike the sum of the
+      // scorecard's rubbers it includes games awarded for conceded rubbers,
+      // which is what the league table needs to credit walkovers. Archive
+      // seasons predate that capture, so fall back to summing the rubbers.
       let homeGames = null, awayGames = null;
-      if (f.rubbers && f.rubbers.length > 0) {
+      if (f.home_games != null && f.away_games != null) {
+        homeGames = f.home_games;
+        awayGames = f.away_games;
+      } else if (f.rubbers && f.rubbers.length > 0) {
         homeGames = f.rubbers.reduce((s, r) => s + (r.home_games || 0), 0);
         awayGames = f.rubbers.reduce((s, r) => s + (r.away_games || 0), 0);
       }
-      
+
+      const isConceded = !!(f.skipped && f.reason === 'conceded');
+
       const row = {
         fixture_id: String(f.fixture_id),
         season:     f.season || year,
@@ -232,8 +242,15 @@ async function run() {
         away_team:  f.away_team,
         home_games: homeGames,
         away_games: awayGames,
-        status:     (homeGames !== null) ? 'played' : 'upcoming',
-        is_conceded: !!(f.skipped && f.reason === 'conceded')
+        // Official match points out of 12, straight from the division page.
+        // Only used for conceded fixtures, where the league's award is a
+        // committee decision no formula reproduces; normal matches are scored
+        // from the rubbers (validated against the official tables).
+        home_points: f.home_points ?? null,
+        away_points: f.away_points ?? null,
+        conceded_by: f.conceded_by ?? null,
+        status:     (homeGames !== null || isConceded) ? 'played' : 'upcoming',
+        is_conceded: isConceded
       };
       
       // fixture_id is only unique WITHIN a season — the league site restarts

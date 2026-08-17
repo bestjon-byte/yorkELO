@@ -13,6 +13,7 @@ const { createClient } = require('@supabase/supabase-js');
 const { McpServer } = require('@modelcontextprotocol/sdk/server/mcp.js');
 const { StreamableHTTPServerTransport } = require('@modelcontextprotocol/sdk/server/streamableHttp.js');
 const { z } = require('zod');
+const { buildLeagueTable, listTeams, getTeamStanding } = require('../lib/league-table');
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -77,9 +78,11 @@ function buildServer() {
     { name: 'york-tennis-elo', version: '1.0.0' },
     {
       instructions:
-        'Query ELO ratings, rankings, stats, head-to-head records and match history for the ' +
-        "York Men's Tennis League and the York & District Mixed Tennis League. Player names " +
-        'must match how they appear in the league (use search_players first if unsure).',
+        'Query ELO ratings, rankings, stats, head-to-head records, match history and league ' +
+        "tables for the York Men's Tennis League and the York & District Mixed Tennis League. " +
+        'Player names must match how they appear in the league (use search_players first if ' +
+        'unsure); team names can be resolved with list_teams. League tables are computed from ' +
+        'scraped results and are unofficial — see get_league_table for the caveats.',
     }
   );
 
@@ -277,6 +280,85 @@ function buildServer() {
           record: asPartners.length > 0 ? summarizeRecord(asPartners) : null,
         },
       });
+    }
+  );
+
+  server.registerTool(
+    'get_league_table',
+    {
+      title: 'Get league table',
+      description:
+        'The division standings — position, played, won/drawn/lost, games for/against and points. ' +
+        "The mens league scores W/D/L as RUBBERS (9 per match) plus a 3-point bonus to the side " +
+        'winning more games; the mixed league decides each match on total games won (2 pts a win, ' +
+        '1 a draw). Computed from scraped results, so it is UNOFFICIAL: league-admin points ' +
+        'penalties and concession awards are not in the source data, and a conceded fixture only ' +
+        'increments played. Say so when presenting a table as authoritative.',
+      inputSchema: {
+        league: leagueSchema,
+        division: z.number().int().min(1).max(10).describe('Division number (1 = top division)'),
+        season: z.number().int().optional().describe('Season year, e.g. 2025. Defaults to the latest season.'),
+        asOf: z.string().optional().describe('ISO date (YYYY-MM-DD) — table as it stood on that date, for tracking position over time'),
+      },
+    },
+    async ({ league, division, season, asOf }) => {
+      let asOfTs;
+      if (asOf) {
+        asOfTs = Date.parse(asOf);
+        if (Number.isNaN(asOfTs)) return errorResult(`Could not parse asOf date "${asOf}". Use YYYY-MM-DD.`);
+      }
+      const table = await buildLeagueTable(supabase, { league, division, season, asOf: asOfTs });
+      if (table.standings.length === 0) {
+        return errorResult(`No fixtures found for ${league} division ${division} in ${table.season}.`);
+      }
+      return textResult(table);
+    }
+  );
+
+  server.registerTool(
+    'get_team',
+    {
+      title: 'Get team standing',
+      description:
+        "One team's league position in context: record, points, the gap to the teams immediately " +
+        'above and below, recent results with match scores, and the fixtures they have left to ' +
+        'play. Accepts a partial team name when it is unambiguous.',
+      inputSchema: {
+        team: z.string().min(1).describe('Team name, e.g. "Cawood 1" or "Wigginton 3"'),
+        league: leagueSchema,
+        season: z.number().int().optional().describe('Season year. Defaults to the latest season.'),
+        formCount: z.number().int().min(1).max(20).default(5).describe('How many recent matches to include'),
+      },
+    },
+    async ({ team, league, season, formCount }) => {
+      const result = await getTeamStanding(supabase, { league, team, season, formCount });
+      if (result.error) {
+        const hint = result.candidates?.length
+          ? ` Did you mean: ${result.candidates.join(', ')}?`
+          : ' Use list_teams to see the available team names.';
+        return errorResult(result.error + hint);
+      }
+      return textResult(result);
+    }
+  );
+
+  server.registerTool(
+    'list_teams',
+    {
+      title: 'List teams',
+      description: 'Every team in a season with its division — use this to resolve exact team names for get_team.',
+      inputSchema: {
+        league: leagueSchema,
+        season: z.number().int().optional().describe('Season year. Defaults to the latest season.'),
+        division: z.number().int().min(1).max(10).optional().describe('Filter to one division'),
+      },
+    },
+    async ({ league, season, division }) => {
+      const result = await listTeams(supabase, { league, season, division });
+      if (result.teams.length === 0) {
+        return errorResult(`No teams found for the ${league} league in ${result.season}.`);
+      }
+      return textResult({ ...result, count: result.teams.length });
     }
   );
 

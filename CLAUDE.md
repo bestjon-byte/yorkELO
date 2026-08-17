@@ -28,6 +28,7 @@ node server.js                   # web UI at http://localhost:3000
 node scripts/migrate-to-supabase.js  # push Mens local JSON data to Supabase (re-runnable)
 node scripts/migrate-mixed-to-supabase.js --league mixed # push Mixed local JSON data to Supabase
 node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management API
+node scripts/validate-league-table.js [div...]  # diff computed mens tables vs the official site
 /deploy                          # commit source changes with auto-generated message + push to main
 ```
 
@@ -44,6 +45,21 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 - Tools: `search_players`, `get_player`, `get_leaderboard`, `get_match_history`, `compare_players`, `list_clubs` — all take an optional `league: "mens" | "mixed"` param.
 - Locally testable via `server.js`, which delegates `/api/mcp` straight to the handler (same pattern as `/api/team-ratings`).
 - When adding a new tool, only touch `api/mcp.js` — it reads directly from Supabase like `api/leaderboard.js` / `api/player/[name].js`, so it does NOT need the four-places update that `buildPlayerStats()` changes require.
+- League-table tools (`get_league_table`, `get_team`, `list_teams`) delegate to `lib/league-table.js` — put table/scoring logic there, not in `api/mcp.js`.
+
+## League Tables (`lib/league-table.js`)
+
+- **Single source of truth** for match scoring and division standings. `cawood-tennis-v2` has its own TS copy in `src/lib/league-score.ts` + `useTeamStandings` (same Supabase tables) — keep the two in sync, or migrate that app onto this module.
+- **Mens scoring:** W/D/L count RUBBERS (9/match, walkovers included) + 3 bonus pts to the side winning more of the 108 games (1.5 each at 54–54). Points = rubbers won + drawn/2 + bonus. Totals per match always sum to 12.
+- **Mixed scoring:** match decided purely on TOTAL GAMES won; 2 pts a win, 1 a draw. Rubber W/D/L only feeds the tie-break ladder (overall GD → head-to-head GD → head-to-head rubbers won among tied teams).
+- ⚠️ **Walkover rubbers are absent from `*_match_history`** — the scraper only records rubbers played. Their 12–0 games ARE in the fixture's `home_games`/`away_games`, so recover walkover wins from the gap between fixture totals and games summed off the rubbers. Never score mixed matches from summed `match_history` games.
+- **Seed teams from `*_elo_fixtures`, not `*_match_history`** — otherwise a team with no results yet vanishes from the table.
+- ⚠️ `status` is unreliable (future fixtures can be marked played with no games) — require `home_games > 0 || away_games > 0`.
+- **Concessions are scored from published points, never derived.** The league's award varies case by case (6 pts for 55 games won, 10.5 for 76, 3 for 40 — no formula fits), so `scraper.js` captures `home_points`/`away_points` from the division page and the table adds them straight to PTS without touching W/D/L or BONUS, matching the official display. The conceding side is docked `CONCESSION_PENALTY` (6). The official table appends **one asterisk per concession** to the team name (`**` = two).
+- **Fixture dates are inconsistent even within one table:** `"26 Apr 2026"`, `"16 August 2026"` (mens) and `"01.06.26"` (mixed). Use `parseLeagueDate()`; never sort the raw strings.
+- `buildLeagueTable(..., { asOf })` restricts to fixtures on or before a date — this is what makes position-over-time possible.
+- Tables are **unofficial**: admin points penalties and concession awards aren't in the data (the official site marks affected teams with a trailing `*`). A conceded fixture only increments played.
+- **Validation:** `node scripts/validate-league-table.js` diffs every mens division against yorkmenstennisleague.co.uk. As of Aug 2026, 7 of 8 divisions match cell-for-cell (see Known Issues for the eighth). Run it after any change here.
 
 ## Vercel Deployment
 
@@ -136,6 +152,9 @@ node scripts/sql.js "SELECT ..."     # run arbitrary SQL via Supabase Management
 
 ## Known Issues & Open Questions
 
+- **Division 5 differs from the official table by one fixture** (Aug 2026): the site's own *fixture list* shows #717 York 4 v Racquets 2 as `4 (49) - 8 (59) [P]`, but its *standings page* has not counted it yet. Our table is ahead, not wrong — expect it to resolve itself. Everything else matches 7/8 divisions cell-for-cell.
+- **The scraper freezes results it has already captured.** A fixture with player names is only re-fetched inside `RECHECK_DAYS` (7); after that `hasResults && !isRecent` reuses the cache forever. Upstream *corrections* (rubbers re-scored as walkovers) would be invisible, so `scraper.js` now also re-fetches whenever the cached scorecard stops summing to the division page's match score. Two D7 fixtures had been stale for ~6 weeks before this was added.
+- **Empty scorecards are normal for a day or two.** Results posted before captains fill in rubbers appear as 9 rubbers with no player names and null games. `hasResults` is false for those, so they are re-fetched every run and self-heal — no action needed.
 - **23 cross-team dedupe candidates unresolved** — left intentionally; players can self-merge via admin tool
 - **~2 genuine cheats currently flagged** in `/clubs` page: Giles Holiday (2025) and Steve Jones Starbeck 1→2 (2023, intra-club — may be legitimate)
 - **`url.parse()` deprecation warning** in `server.js` — harmless, can switch to WHATWG URL API if desired
