@@ -233,6 +233,11 @@ const server = http.createServer((req, res) => {
     return teamRatingsHandler(req, res);
   }
 
+  if (pathname === '/api/standings') {
+    const standingsHandler = require('./api/standings');
+    return standingsHandler(req, res);
+  }
+
   if (pathname === '/api/mcp') {
     const mcpHandler = require('./api/mcp');
     return mcpHandler(req, res);
