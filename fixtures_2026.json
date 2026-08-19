@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-17T20:34:39.226Z",
+  "scraped_at": "2026-08-19T20:29:50.259Z",
   "season": 2026,
-  "fixture_count": 350,
-  "rubber_count": 3150,
+  "fixture_count": 349,
+  "rubber_count": 3141,
   "skipped_fixture_ids": [],
   "fixtures": [
     {
@@ -37457,113 +37457,6 @@
       "conceded_by": null
     },
     {
-      "fixture_id": 832,
-      "season": 2026,
-      "division": 7,
-      "date": "16 August 2026",
-      "home_team": "Wigginton 4",
-      "away_team": "Wistow",
-      "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/832",
-      "rubbers": [
-        {
-          "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        }
-      ],
-      "time": "10:00",
-      "home_games": null,
-      "away_games": null,
-      "home_points": null,
-      "away_points": null,
-      "conceded_by": null
-    },
-    {
       "fixture_id": 497,
       "date": "23 Aug 2026",
       "time": "10:00",
@@ -38092,6 +37985,15 @@
       "home_team": "Wigginton 3",
       "away_team": "David Lloyd York 3",
       "division": 4,
+      "rubbers": []
+    },
+    {
+      "fixture_id": 832,
+      "date": "13 Sep 2026",
+      "time": "10:00",
+      "home_team": "Wigginton 4",
+      "away_team": "Wistow",
+      "division": 7,
       "rubbers": []
     },
     {
