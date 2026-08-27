@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-08-25T21:24:07.807Z",
+  "scraped_at": "2026-08-27T00:25:23.525Z",
   "season": 2026,
-  "fixture_count": 457,
-  "rubber_count": 4112,
+  "fixture_count": 458,
+  "rubber_count": 4121,
   "fixtures": [
     {
       "fixture_id": "115904",
@@ -34822,12 +34822,103 @@
       "date": "26.08.26",
       "home_team": "Cawood",
       "away_team": "Rufforth 2",
-      "home_sets": null,
-      "away_sets": null,
-      "home_games": null,
-      "away_games": null,
+      "home_sets": 6,
+      "away_sets": 1,
+      "home_games": 66,
+      "away_games": 42,
       "source_url": "https://www.mydivision.com/scorecard.php?m=115578",
-      "rubbers": []
+      "rubbers": [
+        {
+          "rubber_order": 1,
+          "home_player1": "Chris Abbott",
+          "home_player2": "Oxy Wilson",
+          "away_player1": "Ben Whiting",
+          "away_player2": "Clare McMahon",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 2,
+          "home_player1": "Charlie Meacham",
+          "home_player2": "Shelagh Elcock",
+          "away_player1": "Chris Peart",
+          "away_player2": "Laura Crawford",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 3,
+          "home_player1": "Mike Brennan",
+          "home_player2": "Joanne Abbott",
+          "away_player1": "Adam Price",
+          "away_player2": "Liz Powell",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 4,
+          "home_player1": "Chris Abbott",
+          "home_player2": "Oxy Wilson",
+          "away_player1": "Adam Price",
+          "away_player2": "Liz Powell",
+          "home_games": 8,
+          "away_games": 4,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 5,
+          "home_player1": "Charlie Meacham",
+          "home_player2": "Shelagh Elcock",
+          "away_player1": "Ben Whiting",
+          "away_player2": "Clare McMahon",
+          "home_games": 7,
+          "away_games": 5,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 6,
+          "home_player1": "Mike Brennan",
+          "home_player2": "Joanne Abbott",
+          "away_player1": "Chris Peart",
+          "away_player2": "Laura Crawford",
+          "home_games": 5,
+          "away_games": 7,
+          "winner": "away"
+        },
+        {
+          "rubber_order": 7,
+          "home_player1": "Chris Abbott",
+          "home_player2": "Oxy Wilson",
+          "away_player1": "Chris Peart",
+          "away_player2": "Laura Crawford",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        },
+        {
+          "rubber_order": 8,
+          "home_player1": "Charlie Meacham",
+          "home_player2": "Shelagh Elcock",
+          "away_player1": "Adam Price",
+          "away_player2": "Liz Powell",
+          "home_games": 6,
+          "away_games": 6,
+          "winner": "draw"
+        },
+        {
+          "rubber_order": 9,
+          "home_player1": "Mike Brennan",
+          "home_player2": "Joanne Abbott",
+          "away_player1": "Ben Whiting",
+          "away_player2": "Clare McMahon",
+          "home_games": 9,
+          "away_games": 3,
+          "winner": "home"
+        }
+      ]
     },
     {
       "fixture_id": "115537",
