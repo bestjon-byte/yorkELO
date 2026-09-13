@@ -1,8 +1,8 @@
 {
-  "scraped_at": "2026-09-13T18:00:04.275Z",
+  "scraped_at": "2026-09-13T21:15:48.451Z",
   "season": 2026,
-  "fixture_count": 406,
-  "rubber_count": 3654,
+  "fixture_count": 405,
+  "rubber_count": 3645,
   "skipped_fixture_ids": [],
   "fixtures": [
     {
@@ -43293,107 +43293,18 @@
       "season": 2026,
       "division": 4,
       "date": "13 September 2026",
+      "time": null,
       "home_team": "Wigginton 3",
       "away_team": "David Lloyd York 3",
       "source_url": "https://www.yorkmenstennisleague.co.uk/fixtures/666",
-      "rubbers": [
-        {
-          "rubber_order": 1,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 2,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 3,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 4,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 5,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 6,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 7,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 8,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        },
-        {
-          "rubber_order": 9,
-          "home_player1": "",
-          "home_player2": "",
-          "away_player1": "",
-          "away_player2": "",
-          "home_games": null,
-          "away_games": null,
-          "winner": null
-        }
-      ],
-      "time": "10:00",
-      "home_games": null,
-      "away_games": null,
-      "home_points": null,
-      "away_points": null,
-      "conceded_by": null
+      "skipped": true,
+      "reason": "conceded",
+      "home_games": 66,
+      "away_games": 0,
+      "home_points": 10.5,
+      "away_points": 0,
+      "conceded_by": "away",
+      "rubbers": []
     },
     {
       "fixture_id": 832,
