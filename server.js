@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const { parseLeagueDate } = require('./lib/league-table');
 require('dotenv').config({ path: '.env.local' });
 
 const PORT = process.env.PORT || 3000;
@@ -93,7 +94,7 @@ function loadLeagueData(isMixed) {
     allFixtures.push(...JSON.parse(fs.readFileSync(file)).fixtures);
   }
   allFixtures = applyAliases(allFixtures, aliases);
-  allFixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
+  allFixtures.sort((a, b) => (parseLeagueDate(a.date) ?? 0) - (parseLeagueDate(b.date) ?? 0));
 
   const logs = {};
   for (const fixture of allFixtures) {

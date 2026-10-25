@@ -12,6 +12,7 @@ try { require('dotenv').config({ path: '.env.local' }); } catch (_) {}
 const fs   = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
+const { parseLeagueDate } = require('../lib/league-table');
 
 const SUPABASE_URL         = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
@@ -118,7 +119,7 @@ function buildPlayerMatchLogs(aliases, splits, leaguePrefix, seasonsList) {
   }
   all = applyAliases(all, aliases);
   all = applySplits(all, splits);
-  all.sort((a, b) => new Date(a.date) - new Date(b.date));
+  all.sort((a, b) => (parseLeagueDate(a.date) ?? 0) - (parseLeagueDate(b.date) ?? 0));
 
   const logs = {};
   for (const fixture of all) {

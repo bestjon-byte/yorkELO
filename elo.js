@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { parseLeagueDate } = require('./lib/league-table');
 
 const K_FACTOR = 32;
 const RATING_FLOOR = 500;
@@ -104,7 +105,8 @@ function processFixtures(fixtures) {
     history[name].push({ date, fixture_id: fixtureId, rating });
   }
 
-  const sorted = [...fixtures].sort((a, b) => new Date(a.date) - new Date(b.date));
+  // Mixed dates are DD.MM.YY, which new Date() misreads — always parse via parseLeagueDate
+  const sorted = [...fixtures].sort((a, b) => (parseLeagueDate(a.date) ?? 0) - (parseLeagueDate(b.date) ?? 0));
 
   for (const fixture of sorted) {
     if (!fixture.rubbers) continue;
