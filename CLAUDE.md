@@ -75,6 +75,7 @@ node scripts/validate-league-table.js [div...]  # diff computed mens tables vs t
 - `york_player_stats` / `mixed_player_stats` JSONB columns: `best_partner`, `worst_partner`, `nemesis`, `nemesis_pair`, `nemesis_club`, `best_club`
 - Tables (Mens): `york_players`, `york_match_history`, `york_player_stats`, `york_aliases`, `york_elo_fixtures`
 - Tables (Mixed): `mixed_players`, `mixed_match_history`, `mixed_player_stats`, `mixed_aliases`, `mixed_elo_fixtures`
+- Running `update-elo.yml` and `update-mixed-elo.yml` at the same moment (e.g. two manual dispatches) makes one job's final `git push` fail as non-fast-forward. Its Supabase upload has already finished by then, so only the committed JSON lags until the next run.
 - Default row cap is 1000 — use `.range(from, from+999)` pagination loop for full leaderboard (1830+ players)
 - Management API (`api.supabase.com`) requires personal access token (`SUPABASE_ACCESS_TOKEN`), not the service key. Returns 200 or 201 on success.
 - `york_aliases` table stores runtime merges (variant_name → canonical_name); merged with `player-aliases.json` at query time
@@ -82,7 +83,7 @@ node scripts/validate-league-table.js [div...]  # diff computed mens tables vs t
 ## Date Format & Sorting
 
 - Fixture dates are stored as `"DD MonthName YYYY"` (e.g. `"28 April 2025"`) — never sort these as plain strings or "28" sorts before "5". Parse to `Date` / timestamp first.
-- Mixed league dates may come as `"DD.MM.YY"` from MyDivision; `scraper-mixed.mjs` converts these or the ELO engine handles them.
+- Mixed league dates are stored as `"DD.MM.YY"` (MyDivision). `new Date()` misreads them: `"03.05.23"` becomes 5 March and `"13.05.23"` is Invalid Date. **Always sort with `parseLeagueDate()` from `lib/league-table.js`.** `elo.js`, `server.js` and `migrate-mixed-to-supabase.js` do. Until 2026-10-25 they used `new Date()`, so the Mixed ELO replayed out of order. The Mens-only scrapers and `api/admin-merge.js` still use `new Date()`, which is fine for Mens dates.
 
 ## Admin Merge Tool
 
@@ -97,6 +98,7 @@ node scripts/validate-league-table.js [div...]  # diff computed mens tables vs t
 - **Initial rating (Mens):** Division-seeded (D1=1600, D2=1470, D3=1350, D4=1230, D5=1110, D6=1040, D7=970, D8=900) | **K:** 32 | **Floor:** 500 | **Ceiling:** 3000
 - **Initial rating (Mixed):** Division-seeded (D1=1600, D2=1480, D3=1360, D4=1240, D5=1120, D6=1040, D7=960, D8=880, D9=800, D10=720)
 - **No season resets** — ratings carry over continuously across seasons.
+- **Level-start replay:** `elo.js` runs `processFixtures` a second time with every player seeded at 1200 (no division seeds). The history entries and fixtures are identical, so each history entry gains `rating_level` index for index, and each leaderboard row gains `rating_level` + `rank_level`. The migrate scripts upload them to nullable columns `*_players.rating_level/rank_level` and `*_match_history.rating_level`. Only cawood-tennis-v2's compare page reads them. `api/admin-merge.js` doesn't recompute them; they refresh on the next scheduled run.
 - **Sequential processing:** Rubbers within a fixture are processed in `rubber_order` sequence. Each rubber updates ratings before the next is calculated.
 - **Draws (6-6):** `actualScore = 0.5` for both pairs.
 - **Conceded fixtures:** Detected by "Match conceded by" text — skipped entirely, no ELO impact.
