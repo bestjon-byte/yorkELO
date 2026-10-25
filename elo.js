@@ -207,10 +207,28 @@ function run() {
 
   const { ratings, history } = processFixtures(fixtures);
 
+  // Second replay with every player starting at the same rating, ignoring
+  // division — a "level start" view for apps to compare against. Same
+  // fixtures in the same order, so each player's history lines up entry for
+  // entry with the seeded one.
+  const seeded = currentDivisionSeeds;
+  currentDivisionSeeds = {};
+  const level = processFixtures(fixtures);
+  currentDivisionSeeds = seeded;
+  for (const [name, entries] of Object.entries(history)) {
+    const levelEntries = level.history[name];
+    entries.forEach((h, i) => { h.rating_level = levelEntries[i].rating; });
+  }
+  const levelRank = Object.fromEntries(
+    Object.entries(level.ratings).sort((a, b) => b[1] - a[1]).map(([name], i) => [name, i + 1])
+  );
+
   const leaderboard = Object.entries(ratings)
     .map(([name, rating]) => ({
       name,
       rating: Math.round(rating * 10) / 10,
+      rating_level: Math.round(level.ratings[name] * 10) / 10,
+      rank_level: levelRank[name],
       rubbers_played: history[name].length,
       last_played: history[name][history[name].length - 1].date,
     }))

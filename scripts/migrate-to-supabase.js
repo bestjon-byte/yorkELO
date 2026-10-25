@@ -265,6 +265,8 @@ async function run() {
   const playerRows = ratingsData.leaderboard.map((p, i) => ({
     name:           p.name,
     rating:         p.rating,
+    rating_level:   p.rating_level ?? null,
+    rank_level:     p.rank_level   ?? null,
     rubbers_played: p.rubbers_played,
     last_played:    p.last_played,
     first_div:      firstDiv[p.name] || null,
@@ -285,6 +287,7 @@ async function run() {
         fixture_id:   String(h.fixture_id),
         rubber_order: m.rubber_order ?? null,
         rating:       h.rating,
+        rating_level: h.rating_level ?? null,
         result:       m.result       ?? null,
         partner:      m.partner      ?? null,
         opp1:         m.opp1         ?? null,
